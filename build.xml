@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="nix-5-offline-proj" default="jar" basedir=".">
+    <property name="exportDestination"       value="${basedir}"/>
+
+    <property name="ProjectName"             value="${basedir}"/>
+    <property name="jarFileName"             value="myRunnableJAR"/>
+    <property name="RunnableMain-Class"      value="com.example.Class2"/>
+
+    <property name="class-files"             value="${ProjectName}/bin" />
+    <property name="buildPath-Libraries"     value="../libs"/>
+    <property name="source-dir"              value="${ProjectName}/src/main/java/" />
+
+    <path id="buildLibraries"> <!-- http://ant.apache.org/manual/using.html#path -->
+        <fileset dir="${buildPath-Libraries}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <!-- compile -->
+    <target name="compile" >
+        <mkdir dir="${class-files}"/>
+
+        <javac srcdir="${source-dir}" destdir="${class-files}" includeantruntime="false" encoding="iso-8859-1">
+            <classpath refid="buildLibraries"/>
+        </javac>
+    </target>
+    <!-- jar -->
+    <target name="jar" depends="compile">
+
+        <manifest file = "MANIFEST.MF"> <!-- Manifest-Version: 1.0 -->
+            <attribute name = "Main-Class"  value = "${RunnableMain-Class}"/>
+            <attribute name = "Class-Path"  value = "."/>
+        </manifest>
+
+        <jar destfile="${exportDestination}/${jarFileName}.jar" basedir="${class-files}" manifest="MANIFEST.MF">
+            <fileset dir="${class-files}" includes="**/*.class" />
+            <zipgroupfileset dir="${buildPath-Libraries}" includes="**/*.jar" />
+        </jar>
+    </target>
+</project>
