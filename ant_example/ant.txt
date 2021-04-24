@@ -1,0 +1,4 @@
+ant clean
+ant build
+ant jar
+ant run
