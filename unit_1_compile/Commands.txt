@@ -1,0 +1,13 @@
+CONSOLE COMMANDS
+javac -sourcepath ./src/ -d ./build/classes/ -cp ./libs/commons-lang3-3.11.jar;./libs/java-file-io-1.0.0.jar src/com.Main.java
+java -cp build/classes;./libs/commons-lang3-3.11.jar;./libs/java-file-io-1.0.0.jar;. com.Main
+
+ANT COMMANDS
+setantenv.bat
+
+ant clean
+ant compile
+ant jar
+ant run
+
+MAVEN COMMANDS
