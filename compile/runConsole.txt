@@ -1,0 +1,6 @@
+cd compile/console_proj
+
+javac -sourcepath ./src/ -d ./build/classes/ -cp ./libs/commons-io-2.8.0.jar;./libs/mockito-all-1.9.5.jar src/main/java/ua/com/Hello.java
+
+java -cp build/classes/;./libs/commons-io-2.8.0.jar;./libs/mockito-all-1.9.5.jar main.java.ua.com.Hello
+
