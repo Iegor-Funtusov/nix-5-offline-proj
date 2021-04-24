@@ -11,3 +11,5 @@ ant jar
 ant run
 
 MAVEN COMMANDS
+mvn clean install
+java -jar target/maven-1.0-SNAPSHOT.jar
