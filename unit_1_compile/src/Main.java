@@ -1,5 +1,8 @@
+import print.Print;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("hello world");
+        Print print = new Print();
+        print.print("Hello");
     }
 }

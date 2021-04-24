@@ -1,0 +1,4 @@
+cd unit_1_compile\src
+javac Main.java
+java Main
+javac -sourcepath ./src/ -d ./build/classes/ src/Main.java
