@@ -1,5 +1,5 @@
-*.iml
+**/*.iml
 .idea
-out
-**\*.class
-/.idea/
+.mvn
+**/*.class
+*.html

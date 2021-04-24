@@ -1,0 +1,6 @@
+cd projects\MavenBuild
+
+mvn clean install
+
+java -jar target\Tets5-1.0-SNAPSHOT.jar     OR      java -jar target\Tets5-1.0-SNAPSHOT-shaded.jar
+

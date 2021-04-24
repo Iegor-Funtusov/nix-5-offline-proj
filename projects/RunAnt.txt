@@ -1,0 +1,11 @@
+cd projects\AntBuild
+
+ant_init.bat
+
+ant clean
+
+ant compile
+
+ant jar
+
+ant run
