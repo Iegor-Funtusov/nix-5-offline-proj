@@ -1,7 +1,7 @@
 package com.example.unit1.dao;
 
-import main.java.com.example.unit1.db.MainDb;
-import main.java.com.example.unit1.model.User;
+import com.example.unit1.db.MainDb;
+import com.example.unit1.model.User;
 
 import java.util.List;
 

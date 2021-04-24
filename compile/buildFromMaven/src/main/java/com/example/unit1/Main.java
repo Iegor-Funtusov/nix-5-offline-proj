@@ -1,6 +1,6 @@
 package com.example.unit1;
 
-import main.java.com.example.unit1.controller.UserController;
+import com.example.unit1.controller.UserController;
 
 public class Main {
     public static void main(String[] args) {

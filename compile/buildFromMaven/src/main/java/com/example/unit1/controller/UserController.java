@@ -1,9 +1,9 @@
 package com.example.unit1.controller;
 
+import com.example.unit1.model.User;
+import com.example.unit1.service.UserService;
+import com.example.unit1.service.UserServiceImpl;
 import com.google.gson.Gson;
-import main.java.com.example.unit1.model.User;
-import main.java.com.example.unit1.service.UserService;
-import main.java.com.example.unit1.service.UserServiceImpl;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.BufferedReader;

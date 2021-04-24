@@ -1,8 +1,8 @@
 package com.example.unit1.service;
 
-import main.java.com.example.unit1.dao.UserDao;
-import main.java.com.example.unit1.dao.UserDaoImpl;
-import main.java.com.example.unit1.model.User;
+import com.example.unit1.dao.UserDao;
+import com.example.unit1.dao.UserDaoImpl;
+import com.example.unit1.model.User;
 
 import java.util.List;
 
