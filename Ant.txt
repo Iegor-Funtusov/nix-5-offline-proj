@@ -1,0 +1,11 @@
+cd compile/project_ant
+
+antik.bat
+
+ant clean
+
+ant compile
+
+ant jar
+
+ant run
