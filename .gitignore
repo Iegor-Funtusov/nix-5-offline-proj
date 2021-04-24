@@ -1,3 +1,6 @@
 .idea
 **/*.iml
 **/*.class
+.gitignore
+/ant/build/
+/maven/app/target/
