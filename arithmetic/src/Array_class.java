@@ -9,7 +9,7 @@ public class Array_class {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Введите длину массива: ");
         int numForInput = Integer.parseInt(reader.readLine());
-        System.out.print("Заполните массив через Space и нажмите Enter: ");
+        System.out.print("Введите числа через Space и нажмите Enter: ");
         String lines = reader.readLine();
         String[] strs = lines.trim().split("\\s+");
         int[] array = new int[strs.length];
@@ -21,6 +21,7 @@ public class Array_class {
         arrayClassObj.second(array);
         arrayClassObj.third(array);
         arrayClassObj.fourth(array);
+        arrayClassObj.fifth(array);
 
     }
 
@@ -49,22 +50,34 @@ public class Array_class {
         System.out.println("Task 3");
         int count = 0;
         for (int i = 1; i < array.length; i++) {
-            if (array[i] > array[i-1]) {
+            if (array[i] > array[i - 1]) {
                 count++;
             }
         }
         System.out.println(count);
     }
 
-    public void fourth(int[] array){
+    public void fourth(int[] array) {
         System.out.println("Task 4");
         int count = 0;
         for (int i = 1; i < array.length - 1; i++) {
-            if(array[i-1] < array[i] && array[i] > array[i+1]){
+            if (array[i - 1] < array[i] && array[i] > array[i + 1]) {
                 count++;
             }
         }
         System.out.println(count);
+    }
+
+    public void fifth(int[] array) {
+        System.out.println("Task 5");
+        for (int i = 0; i < array.length/2; i++) {
+            int thirdValue = array[i];
+            array[i] = array[5 - i - 1];
+            array[5 - i - 1] = thirdValue;
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 
 }
