@@ -1,6 +1,5 @@
 package ua.com.alevel.charac;
 
-import org.apache.commons.lang3.*;
 
 public class Pudge extends Character {
     public Pudge() {
@@ -9,7 +8,7 @@ public class Pudge extends Character {
     }
 
     public void hook(Character character){
-        System.out.println("Хукаю " + StringUtils.upperCase(character.name));
+        System.out.println("Хукаю " + character.name);
 
     }
 }

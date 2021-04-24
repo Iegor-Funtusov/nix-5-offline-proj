@@ -1,7 +1,7 @@
 /.idea/
-/main/ant_exam/ant/
-/.gradle/
-/gradle/
-/main/ant_exam/build/
-/main/libs_use/build/
-*.jar
+/test/
+**/*.class
+**/*.iml
+
+
+

@@ -1,7 +1,7 @@
 package ua.com.alevel;
 
-import ua.com.alevel.charac.*;
-
+import ua.com.alevel.charac.Invoker;
+import ua.com.alevel.charac.Pudge;
 
 public class Game {
     public static void main(String[] args) {
