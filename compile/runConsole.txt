@@ -1,0 +1,6 @@
+cd compile/project_console
+
+javac -sourcepath ./src/ -d ./build/classes/ -cp ./libs/guava-30.1.1.jar;./libs/gson-2.8.2.jar src/main/ua/com/FirstTestClass.java
+
+java -cp build/classes/;./libs/guava-30.1.1.jar;./libs/gson-2.8.2.jar main.ua.com.FirstTestClass
+
