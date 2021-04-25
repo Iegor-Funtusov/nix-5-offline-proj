@@ -7,7 +7,7 @@
     <property name="RunnableMain-Class"      value="com.example.Class2"/>
 
     <property name="class-files"             value="${ProjectName}/bin" />
-    <property name="buildPath-Libraries"     value="../libs"/>
+    <property name="buildPath-Libraries"     value="libs"/>
     <property name="source-dir"              value="${ProjectName}/src/main/java/" />
 
     <path id="buildLibraries"> <!-- http://ant.apache.org/manual/using.html#path -->
