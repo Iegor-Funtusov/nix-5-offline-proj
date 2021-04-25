@@ -17,7 +17,7 @@
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/main.jar" basedir="build/classes">
             <manifest>
-                <attribute name="Main-Class" value="Poetry"/>
+                <attribute name="Main-Class" value="Cat"/>
                 <attribute name="Class-Path" value="libs/commons-lang3-3.12.0.jar"/>
             </manifest>
             <zipgroupfileset dir="libs" includes="*.jar"/>
