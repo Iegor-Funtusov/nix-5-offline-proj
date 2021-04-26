@@ -1,9 +1,11 @@
 # nix-5-offline-proj
 
 # JDK build
-Execute "java src\main\java\com\example\Class1.java" to compile from project root folder
+Execute "javac -sourcepath src\ -cp libs\commons-collections4-4.4.jar:libs\commons-lang3-3.12.0.jar
+src\main\java\com\example\Class1.java" to compile from project root folder
 
-Execute "java com.example.Class1" to execute compiled class
+Execute "java -cp libs\commons-collections4-4.4.jar:libs\commons-lang3-3.12.0.jar -cp 
+src\main\java com.example.Class1" to execute compiled class
 
 
 # Ant build
