@@ -2,5 +2,5 @@
 **/*.iml
 **/*.class
 .gitignore
-/ant/build/
-/maven/app/target/
+**/build/
+**/target/
