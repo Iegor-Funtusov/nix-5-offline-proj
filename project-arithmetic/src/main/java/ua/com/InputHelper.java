@@ -28,7 +28,7 @@ public class InputHelper {
         String[] stringArray;
         do {
             do {
-                System.out.println("Please enter N (number of array elements, 0<N<101)");
+                System.out.println("Please enter N (number of array elements 0<N<101)");
                 matcherNumbers = patternNumbers.matcher(bufferedReader.readLine());
             } while (!matcherNumbers.find());
             N = Integer.parseInt(matcherNumbers.group());
