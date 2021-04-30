@@ -117,6 +117,14 @@ public class HometaskArray {
     }
 
     private static void task4(List<Integer> array) {
+        System.out.println("Задание 4: вывести кол-во чисел которые больше своих соседей");
+        int count = 0;
+        for (int i = 1; i < array.size() - 1; i++) {
+            if (array.get(i) > array.get(i - 1) && array.get(i) > array.get(i + 1)) {
+                count++;
+            }
+        }
+        System.out.println(count);
     }
 
     private static void task5(List<Integer> array) {
