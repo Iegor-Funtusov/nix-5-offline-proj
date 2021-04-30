@@ -8,7 +8,7 @@ public class HometaskArray {
     public static void main(String[] args) {
         List<Integer> array = new ArrayList<>();
         Scanner input = new Scanner(System.in);
-        int k = 0;
+        int k;
         do {
             System.out.println("1. Для создания нового массива вручную введите 1");
             System.out.println("2. Для создания нового массива с рандомными числами введите 2");
@@ -129,8 +129,8 @@ public class HometaskArray {
 
     private static void task5(List<Integer> array) {
         System.out.println("Задание 5: вывести обратный массив");
-        int temp = 0;
-        for (int i = 0; i < array.size()/2; i++) {
+        int temp;
+        for (int i = 0; i < array.size() / 2; i++) {
             temp = array.get(i);
             array.set(i, array.get(array.size() - 1 - i));
             array.set(array.size() - 1 - i, temp);
@@ -139,10 +139,21 @@ public class HometaskArray {
     }
 
     private static void task6(List<Integer> array) {
+        System.out.println("Задание 6: поменять соседние элементы местами и вывести массив");
+        int temp;
+        for (int i = 0; i < array.size(); i += 2) {
+            if (i == array.size() - 1) {
+                break;
+            }
+            temp = array.get(i);
+            array.set(i, array.get(i + 1));
+            array.set(i + 1, temp);
+        }
+        printArr(array);
     }
 
     static List<Integer> createArr() {
-        int N = 0;
+        int N;
         Scanner input = new Scanner(System.in);
         System.out.println("Введите размер массива");
         N = input.nextInt();
@@ -155,7 +166,7 @@ public class HometaskArray {
     }
 
     static List<Integer> createArrRand() {
-        int N = 0;
+        int N;
         int min = 0, max = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("Введите размер массива");
