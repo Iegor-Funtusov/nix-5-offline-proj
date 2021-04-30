@@ -128,6 +128,14 @@ public class HometaskArray {
     }
 
     private static void task5(List<Integer> array) {
+        System.out.println("Задание 5: вывести обратный массив");
+        int temp = 0;
+        for (int i = 0; i < array.size()/2; i++) {
+            temp = array.get(i);
+            array.set(i, array.get(array.size() - 1 - i));
+            array.set(array.size() - 1 - i, temp);
+        }
+        printArr(array);
     }
 
     private static void task6(List<Integer> array) {
