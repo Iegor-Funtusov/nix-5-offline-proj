@@ -31,14 +31,15 @@ public class ChessMove {
                             newPiece.position = coordinates;
                             System.out.println("Переместили фигуру");
                             break;
-                        } else System.out.println("У вас всё влохо, введите нормально");
+                        } else
+                            System.out.println("У вас всё плохо, введите нормально");
                     } catch (RuntimeException e) {
                         System.out.println("Введите нормальные координаты");
                     }
                 }
                 System.out.println("Хотите продолжить перемещать фигуру или поставить новую? Ответьте \"да\" или \"нет\"");
                 String continueOrBack = reader.readLine();
-                if(!yerOrNo(continueOrBack)){
+                if (!yerOrNo(continueOrBack)) {
                     break;
                 }
             }
@@ -46,16 +47,18 @@ public class ChessMove {
         }
     }
 
-    public static boolean yerOrNo(String str){
-        switch (str.toLowerCase()){
-            case "+" :
-            case "yes" :
-            case "да" :
-            case "y" : return true;
-            case "-" :
-            case "no" :
-            case "нет" :
-            case "n" : return false;
+    public static boolean yerOrNo(String str) {
+        switch (str.toLowerCase()) {
+            case "+":
+            case "yes":
+            case "да":
+            case "y":
+                return true;
+            case "-":
+            case "no":
+            case "нет":
+            case "n":
+                return false;
             default:
                 throw new RuntimeException("Неправильный ответ)");
         }
