@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class HometaskArray {
 
     public static void main(String[] args) {
-        List<Integer> array = new ArrayList<>();
+        MyArray array = new MyArray();
         Scanner input = new Scanner(System.in);
         int k;
         do {
@@ -24,56 +21,56 @@ public class HometaskArray {
 
             switch (k) {
                 case 1:
-                    array = createArr();
+                    array.createArr();
                     break;
                 case 2:
-                    array = createArrRand();
+                    array.createArrRand();
                     break;
                 case 3:
-                    if (!array.isEmpty()) {
-                        printArr(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.printArr();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 4:
-                    if (!array.isEmpty()) {
-                        task1(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task1();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 5:
-                    if (!array.isEmpty()) {
-                        task2(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task2();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 6:
-                    if (!array.isEmpty()) {
-                        task3(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task3();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 7:
-                    if (!array.isEmpty()) {
-                        task4(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task4();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 8:
-                    if (!array.isEmpty()) {
-                        task5(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task5();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 9:
-                    if (!array.isEmpty()) {
-                        task6(array);
+                    if (!array.getArray().isEmpty()) {
+                        array.task6();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
@@ -83,115 +80,5 @@ public class HometaskArray {
         } while (k != 0);
     }
 
-    private static void task1(List<Integer> array) {
-        System.out.println("Задание 1: вывести четные числа из массива");
-        for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) % 2 == 0) {
-                System.out.print(array.get(i));
-            }
-            System.out.print(" ");
-        }
-        System.out.println();
-    }
 
-    private static void task2(List<Integer> array) {
-        System.out.println("Задание 2: вывести кол-во положительных чисел");
-        int count = 0;
-        for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) > 0) {
-                count++;
-            }
-        }
-        System.out.println(count);
-    }
-
-    private static void task3(List<Integer> array) {
-        System.out.println("Задание 3: вывести кол-во чисел больших предыдущего");
-        int count = 0;
-        for (int i = 1; i < array.size(); i++) {
-            if (array.get(i) > array.get(i - 1)) {
-                count++;
-            }
-        }
-        System.out.println(count);
-    }
-
-    private static void task4(List<Integer> array) {
-        System.out.println("Задание 4: вывести кол-во чисел которые больше своих соседей");
-        int count = 0;
-        for (int i = 1; i < array.size() - 1; i++) {
-            if (array.get(i) > array.get(i - 1) && array.get(i) > array.get(i + 1)) {
-                count++;
-            }
-        }
-        System.out.println(count);
-    }
-
-    private static void task5(List<Integer> array) {
-        System.out.println("Задание 5: вывести обратный массив");
-        int temp;
-        for (int i = 0; i < array.size() / 2; i++) {
-            temp = array.get(i);
-            array.set(i, array.get(array.size() - 1 - i));
-            array.set(array.size() - 1 - i, temp);
-        }
-        printArr(array);
-    }
-
-    private static void task6(List<Integer> array) {
-        System.out.println("Задание 6: поменять соседние элементы местами и вывести массив");
-        int temp;
-        for (int i = 0; i < array.size(); i += 2) {
-            if (i == array.size() - 1) {
-                break;
-            }
-            temp = array.get(i);
-            array.set(i, array.get(i + 1));
-            array.set(i + 1, temp);
-        }
-        printArr(array);
-    }
-
-    static List<Integer> createArr() {
-        int N;
-        Scanner input = new Scanner(System.in);
-        System.out.println("Введите размер массива");
-        N = input.nextInt();
-        List<Integer> array = new ArrayList<>();
-        System.out.println("Введите элементы массива");
-        for (int i = 0; i < N; i++) {
-            array.add(input.nextInt());
-        }
-        return array;
-    }
-
-    static List<Integer> createArrRand() {
-        int N;
-        int min = 0, max = 0;
-        Scanner input = new Scanner(System.in);
-        System.out.println("Введите размер массива");
-        N = input.nextInt();
-        List<Integer> array = new ArrayList<>();
-        System.out.println("Введите нижнюю границу массива");
-        min = input.nextInt();
-        System.out.println("Введите верхнюю границу массива");
-        max = input.nextInt();
-        int diff = max - min;
-        Random random = new Random();
-        for (int i = 0; i < N; i++) {
-            array.add(min + (random.nextInt(diff + 1)));
-        }
-        return array;
-    }
-
-    static void printArr(List<Integer> array) {
-        if (!array.isEmpty()) {
-            for (int i = 0; i < array.size(); i++) {
-                System.out.print(array.get(i) + " ");
-            }
-            System.out.println();
-        } else {
-            System.out.println("Массив пусой, пожалуйста заполние его");
-        }
-    }
 }
