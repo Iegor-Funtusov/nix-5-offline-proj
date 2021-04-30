@@ -106,6 +106,14 @@ public class HometaskArray {
     }
 
     private static void task3(List<Integer> array) {
+        System.out.println("Задание 3: вывести кол-во чисел больших предыдущего");
+        int count = 0;
+        for (int i = 1; i < array.size(); i++) {
+            if (array.get(i) > array.get(i - 1)) {
+                count++;
+            }
+        }
+        System.out.println(count);
     }
 
     private static void task4(List<Integer> array) {
@@ -154,6 +162,7 @@ public class HometaskArray {
             for (int i = 0; i < array.size(); i++) {
                 System.out.print(array.get(i) + " ");
             }
+            System.out.println();
         } else {
             System.out.println("Массив пусой, пожалуйста заполние его");
         }
