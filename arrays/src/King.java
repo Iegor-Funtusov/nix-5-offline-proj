@@ -5,11 +5,11 @@ public class King extends ChessPiece {
             return false;
         }
         if (this.color == Color.WHITE) {
-            if ((to.y != position.y + 1 && to.y != position.y - 1)) {
+            if (to.y != position.y + 1 && to.y != position.y - 1) {
                 return false;
             }
         } else {
-            if ((to.y != position.y - 1 && to.y != position.y + 1)) {
+            if (to.y != position.y - 1 && to.y != position.y + 1) {
                 return false;
             }
         }
