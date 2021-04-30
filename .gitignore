@@ -1,5 +1,4 @@
 .idea
-**/*.iml
 out
+**/*.iml
 **/*.class
-/unit_1_compile/ant/apache-ant-1.10.10/manual/
