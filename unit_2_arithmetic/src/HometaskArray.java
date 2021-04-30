@@ -10,10 +10,16 @@ public class HometaskArray {
         Scanner input = new Scanner(System.in);
         int k = 0;
         do {
-            System.out.println("1. Для создания массива вручную введите 1");
-            System.out.println("2. Для создания массива с рандомными числами введите 2");
+            System.out.println("1. Для создания нового массива вручную введите 1");
+            System.out.println("2. Для создания нового массива с рандомными числами введите 2");
             System.out.println("3. Для вывода массива введите 3");
-            System.out.println("9. Для выхода из приложения введите 9");
+            System.out.println("4. Для выполнения ПЕРВОГО задания введите 4");
+            System.out.println("5. Для выполнения ВТОРОГО задания введите 5");
+            System.out.println("6. Для выполнения ТРЕТЬЕГО задания введите 6");
+            System.out.println("7. Для выполнения ЧЕТВЕРТОГО задания введите 7");
+            System.out.println("8. Для выполнения ПЯТЬОГО задания введите 8");
+            System.out.println("9. Для выполнения ШЕСТОГО задания введите 9");
+            System.out.println("0. Для выхода из приложения введите 0");
             k = input.nextInt();
 
             switch (k) {
@@ -24,11 +30,84 @@ public class HometaskArray {
                     array = createArrRand();
                     break;
                 case 3:
-                    printArr(array);
+                    if (!array.isEmpty()) {
+                        printArr(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 4:
+                    if (!array.isEmpty()) {
+                        task1(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 5:
+                    if (!array.isEmpty()) {
+                        task2(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 6:
+                    if (!array.isEmpty()) {
+                        task3(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 7:
+                    if (!array.isEmpty()) {
+                        task4(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 8:
+                    if (!array.isEmpty()) {
+                        task5(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
+                    break;
+                case 9:
+                    if (!array.isEmpty()) {
+                        task6(array);
+                    } else {
+                        System.out.println("Массив пусой, пожалуйста заполние его");
+                    }
                     break;
 
             }
-        } while (k != 9);
+        } while (k != 0);
+    }
+
+    private static void task1(List<Integer> array) {
+        System.out.println("Задание 1: вывести четные числа из массива");
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) % 2 == 0) {
+                System.out.print(array.get(i));
+            }
+            System.out.print(" ");
+        }
+        System.out.println();
+    }
+
+    private static void task2(List<Integer> array) {
+
+    }
+
+    private static void task3(List<Integer> array) {
+    }
+
+    private static void task4(List<Integer> array) {
+    }
+
+    private static void task5(List<Integer> array) {
+    }
+
+    private static void task6(List<Integer> array) {
     }
 
     static List<Integer> createArr() {
