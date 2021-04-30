@@ -95,7 +95,14 @@ public class HometaskArray {
     }
 
     private static void task2(List<Integer> array) {
-
+        System.out.println("Задание 2: вывести кол-во положительных чисел");
+        int count = 0;
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) > 0) {
+                count++;
+            }
+        }
+        System.out.println(count);
     }
 
     private static void task3(List<Integer> array) {
@@ -145,7 +152,7 @@ public class HometaskArray {
     static void printArr(List<Integer> array) {
         if (!array.isEmpty()) {
             for (int i = 0; i < array.size(); i++) {
-                System.out.println(array.get(i));
+                System.out.print(array.get(i) + " ");
             }
         } else {
             System.out.println("Массив пусой, пожалуйста заполние его");
