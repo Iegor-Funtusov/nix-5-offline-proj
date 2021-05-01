@@ -1,6 +1,5 @@
 import pieces.ChessPiece;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 public class Main {
@@ -18,13 +17,20 @@ public class Main {
 
         ChessPiece chessPiece;
         while (true) {
-            while((chessPiece = getPiece(scanner)) == null) ;
+            while ((chessPiece = getPiece(scanner)) == null) {
+                System.out.println("Wrong input, or even worse");
+            }
 
-            while (!placePiece(chessPiece, scanner)) ;
+            while (!placePiece(chessPiece, scanner)) {
+                System.out.println("Wrong input, I think");
+            }
+
             System.out.println(chessBoard);
             X:
             while (true) {
-                while (!movePiece(scanner)) ;
+                while (!movePiece(scanner)) {
+                    System.out.println("Wrong input it seems");
+                }
 
                 System.out.println(chessBoard);
                 System.out.println("Continue moving this piece? Y/n");
@@ -54,7 +60,6 @@ public class Main {
                     .newInstance(ChessPiece.COLOR.valueOf(color));
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Wrong input, or even worse");
         }
         return chessPiece;
     }
@@ -72,7 +77,6 @@ public class Main {
                     Integer.parseInt(String.valueOf(coordinates[1])) - 1);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Wrong input, I think");
         }
         return result;
     }
@@ -90,7 +94,6 @@ public class Main {
                     Integer.parseInt(String.valueOf(coordinates[1])) - 1);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Wrong input it seems");
         }
         return result;
     }
