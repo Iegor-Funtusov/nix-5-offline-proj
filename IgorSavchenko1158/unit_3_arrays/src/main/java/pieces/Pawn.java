@@ -7,27 +7,15 @@ public class Pawn extends ChessPiece {
 
 
     @Override
-    public boolean checkMove(int currentX, int currentY, int futureX, int futureY, ChessPiece[][] board) {
-        if (futureX != currentX) {
+    public boolean isLegalMove(int currentX, int currentY, int destX, int destY) {
+        if(currentX != destX) {
             return false;
         }
-        if(getColor().equals(COLOR.BLACK) && futureY >= currentY) {
+        if(getColor().equals(COLOR.BLACK) && destY >= currentY){
+            return false;
+        } else if(getColor().equals(COLOR.WHITE) && destY <= currentY) {
             return false;
         }
-        if(getColor().equals(COLOR.WHITE) && futureY <= currentY) {
-            return false;
-        }
-        if(Math.abs(futureY - currentY) != 1) {
-            return false;
-        }
-        if(board[futureX][futureY] != null) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return getColor().equals(COLOR.BLACK)? "A" : "1";
+        return Math.abs(destY - currentY) == 1;
     }
 }

@@ -1,25 +1,14 @@
 import pieces.ChessPiece;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
-/**
- * "Game" starts with an empty board. Number of any pieces is not limited.
- * Pieces move according to rules of chess, but cannot attack.
- */
 public class Main {
 
     public static final ChessBoard chessBoard = new ChessBoard();
 
     public static void main(String[] args) {
-//        System.out.println("Main.main");
-//
-//        ChessBoard board = new ChessBoard();
-//        board.placePiece(new Pawn(ChessPiece.COLOR.BLACK), 2, 4);
-//        System.out.println(board.toString());
-//        System.out.println(Pawn.class.getName());
-
         IncredibleUserInterface();
-
     }
 
     public static void IncredibleUserInterface() {
@@ -27,46 +16,81 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        ChessPiece chessPiece;
         while (true) {
-            System.out.println("Chess board currently:");
+            while((chessPiece = getPiece(scanner)) == null) ;
+
+            while (!placePiece(chessPiece, scanner)) ;
             System.out.println(chessBoard);
+            X:
+            while (true) {
+                while (!movePiece(scanner)) ;
 
-            ChessPiece chessPiece = null;
-            while ((chessPiece = selectPiece(scanner)) == null) ;
-
-            while (!placePiece(scanner, chessPiece)) ;
-
-
+                System.out.println(chessBoard);
+                System.out.println("Continue moving this piece? Y/n");
+                switch (scanner.nextLine().toUpperCase()) {
+                    case "N":
+                        break X;
+                    case "Y":
+                    default:
+                        break;
+                }
+            }
         }
     }
 
-    private static ChessPiece selectPiece(Scanner scanner) {
-        System.out.println("Type name of piece you want to add, like: white Pawn");
+    private static ChessPiece getPiece(Scanner scanner) {
+        System.out.println("To select new piece, enter its name, e.g. Black Pawn");
         String color = scanner.next().toUpperCase();
-        String pieceName = scanner.next();
+        String name = scanner.next();
+        name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+        scanner.nextLine();
 
         ChessPiece chessPiece = null;
+
         try {
-            chessPiece = (ChessPiece) Class.forName("pieces." + pieceName)
+            chessPiece = (ChessPiece) Class.forName("pieces." + name)
                     .getConstructor(ChessPiece.COLOR.class)
                     .newInstance(ChessPiece.COLOR.valueOf(color));
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Wrong input, or even worse");
         }
-
         return chessPiece;
     }
 
-    private static boolean placePiece(Scanner scanner, ChessPiece piece) {
-        System.out.println("Type where to place the piece like: G5");
-        char[] humanCoords = scanner.next().toCharArray();
+    private static boolean placePiece(ChessPiece chessPiece, Scanner scanner) {
+        System.out.println("To place the piece, enter coordinates like this: G5");
+
+        char[] coordinates = scanner.next().toCharArray();
+        scanner.nextLine();
 
         boolean result = false;
+
         try {
-            result = chessBoard.placePiece(piece, humanCoords[0] - 'A',
-                    Integer.parseInt(String.valueOf(humanCoords[1])) - 1);
+            result = chessBoard.placePiece(chessPiece, coordinates[0] - 'A',
+                    Integer.parseInt(String.valueOf(coordinates[1])) - 1);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Wrong input, I think");
+        }
+        return result;
+    }
+
+    private static boolean movePiece(Scanner scanner) {
+        System.out.println("To move the piece, enter destination coordinates:");
+
+        char[] coordinates = scanner.next().toCharArray();
+        scanner.nextLine();
+
+        boolean result = false;
+
+        try {
+            result = chessBoard.movePiece(coordinates[0] - 'A',
+                    Integer.parseInt(String.valueOf(coordinates[1])) - 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Wrong input it seems");
         }
         return result;
     }
