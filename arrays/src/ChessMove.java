@@ -6,13 +6,13 @@ public class ChessMove {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            System.out.println("Выберите фигуру: ");
+            System.out.println("Выберите фигуру (на англ или рус): ");
             String piece = reader.readLine();
             ChessPiece newPiece = createPiece(piece);
-            System.out.println("Выберите цвет фигуры: ");
+            System.out.println("Выберите цвет фигуры (на англ или рус): ");
             String color = reader.readLine();
             newPiece.color = chooseColor(color);
-            System.out.println("Выберите место куда поставить фигуру: ");
+            System.out.println("Выберите место куда поставить фигуру (d1, g5, etc.): ");
             while (newPiece.position == null) {
                 String coord = reader.readLine();
                 try {
@@ -22,7 +22,7 @@ public class ChessMove {
                 }
             }
             while (true) {
-                System.out.println("Введите координаты куда переместить фигуру");
+                System.out.println("Введите координаты куда переместить фигуру (d1, g5, etc.): ");
                 while (true) {
                     String newCoord = reader.readLine();
                     try {
@@ -32,7 +32,7 @@ public class ChessMove {
                             System.out.println("Переместили фигуру");
                             break;
                         } else
-                            System.out.println("У вас всё плохо, введите нормально");
+                            System.out.println("Неверные координаты для перемещения");
                     } catch (RuntimeException e) {
                         System.out.println("Введите нормальные координаты");
                     }
