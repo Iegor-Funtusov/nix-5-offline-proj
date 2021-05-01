@@ -1,5 +1,6 @@
 package ua.com.alevel;
 
+
 public class T4BiggerThenNeighbors {
     public static void biggerThenNeighbors (int[] list){
         int count = 0;

@@ -2,6 +2,7 @@ package ua.com.alevel;
 
 import java.util.Arrays;
 
+
 public class T3BiggerThanPre {
     public static void biggerThenPre(int[] list) {
         int count = 0;

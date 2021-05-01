@@ -1,5 +1,4 @@
 package ua.com.alevel;
-
 import java.util.Arrays;
 
 public class T5ReverseOrder {

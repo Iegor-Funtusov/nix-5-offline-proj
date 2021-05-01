@@ -1,4 +1,4 @@
-
+Maven commands:
 mvn compile
 mvn package
 java -jar target/unit_2_arithmetic_rina-b-1.0-SNAPSHOT.jar

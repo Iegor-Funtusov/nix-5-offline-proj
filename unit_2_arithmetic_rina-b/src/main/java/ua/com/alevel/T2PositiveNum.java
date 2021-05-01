@@ -8,7 +8,6 @@ public class T2PositiveNum{
                 count++;
         }
         System.out.println("Task 2: There are " + count +  " positive numbers. ");
-
     }
 
 }
