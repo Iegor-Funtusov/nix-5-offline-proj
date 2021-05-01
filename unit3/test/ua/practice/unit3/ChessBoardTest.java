@@ -58,8 +58,8 @@ class ChessBoardTest {
     @DisplayName("Test if King moves in one position anywhere")
     void makeTurn5() {
         chessBoard.setPosition(5, 5, new King());
-        chessBoard.makeTurn(5, 5, 6, 6);
-        assertTrue(chessBoard.getPosition(6, 6).getPiece() instanceof King);
+        chessBoard.makeTurn(5, 5, 5, 6);
+        assertTrue(chessBoard.getPosition(5, 6).getPiece() instanceof King);
         assertNull(chessBoard.getPosition(5, 5).getPiece());
     }
 

@@ -12,7 +12,9 @@ public class King extends Piece {
 
     @Override
     public boolean move(int currentY, int currentX, int toY, int toX) {
-        return (Math.abs(toY - currentY) == 1) && (Math.abs(toX - currentX) == 1);
+        int resY = Math.abs(toY - currentY);
+        int resX = Math.abs(toX - currentX);
+        return (resY <= 1) && (resY>=0) && (resX <= 1) && (resX>=0) ;
     }
 
     @Override

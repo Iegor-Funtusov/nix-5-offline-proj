@@ -93,9 +93,7 @@ public class Demo {
         String input;
         while ((input = bufferedReader.readLine()) != null) {
             currentY = (int) input.charAt(0) - 49;
-            System.out.println(currentY);
             currentX = (int) input.toUpperCase().charAt(1) - 65;
-            System.out.println(currentX);
             if (chessBoard.setPosition(currentY, currentX, piece))
                 return;
         }
@@ -106,9 +104,7 @@ public class Demo {
         String input;
         while ((input = bufferedReader.readLine()) != null) {
             int toY = (int) input.charAt(0) - 49;
-            System.out.println(toY);
             int toX = (int) input.toUpperCase().charAt(1) - 65;
-            System.out.println(toX);
             if (chessBoard.makeTurn(currentY, currentX, toY, toX)) {
                 currentY = toY;
                 currentX = toX;
