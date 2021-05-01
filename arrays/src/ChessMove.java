@@ -37,7 +37,7 @@ public class ChessMove {
                         System.out.println("Введите нормальные координаты");
                     }
                 }
-                System.out.println("Хотите продолжить перемещать фигуру или поставить новую? Ответьте \"да\" или \"нет\"");
+                System.out.println("Хотите продолжить перемещать фигуру или поставить новую? Ответьте \"y\" или \"n\"");
                 String continueOrBack = reader.readLine();
                 if (!yerOrNo(continueOrBack)) {
                     break;
