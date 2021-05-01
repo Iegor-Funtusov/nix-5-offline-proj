@@ -3,7 +3,7 @@ package pieces;
 public abstract class ChessPiece {
     private final COLOR color;
 
-    public ChessPiece(COLOR color) {
+    protected ChessPiece(COLOR color) {
         this.color = color;
     }
 

@@ -7,9 +7,6 @@ public class ChessBoard {
     private int currentX;
     private int currentY;
 
-    public ChessBoard() {
-    }
-
     public boolean placePiece(ChessPiece piece, int X, int Y) {
         if (fitsBoard(X, Y) && piece != null) {
             currentPiece = piece;

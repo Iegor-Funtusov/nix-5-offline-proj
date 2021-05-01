@@ -7,10 +7,10 @@ public class Main {
     public static final ChessBoard chessBoard = new ChessBoard();
 
     public static void main(String[] args) {
-        IncredibleUserInterface();
+        incredibleUserInterface();
     }
 
-    public static void IncredibleUserInterface() {
+    public static void incredibleUserInterface() {
         System.out.println("Welcome to \"Chess move\"!");
 
         Scanner scanner = new Scanner(System.in);

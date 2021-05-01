@@ -8,12 +8,11 @@ public class Pawn extends ChessPiece {
 
     @Override
     public boolean isLegalMove(int currentX, int currentY, int destX, int destY) {
-        if(currentX != destX) {
+        if (currentX != destX) {
             return false;
         }
-        if(getColor().equals(COLOR.BLACK) && destY >= currentY){
-            return false;
-        } else if(getColor().equals(COLOR.WHITE) && destY <= currentY) {
+        if ((getColor().equals(COLOR.BLACK) && destY >= currentY) ||
+                (getColor().equals(COLOR.WHITE) && destY <= currentY)) {
             return false;
         }
         return Math.abs(destY - currentY) == 1;
