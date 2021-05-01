@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import static ua.com.alevel.Operations.task1;
 import static ua.com.alevel.Operations.task2;
-import static ua.com.alevel.Operations. task3;
+import static ua.com.alevel.Operations.task3;
 import static ua.com.alevel.Operations.task4;
 import static ua.com.alevel.Operations.task5;
 import static ua.com.alevel.Operations.task6;
