@@ -1,0 +1,2 @@
+javac -sourcepath ./ConsoleProject/src -d ./build/classes/ -cp ./libs/commons-lang3-3.12.0.jar:./libs/guava-13.0.jar ConsoleProject/src/my/Runner;
+java -cp build/classes/:./libs/commons-lang3-3.12.0.jar:./libs/guava-13.0.jar:. my.Runner
