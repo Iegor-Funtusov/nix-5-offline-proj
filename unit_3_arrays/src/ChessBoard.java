@@ -40,15 +40,15 @@ public class ChessBoard {
         print();
     }
 
-    public void moveFigure(ChessFigure figure, String str){
-        if(figure.canMove(str)){
+    public void moveFigure(ChessFigure figure, String str) {
+        if (figure.canMove(str)) {
             deleteFigure(figure.getCoordinates());
             figure.setCoordinatesByString(str);
             setFigure(figure);
         }
     }
 
-    public void addFigure(ChessFigure figure){
+    public void addFigure(ChessFigure figure) {
         chessFigures.add(figure);
         setFigure(figure);
     }

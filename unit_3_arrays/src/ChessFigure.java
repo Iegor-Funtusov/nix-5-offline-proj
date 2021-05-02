@@ -49,7 +49,7 @@ public class ChessFigure {
         return false;
     }
 
-    private Coordinates stringToCoordinates(String str) {
+    public Coordinates stringToCoordinates(String str) {
         Coordinates coords = new Coordinates();
         char[] chArr = str.toCharArray();
         if (chArr.length == 2 && chArr[0] >= 'a' && chArr[0] <= 'h' && chArr[1] >= '1' && chArr[1] <= '8') {
@@ -111,12 +111,25 @@ public class ChessFigure {
 
     private boolean moveKnight(Coordinates coords) {
         if (Math.abs(coords.getX() - coordinates.getX()) <= 2 && Math.abs(coords.getY() - coordinates.getY()) <= 2
-                && coords.getX() != coordinates.getX() && coords.getY() != coordinates.getY()
+               // && coords.getX() != coordinates.getX() && coords.getY() != coordinates.getY()
                 && Math.abs(coords.getX() - coordinates.getX()) + Math.abs(coords.getY() - coordinates.getY()) == 3) {
             return true;
         } else {
             System.out.println("Введены неправильные координаты");
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        String s;
+        if (Color) {
+            s = "white";
+        } else {
+            s = "black";
+        }
+        return "type=" + type +
+                ", " + coordinates +
+                ", Color=" + s;
     }
 }
