@@ -1,0 +1,3 @@
+Chcp 65001
+javac -d bin -cp ./libs/commons-lang3-3.12.0.jar;./libs/lombok-1.18.20.jar src/consol_test/*.java
+java -cp bin;./libs/commons-lang3-3.12.0.jar;./libs/lombok-1.18.20.jar consol_test.Main

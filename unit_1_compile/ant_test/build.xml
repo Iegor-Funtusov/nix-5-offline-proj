@@ -1,0 +1,31 @@
+<project>
+
+    <path id="classpath">
+        <fileset dir="libs" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <target name="build">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="bin" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="build">
+        <mkdir dir="bin/jar"/>
+        <jar destfile="bin/jar/main.jar" basedir="bin">
+            <manifest>
+                <attribute name="Main-Class" value="ant_test.Main"/>
+                <attribute name="Class-Path" value="libs"/>
+            </manifest>
+            <zipgroupfileset dir="libs" includes="*.jar"/>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="bin/jar/main.jar" fork="true"/>
+    </target>
+
+</project>
