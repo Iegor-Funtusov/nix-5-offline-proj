@@ -4,19 +4,20 @@ package ua.practice.unit4.lib;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ArrayCrudService<E extends BaseEntity> implements CrudService<E> {
 
-    BaseEntity[] list = new BaseEntity[0];
+    Object[] list = new Object[0];
 
     @Override
     public void create(E e) {
         e.setId(generateId(UUID.randomUUID().toString()));
-        BaseEntity[] newList = new BaseEntity[list.length + 1];
+        Object[] newList = new Object[list.length+1];
         newList[list.length] = e;
         System.arraycopy(list, 0, newList, 0, list.length);
         list = newList;
@@ -42,7 +43,7 @@ public class ArrayCrudService<E extends BaseEntity> implements CrudService<E> {
 
     @Override
     public Collection<E> read() {
-        return (List<E>) List.of(list);
+        return Arrays.stream(list).map(el-> ((E) el)).collect(Collectors.toList());
     }
 
     @Override
@@ -52,14 +53,14 @@ public class ArrayCrudService<E extends BaseEntity> implements CrudService<E> {
 
 
     private String generateId(String id) {
-        if (Stream.of(list).anyMatch(e -> e.getId().equals(id))) {
+        if (Stream.of(list).anyMatch(e ->((E) e).getId().equals(id))) {
             return generateId(UUID.randomUUID().toString());
         }
         return id;
     }
     private int findIndexById(String id) {
         for (int i = 0; i < list.length; i++) {
-            if (list[i].getId().equalsIgnoreCase(id))
+            if (((E) list[i]).getId().equalsIgnoreCase(id))
                 return i;
         }
         return -1;
