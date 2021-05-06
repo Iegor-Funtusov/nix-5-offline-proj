@@ -24,6 +24,7 @@ public class AppMain {
                 case "3":
                     return;
                 default:
+                    System.out.println("Wrong input. Try again.");
                     continue;
             }
             doOption(bufferedReader, crudService);
@@ -42,7 +43,9 @@ public class AppMain {
             switch (str) {
                 case "1":
                     User user = new User();
+                    System.out.println("Input name: ");
                     user.setName(bufferedReader.readLine());
+                    System.out.println("Input age: ");
                     user.setAge(Integer.parseInt(bufferedReader.readLine()));
                     crudService.create(user);
                     break;
@@ -50,19 +53,27 @@ public class AppMain {
                     crudService.read().forEach(System.out::println);
                     break;
                 case "3":
+                    System.out.println("Input Id: ");
                     System.out.println(crudService.read(bufferedReader.readLine()));
                     break;
                 case "4":
+                    System.out.println("Input Id: ");
                     User user1 = (User) crudService.read(bufferedReader.readLine());
+                    System.out.println("Input name: ");
                     user1.setName(bufferedReader.readLine());
+                    System.out.println("Input age: ");
                     user1.setAge(Integer.parseInt(bufferedReader.readLine()));
                     crudService.update(user1);
                     break;
                 case "5":
+                    System.out.println("Input Id for delete: ");
                     crudService.delete(bufferedReader.readLine());
                     break;
                 case "6":
                     return;
+                default:
+                    System.out.println("Wrong input. Try again.");
+                    continue;
             }
             chooseOperation();
         }
