@@ -36,12 +36,4 @@ public class CrudFactory {
         }
         throw new RuntimeException("something ");
     }
-
-//    private void chooseImpl(String className){
-//
-//        switch (className){
-//            case "ArrayCrudService":
-//
-//        }
-//    }
 }

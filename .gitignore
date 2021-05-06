@@ -1,1 +1,6 @@
 /.idea/
+/out/
+/library/library.iml
+/application/application.iml
+/library/target/
+/application/target/
