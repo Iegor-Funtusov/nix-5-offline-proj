@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-
+@Deprecated
 public class ListCrudService<E extends BaseEntity> implements CrudService<E> {
 
     List<E> container = new ArrayList<>();
