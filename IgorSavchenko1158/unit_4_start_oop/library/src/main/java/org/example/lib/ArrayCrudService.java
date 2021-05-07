@@ -55,7 +55,6 @@ public class ArrayCrudService<E extends BaseEntity> implements CrudService<E> {
 
     @Override
     public List<E> read() {
-
         return Arrays
                 .stream(container)
                 .limit(numberOfElements)
