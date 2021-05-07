@@ -24,7 +24,7 @@ public class CrudFactory {
 
     public CrudService getCurrent(String crudName) {
         for (Class<? extends CrudService> aClass : crudServiceList) {
-            if (aClass.getSimpleName().equalsIgnoreCase(crudName)) {
+            if (aClass.getSimpleName().equals(crudName)) {
                 try {
                     System.out.println(aClass.getSimpleName());
                     return aClass.getDeclaredConstructor().newInstance();
