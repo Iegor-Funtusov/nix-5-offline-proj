@@ -4,11 +4,9 @@ import java.util.Scanner;
 
 public class AppMain {
     public static void main(String[] args) {
-        System.out.println("AppMain.main");
 
         DogService dogService = new DogService();
         Scanner scanner = new Scanner(System.in);
-        System.out.println(dogService.getClass().getName());
         while (true) {
             System.out.println("Select action: \n" +
                     "1  View database \n" +
@@ -58,7 +56,7 @@ public class AppMain {
                     try {
                         dogService.delete(scanner.next());
                     } catch (RuntimeException ex) {
-                        System.err.println(ex.getMessage());;
+                        System.err.println(ex.getMessage());
                     }
                     break;
                 }
@@ -68,15 +66,5 @@ public class AppMain {
 
             scanner.nextLine();
         }
-
-//        System.out.println("AppMain.main");
-//
-//        DogService dogService = new DogService();
-//
-//        dogService.create(new Dog().setName("Vovkan").setBreed("Bulldog"));
-//        dogService.create(new Dog().setName("Bandit").setBreed("Pudel"));
-//
-//        dogService.read().forEach(System.out::println);
-
     }
 }
