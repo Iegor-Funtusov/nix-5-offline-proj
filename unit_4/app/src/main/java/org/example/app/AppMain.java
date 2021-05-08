@@ -40,13 +40,21 @@ public class AppMain {
                 case 3:
                     System.out.println("Enter user id");
                     String id = enter.readLine();
-                    System.out.println("User found: " + userService.read(id).toString());
+                    System.out.println("Found user:" + userService.read(id));
                     break;
                 case 4:
-                    user = new User();
                     System.out.println("Enter user id");
                     id = enter.readLine();
-                    userService.update(user);
+                    User currentUser = userService.read(id);
+                    if (currentUser != null) {
+                        System.out.println("Enter new/old name");
+                        String name = enter.readLine();
+                        System.out.println("Enter new/old age");
+                        int age = Integer.parseInt(enter.readLine());
+                        currentUser.setAge(age);
+                        currentUser.setName(name);
+                        userService.update(currentUser);
+                    }
                     break;
                 case 5:
                     System.out.println("Enter user id");

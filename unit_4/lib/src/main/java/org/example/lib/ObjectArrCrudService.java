@@ -2,69 +2,75 @@ package org.example.lib;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class ObjectArrCrudService<E extends  BaseEntity> implements CrudService<E> {
 
-    Object[] array  = new Object[10];
-    private int iter = 0;
+    private Object[] array = new Object[2];
 
-    public  void create(E e) {
-        if (iter >= array.length) {
-            int newSize = array.length + 1;
-            array = Arrays.copyOf(array, newSize);
+    private int pos = 0;
+
+    public void create(E e) {
+        if (pos + 1 > array.length) {
+            int new_size = array.length + 1;
+            array = Arrays.copyOf(array, new_size);
         }
-        e.setId(UUID.randomUUID().toString());
-        array[iter] = e;
-        iter++;
-
-    }
-
-    public  E read(String id) {
-        return (E) findBuId(id);
-    }
-
-    public  void update(E e) {
-        E current = (E) findBuId(e.getId());
-        try {
-            BeanUtils.copyProperties(current, e);
-        } catch (IllegalAccessException | InvocationTargetException illegalAccessException) {
-            illegalAccessException.printStackTrace();
+        if (e != null) {
+            e.setId(UUID.randomUUID().toString());
+            array[pos] = e;
+            pos++;
         }
     }
 
-    public  void delete(String id) {
+    public E read(String id) {
         if (!id.isBlank()) {
-            E current = (E) findBuId(id);
-            for (int i = 0; i < array.length; i++) {
-                if (array[i].equals(current)) {
-                    System.arraycopy(array, i + 1, array, i, array.length - i - 1);
-                    iter--;
-                }
-            }
+            return (E) findById(id);
         } else {
-            throw new RuntimeException("id not found");
+            throw new RuntimeException("Error: \nentity not found!!!");
         }
     }
 
     public Collection<E> read() {
         return Arrays
                 .stream(array)
-                .limit(array.length)
-                .map(o -> ((E) o))
+                .limit(pos)
+                .map(el -> ((E) el))
                 .collect(Collectors.toList());
     }
 
-    private Object findBuId (String id) {
-        E entity = (E) Arrays
-                .stream(array)
-                .filter(el -> ((E) el).getId().equals(id))
+    public void update(E e) {
+        Object current = findById(e.getId());
+        try {
+            BeanUtils.copyProperties(current, e);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
+    }
+
+    public void delete(String id) {
+        if (!id.isBlank()) {
+            E current = (E) findById(id);
+            for (int i = 0; i < pos; i++) {
+                if(array[i].equals(current)){
+                    System.arraycopy(array, i + 1, array, i, pos - i - 1);
+                    pos--;
+                }
+            }
+        } else {
+            throw new RuntimeException("Error: \nentity not found!!!");
+        }
+    }
+
+    private Object findById(String id) {
+        Object entity = Arrays.stream(array)
+                .filter(el -> ((E) el)
+                        .getId()
+                        .equals(id))
                 .findAny()
                 .orElse(null);
         if (entity == null) {
-            throw new RuntimeException("entity not exist");
+            throw new RuntimeException("Error: \nentity not found!!!");
         }
         return entity;
     }
