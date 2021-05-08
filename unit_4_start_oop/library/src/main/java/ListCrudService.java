@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class CrudService<E extends BaseEntity> {
+public class ListCrudService<E extends BaseEntity> implements CrudServiceInterface<E> {
     List<E> list = new ArrayList<>();
 
     public void create(E e) {
