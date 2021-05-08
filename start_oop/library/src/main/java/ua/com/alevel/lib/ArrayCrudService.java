@@ -16,10 +16,10 @@ public class ArrayCrudService <E extends BaseEntity> implements CrudService<E> {
     @Override
     public void create(E e) {
         e.setId(generateId(UUID.randomUUID().toString()));
-        Object[] newObjectList = new Object[arrayObj.length + 1];
-        newObjectList[arrayObj.length] = e;
-        System.arraycopy(arrayObj, 0, newObjectList, 0, arrayObj.length);
-        arrayObj = newObjectList;
+        Object[] newArrayObj = new Object[arrayObj.length + 1];
+        newArrayObj[arrayObj.length] = e;
+        System.arraycopy(arrayObj, 0, newArrayObj, 0, arrayObj.length);
+        arrayObj = newArrayObj;
     }
 
     @Override
