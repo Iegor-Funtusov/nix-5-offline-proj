@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+@Deprecated
 public class SetCrudService<E extends BaseEntity> implements CrudServiceInterface<E> {
     Set<E> set = new HashSet<>();
 
