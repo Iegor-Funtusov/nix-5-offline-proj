@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Deprecated
 public class ListCrudService<E extends BaseEntity> implements CrudServiceInterface<E> {
     List<E> list = new ArrayList<>();
+
+    public ListCrudService() {
+        System.out.println("ListCrudService");
+    }
 
     public void create(E e) {
         e.setId(generateId(UUID.randomUUID().toString()));

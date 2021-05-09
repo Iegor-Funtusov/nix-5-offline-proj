@@ -1,7 +1,7 @@
 import java.util.Collection;
 
 public class UserService {
-    CrudServiceInterface<User> userCrudService = new ListCrudService<>();
+    CrudServiceInterface<User> userCrudService = CrudFactory.getInstance().getCurrent();
 
     public void create(User user) {
         userCrudService.create(user);

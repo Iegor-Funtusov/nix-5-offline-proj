@@ -7,6 +7,10 @@ import java.util.UUID;
 public class SetCrudService<E extends BaseEntity> implements CrudServiceInterface<E> {
     Set<E> set = new HashSet<>();
 
+    public SetCrudService() {
+        System.out.println("SetCrudService");
+    }
+
     public void create(E e) {
         e.setId(generateId(UUID.randomUUID().toString()));
         set.add(e);
