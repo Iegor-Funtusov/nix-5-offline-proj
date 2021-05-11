@@ -35,42 +35,42 @@ public class HometaskArray {
                     break;
                 case 4:
                     if (!array.getArray().isEmpty()) {
-                        array.task1();
+                        array.evenNumbers();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 5:
                     if (!array.getArray().isEmpty()) {
-                        array.task2();
+                        array.positiveNumbersCount();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 6:
                     if (!array.getArray().isEmpty()) {
-                        array.task3();
+                        array.moreThanPrevious();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 7:
                     if (!array.getArray().isEmpty()) {
-                        array.task4();
+                        array.moreThanNeighbors();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 8:
                     if (!array.getArray().isEmpty()) {
-                        array.task5();
+                        array.reverseArray();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
                     break;
                 case 9:
                     if (!array.getArray().isEmpty()) {
-                        array.task6();
+                        array.swapElements();
                     } else {
                         System.out.println("Массив пусой, пожалуйста заполние его");
                     }
