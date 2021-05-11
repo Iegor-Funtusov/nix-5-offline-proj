@@ -64,7 +64,7 @@ public class MyArray {
         printArr();
     }
 
-    void task6() {
+    void swapElements() {
         System.out.println("Задание 6: поменять соседние элементы местами и вывести массив");
         int temp;
         for (int i = 0; i < array.size(); i += 2) {
