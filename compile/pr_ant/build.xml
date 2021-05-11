@@ -17,8 +17,8 @@
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/main.jar" basedir="build/classes">
             <manifest>
-                <attribute name="Main-Class" value="ua.com.Hello"/>
-                <attribute name="Class-Path" value="**/*.jar"/>
+                <attribute name="Main-Class" value="ua.com.Hellow"/>
+                <attribute name="Class-Path" value="libs/*.jar"/>
             </manifest>
             <zipgroupfileset dir="libs" includes="*.jar"/>
         </jar>

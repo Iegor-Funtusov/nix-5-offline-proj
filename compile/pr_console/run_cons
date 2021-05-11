@@ -1,0 +1,4 @@
+javac -sourcepath ./src/ -d ./build/clases/ -cp ./libs\ /commons-lang3-3.12.0.jar:./commons-io-2.4.jar  src/ua/com/Hellow.java
+
+
+java -cp build/clases/:./libs\ /commons-lang3-3.12.0.jar:./commons-io-2.4.jar:. ua.com.Hellow
