@@ -10,7 +10,7 @@ public class MyArray {
         return array;
     }
 
-    void task1() {
+    void evenNumbers() {
         System.out.println("Задание 1: вывести четные числа из массива");
         for (int i = 0; i < array.size(); i++) {
             if (array.get(i) % 2 == 0) {
@@ -20,7 +20,7 @@ public class MyArray {
         System.out.println();
     }
 
-    void task2() {
+    void positiveNumbersCount() {
         System.out.println("Задание 2: вывести кол-во положительных чисел");
         int count = 0;
         for (int i = 0; i < array.size(); i++) {
@@ -31,7 +31,7 @@ public class MyArray {
         System.out.println(count);
     }
 
-    void task3() {
+    void moreThanPrevious() {
         System.out.println("Задание 3: вывести кол-во чисел больших предыдущего");
         int count = 0;
         for (int i = 1; i < array.size(); i++) {
@@ -42,7 +42,7 @@ public class MyArray {
         System.out.println(count);
     }
 
-    void task4() {
+    void moreThanNeighbors() {
         System.out.println("Задание 4: вывести кол-во чисел которые больше своих соседей");
         int count = 0;
         for (int i = 1; i < array.size() - 1; i++) {
@@ -53,7 +53,7 @@ public class MyArray {
         System.out.println(count);
     }
 
-    void task5() {
+    void reverseArray() {
         System.out.println("Задание 5: вывести обратный массив");
         int temp;
         for (int i = 0; i < array.size() / 2; i++) {
