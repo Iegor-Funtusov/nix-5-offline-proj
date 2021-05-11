@@ -1,7 +1,8 @@
 package ua.com.nix;
-public class Man {
+import ua.com.nix.*;
+public class Man{
 
-    public String sayWhoYou(){
-        return "It's man)";
+    public void print(){
+    System.out.println("Hellow i am MAN");
     }
 }

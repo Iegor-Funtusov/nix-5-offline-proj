@@ -1,7 +1,9 @@
 package ua.com.nix;
-public class Animal {
+import ua.com.nix.*;
 
-    public String sayWhoYou(){
-        return "It's animal)";
+public class Animal{
+
+    public void print(){
+    System.out.println("Hellow i am ANIMAL");
     }
 }
