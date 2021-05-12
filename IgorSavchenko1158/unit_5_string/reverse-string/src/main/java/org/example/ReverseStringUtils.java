@@ -33,6 +33,19 @@ public class ReverseStringUtils {
                 src.substring(lastIndex + 1);
     }
 
+    public static String reverse(String src, char firstChar, char lastChar) {
+        if (src == null) {
+            throw new IllegalArgumentException();
+        }
+
+        int indexOfFirstChar = src.indexOf(firstChar);
+        int indexOfLastChar = indexOfFirstChar + src.substring(indexOfFirstChar).indexOf(lastChar);
+        if (indexOfFirstChar < 0 || indexOfLastChar < 0) {
+            throw new IllegalArgumentException();
+        }
+        return reverse(src, indexOfFirstChar, indexOfLastChar);
+    }
+
     public static String reverseSubstring(String src, String substring) {
         if (src == null || substring == null) {
             throw new IllegalArgumentException();
