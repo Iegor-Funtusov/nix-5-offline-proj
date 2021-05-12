@@ -2,14 +2,17 @@ package com.example.string_reverse;
 
 public class StringReverse {
     public static String reverse(String src, CharSequence firstStr, CharSequence lastStr){
-        char firstChar = firstStr.charAt(0);
-        char lastChar = lastStr.charAt(0);
-        return reverse(src, firstChar, lastChar);
+        String open = firstStr.toString();
+        String close = lastStr.toString();
+        int start = src.indexOf(open);
+        int end = src.indexOf(close,start + open.length());
+        String substrBetween = src.substring(start + open.length(), end);
+        return reverse(src, substrBetween);
     }
 
     public static String reverse(String src, char firstChar, char lastChar){
         int firstIndex = src.indexOf(firstChar);
-        int lastIndex = src.indexOf(lastChar);
+        int lastIndex = src.indexOf(lastChar, firstIndex+1);
         return reverse(src, firstIndex, lastIndex);
     }
     public static String reverse(String src, int firstIndex, int lastIndex){
