@@ -1,6 +1,6 @@
 public class ReverseString implements Reverse {
     @Override
-    public String reverse(String src) {
+    public String reverse(String src) { // адаптация кода с сайта https://javarush.ru/help/26277
         char[] tmpCharArr = src.toCharArray();
         char tmp;
         for (int i = 0; i < tmpCharArr.length / 2; i++) {
