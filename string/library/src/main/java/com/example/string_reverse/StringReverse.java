@@ -6,8 +6,7 @@ public class StringReverse {
         String close = lastStr.toString();
         int start = src.indexOf(open);
         int end = src.indexOf(close,start + open.length());
-        String substrBetween = src.substring(start + open.length(), end);
-        return reverse(src, substrBetween);
+        return reverse(src, start + open.length(), end);
     }
 
     public static String reverse(String src, char firstChar, char lastChar){
