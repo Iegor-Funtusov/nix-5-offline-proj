@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 public class MainApp {
     public static void main(String[] args) throws IOException {
-        Reverse reverse = new Reverse();
+        ReverseString reverseString = new ReverseString();
         BufferedReader enter = new BufferedReader(new InputStreamReader(System.in));
         int choose;
 
@@ -14,11 +14,12 @@ public class MainApp {
                     1. Reverse string
                     2. Reverse string by substring
                     3. Reverse string by index
+                    4. Exit
                     """);
 
             choose = Integer.parseInt(enter.readLine());
 
-            if (choose != 1 && choose != 2 && choose != 3){
+            if (choose != 1 && choose != 2 && choose != 3 && choose != 4){
                 System.out.println("Wrong input");
                 return;
             }
@@ -29,7 +30,7 @@ public class MainApp {
                     System.out.println("Enter string: ");
                     str = enter.readLine();
                     checkStr(str);
-                    System.out.println(reverse.reverse(str));
+                    System.out.println(reverseString.reverse(str));
                 }
                 case 2 -> {
                     System.out.println("Enter string: ");
@@ -38,7 +39,7 @@ public class MainApp {
                     System.out.println("Enter substring: ");
                     String subStr = enter.readLine();
                     checkStr(subStr);
-                    System.out.println(reverse.reverse(str, subStr));
+                    System.out.println(reverseString.reverse(str, subStr));
                 }
                 case 3 -> {
                     System.out.println("Enter string: ");
@@ -72,8 +73,9 @@ public class MainApp {
                         System.out.println("first index > last index");
                         System.exit(-1);
                     }
-                    System.out.println(reverse.reverse(str, firstIndex, lastIndex));
+                    System.out.println(reverseString.reverse(str, firstIndex, lastIndex));
                 }
+                case 4 -> System.exit(1);
             }
         }
     }
