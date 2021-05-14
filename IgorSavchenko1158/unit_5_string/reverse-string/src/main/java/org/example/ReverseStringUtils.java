@@ -40,10 +40,14 @@ public class ReverseStringUtils {
 
         int indexOfFirstChar = src.indexOf(firstChar);
         int indexOfLastChar = indexOfFirstChar + src.substring(indexOfFirstChar).indexOf(lastChar);
-        if (indexOfFirstChar < 0 || indexOfLastChar < 0) {
+        if (indexOfFirstChar < 0 || indexOfLastChar - indexOfFirstChar < 0) {
             throw new IllegalArgumentException();
         }
         return reverse(src, indexOfFirstChar, indexOfLastChar);
+    }
+
+    public static String reverse(String src, CharSequence firstCS, CharSequence lastCS) {
+        return null;
     }
 
     public static String reverseSubstring(String src, String substring) {

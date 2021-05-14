@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        ReverseStringUtils.reverse("Hello", "", "");
+
         Scanner scanner;
         String currentString;
         while (true) {
@@ -35,7 +37,9 @@ public class Main {
                 case "4": {
                     System.out.println("Enter start and end characters split by space:");
                     System.out.println(ReverseStringUtils.reverse(currentString, scanner.next().charAt(0), scanner.next().charAt(0)));
+                    break;
                 }
+                default: return;
             }
         }
     }
