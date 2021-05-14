@@ -4,15 +4,15 @@ public class ReverseString {
         String[] subStr;
         String splitter = "\\s+";
         subStr = src.split(splitter);
-        String result = "";
-        for (int i = 0; i < subStr.length; i++) {
-            char[] chars = subStr[i].toCharArray();
+        StringBuilder result = new StringBuilder();
+        for (String s : subStr) {
+            char[] chars = s.toCharArray();
             for (int j = chars.length - 1; j >= 0; j--) {
-                result = result + chars[j];
+                result.append(chars[j]);
             }
-            result += " ";
+            result.append(" ");
         }
-        return result;
+        return result.toString();
     }
 
     public static String reverse(String src, String dest) {
@@ -34,10 +34,10 @@ public class ReverseString {
 
     private static String reverseStr(String src) {
         char[] array = src.toCharArray();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = array.length - 1; i >= 0; i--) {
-            result = result + array[i];
+            result.append(array[i]);
         }
-        return result;
+        return result.toString();
     }
 }
