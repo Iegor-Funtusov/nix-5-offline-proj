@@ -8,12 +8,9 @@ public class Application {
 //        long res = ArrayUtil.getNumberOfUniqueElements(1, 4, 5, 1, 1, 3);
 //        System.out.println(res);
 
-//        WrapAroundChessBoard cb = new WrapAroundChessBoard();
-//        cb.placeFigure(3,2);
-//        System.out.println(cb);
+        WrapAroundChessBoard cb = new WrapAroundChessBoard();
+        cb.placeFigure(3,2);
+        System.out.println(cb);
 
-
-        System.out.println("retard|");
-        System.out.println("cls");
     }
 }
