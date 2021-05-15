@@ -1,8 +1,9 @@
 /.idea/
 /test/
-/target/
 **/*.class
 **/*.iml
+/out/
+/build/
 
 
 
