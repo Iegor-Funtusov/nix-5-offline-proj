@@ -106,7 +106,7 @@ public class ConsoleApp {
         }
     }
 
-    private static void createUser(String name, Integer age) {
+    private void createUser(String name, Integer age) {
         temporaryUser = new User();
         temporaryUser.setName(name);
         temporaryUser.setAge(age);

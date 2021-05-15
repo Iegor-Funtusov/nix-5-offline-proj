@@ -8,16 +8,13 @@ import java.util.Collection;
 @Deprecated
 public class ObjectCrudService<E extends BaseEntity> implements CrudService<E> {
 
-    public static void main(String[] args) {
-    }
 
     Object[] objectsArray = new Object[0];
     private static int size = 0;
 
     @Override
     public void create(E e) {
-//        e.setId(String.valueOf(size+1));
-        Object[] newArray = new Object[size + 10];
+        Object[] newArray = new Object[size + 1];
         if (size + 1 > objectsArray.length) {
             System.arraycopy(objectsArray, 0, newArray, 0, size);
             objectsArray = newArray;
