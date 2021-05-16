@@ -9,9 +9,10 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        offer();
-        String read = reader.readLine();
-        while (!read.isEmpty()){
+
+        while (true){
+            offer();
+            String read = reader.readLine();
             switch (read){
                 case "0": {
                     System.exit(0);
@@ -41,6 +42,7 @@ public class Main {
                     System.out.println("Ошибка. Попробуйте ещё раз");
                     break;
             }
+
         }
     }
 
