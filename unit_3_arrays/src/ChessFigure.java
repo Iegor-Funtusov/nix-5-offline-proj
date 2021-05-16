@@ -111,7 +111,6 @@ public class ChessFigure {
 
     private boolean moveKnight(Coordinates coords) {
         if (Math.abs(coords.getX() - coordinates.getX()) <= 2 && Math.abs(coords.getY() - coordinates.getY()) <= 2
-               // && coords.getX() != coordinates.getX() && coords.getY() != coordinates.getY()
                 && Math.abs(coords.getX() - coordinates.getX()) + Math.abs(coords.getY() - coordinates.getY()) == 3) {
             return true;
         } else {
