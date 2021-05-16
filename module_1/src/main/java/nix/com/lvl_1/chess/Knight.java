@@ -1,7 +1,4 @@
-package nix.pieces;
-
-import nix.Piece;
-import nix.PieceCoordinate;
+package nix.com.lvl_1.chess;
 
 public class Knight extends Piece {
 

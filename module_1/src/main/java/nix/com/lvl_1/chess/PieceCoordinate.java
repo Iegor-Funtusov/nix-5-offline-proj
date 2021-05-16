@@ -1,4 +1,4 @@
-package nix;
+package nix.com.lvl_1.chess;
 
 public class PieceCoordinate {
     public char x;
