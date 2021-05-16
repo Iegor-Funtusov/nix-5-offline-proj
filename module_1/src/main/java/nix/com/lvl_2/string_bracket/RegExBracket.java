@@ -1,14 +1,38 @@
 package nix.com.lvl_2.string_bracket;
 
-public class RegExBracket {
-    public boolean checkString(String str) {
-        if (str.isBlank()) {
-            return true;
-        }
+import java.util.Stack;
 
-        if (str.matches("(?=(?:\\(.*\\)|\\[.*\\]|\\{.*\\}|[.])$)[\\[{(][0-9a-f]*[\\]})]")) {
-            return true;
+public class RegExBracket {
+    public boolean check(String str) {
+        char[] symbols = str.toCharArray();
+
+        Stack<Character> stackBrackets = new Stack<>();
+
+        for (char symbol : symbols) {
+            if (symbol == '(' || symbol == '{' || symbol == '[') {
+                stackBrackets.push(symbol);
+            }
+
+            if (symbol == ')' || symbol == '}' || symbol == ']') {
+                if (!stackBrackets.isEmpty()) {
+                    char fromStack = stackBrackets.peek();
+                    if ((symbol == ')' && fromStack == '(') ||
+                            (symbol == '}' && fromStack == '{') ||
+                            (symbol == ']' && fromStack == '[')) {
+                        stackBrackets.pop();
+                    } else {
+                        break;
+                    }
+                } else {
+                    stackBrackets.add(symbol);
+                    break;
+                }
+            }
+
         }
-        return false;
+        if (!stackBrackets.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
