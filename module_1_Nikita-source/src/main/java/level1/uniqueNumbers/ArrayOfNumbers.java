@@ -1,4 +1,4 @@
-package level1;
+package level1.uniqueNumbers;
 
 import java.util.HashSet;
 import java.util.Set;
