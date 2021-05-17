@@ -17,8 +17,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    Window window = new Window();
-                    javax.swing.SwingUtilities.invokeLater(window);
+                    GameOfLife.run();
                     break;
                 case 2:
                     flag = false;
