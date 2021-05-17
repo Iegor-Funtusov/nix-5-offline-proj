@@ -1,1 +1,12 @@
 /.idea/
+/module1/application/target/
+/module1/application/application.iml
+/module1/level3/target/
+/module1/level3/level3.iml
+/module1/module1.iml
+/module1/level1/level1.iml
+/module1/level1/target/
+/module1/level2/target/
+/module1/level2/level2.iml
+/module1/chessStep/target/
+/module1/chessStep/chessStep.iml
