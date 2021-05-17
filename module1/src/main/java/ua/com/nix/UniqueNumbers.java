@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class UniqueNumbers {
-        public static void main(String[] args) throws IOException {
+        public static void findUniqueNumbers() throws IOException {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Введите размер массива: ");
+
             int arrSize = Integer.parseInt(reader.readLine());
             int[] array = new int[arrSize];
             int count = 0;
@@ -21,7 +22,6 @@ public class UniqueNumbers {
 
             for(int i = 0; i < array.length; i++) {
                 amountOfNumbers++;
-
                 for(int j = i + 1; j < array.length; j++) {
                     if (array[j] == array[i]) {
                         count++;

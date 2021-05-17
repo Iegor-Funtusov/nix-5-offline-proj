@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class TriangleSquare {
 
-    public static void main(String[] args) throws IOException {
+    public static void findTriangleSquare() throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.print("Введите координату X точки A: ");
@@ -22,15 +22,20 @@ public class TriangleSquare {
         System.out.print("Введите координату Y точки C: ");
         double y3 = Double.parseDouble(reader.readLine());
 
-        double sideAB = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-        double sideAC = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
-        double sideBC = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3));
+        if ((x1 != x2 || x2 != x3 || x1 != x3) && (y1 != y2 || y2 != y3 || y1 != y3)) {
+            double sideAB = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            double sideAC = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+            double sideBC = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3));
 
-        double semiPerimeter = 0.5 * (sideAB + sideAC + sideBC);
+            double semiPerimeter = 0.5 * (sideAB + sideAC + sideBC);
 
-        double square = Math.sqrt(semiPerimeter * (semiPerimeter - sideAB)
+            double square = Math.sqrt(semiPerimeter * (semiPerimeter - sideAB)
                     * (semiPerimeter - sideAC) * (semiPerimeter - sideBC));
 
-        System.out.println(square);
+            System.out.println(square);
+        }
+        else {
+            throw new Exception();
+        }
     }
 }
