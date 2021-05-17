@@ -13,7 +13,7 @@ public abstract class ChessPiece {
     }
 
     public boolean isChessboardBound(int posX, int posY){
-        return posX > 0 && posY > 0;
+        return posX < 9 && posX > 0 && posY < 9 && posY > 0;
     }
 
     public int getPosX() {
@@ -21,7 +21,7 @@ public abstract class ChessPiece {
     }
 
     public void setPosX(int posX) {
-        if(posX > 0){
+        if(posX < 9 && posX > 0){
             this.posX = posX;
         }
     }
@@ -31,7 +31,7 @@ public abstract class ChessPiece {
     }
 
     public void setPosY(int posY) {
-        if(posY > 0) {
+        if(posY < 9 && posY > 0) {
             this.posY = posY;
         }
     }
