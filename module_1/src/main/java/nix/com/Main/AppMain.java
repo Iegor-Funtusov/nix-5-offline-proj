@@ -17,6 +17,7 @@ public class AppMain implements ActionListener {
     JButton jButtonLevel2;
     JButton jButtonLevel3;
     JButton jButtonExit;
+
     public AppMain() {
 
         jPanel = new JPanel();
