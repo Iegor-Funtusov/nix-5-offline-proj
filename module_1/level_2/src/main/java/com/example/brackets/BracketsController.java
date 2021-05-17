@@ -35,6 +35,10 @@ public class BracketsController {
                 System.exit(0);
                 break;
             }
+            default:{
+                System.out.println("Enter correct operation!");
+                checkBrackets();
+            }
         }
     }
 

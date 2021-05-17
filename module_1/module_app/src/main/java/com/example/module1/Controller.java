@@ -3,6 +3,7 @@ package com.example.module1;
 import com.example.areas.AreaController;
 import com.example.brackets.BracketsController;
 import com.example.knight_move.ChessController;
+import com.example.life.LifeController;
 import com.example.unique_numbers.UniqueNumbersController;
 
 import java.io.BufferedReader;
@@ -36,6 +37,7 @@ public class Controller {
                 break;
             }
             case "3":{
+                selectTaskLevel3();
                 break;
             }
             case "0":{
@@ -43,6 +45,7 @@ public class Controller {
                 break;
             }
             default:{
+                System.out.println("Enter correct operation!");
                 exec();
             }
         }
@@ -76,7 +79,10 @@ public class Controller {
                 System.exit(0);
                 break;
             }
-
+            default:{
+                System.out.println("Enter correct operation!");
+                selectTaskLevel1();
+            }
         }
     }
 
@@ -97,7 +103,34 @@ public class Controller {
                 System.exit(0);
                 break;
             }
+            default:{
+                System.out.println("Enter correct operation!");
+                selectTaskLevel2();
+            }
+        }
+    }
 
+    private void selectTaskLevel3() throws IOException{
+        System.out.println("Select Task to check: " + "\n 1 - Game of Life"
+                + "\n 2 - Back to level selection " +"\n 0 - exit");
+        switch (reader.readLine()){
+            case "1":{
+                gameOfLifeTask();
+                selectTaskLevel3();
+                break;
+            }
+            case "2":{
+                exec();
+                break;
+            }
+            case "0":{
+                System.exit(0);
+                break;
+            }
+            default:{
+                System.out.println("Enter correct operation!");
+                selectTaskLevel3();
+            }
         }
     }
 
@@ -119,6 +152,11 @@ public class Controller {
     private void bracketsTask() throws IOException {
         BracketsController bracketsController = new BracketsController(reader);
         bracketsController.checkBrackets();
+    }
+
+    private void gameOfLifeTask() throws IOException {
+        LifeController lifeController = new LifeController(reader);
+        lifeController.startGame();
     }
 
     private void closeReader(){

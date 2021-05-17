@@ -70,6 +70,10 @@ public class ChessController {
             case "0":
                 System.exit(0);
                 break;
+            default:{
+                System.out.println("Enter correct operation!");
+                chooseOperationAfterMove(chessPiece, reader);
+            }
         }
 
     }
