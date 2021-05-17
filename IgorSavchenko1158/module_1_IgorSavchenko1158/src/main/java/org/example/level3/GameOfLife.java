@@ -1,11 +1,106 @@
 package org.example.level3;
 
+import java.util.Random;
+
 public class GameOfLife {
 
-    private final int BOARD_SIZE = 80;
-    private final char DEAD = '_';
-    private final char ALIVE = '@';
+    private final int BOARD_SIZE = 20;
+    private final char DEAD = '□';
+    private final char ALIVE = '■';
 
-    private boolean[] board;
-    private boolean[] nextGenBoard;
+    // Suppose true = alive
+    private boolean[][] board = new boolean[BOARD_SIZE][BOARD_SIZE];
+    private boolean[][] nextGenBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
+
+    public static GameOfLife initRandom() {
+        GameOfLife life = new GameOfLife();
+        Random random = new Random();
+
+        for (int i = 0; i < life.board.length; i++) {
+            for (int j = 0; j < life.board.length; j++) {
+                life.board[i][j] = random.nextBoolean();
+            }
+        }
+        return life;
+    }
+
+    public static GameOfLife initGlider() {
+        GameOfLife life = new GameOfLife();
+
+        life.board[5][5] = true;
+        life.board[6][5] = true;
+        life.board[7][5] = true;
+        life.board[5][6] = true;
+        life.board[6][7] = true;
+
+        return life;
+    }
+
+    public void progressToNextGen() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                int count = countNeighbors(i, j);
+                if (board[i][j]) {
+                    nextGenBoard[i][j] = count >= 2 && count <= 3;
+                } else if (count == 3) {
+                    nextGenBoard[i][j] = true;
+                }
+            }
+        }
+        board = nextGenBoard;
+        nextGenBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
+    }
+
+    private int countNeighbors(int i, int j) {
+        int count = 0;
+        for (int i1 = i - 1; i1 <= i + 1; i1++) {
+            for (int j1 = j - 1; j1 <= j + 1; j1++) {
+                if (i1 == i && j1 == j) continue;
+                if (board[wrap(i1)][wrap(j1)]) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    private int wrap(int coordinate) {
+        int result = coordinate;
+        if (coordinate < 0) {
+            result = BOARD_SIZE + coordinate;
+        } else if (coordinate >= BOARD_SIZE) {
+            result = coordinate - BOARD_SIZE;
+        }
+        return result;
+    }
+
+    public boolean[][] getBoard() {
+        boolean[][] copy = new boolean[BOARD_SIZE][BOARD_SIZE];
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                copy[i][j] = board[i][j];
+            }
+        }
+        return copy;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            sb.append(i).append('\t');
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j]) {
+                    sb.append(ALIVE);
+                } else {
+                    sb.append(DEAD);
+                }
+                sb.append(" ");
+            }
+            sb.append(System.lineSeparator());
+        }
+
+        return sb.toString();
+    }
 }

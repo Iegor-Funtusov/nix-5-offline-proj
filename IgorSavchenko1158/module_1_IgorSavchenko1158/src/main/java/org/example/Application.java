@@ -3,6 +3,7 @@ package org.example;
 import org.example.level1.ArrayUtil;
 import org.example.level1.TriangleArea;
 import org.example.level1.WrapChessBoard;
+import org.example.level3.GameOfLife;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -18,6 +19,13 @@ public class Application {
             switch (scanner.nextLine()) {
                 case "1": {
                     level1UI(scanner);
+                    break;
+                }
+                case "2": {
+                    break;
+                }
+                case "3": {
+                    level3GoL(scanner);
                     break;
                 }
 
@@ -134,7 +142,35 @@ public class Application {
             System.out.println("Area of the triangle equals " + TriangleArea.calculate(A, B, C));
             break;
         }
+    }
 
+    private static void level3GoL(Scanner scanner) {
+        System.out.println("Press enter to progress the game \n" +
+                "type g to see glider demonstration \n" +
+                "type r to generate new board \n" +
+                "type 0 to return");
+
+        GameOfLife game = GameOfLife.initRandom();
+        while (true) {
+            System.out.println(game);
+            System.out.println("Waiting for input...");
+            switch (scanner.nextLine().toLowerCase()) {
+                case "g": {
+                    game = GameOfLife.initGlider();
+                    break;
+                }
+                case "r": {
+                    game = GameOfLife.initRandom();
+                    break;
+                }
+                case "0": {
+                    return;
+                }
+                default: {
+                    game.progressToNextGen();
+                }
+            }
+        }
 
     }
 }
