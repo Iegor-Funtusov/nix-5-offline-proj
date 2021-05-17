@@ -3,10 +3,14 @@ package org.example;
 import org.example.level1.ArrayUtil;
 import org.example.level1.TriangleArea;
 import org.example.level1.WrapChessBoard;
+import org.example.level2.StringValidator;
 import org.example.level3.GameOfLife;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Application {
@@ -22,6 +26,7 @@ public class Application {
                     break;
                 }
                 case "2": {
+                    level2UI(scanner);
                     break;
                 }
                 case "3": {
@@ -43,7 +48,8 @@ public class Application {
                     "1 -Number of unique elements in an integer array \n" +
                     "2 -Knight moves on infinitely wrapping chessboard \n" +
                     "3 -Calculate area of triangle \n" +
-                    "0 -return");
+                    "4 to run the tasks above automatically \n" +
+                    "0 to return");
 
             switch (scanner.nextLine()) {
                 case "1": {
@@ -56,6 +62,23 @@ public class Application {
                 }
                 case "3": {
                     level1TriangleArea(scanner);
+                    break;
+                }
+                case "4": {
+                    String input = "8 1 2 3 2 4 4 5 6";
+                    System.out.println(">>>" + input);
+                    ByteArrayInputStream emulatedIn = new ByteArrayInputStream(input.getBytes());
+                    level1Uniques(new Scanner(emulatedIn));
+
+                    input = "A1\nC2\nB8\nH7\n0";
+                    System.out.println(">>>" + input);
+                    emulatedIn = new ByteArrayInputStream(input.getBytes());
+                    level1Chess(new Scanner(emulatedIn));
+
+                    input = "0 0 0 4 7 0\n";
+                    System.out.println(">>>" + input);
+                    emulatedIn = new ByteArrayInputStream(input.getBytes());
+                    level1TriangleArea(new Scanner(emulatedIn));
                     break;
                 }
                 case "0":
@@ -141,6 +164,47 @@ public class Application {
             }
             System.out.println("Area of the triangle equals " + TriangleArea.calculate(A, B, C));
             break;
+        }
+    }
+
+    private static void level2UI(Scanner scanner) {
+        System.out.println("Level 2");
+
+        while (true) {
+            System.out.println("Choose task: \n" +
+                    "1 -Validate brackets in a string \n" +
+                    "3 to run the tasks above automatically" +
+                    "0 to return");
+            switch (scanner.nextLine()) {
+                case "1": {
+                    level2Validate(scanner);
+                }
+                case "3": {
+                    String input = "(This) i[s] th{e} {[{first}]} string, (should come back as valid)\n0";
+                    System.out.println(">>>" + input);
+                    ByteArrayInputStream emulatedIn = new ByteArrayInputStream(input.getBytes());
+                    level2Validate(new Scanner(emulatedIn));
+                    input = "(This) i[s] th{e} {[{second}]} string,}{ (should come back as invalid(\n0";
+                    System.out.println(">>>" + input);
+                    emulatedIn = new ByteArrayInputStream(input.getBytes());
+                    level2Validate(new Scanner(emulatedIn));
+                    break;
+                }
+                case "0":
+                    return;
+                default:
+                    System.out.println("Incorrect input");
+            }
+        }
+    }
+
+    private static void level2Validate(Scanner scanner) {
+        while (true) {
+            System.out.println("Enter any string to validate brackets, or enter 0 to return:");
+            String input = scanner.nextLine();
+            if ("0".equals(input)) return;
+            boolean isValid = StringValidator.validateBrackets(input);
+            System.out.println("The brackets in this string are " + (isValid ? "valid" : "not valid"));
         }
     }
 

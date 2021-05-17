@@ -27,7 +27,7 @@ public class GameOfLife {
     public static GameOfLife initGlider() {
         GameOfLife life = new GameOfLife();
 
-        life.board[5][5] = true;
+        life.board[5][5] = true; //TODO
         life.board[6][5] = true;
         life.board[7][5] = true;
         life.board[5][6] = true;
