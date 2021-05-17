@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Life_Game {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    int countSurrounding(int[][] board, int a, int b) {
+    int countSurrounding(int[][] desk, int a, int b) {
         int count = 0;
         int[][] surrounding = {
                 {a - 1, b - 1},
@@ -19,7 +19,7 @@ public class Life_Game {
                 {a + 1, b + 1}};
         for (int i[]: surrounding) {
             try {
-                if (board[i[0]][i[1]] == 1) {
+                if (desk[i[0]][i[1]] == 1) {
                     count++;
                 }
             }
@@ -28,8 +28,8 @@ public class Life_Game {
         return count;
     }
 
-    void printBoard(int[][] board) {
-        for (int[] i: board) {
+    void printDesk(int[][] desk) {
+        for (int[] i: desk) {
             for (int j: i) {
                 if (j == 1) {
                     System.out.print("1");
@@ -92,31 +92,31 @@ public class Life_Game {
         System.out.println("Enter n: ");
         int n = Integer.parseInt(reader.readLine());
 
-        int[][] nextBoard = new int[m][n];
-        for (int i = 0; i < nextBoard.length; i++) {
-            for (int j = 0; j < nextBoard.length; j++) {
-                nextBoard[i][j]=0;
+        int[][] newDesk = new int[m][n];
+        for (int i = 0; i < newDesk.length; i++) {
+            for (int j = 0; j < newDesk.length; j++) {
+                newDesk[i][j]=0;
             }
         }
-        return nextBoard;
+        return newDesk;
     }
     public void processing() throws IOException {
         int counter = 1;
-        int [][]nextBoard = creatingDesk();
-        enteringLive(nextBoard);
-        int[][] board = new int[nextBoard.length][nextBoard[0].length];
+        int [][]newDesk = creatingDesk();
+        enteringLive(newDesk);
+        int[][] desk = new int[newDesk.length][newDesk[0].length];
         while (counter>0){
-            for (int i = 0; i < nextBoard.length; i++) {
-                System.arraycopy(nextBoard[i], 0, board[i], 0, nextBoard[i].length);
+            for (int i = 0; i < newDesk.length; i++) {
+                System.arraycopy(newDesk[i], 0, desk[i], 0, newDesk[i].length);
             }
-            printBoard(board);
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[i].length; j++) {
-                    if (board[i][j] == 1 && !(countSurrounding(board, i, j) == 2 || countSurrounding(board, i, j) == 3)) {
-                        nextBoard[i][j] = 0;
+            printDesk(desk);
+            for (int i = 0; i < desk.length; i++) {
+                for (int j = 0; j < desk[i].length; j++) {
+                    if (desk[i][j] == 1 && !(countSurrounding(desk, i, j) == 2 || countSurrounding(desk, i, j) == 3)) {
+                        newDesk[i][j] = 0;
                     }
-                    else if (board[i][j] == 0 && countSurrounding(board, i, j) == 3) {
-                        nextBoard[i][j] = 1;
+                    else if (desk[i][j] == 0 && countSurrounding(desk, i, j) == 3) {
+                        newDesk[i][j] = 1;
                     }
                 }
             }
