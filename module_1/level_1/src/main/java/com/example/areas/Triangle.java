@@ -13,10 +13,10 @@ public class Triangle implements Shape{
 
     @Override
     public double area() {
-        return (a.getX()*(b.getY()-c.getY())+
+        return Math.abs((a.getX()*(b.getY()-c.getY())+
                 b.getX()*(c.getY()-a.getY())+
                 c.getX()*(a.getY()-b.getY()))
-                /2;
+                /2);
     }
 
     public Point getA() {
@@ -29,5 +29,12 @@ public class Triangle implements Shape{
 
     public Point getC() {
         return c;
+    }
+
+    @Override
+    public String toString(){
+        return"Triangle - A: " + a +
+                " B: " + b +
+                " C: " + c;
     }
 }

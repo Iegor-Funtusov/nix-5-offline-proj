@@ -5,11 +5,16 @@ import com.example.knight_move.chess_piece.Knight;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class ChessController {
+    private final BufferedReader reader;
+
+    public ChessController(BufferedReader reader){
+        this.reader = reader;
+    }
+
     public void exec(){
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+        try{
             ChessPiece chessPiece = new Knight();
             setStartPoint(chessPiece, reader);
             moveChessPiece(chessPiece, reader);
@@ -41,22 +46,27 @@ public class ChessController {
         System.out.println("\n");
         if(chessPiece.isPossibleMove(x,y) && chessPiece.isChessboardBound(x,y)){
             chessPiece.setPosition(x,y);
+            System.out.println("New position is: X - " + chessPiece.getPosX() + " Y - "+chessPiece.getPosY());
             chooseOperationAfterMove(chessPiece, reader);
         } else {
             System.out.println("Please, enter right coordinate:X > 0, Y > 0 "+
                     "\nor check possible move for your chess piece");
-            moveChessPiece(chessPiece, reader);
+            chooseOperationAfterMove(chessPiece, reader);
         }
     }
     private void chooseOperationAfterMove(ChessPiece chessPiece, BufferedReader reader) throws IOException{
-        System.out.println("Choose next operation: " +"\n1 - go to choose new chess piece"+
-                "\n2 - continue move chess piece"+"\n0 - exit");
+        System.out.println("\nChoose next operation: " +"\n1 - go to choose new chess piece"+
+                "\n2 - continue move chess piece"+"\n3 - Back to Task selection"+"\n0 - exit");
         String read = reader.readLine();
         switch (read){
             case "1":
                 exec();
+                break;
             case "2":
                 moveChessPiece(chessPiece, reader);
+                break;
+            case "3":
+                break;
             case "0":
                 System.exit(0);
                 break;
