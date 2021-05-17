@@ -22,7 +22,7 @@ public class ConsoleApp {
         System.out.println("Hello everybody!");
         while (true) {
             System.out.println("Please, choose the operation: ");
-            chooseMessage();
+            consoleApp.chooseMessage();
             String x = bufferedReader.readLine();
             switch (x) {
                 case "1": {
@@ -113,13 +113,13 @@ public class ConsoleApp {
         userService.create(temporaryUser);
     }
 
-    private static void updateUser(String name, Integer age){
+    private void updateUser(String name, Integer age){
         temporaryUser.setName(name);
         temporaryUser.setAge(age);
         userService.update(temporaryUser);
     }
 
-    private static void chooseMessage() {
+    private void chooseMessage() {
         System.out.println("1 - Create User");
         System.out.println("2 - Read User by id");
         System.out.println("3 - Update User");
