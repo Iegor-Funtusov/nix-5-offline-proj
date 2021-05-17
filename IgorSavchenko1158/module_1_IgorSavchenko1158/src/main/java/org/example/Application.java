@@ -7,10 +7,8 @@ import org.example.level2.StringValidator;
 import org.example.level3.GameOfLife;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Application {
@@ -19,7 +17,7 @@ public class Application {
         Scanner scanner;
         while (true) {
             scanner = new Scanner(System.in);
-            System.out.println("Choose level 1-3:");
+            System.out.println("Choose level 1-3 or 0 to exit:");
             switch (scanner.nextLine()) {
                 case "1": {
                     level1UI(scanner);
@@ -33,7 +31,9 @@ public class Application {
                     level3GoL(scanner);
                     break;
                 }
-
+                case "0": {
+                    return;
+                }
                 default: {
                     System.out.println("Incorrect input");
                 }
@@ -178,6 +178,7 @@ public class Application {
             switch (scanner.nextLine()) {
                 case "1": {
                     level2Validate(scanner);
+                    break;
                 }
                 case "3": {
                     String input = "(This) i[s] th{e} {[{first}]} string, (should come back as valid)\n0";
@@ -212,6 +213,7 @@ public class Application {
         System.out.println("Press enter to progress the game \n" +
                 "type g to see glider demonstration \n" +
                 "type r to generate new board \n" +
+                "type a to automatically progress 100 generations \n" +
                 "type 0 to return");
 
         GameOfLife game = GameOfLife.initRandom();
@@ -225,6 +227,13 @@ public class Application {
                 }
                 case "r": {
                     game = GameOfLife.initRandom();
+                    break;
+                }
+                case "a": {
+                    for (int i = 0; i < 100; i++) {
+                        game.progressToNextGen();
+                        System.out.println(game);
+                    }
                     break;
                 }
                 case "0": {

@@ -5,6 +5,9 @@ import java.util.Deque;
 import java.util.NoSuchElementException;
 
 public class StringValidator {
+    private StringValidator() {
+    }
+
     public static boolean validateBrackets(String string) {
         final String opening = "({[";
         final String closing = ")}]";
@@ -33,39 +36,5 @@ public class StringValidator {
         }
 
         return stack.isEmpty();
-
-
-//        System.out.println("StringValidator.validateBrackets");
-//        System.out.println(string);
-//        String opening = "[\\{\\(\\[]";
-//        String closing = "[\\}\\)\\]]";
-//
-//        Pattern pOpening = Pattern.compile(opening);
-//        Pattern pClosing;// = Pattern.compile(closing);
-//        Matcher mOpening = pOpening.matcher(string);
-//        if(mOpening.find()) {
-//            int bracketOpened = mOpening.end();
-//            String closingBracket = mOpening.group().equals("{") ? "\\}" : (mOpening.group().equals("(") ? "\\)" : "\\]");
-//            System.out.println(closingBracket);
-//            System.out.println("bracketOpened = " + bracketOpened);
-//            System.out.println("mOpeninggroup = " + mOpening.group());
-//            pClosing = Pattern.compile(closingBracket);
-//            Matcher mClosing = pClosing.matcher(string.substring(bracketOpened));
-//            if(mClosing.find()) {
-//                System.out.println("mClosing.group() = " + mClosing.group());
-//                return validateBrackets(string.substring(bracketOpened, mClosing.end())) &&
-//                        validateBrackets(string.substring(mClosing.end() + 1));
-//            } else {
-//                return false;
-//            }
-//        } else {
-//            pClosing = Pattern.compile(closing);
-//            Matcher mClosing = pClosing.matcher(string);
-//            if(mClosing.find()) {
-//                return false;
-//            } else {
-//                return true;
-//            }
-//        }
     }
 }

@@ -4,13 +4,12 @@ import java.util.Random;
 
 public class GameOfLife {
 
-    private final int BOARD_SIZE = 20;
-    private final char DEAD = '□';
-    private final char ALIVE = '■';
+    private static final int BOARD_SIZE = 20;
+    private static final char DEAD = '□';
+    private static final char ALIVE = '■';
 
     // Suppose true = alive
     private boolean[][] board = new boolean[BOARD_SIZE][BOARD_SIZE];
-    private boolean[][] nextGenBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
 
     public static GameOfLife initRandom() {
         GameOfLife life = new GameOfLife();
@@ -37,6 +36,7 @@ public class GameOfLife {
     }
 
     public void progressToNextGen() {
+        final boolean[][] nextGenBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 int count = countNeighbors(i, j);
@@ -48,7 +48,6 @@ public class GameOfLife {
             }
         }
         board = nextGenBoard;
-        nextGenBoard = new boolean[BOARD_SIZE][BOARD_SIZE];
     }
 
     private int countNeighbors(int i, int j) {
@@ -73,16 +72,6 @@ public class GameOfLife {
             result = coordinate - BOARD_SIZE;
         }
         return result;
-    }
-
-    public boolean[][] getBoard() {
-        boolean[][] copy = new boolean[BOARD_SIZE][BOARD_SIZE];
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                copy[i][j] = board[i][j];
-            }
-        }
-        return copy;
     }
 
     @Override
