@@ -10,15 +10,14 @@ public class MoveKnight {
         String str;
         do {
             ChessBoard board = new ChessBoard();
-            System.out.println("Для выхода из приложения введите \"0\"");
+            System.out.println("Для выхода из задания введите \"0\"");
             System.out.println("Где вы хотите разместить фигуру коня? (например \"d4\")");
             str = reader.readLine();
-            char[] chArr = str.toCharArray();
             if (ChessFigure.checkWithRegExp(str)) {
                 ChessFigure knight = new ChessFigure(str);
                 board.setFigure(knight);
                 do {
-                    System.out.println("Для выхода из приложения введите \"0\"");
+                    System.out.println("Для выхода из задания введите \"0\"");
                     System.out.println("Куда вы хотите передвинуть фигуру? (например `d4`)");
                     str = reader.readLine();
                     if (ChessFigure.checkWithRegExp(str)) {
