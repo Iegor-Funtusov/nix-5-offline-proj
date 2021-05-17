@@ -1,6 +1,7 @@
 package com.example.module1;
 
 import com.example.areas.AreaController;
+import com.example.binary_tree.BinaryTreeController;
 import com.example.brackets.BracketsController;
 import com.example.knight_move.ChessController;
 import com.example.life.LifeController;
@@ -88,7 +89,7 @@ public class Controller {
 
     private void selectTaskLevel2() throws IOException{
         System.out.println("Select Task to check: " + "\n 1 - correct brackets"
-                + "\n 2 - Back to level selection " +"\n 0 - exit");
+                + "\n 2 - Max depth of binary tree" + "\n 3 - Back to level selection " +"\n 0 - exit");
         switch (reader.readLine()){
             case "1":{
                 bracketsTask();
@@ -96,6 +97,11 @@ public class Controller {
                 break;
             }
             case "2":{
+                binaryTreeTask();
+                selectTaskLevel2();
+                break;
+            }
+            case "3":{
                 exec();
                 break;
             }
@@ -152,6 +158,11 @@ public class Controller {
     private void bracketsTask() throws IOException {
         BracketsController bracketsController = new BracketsController(reader);
         bracketsController.checkBrackets();
+    }
+
+    private void binaryTreeTask() throws IOException {
+        BinaryTreeController binaryTreeController = new BinaryTreeController(reader);
+        binaryTreeController.depthOfBinaryTree();
     }
 
     private void gameOfLifeTask() throws IOException {
