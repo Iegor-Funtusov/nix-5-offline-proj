@@ -1,1 +1,1 @@
-# nix-5-offline-proj
+Starting application from Main
