@@ -9,7 +9,6 @@ public class KnightMove {
 
         int x = 0;
         int y = 0;
-
         System.out.println("Введите начальные координаты X и Y: ");
         int X = Integer.parseInt(reader.readLine());
         int Y = Integer.parseInt(reader.readLine());
