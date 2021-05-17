@@ -1,6 +1,7 @@
 package com.example.module1;
 
 import com.example.areas.AreaController;
+import com.example.brackets.BracketsController;
 import com.example.knight_move.ChessController;
 import com.example.unique_numbers.UniqueNumbersController;
 
@@ -9,7 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Controller {
-    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
     public void exec(){
         try{
             System.out.println("Select the level that you want to check: " + "\n 1 - Level 1"
@@ -18,8 +20,11 @@ public class Controller {
         } catch (IOException ex){
             System.out.println(ex.getMessage());
             ex.printStackTrace();
+        } finally {
+            closeReader();
         }
     }
+
     private void chooseLevel(String read) throws IOException{
         switch (read){
             case "1":{
@@ -27,6 +32,7 @@ public class Controller {
                 break;
             }
             case "2":{
+                selectTaskLevel2();
                 break;
             }
             case "3":{
@@ -74,6 +80,27 @@ public class Controller {
         }
     }
 
+    private void selectTaskLevel2() throws IOException{
+        System.out.println("Select Task to check: " + "\n 1 - correct brackets"
+                + "\n 2 - Back to level selection " +"\n 0 - exit");
+        switch (reader.readLine()){
+            case "1":{
+                bracketsTask();
+                selectTaskLevel2();
+                break;
+            }
+            case "2":{
+                exec();
+                break;
+            }
+            case "0":{
+                System.exit(0);
+                break;
+            }
+
+        }
+    }
+
     private void uniqueNumbersTask() throws IOException {
         UniqueNumbersController uniqueNumbersController = new UniqueNumbersController(reader);
         uniqueNumbersController.checkUniqueNumbers();
@@ -89,4 +116,16 @@ public class Controller {
         areaController.calculateAreaOfTriangle();
     }
 
+    private void bracketsTask() throws IOException {
+        BracketsController bracketsController = new BracketsController(reader);
+        bracketsController.checkBrackets();
+    }
+
+    private void closeReader(){
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
