@@ -14,10 +14,6 @@ public class ValidStringChecker {
 
             Character currentChar = string.charAt(i);
 
-//            if(currentChar != ')' || currentChar != ']' || currentChar != '}' ||
-//               currentChar != '(' || currentChar != '[' || currentChar != '{')
-//                continue;
-
             if (currentChar == '(' || currentChar == '[' || currentChar == '{') {
                 stack.push(currentChar);
                 continue;
