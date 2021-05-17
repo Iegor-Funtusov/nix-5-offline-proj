@@ -13,6 +13,7 @@ class StringHandlerTest {
         StringHandler stringHandler = new StringHandler("zxc(zxc]a[sd)z");
         assertFalse(stringHandler.handle());
     }
+
     @Test
     @DisplayName("Handle valid string")
     void handle2() {
