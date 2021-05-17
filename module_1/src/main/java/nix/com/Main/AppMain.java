@@ -1,5 +1,6 @@
 package nix.com.Main;
 
+import nix.com.lvl_2.binary_tree.BinaryTree;
 import nix.com.lvl_2.lvl_2_frame;
 import nix.com.lvl_1.lvl_1_frame;
 import nix.com.lvl_3.GameOfLife;

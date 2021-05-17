@@ -240,6 +240,15 @@ public class lvl_1_frame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jButtonTriangleExecute) {
+            if (jTextFieldAreaInX1.getText().isBlank()
+                    || jTextFieldAreaInX2.getText().isBlank()
+                    || jTextFieldAreaInY1.getText().isBlank()
+                    || jTextFieldAreaInY2.getText().isBlank()
+                    || jTextFieldAreaInX3.getText().isBlank()
+                    || jTextFieldAreaInY3.getText().isBlank()) {
+                Error("Input all fields");
+                return;
+            }
             Point a = new Point(Integer.parseInt(jTextFieldAreaInX1.getText()), Integer.parseInt(jTextFieldAreaInY1.getText()));
             Point b = new Point(Integer.parseInt(jTextFieldAreaInX2.getText()), Integer.parseInt(jTextFieldAreaInY2.getText()));
             Point c = new Point(Integer.parseInt(jTextFieldAreaInX3.getText()), Integer.parseInt(jTextFieldAreaInY3.getText()));
@@ -271,7 +280,7 @@ public class lvl_1_frame implements ActionListener {
 
                 jTextFieldUniqueOut.setText(String.valueOf(numUniqueSym.getUniqueSymbols(array)));
             } else {
-                Error();
+                Error("Wrong input");
             }
         }
 
@@ -279,22 +288,22 @@ public class lvl_1_frame implements ActionListener {
             String coords = jTextFieldChessIn.getText();
 
             if (coords.length() < 1) {
-                Error();
+                Error("Wrong input");
                 return;
             }
 
             if (jButtonChessExecute.getText().equals("Move knight")) {
-                PieceCoordinate pieceCoordinate = null;
+                PieceCoordinate pieceCoordinate;
                 try {
                     pieceCoordinate = new PieceCoordinate(coords);
                     if (pieceKnight.isCanMove(pieceCoordinate)) {
                         chessBoard.updateBoard(coords);
                         jTextAreaChessOut.setText(chessBoard.drawBoard().toString());
                     }else {
-                        Error();
+                        Error("Enter coords");
                     }
                 } catch (Exception exception) {
-                    Error();
+                    Error("Wrong input");
                 }
             } else {
 
@@ -303,7 +312,7 @@ public class lvl_1_frame implements ActionListener {
                     chessBoard.updateBoard(coords);
                     jTextAreaChessOut.setText(chessBoard.drawBoard().toString());
             } catch (Exception exception) {
-                Error();
+                Error("Wrong input");
             }
             jButtonChessExecute.setText("Move knight");
             }
@@ -323,9 +332,9 @@ public class lvl_1_frame implements ActionListener {
             jFrame.dispose();
         }
     }
-    public void Error () {
+    public void Error (String errorName) {
         JOptionPane.showMessageDialog(jFrame,
-                "Wrong input",
+                errorName,
                 "Error",
                 JOptionPane.ERROR_MESSAGE);
     }
