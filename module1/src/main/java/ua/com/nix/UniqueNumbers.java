@@ -14,15 +14,15 @@ public class UniqueNumbers {
             int amountOfNumbers = 0;
             System.out.println("Введите числа: ");
 
-            for(int i = 0; i < array.length; ++i) {
+            for(int i = 0; i < array.length; i++) {
                 int numbers = Integer.parseInt(reader.readLine());
                 array[i] = numbers;
             }
 
-            for(int i = 0; i < array.length; ++i) {
+            for(int i = 0; i < array.length; i++) {
                 amountOfNumbers++;
 
-                for(int j = i + 1; j < array.length; ++j) {
+                for(int j = i + 1; j < array.length; j++) {
                     if (array[j] == array[i]) {
                         count++;
                         break;
