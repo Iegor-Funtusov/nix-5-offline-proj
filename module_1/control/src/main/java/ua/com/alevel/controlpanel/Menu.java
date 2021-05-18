@@ -18,21 +18,26 @@ public class Menu {
                     "2 -> Second level\n" +
                     "3 -> Third level\n" +
                     "0 -> Exit");
-            while ((input = reader.readLine())!= null) {
+            while ((input = reader.readLine()) != null) {
                 switch (input) {
-                    case "1" : {
+                    case "1": {
                         FirstLevel.controlFirstLevel();
-                    } break;
-                    case "2" : {
-                    } break;
-                    case "3" : {
-                    } break;
+                    }
+                    break;
+                    case "2": {
+                    }
+                    break;
+                    case "3": {
+                    }
+                    break;
                     case "0": {
                         System.exit(0);
-                    } break;
+                    }
+                    break;
                     default: {
                         System.out.println("Wrong input. Use numbers 0-3");
-                    } break;
+                    }
+                    break;
                 }
                 System.out.println("Choose the level:\n" +
                         "1 -> First level\n" +

@@ -1,11 +1,14 @@
 package ua.com.alevel.controlpanel;
 
 import ua.com.alevel.UniqueSymbols;
+import ua.com.alevel.turnKnight.TurnKnight;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
+
 
 public class FirstLevel {
     private static BufferedReader reader;
@@ -55,7 +58,7 @@ public class FirstLevel {
         }
     }
 
-    public static void uniqueSymbols() throws IOException{
+    public static void uniqueSymbols() throws IOException {
         Scanner s = new Scanner(System.in);
         System.out.println("Choose generation:\n" +
                 "1 -> User generation\n" +
@@ -74,7 +77,7 @@ public class FirstLevel {
                     array[i] = element;
                     i++;
                 }
-                System.out.println("\nQuantity unique symbols: "+UniqueSymbols.countUnique(array));
+                System.out.println("\nQuantity unique symbols: " + UniqueSymbols.countUnique(array));
                 break;
             }
             case "2": {
@@ -88,10 +91,10 @@ public class FirstLevel {
                     System.out.print(array[i] + " ");
                     i++;
                 }
-                System.out.println("\nQuantity unique symbols: "+UniqueSymbols.countUnique(array));
+                System.out.println("\nQuantity unique symbols: " + UniqueSymbols.countUnique(array));
                 break;
             }
-            default:{
+            default: {
                 System.out.println("Wrong input. Use 1 or 2");
             }
             break;
@@ -99,9 +102,39 @@ public class FirstLevel {
         }
     }
 
-    public static void knightTurn(){
+    public static void knightTurn() throws IOException {
+        TurnKnight board = new TurnKnight();
+        boolean isPlaced = false;
+        do {
+            System.out.println("Place knight (format A1, H8)");
+            char[] coords = reader.readLine().toCharArray();
+            try {
+                isPlaced = board.place(coords[0] - 'A', Integer.parseInt(String.valueOf(coords[1])) - 1);
+            } catch (IndexOutOfBoundsException | NumberFormatException ex) {
+                System.out.println("Wrong input");
+            }
+        } while (!isPlaced);
+        System.out.println(board);
+
+        while (true) {
+            System.out.println("Move knight (format A1, H8)");
+            String input = reader.readLine();
+            char[] coords = input.toCharArray();
+            boolean isMoved;
+            try {
+                isMoved = board.move(coords[0] - 'A', Integer.parseInt(String.valueOf(coords[1])) - 1);
+            } catch (IndexOutOfBoundsException | NumberFormatException ex) {
+                System.out.println("Wrong input");
+                continue;
+            }
+            if (!isMoved) {
+                System.out.println(Arrays.toString(coords) + " wrong move");
+            }
+            System.out.println(board);
+        }
     }
 
-    public static void triangleArea(){
+    public static void triangleArea() {
     }
 }
+
