@@ -1,5 +1,6 @@
 package ua.davidenko;
 
+import ua.davidenko.leve_3.task_1.GameMain;
 import ua.davidenko.level_1.Level_1_Main;
 import ua.davidenko.level_2.task_1.Level_2_Main;
 
@@ -26,6 +27,8 @@ public class MainApp {
                     Level_2_Main.startString();
                     break;
                 case "3":
+                    GameMain.chooseGame();
+                    break;
             }
         }
     }
