@@ -1,13 +1,18 @@
 package ua.com.alevel.controlpanel;
 
+import ua.com.alevel.TriangleArea;
 import ua.com.alevel.UniqueSymbols;
-import ua.com.alevel.turnKnight.TurnKnight;
+import ua.com.alevel.TurnKnight;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import static java.lang.Math.*;
+import static java.lang.Math.round;
 
 
 public class FirstLevel {
@@ -16,6 +21,7 @@ public class FirstLevel {
     public static void controlFirstLevel() {
         reader = new BufferedReader(new InputStreamReader(System.in));
         String input;
+
 
         try {
             System.out.println("Choose the level:\n" +
@@ -87,7 +93,7 @@ public class FirstLevel {
                 System.out.print("Random array elements: ");
                 int i = 0;
                 while (i < size) {
-                    array[i] = (int) Math.round((Math.random() * 50) - 25);
+                    array[i] = (int) round((random() * 50) - 25);
                     System.out.print(array[i] + " ");
                     i++;
                 }
@@ -117,8 +123,12 @@ public class FirstLevel {
         System.out.println(board);
 
         while (true) {
-            System.out.println("Move knight (format A1, H8)");
+            System.out.println("Move knight (format A1, H8)\n" +
+                    "0 -> Exit to menu");
             String input = reader.readLine();
+            if ("0".equals(input)) {
+                return;
+            }
             char[] coords = input.toCharArray();
             boolean isMoved;
             try {
@@ -134,7 +144,54 @@ public class FirstLevel {
         }
     }
 
-    public static void triangleArea() {
+    public static void triangleArea() throws IOException {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Choose generation:\n" +
+                "1 -> User generation\n" +
+                "2 -> Random Generation\n" +
+                "0 -> Return to menu");
+        String input = reader.readLine();
+
+        switch (input) {
+            case "1": {
+                System.out.println("Enter A coords " +
+                        "x: ");
+                int ax = s.nextInt();
+                System.out.println("y:");
+                int ay = s.nextInt();
+                System.out.println("Input B coords\n" +
+                        "x: ");
+                int bx = s.nextInt();
+                System.out.println("y: ");
+                int by = s.nextInt();
+                System.out.println("Input C coords\n" +
+                        "x: ");
+                int cx = s.nextInt();
+                System.out.println("y: ");
+                int cy = s.nextInt();
+                Point a = new Point(ax, ay);
+                Point b = new Point(bx, by);
+                Point c = new Point(cx, cy);
+                System.out.println("Triangle area : " + TriangleArea.calculate(a, b, c));
+                break;
+            }
+            case "2": {
+                Point a = new Point((int) round((random() * 50) - 25), (int) round((random() * 50) - 25));
+                Point b = new Point((int) round((random() * 50) - 25), (int) round((random() * 50) - 50));
+                Point c = new Point((int) round((random() * 50) - 25), (int) round((random() * 50) - 25));
+                System.out.println("Point A: " + a.x + ", " + a.y);
+                System.out.println("Point B: " + b.x + ", " + b.y);
+                System.out.println("Point C: " + c.x + ", " + c.y);
+                System.out.println("Area of a triangle: " + TriangleArea.calculate(a, b, c));
+                break;
+            }
+            case "0": {
+                return;
+            }
+            default: {
+                System.out.println("Wrong input. Use numbers 0-2");
+            }
+            break;
+        }
     }
 }
-

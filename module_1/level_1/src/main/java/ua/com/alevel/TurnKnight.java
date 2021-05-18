@@ -1,4 +1,4 @@
-package ua.com.alevel.turnKnight;
+package ua.com.alevel;
 
 public class TurnKnight {
     private static final int BOARD_SIZE = 8;
