@@ -27,7 +27,6 @@ public class MoveKnight {
             } else {
                 System.out.println("Вы ввели неправильные данные");
             }
-
         } while (!str.equals("0"));
     }
 }

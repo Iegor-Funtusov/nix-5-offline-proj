@@ -13,8 +13,8 @@ public class GOLinterface {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str;
         do {
-            System.out.println("Для выхода из задания введите \"<\"");
             System.out.println("Как вы хотите протестировать задание? \n 1 - ручной режим \n 2 - автоматический режим");
+            System.out.println("Для возврата в предыдущее меню введите \"<\"");
             str = reader.readLine();
             if (str.equals("1")) {
                 GOLboard board = boardInput();
