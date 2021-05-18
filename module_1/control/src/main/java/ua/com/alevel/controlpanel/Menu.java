@@ -25,6 +25,7 @@ public class Menu {
                     }
                     break;
                     case "2": {
+                        SecondLevel.stringValidator();
                     }
                     break;
                     case "3": {
