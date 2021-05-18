@@ -17,9 +17,23 @@ public class TriangleCreater {
         int coordCx = Integer.parseInt(br.readLine());
         int coordcY = Integer.parseInt(br.readLine());
         System.out.println(" Triangle Area is : ");
-        System.out.println(TriangleArea.calculeteArea(coordAx,coordAy,coordBx,coordBy,coordCx,coordcY));
-
+        System.out.println(TriangleArea.calculeteArea(coordAx, coordAy, coordBx, coordBy, coordCx, coordcY));
     }
 
-
+    public static void randomTriengle() {
+        int coordAx = ((int) (Math.random() * 100)- 50);
+        System.out.println("coordAx is: " + coordAx);
+        int coordAy = ((int) (Math.random() * 100) - 50);
+        System.out.println("coordAy is: " + coordAy);
+        int coordBx = ((int) (Math.random() * 100) - 50);
+        System.out.println("coordBx is: " + coordBx);
+        int coordBy = ((int) (Math.random() * 100) -50);
+        System.out.println("coordBy is: " + coordBy);
+        int coordCx = ((int) (Math.random() * 100) -50);
+        System.out.println("coordCx is: " + coordCx);
+        int coordCy = ((int) (Math.random() * 100) - 50);
+        System.out.println("coordCy is: " + coordCy);
+        double area = TriangleArea.calculeteArea(coordAx, coordAy, coordBx, coordBy, coordCx, coordCy);
+        System.out.println("Rundom Triangle Area is : " + area);
+    }
 }
