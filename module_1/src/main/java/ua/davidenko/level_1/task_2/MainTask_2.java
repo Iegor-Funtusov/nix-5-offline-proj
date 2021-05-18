@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainTask_2 {
-    public static void main(String[] args) throws IOException {
+    public static void startMove() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean continueMove = false;
         while (true) {
