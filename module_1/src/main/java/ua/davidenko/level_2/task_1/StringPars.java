@@ -6,7 +6,7 @@ public class StringPars {
         int check = 0;
         for (int i = 0; i < str.length(); i++) {
             if (check < 0) {
-                //return false;
+                return false;
             }
             String charBrack = str.substring(i, i + 1);
             if (charBrack.equals("(") || charBrack.equals("{") || charBrack.equals("[")) {
