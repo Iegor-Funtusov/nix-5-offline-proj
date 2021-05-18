@@ -29,6 +29,7 @@ public class Menu {
                     }
                     break;
                     case "3": {
+                        ThirdLevel.run();
                     }
                     break;
                     case "0": {
