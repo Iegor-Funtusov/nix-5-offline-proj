@@ -1,0 +1,4 @@
+Maven commands:
+mvn compile
+mvn package
+java -jar target/unit_3_arrays_rina-b-1.0-SNAPSHOT.jar
