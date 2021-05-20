@@ -1,5 +1,0 @@
-cd unit_2
-
-mvn clean install
-
-java -jar target\Tets5-1.0-SNAPSHOT.jar
