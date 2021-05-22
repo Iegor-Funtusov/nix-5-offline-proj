@@ -1,25 +1,25 @@
-package nix.com;
+package nix.com.book;
 
 public class Book {
 
     private String id;
-    private String title;
-    private Integer numPg;
+    private String Title;
+    private Integer NumPg;
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.Title = title;
     }
 
     public Integer getNumPg() {
-        return numPg;
+        return NumPg;
     }
 
     public void setNumPg(Integer numPg) {
-        this.numPg = numPg;
+        this.NumPg = numPg;
     }
 
     public String getId() {
@@ -34,8 +34,8 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", numPg=" + numPg +
+                ", title='" + Title + '\'' +
+                ", numPg=" + NumPg +
                 '}';
     }
 }

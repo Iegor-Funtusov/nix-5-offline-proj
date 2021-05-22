@@ -1,4 +1,4 @@
-package nix.com;
+package nix.com.book;
 
 public class BookService {
 

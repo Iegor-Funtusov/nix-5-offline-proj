@@ -1,8 +1,13 @@
 package nix.com;
 
+import nix.com.author.Author;
+import nix.com.author.AuthorService;
+import nix.com.book.Book;
+import nix.com.book.BookService;
+
 public class AppMain {
     public static void main(String[] args) {
-        BookService bookService = new BookService();
+        /*BookService bookService = new BookService();
 
         Book book1 = new Book();
         book1.setNumPg(10);
@@ -31,6 +36,18 @@ public class AppMain {
         bookService.update(bookUpdate);
 
         books = bookService.readAll();
-        System.out.println("update " + books[0] + " " + books[1]);
+        System.out.println("update " + books[0] + " " + books[1]);*/
+
+        AuthorService authorService = new AuthorService();
+
+        Author author = new Author();
+        author.setAge(10);
+       // author.setName("a");
+
+        authorService.create(author);
+
+        Author[] authors = authorService.readAll();
+
+        System.out.println("read create " + authors[0] + " " + authors[1]);
     }
 }
