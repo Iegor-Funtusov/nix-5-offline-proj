@@ -43,11 +43,13 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public Student findById(String id){
         for(Student s : entities){
-            if(!s.isDeleted() && s.getId().equals(id)){
-                return s;
+            if(s != null){
+                if(!s.isDeleted() && s.getId().equals(id)){
+                    return s;
+                }
             }
         }
-        throw new RuntimeException("Entity is not exist");
+        return null;
     }
 
     @Override

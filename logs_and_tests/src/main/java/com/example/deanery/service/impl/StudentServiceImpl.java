@@ -1,5 +1,6 @@
 package com.example.deanery.service.impl;
 
+import com.example.deanery.dao.StudentDao;
 import com.example.deanery.dao.impl.StudentDaoImpl;
 import com.example.deanery.model.Student;
 import com.example.deanery.service.StudentService;
@@ -10,7 +11,7 @@ public class StudentServiceImpl implements StudentService {
     private static final Logger LOGGER_INFO = LoggerFactory.getLogger("info");
     private static final Logger LOGGER_WARN = LoggerFactory.getLogger("warn");
     private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
-    private final StudentDaoImpl studentDao = new StudentDaoImpl();
+    private final StudentDao studentDao = new StudentDaoImpl();
 
     @Override
     public void create(Student student) {
@@ -51,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
         if(student != null){
             return true;
         } else {
-            LOGGER_ERROR.error("Student cant be empty");
+            LOGGER_ERROR.error("Student cant be null");
             return false;
         }
     }

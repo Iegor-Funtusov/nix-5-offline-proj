@@ -78,6 +78,13 @@ public class CourseDaoImplTest {
     }
 
     @Test
+    public void findByName(){
+        String name = courseArray[2].getName();
+        Course course1 = courseDao.findByName(name);
+
+        Assert.assertEquals(name, course1.getName());
+    }
+    @Test
     public void findAll() {
         Course[] courses = courseDao.findAll();
 

@@ -43,11 +43,25 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public Course findById(String id){
         for(Course course : entities){
-            if(!course.isDeleted() && course.getId().equals(id)){
-                return course;
+            if(course != null){
+                if(!course.isDeleted() && course.getId().equals(id)){
+                    return course;
+                }
             }
         }
-        throw new RuntimeException("Entity is not exist");
+        return null;
+    }
+
+    @Override
+    public Course findByName(String name){
+        for (Course entity : entities) {
+            if (entity != null) {
+                if (!entity.isDeleted() && entity.getName().equals(name)) {
+                    return entity;
+                }
+            }
+        }
+        return null;
     }
 
     @Override
