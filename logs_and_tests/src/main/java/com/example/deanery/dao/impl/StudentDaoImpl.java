@@ -38,12 +38,13 @@ public class StudentDaoImpl implements StudentDao {
     public void delete(String id) {
         for(int i = 0; i < indexOfEntities; i++){
             if(entities[i].getId().equals(id)){
-                entities[i] = null;
-                indexOfEntities--;
-                for(int j = i+1; j < indexOfEntities+1; j++){
-                    entities[j-1] = entities[j];
-                    entities[j] = null;
-                }
+//                entities[i] = null;
+//                indexOfEntities--;
+                entities[i].setDeleted(true);
+//                for(int j = i+1; j < indexOfEntities+1; j++){
+//                    entities[j-1] = entities[j];
+//                    entities[j] = null;
+//                }
             }
         }
     }
@@ -51,7 +52,7 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public Student findById(String id) {
         for(Student s : entities){
-            if(s.getId().equals(id)){
+            if(!s.isDeleted() && s.getId().equals(id)){
                 return s;
             }
         }
@@ -60,7 +61,9 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student[] findAll() {
-        return entities;
+        return Arrays.stream(entities)
+                .filter(e -> e != null && !e.isDeleted())
+                .toArray(Student[]::new);
     }
 
     private void increaseEntities(){

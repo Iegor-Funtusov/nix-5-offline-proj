@@ -4,6 +4,7 @@ public class Student {
     private String id;
     private String firstName;
     private String lastName;
+    private boolean isDeleted;
 
     public String getId() {
         return id;
@@ -27,5 +28,13 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 }
