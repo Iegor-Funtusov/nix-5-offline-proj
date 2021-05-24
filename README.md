@@ -1,1 +1,1 @@
-# nix-5-offline-proj
+# Left to finish: studentUI, add logs and tests
