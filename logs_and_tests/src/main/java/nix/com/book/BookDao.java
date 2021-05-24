@@ -1,5 +1,6 @@
 package nix.com.book;
 
+import nix.com.book.Book;
 import org.apache.commons.beanutils.BeanUtils;
 
 import java.util.Arrays;
@@ -49,7 +50,7 @@ public class BookDao {
             newBooks[k++] = books[i];
         }
         books = Arrays.copyOf(newBooks, books.length - 1);
-
+        iter--;
     }
 
     public Book findById(String id) {
@@ -60,7 +61,27 @@ public class BookDao {
         }
         return null;
     }
+    public Book[] findByName(String name) {
+        Book[] booksFind = new Book[books.length];
+        for (int i = 0, j = 0; i < iter; i++) {
+            if (books[i].getTitle().equals(name)) {
+                booksFind[j] = books[i];
+                j++;
+            }
+        }
+        return booksFind;
+    }
 
+    public Book[] findByAge(int age) {
+        Book[] booksFind = new Book[books.length];
+        for (int i = 0, j = 0; i < iter; i++) {
+            if (books[i].getNumPg() == age) {
+                booksFind[j] = books[i];
+                j++;
+            }
+        }
+        return booksFind;
+    }
     private String generateId (String id) {
         return UUID.randomUUID().toString();
     }
