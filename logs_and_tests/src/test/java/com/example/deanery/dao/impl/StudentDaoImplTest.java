@@ -1,5 +1,6 @@
 package com.example.deanery.dao.impl;
 
+import com.example.deanery.dao.StudentDao;
 import com.example.deanery.model.Student;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +12,7 @@ public class StudentDaoImplTest {
     private static final String FIRST_NAME = "first_name";
     private static final String LAST_NAME = "last_name";
     private static final String LAST_NAME_UPDATE = "last_nameUPD";
-    private static final StudentDaoImpl studentDao = new StudentDaoImpl();
+    private static final StudentDao studentDao = new StudentDaoImpl();
     private static Student[] studentArray;
 
     @BeforeAll
@@ -75,9 +76,7 @@ public class StudentDaoImplTest {
     @Test
     public void findById() {
         Student student = studentArray[5];
-
         Student studentFind = studentDao.findById(student.getId());
-
         Assert.assertNotNull(studentFind);
     }
 

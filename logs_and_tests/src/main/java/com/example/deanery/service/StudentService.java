@@ -1,8 +1,8 @@
-package com.example.deanery.dao;
+package com.example.deanery.service;
 
 import com.example.deanery.model.Student;
 
-public interface StudentDao {
+public interface StudentService {
     void create(Student student);
     void update(Student student);
     void delete(String id);

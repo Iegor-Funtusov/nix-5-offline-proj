@@ -25,7 +25,7 @@ public class StudentDaoImpl implements StudentDao {
 
 
     @Override
-    public void update(Student student) {
+    public void update(Student student){
         Student current = findById(student.getId());
         try {
             BeanUtils.copyProperties(current, student);
@@ -35,28 +35,19 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public void delete(String id) {
-        for(int i = 0; i < indexOfEntities; i++){
-            if(entities[i].getId().equals(id)){
-//                entities[i] = null;
-//                indexOfEntities--;
-                entities[i].setDeleted(true);
-//                for(int j = i+1; j < indexOfEntities+1; j++){
-//                    entities[j-1] = entities[j];
-//                    entities[j] = null;
-//                }
-            }
-        }
+    public void delete(String id){
+        Student student = findById(id);
+        student.setDeleted(true);
     }
 
     @Override
-    public Student findById(String id) {
+    public Student findById(String id){
         for(Student s : entities){
             if(!s.isDeleted() && s.getId().equals(id)){
                 return s;
             }
         }
-        throw new RuntimeException("entity not exist");
+        throw new RuntimeException("Entity is not exist");
     }
 
     @Override
