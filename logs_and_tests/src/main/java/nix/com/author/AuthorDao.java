@@ -29,7 +29,6 @@ public class AuthorDao {
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());
         }
-        authors[1] = current;
     }
 
     public Author[] readAll() {
@@ -49,7 +48,7 @@ public class AuthorDao {
             newAuthors[k++] = authors[i];
         }
         authors = Arrays.copyOf(newAuthors, authors.length - 1);
-
+        iter--;
     }
 
     public Author findById(String id) {
@@ -59,30 +58,6 @@ public class AuthorDao {
             }
         }
         return null;
-    }
-
-    public Author[] findByName(String name) {
-        Author[] authorsFind = new Author[authors.length];
-        for (int i = 0, j = 0; i < iter; i++) {
-            Author author = authors[iter];
-            if (author.getName().equals(name)) {
-                authorsFind[j] = authors[i];
-                j++;
-            }
-        }
-        return authorsFind;
-    }
-
-    public Author[] findByAge(int age) {
-        Author[] authorsFind = new Author[authors.length];
-        for (int i = 0, j = 0; i < iter; i++) {
-            Author author = authors[iter];
-            if (author.getAge() == age) {
-                authorsFind[j] = authors[i];
-                j++;
-            }
-        }
-        return authorsFind;
     }
 
     private String generateId (String id) {

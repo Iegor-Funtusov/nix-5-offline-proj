@@ -1,5 +1,6 @@
 package nix.com.author;
 
+import nix.com.book.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,13 +52,12 @@ public class AuthorService {
     }
 
     private boolean isAuthorExistById(String id) {
-        Author CurrentAuthor = authorDao.findById(id);
-        if (CurrentAuthor.getId() != null) {
-            Author[] authorDaoById = authorDao.findByName(CurrentAuthor.getId());
-            if (authorDaoById == null) {
-                return false;
+        Author currentAuthor = authorDao.findById(id);
+        if (currentAuthor.getId() != null) {
+        if (currentAuthor.getId().equals(id)) {
+           return false;
             } else {
-                LOGGER_ERROR.info("this author id is exist: " + CurrentAuthor.getId());
+                LOGGER_ERROR.info("this author id is exist: " + currentAuthor.getId());
             }
         } else {
             LOGGER_ERROR.error("author id can't be empty");
@@ -65,7 +65,7 @@ public class AuthorService {
         return true;
     }
 
-    private boolean isParamNull(Author author) {
+    public boolean isParamNull(Author author) {
         if (author.getAge() == null || author.getName() == null) {
             return true;
         }

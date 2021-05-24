@@ -1,6 +1,7 @@
 package nix.com.book;
 
 
+import nix.com.author.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +15,7 @@ public class BookService {
 
     public void create(Book book) {
         LOGGER_INFO.info("start create book: " + book.getId());
-        if (!(isBookExistByTitle(book))) {
+        if (!(isParamNull(book))) {
             bookDao.create(book);
         }
         LOGGER_INFO.info("end create book: " + book.getId());
@@ -22,7 +23,7 @@ public class BookService {
 
     public void update(Book book) {
         LOGGER_INFO.info("start update book: " + book.getId());
-        if (!(isBookExistByNumPg(book) || isBookExistByTitle(book))) {
+        if (!(isParamNull(book))) {
             bookDao.update(book);
         }
         LOGGER_INFO.info("end update book: " + book.getId());
@@ -64,31 +65,10 @@ public class BookService {
         return true;
     }
 
-    private boolean isBookExistByTitle(Book book) {
-        if (book.getTitle() != null) {
-            Book[] bookDaoByName = bookDao.findByName(book.getTitle());
-            if (bookDaoByName != null) {
-                return false;
-            } else {
-                LOGGER_ERROR.info("this book is exist: " + book.getTitle());
-            }
-        } else {
-            LOGGER_ERROR.error("title can't be empty");
+    public boolean isParamNull(Book book) {
+        if (book.getTitle() == null || book.getNumPg() == null) {
+            return true;
         }
-        return true;
-    }
-
-    private boolean isBookExistByNumPg(Book book) {
-        if (book.getNumPg() != null) {
-            Book[] bookDaoByAge = bookDao.findByAge(book.getNumPg());
-            if (bookDaoByAge == null) {
-                return false;
-            } else {
-                LOGGER_ERROR.info("this book is exist: " + book.getNumPg());
-            }
-        } else {
-            LOGGER_ERROR.error("Num pages can't be empty");
-        }
-        return true;
+        return false;
     }
 }

@@ -30,7 +30,6 @@ public class BookDao {
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());
         }
-        books[1] = current;
     }
 
     public Book[] readAll() {
