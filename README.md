@@ -1,1 +1,1 @@
-# Left to finish: studentUI, add logs and tests
+# Left to finish: add logs and tests
