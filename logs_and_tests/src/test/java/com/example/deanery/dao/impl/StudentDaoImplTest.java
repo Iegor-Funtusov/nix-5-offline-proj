@@ -50,9 +50,11 @@ public class StudentDaoImplTest {
     @Test
     public void update() {
         Student student = studentArray[0];
-        student.setLastName(LAST_NAME_UPDATE);
+        Student student1 = new Student();
+        student1.setId(student.getId());
+        student1.setLastName(LAST_NAME_UPDATE);
 
-        studentDao.update(student);
+        studentDao.update(student1);
         Student studentUpd = studentDao.findById(student.getId());
 
         Assert.assertEquals(LAST_NAME_UPDATE, studentUpd.getLastName());

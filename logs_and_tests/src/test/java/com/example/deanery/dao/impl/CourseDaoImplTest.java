@@ -47,9 +47,12 @@ public class CourseDaoImplTest {
     @Test
     public void update() {
         Course course = courseArray[0];
-        course.setName(NAME_UPDATE);
+        Course course1 = new Course();
 
-        courseDao.update(course);
+        course1.setId(course.getId());
+        course1.setName(NAME_UPDATE);
+
+        courseDao.update(course1);
         Course courseUpd = courseDao.findById(course.getId());
 
         Assert.assertEquals(NAME_UPDATE, courseUpd.getName());

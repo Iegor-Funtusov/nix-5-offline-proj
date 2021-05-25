@@ -34,9 +34,11 @@ public class StudentServiceImplTest {
     @Test
     public void update() {
         Student student = createStudent();
-        student.setLastName(LAST_NAME_UPDATE);
+        Student student1 = new Student();
+        student1.setId(student.getId());
+        student1.setLastName(LAST_NAME_UPDATE);
 
-        studentService.update(student);
+        studentService.update(student1);
         Student studentUpd = studentService.findById(student.getId());
 
         Assert.assertEquals(LAST_NAME_UPDATE, studentUpd.getLastName());

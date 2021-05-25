@@ -33,9 +33,12 @@ public class CourseServiceImplTest {
     @Test
     public void update() {
         Course course = createCourse("name1");
-        course.setName(NAME_UPDATE);
+        Course course1 = new Course();
 
-        courseService.update(course);
+        course1.setId(course.getId());
+        course1.setName(NAME_UPDATE);
+
+        courseService.update(course1);
         Course courseUpd = courseService.findById(course.getId());
 
         Assert.assertEquals(NAME_UPDATE, courseUpd.getName());

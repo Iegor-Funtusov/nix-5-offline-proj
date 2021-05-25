@@ -1,7 +1,6 @@
 package com.example.deanery.dao.impl;
 
 import com.example.deanery.dao.CourseRegisterDao;
-import com.example.deanery.model.Course;
 import com.example.deanery.model.CourseRegister;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -44,11 +43,13 @@ public class CourseRegisterDaoImpl implements CourseRegisterDao {
     @Override
     public CourseRegister findById(String id){
         for(CourseRegister courseRegister : entities){
-            if(!courseRegister.isDeleted() && courseRegister.getId().equals(id)){
-                return courseRegister;
+            if(courseRegister != null){
+                if(!courseRegister.isDeleted() && courseRegister.getId().equals(id)){
+                    return courseRegister;
+                }
             }
         }
-        throw new RuntimeException("Entity is not exist");
+        return null;
     }
 
     @Override

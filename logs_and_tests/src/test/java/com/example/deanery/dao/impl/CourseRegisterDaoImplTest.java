@@ -72,9 +72,13 @@ public class CourseRegisterDaoImplTest {
         course.setName(COURSE_NAME_UPDATE);
 
         CourseRegister courseRegister = courseRegisterArray[0];
-        courseRegister.setCourse(course);
+        CourseRegister courseRegister1 = new CourseRegister();
 
-        courseRegisterDao.update(courseRegister);
+        courseRegister1.setId(courseRegister.getId());
+        courseRegister1.setCourse(course);
+        courseRegister1.setStudent(new Student());
+
+        courseRegisterDao.update(courseRegister1);
         CourseRegister courseRegisterUpd = courseRegisterDao.findById(courseRegister.getId());
 
         Assert.assertEquals(course, courseRegisterUpd.getCourse());
