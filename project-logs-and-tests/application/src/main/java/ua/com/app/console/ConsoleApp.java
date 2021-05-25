@@ -14,12 +14,11 @@ public class ConsoleApp {
 
     public static void main(String[] args) throws IOException {
         ConsoleApp consoleApp = new ConsoleApp();
-        consoleApp.startMessage();
         consoleApp.run();
     }
 
     public void run() throws IOException {
-
+    startMessage();
     switch (inputConstant()){
         case "1":{
             CoursesUI coursesUI = new CoursesUI();
@@ -27,8 +26,9 @@ public class ConsoleApp {
             break;
         }
         case "2":{
+            StudentsUI studentsUI = new StudentsUI();
+            studentsUI.run();
             break;
-            ///
         }
         case "0":{
             System.exit(0);
@@ -39,7 +39,7 @@ public class ConsoleApp {
     }
 
     private void startMessage() {
-        System.out.println("Hello, please choose what do you want to edit:\n" +
+        System.out.println("Please choose what do you want to edit:\n" +
                 "1 - Courses\n" +
                 "2 - Students\n" +
                 "0 - Exit");

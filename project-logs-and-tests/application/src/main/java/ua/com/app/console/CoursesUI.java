@@ -1,6 +1,7 @@
 package ua.com.app.console;
 
 import ua.com.app.courseDAO.CourseInputImpl;
+import ua.com.app.studentDAO.StudentInputImpl;
 
 import java.io.IOException;
 
@@ -27,7 +28,19 @@ public class CoursesUI {
                 break;
             }
             case "5": {
-                System.out.println(courseImpl.readAll());
+                CourseInputImpl.readAll();
+                break;
+            }
+            case "6":{
+                courseImpl.addStudent();
+                break;
+            }
+            case "7":{
+                courseImpl.deleteStudent();
+                break;
+            }
+            case "8":{
+                StudentInputImpl.readAll();
                 break;
             }
             case "9": {
@@ -44,11 +57,14 @@ public class CoursesUI {
 
     private void message() {
         System.out.println("Courses editor\n" +
-                "1 - Create\n" +
-                "2 - Read by Id\n" +
-                "3 - Update by Id\n" +
-                "4 - Delete by Id\n" +
+                "1 - Create Course\n" +
+                "2 - Read Course by Id\n" +
+                "3 - Update Course by Id\n" +
+                "4 - Delete Course by Id\n" +
                 "5 - Read all courses\n" +
+                "6 - Add a student by id for course\n" +
+                "7 - Delete a student by id for course\n" +
+                "8 - Get all available students\n" +
                 "9 - Go back\n" +
                 "0 - Exit");
     }

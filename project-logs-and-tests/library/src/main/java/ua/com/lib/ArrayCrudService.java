@@ -6,11 +6,7 @@ import java.util.UUID;
 
 public class ArrayCrudService<E extends Entity> implements Crud<E> {
 
-    private static final ArrayImpl arrayImpl;
-
-    static {
-        arrayImpl = new ArrayImpl();
-    }
+    private final ArrayImpl arrayImpl = new ArrayImpl();
 
     @Override
     public void create(E e) {
