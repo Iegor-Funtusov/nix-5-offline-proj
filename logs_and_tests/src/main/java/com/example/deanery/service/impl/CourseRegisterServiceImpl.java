@@ -24,7 +24,7 @@ public class CourseRegisterServiceImpl implements CourseRegisterService {
 
     @Override
     public void update(CourseRegister courseRegister) {
-        if(isCourseRegisterNotNull(courseRegister)) {
+        if(isCourseRegisterNotNull(courseRegister) && courseRegisterIsExist(courseRegister.getId())) {
             LOGGER_WARN.warn("Start update courseRegister: " + courseRegister.getId());
             courseRegisterDao.update(courseRegister);
             LOGGER_WARN.warn("End update courseRegister: " + courseRegister.getId());
@@ -33,9 +33,11 @@ public class CourseRegisterServiceImpl implements CourseRegisterService {
 
     @Override
     public void delete(String id) {
-        LOGGER_WARN.warn(("Start delete courseRegister ID:" + id));
-        courseRegisterDao.delete(id);
-        LOGGER_WARN.warn(("End delete courseRegister ID:" + id));
+        if(courseRegisterIsExist(id)){
+            LOGGER_WARN.warn(("Start delete courseRegister ID:" + id));
+            courseRegisterDao.delete(id);
+            LOGGER_WARN.warn(("End delete courseRegister ID:" + id));
+        }
     }
 
     @Override
@@ -59,5 +61,9 @@ public class CourseRegisterServiceImpl implements CourseRegisterService {
             LOGGER_ERROR.error("CourseRegister cant be null");
             return false;
         }
+    }
+
+    private boolean courseRegisterIsExist(String id){
+        return courseRegisterDao.findById(id) != null;
     }
 }

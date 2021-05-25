@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.UUID;
 
 public class CourseRegisterDaoImpl implements CourseRegisterDao {
-    private int sizeOfEntities = 8;
+    private static int sizeOfEntities = 8;
     private int indexOfEntities = 0;
 
-    private CourseRegister[] entities = new CourseRegister[sizeOfEntities];
+    private static CourseRegister[] entities = new CourseRegister[sizeOfEntities];
 
     @Override
     public void create(CourseRegister courseRegister) {

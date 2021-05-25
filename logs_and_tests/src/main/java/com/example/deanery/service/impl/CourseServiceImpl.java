@@ -24,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void update(Course course) {
-        if (!isCourseExistByName(course)) {
+        if (!isCourseExistByName(course) && courseIsExist(course.getId())) {
             LOGGER_WARN.warn("Start update course: " + course.getId());
             courseDao.update(course);
             LOGGER_WARN.warn("End update course: " + course.getId());
@@ -33,9 +33,11 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void delete(String id) {
-        LOGGER_WARN.warn(("Start delete course ID:" + id));
-        courseDao.delete(id);
-        LOGGER_WARN.warn(("End delete course ID:" + id));
+        if(courseIsExist(id)){
+            LOGGER_WARN.warn(("Start delete course ID:" + id));
+            courseDao.delete(id);
+            LOGGER_WARN.warn(("End delete course ID:" + id));
+        }
     }
 
     @Override
@@ -65,5 +67,9 @@ public class CourseServiceImpl implements CourseService {
             LOGGER_ERROR.error("course name can't be empty");
         }
         return true;
+    }
+
+    private boolean courseIsExist(String id){
+        return courseDao.findById(id) != null;
     }
 }

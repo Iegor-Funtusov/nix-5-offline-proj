@@ -24,7 +24,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void update(Student student) {
-        if(isStudentNotNull(student)) {
+        if(isStudentNotNull(student) && studentIsExist(student.getId())) {
             LOGGER_WARN.warn("Start update student: " + student.getId());
             studentDao.update(student);
             LOGGER_WARN.warn("End update student: " + student.getId());
@@ -33,9 +33,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(String id) {
-        LOGGER_WARN.warn(("Start delete student ID:" + id));
-        studentDao.delete(id);
-        LOGGER_WARN.warn(("End delete student ID:" + id));
+        if(studentIsExist(id)){
+            LOGGER_WARN.warn(("Start delete student ID:" + id));
+            studentDao.delete(id);
+            LOGGER_WARN.warn(("End delete student ID:" + id));
+        }
     }
 
     @Override
@@ -55,5 +57,9 @@ public class StudentServiceImpl implements StudentService {
             LOGGER_ERROR.error("Student cant be null");
             return false;
         }
+    }
+
+    private boolean studentIsExist(String id){
+        return studentDao.findById(id) != null;
     }
 }

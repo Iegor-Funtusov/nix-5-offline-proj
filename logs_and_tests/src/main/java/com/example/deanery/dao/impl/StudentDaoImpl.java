@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.UUID;
 
 public class StudentDaoImpl implements StudentDao {
-    private int sizeOfEntities = 8;
+    private static int sizeOfEntities = 8;
     private int indexOfEntities = 0;
 
-    private Student[] entities = new Student[sizeOfEntities];
+    private static Student[] entities = new Student[sizeOfEntities];
 
     @Override
     public void create(Student student) {

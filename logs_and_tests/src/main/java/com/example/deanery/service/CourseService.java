@@ -1,7 +1,6 @@
 package com.example.deanery.service;
 
 import com.example.deanery.model.Course;
-import com.example.deanery.model.Student;
 
 public interface CourseService {
     void create(Course course);

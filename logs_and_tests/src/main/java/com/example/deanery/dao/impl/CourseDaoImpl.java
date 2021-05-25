@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.UUID;
 
 public class CourseDaoImpl implements CourseDao {
-    private int sizeOfEntities = 8;
+    private static int sizeOfEntities = 8;
     private int indexOfEntities = 0;
 
-    private Course[] entities = new Course[sizeOfEntities];
+    private static Course[] entities = new Course[sizeOfEntities];
 
     @Override
     public void create(Course course) {
