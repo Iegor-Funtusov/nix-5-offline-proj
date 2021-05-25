@@ -70,6 +70,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     private boolean courseIsExist(String id){
-        return courseDao.findById(id) != null;
+        if(courseDao.findById(id) != null){
+            return true;
+        } else {
+            LOGGER_ERROR.error("Course is not exist id: " + id);
+            return false;
+        }
     }
 }

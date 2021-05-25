@@ -64,6 +64,11 @@ public class CourseRegisterServiceImpl implements CourseRegisterService {
     }
 
     private boolean courseRegisterIsExist(String id){
-        return courseRegisterDao.findById(id) != null;
+        if(courseRegisterDao.findById(id) != null){
+            return true;
+        } else {
+            LOGGER_ERROR.error("CourseRegister is not exist id: " + id);
+            return false;
+        }
     }
 }

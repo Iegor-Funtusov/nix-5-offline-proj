@@ -1,10 +1,14 @@
-package com.example.deanery.controller;
+package com.example.deanery.ui;
+
+import com.example.deanery.controller.CourseController;
+import com.example.deanery.controller.CourseRegisterController;
+import com.example.deanery.controller.StudentController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MainController {
+public class MainMenuUI {
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public void exec() {
@@ -47,17 +51,17 @@ public class MainController {
     }
 
     private void studentMenu()  {
-        StudentController studentController = new StudentController(reader);
-        studentController.exec();
+        StudentUI studentUI = new StudentUI(reader);
+        studentUI.exec();
     }
 
     private void courseMenu() {
-        CourseController courseController = new CourseController(reader);
-        courseController.exec();
+        CourseUI courseUI = new CourseUI(reader);
+        courseUI.exec();
     }
 
     private void courseRegisterMenu() {
-        CourseRegisterController controller = new CourseRegisterController(reader);
-        controller.exec();
+        CourseRegisterUI courseRegisterUI = new CourseRegisterUI(reader);
+        courseRegisterUI.exec();
     }
 }

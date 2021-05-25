@@ -60,6 +60,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     private boolean studentIsExist(String id){
-        return studentDao.findById(id) != null;
+        if(studentDao.findById(id) != null){
+            return true;
+        } else {
+            LOGGER_ERROR.error("Student is not exist id: " + id);
+            return false;
+        }
     }
 }

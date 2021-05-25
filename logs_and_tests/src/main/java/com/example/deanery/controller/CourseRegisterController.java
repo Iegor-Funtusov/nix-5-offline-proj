@@ -24,61 +24,7 @@ public class CourseRegisterController {
         this.reader = reader;
     }
 
-    public void exec() {
-        try {
-            String helpStr = "Set an action: " + "\n 1 - insert Student to Course" + "\n 2 - update CourseRegister"
-                    + "\n 3 - delete CourseRegister" + "\n 4 - get all CourseRegisters" + "\n 5 - get CourseRegister by Id"
-                    + "\n 6 - back to menu" + "\n 0 - exit";
-            System.out.println(helpStr);
-            setAction(reader.readLine());
-        } catch (IOException ex) {
-            System.out.println("IOException from exec() reader: " + ex.getMessage());
-        }
-    }
-    private void setAction(String read) throws IOException {
-        switch (read) {
-            case "1":{
-                printAllStudentsAndCourses();
-                createCourseRegister();
-                exec();
-            }
-            break;
-            case "2":{
-                printAllStudentsAndCourses();
-                updateCourseRegister();
-                exec();
-            }
-            break;
-            case "3":{
-                deleteCourseRegisterById();
-                exec();
-            }
-            break;
-            case "4":{
-                getAllCourseRegistersAndPrint();
-                exec();
-            }
-            break;
-            case "5":{
-                getCourseRegisterByIdAndPrint();
-                exec();
-            }
-            break;
-            case "6":{
-            }
-            break;
-            case "0":{
-                System.exit(0);
-            }
-            break;
-            default:{
-                System.out.println("Enter correct operation!");
-                exec();
-            }
-        }
-    }
-
-    private void createCourseRegister() throws IOException {
+    public void createCourseRegister() throws IOException {
         System.out.println("For registration student to course, enter student and course");
         System.out.println("Enter student id: ");
         String studentId = reader.readLine();
@@ -95,7 +41,7 @@ public class CourseRegisterController {
         courseRegisterService.create(courseRegister);
     }
 
-    private void updateCourseRegister() throws IOException {
+    public void updateCourseRegister() throws IOException {
         System.out.println("Enter Id of courseRegister which you want to change: ");
         String courseRegisterId = reader.readLine();
         CourseRegister courseRegister = courseRegisterService.findById(courseRegisterId);
@@ -120,18 +66,18 @@ public class CourseRegisterController {
         }
     }
 
-    private void deleteCourseRegisterById() throws IOException {
+    public void deleteCourseRegisterById() throws IOException {
         System.out.println("Enter Id of courseRegister which you want to Delete: ");
         String id = reader.readLine();
         courseRegisterService.delete(id);
     }
 
-    private void getAllCourseRegistersAndPrint() {
+    public void getAllCourseRegistersAndPrint() {
         CourseRegister[] courseRegisters = courseRegisterService.findAll();
         System.out.println(Arrays.toString(courseRegisters));
     }
 
-    private void getCourseRegisterByIdAndPrint() throws IOException {
+    public void getCourseRegisterByIdAndPrint() throws IOException {
         System.out.println("Enter Id of courseRegister: ");
         String id = reader.readLine();
         CourseRegister courseRegister = courseRegisterService.findById(id);
@@ -139,7 +85,7 @@ public class CourseRegisterController {
 
     }
 
-    private void printAllStudentsAndCourses(){
+    public void printAllStudentsAndCourses(){
         Student[] students = studentService.findAll();
         Course[] courses = courseService.findAll();
         System.out.println(Arrays.toString(students));
