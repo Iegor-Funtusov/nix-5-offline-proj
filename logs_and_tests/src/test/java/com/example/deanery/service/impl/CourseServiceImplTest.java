@@ -51,15 +51,30 @@ public class CourseServiceImplTest {
     }
 
     @Test
+    public void delete() {
+        Course course = createCourse("nameZ");
+
+        courseService.delete(course.getId());
+
+        Course[] courses = courseService.findAll();
+        long countCourses = Arrays.stream(courses)
+                .filter(s -> s != null)
+                .filter(s -> s.getId().equals(course.getId()))
+                .count();
+
+        Assert.assertEquals(0, countCourses);
+    }
+
+    @Test
     public void createWithSameName(){
-        createCourse("name2");
-        Course course1 = createCourse("name2");
+        createCourse("name23");
+        Course course1 = createCourse("name23");
         Assert.assertNull(course1);
     }
 
     @Test
     public void findByName(){
-        String name = "name3";
+        String name = "name33";
         createCourse(name);
 
         Course course1 = courseService.findByName(name);

@@ -53,6 +53,20 @@ public class CourseRegisterServiceImplTest {
     }
 
     @Test
+    public void delete() {
+        CourseRegister courseReg = createCourseRegister();
+
+        courseRegisterService.delete(courseReg.getId());
+        CourseRegister[] courseRegisters = courseRegisterService.findAll();
+        long countCourses = Arrays.stream(courseRegisters)
+                .filter(s -> s != null)
+                .filter(s -> s.getId().equals(courseReg.getId()))
+                .count();
+
+        Assert.assertEquals(0, countCourses);
+    }
+
+    @Test
     public void notCreateWithoutCourse(){
         CourseRegister courseRegister = new CourseRegister();
         courseRegister.setStudent(new Student());

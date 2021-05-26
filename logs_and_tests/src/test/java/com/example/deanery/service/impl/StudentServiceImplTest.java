@@ -50,6 +50,21 @@ public class StudentServiceImplTest {
         studentService.update(student);
     }
 
+    @Test
+    public void delete() {
+        Student student = createStudent();
+
+        studentService.delete(student.getId());
+
+        Student[] students = studentService.findAll();
+        long countStudents = Arrays.stream(students)
+                .filter(s -> s != null)
+                .filter(s -> s.getId().equals(student.getId()))
+                .count();
+
+        Assert.assertEquals(0, countStudents);
+    }
+
     private Student createStudent(){
         Student student = new Student();
         student.setFirstName(FIRST_NAME);
