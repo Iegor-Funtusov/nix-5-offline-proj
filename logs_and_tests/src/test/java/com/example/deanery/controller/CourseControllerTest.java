@@ -4,38 +4,18 @@ import com.example.deanery.model.Course;
 import com.example.deanery.service.CourseService;
 import com.example.deanery.service.impl.CourseServiceImpl;
 import org.junit.Assert;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 public class CourseControllerTest {
-    private static final String NAME = "name";
+    private static final String NAME = "nameCourse";
     private static final String NAME_UPDATE = "nameUPD";
     private static final CourseService courseService = new CourseServiceImpl();
-    private static Course[] courseArray;
-
-    @BeforeAll
-    static void setUp(){
-        for (int i = 0; i < 5; i++) {
-            Course course = new Course();
-            course.setName(NAME+i);
-            courseService.create(course);
-        }
-        courseArray = courseService.findAll();
-        long countCourses = Arrays.stream(courseArray)
-                .filter(s -> s != null)
-                .count();
-
-        Assert.assertEquals(5, countCourses);
-    }
 
     @Test
     public void createCourse() {
-        Course course = new Course();
-        course.setName(NAME);
-
-        courseService.create(course);
+        Course course = createCourse(NAME);
         Course[] courses = courseService.findAll();
         long countCourses = Arrays.stream(courses)
                 .filter(s -> s != null)
@@ -47,7 +27,7 @@ public class CourseControllerTest {
 
     @Test
     public void updateCourse() {
-        Course course = courseArray[0];
+        Course course = createCourse("nameX");
         Course course1 = new Course();
 
         course1.setId(course.getId());
@@ -61,7 +41,7 @@ public class CourseControllerTest {
 
     @Test
     public void deleteCourseById() {
-        Course course = courseArray[1];
+        Course course = createCourse("nameZ");
 
         courseService.delete(course.getId());
 
@@ -72,6 +52,16 @@ public class CourseControllerTest {
                 .count();
 
         Assert.assertEquals(0, countCourses);
+    }
+
+    private Course createCourse(String name) {
+        Course course = new Course();
+        course.setName(name);
+
+        courseService.create(course);
+
+        return courseService.findById(course.getId());
+
     }
 
 }

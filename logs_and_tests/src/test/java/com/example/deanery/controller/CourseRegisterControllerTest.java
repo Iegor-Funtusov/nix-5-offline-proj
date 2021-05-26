@@ -50,7 +50,6 @@ public class CourseRegisterControllerTest {
     @Test
     public void deleteCourseRegisterById() {
         CourseRegister courseReg = createCourseRegister();
-        courseRegisterService.create(courseReg);
 
         courseRegisterService.delete(courseReg.getId());
         CourseRegister[] courseRegisters = courseRegisterService.findAll();

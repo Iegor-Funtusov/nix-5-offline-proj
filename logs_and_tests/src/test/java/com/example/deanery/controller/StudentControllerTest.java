@@ -14,31 +14,10 @@ public class StudentControllerTest {
     private static final String LAST_NAME = "last_name";
     private static final String LAST_NAME_UPDATE = "last_nameUPD";
     private static final StudentService studentService = new StudentServiceImpl();
-    private static Student[] studentArray;
-
-    @BeforeAll
-    static void setUp(){
-        for (int i = 0; i < 5; i++) {
-            Student student = new Student();
-            student.setFirstName(FIRST_NAME+i);
-            student.setLastName(LAST_NAME+i);
-            studentService.create(student);
-        }
-        studentArray = studentService.findAll();
-        long countStudents = Arrays.stream(studentArray)
-                .filter(s -> s != null)
-                .count();
-
-        Assert.assertEquals(5, countStudents);
-    }
 
     @Test
-    public void createStudent() {
-        Student student = new Student();
-        student.setFirstName(FIRST_NAME);
-        student.setLastName(LAST_NAME);
-
-        studentService.create(student);
+    public void create() {
+        Student student = createStudent();
         Student[] students = studentService.findAll();
         long countStudents = Arrays.stream(students)
                 .filter(s -> s != null)
@@ -50,7 +29,7 @@ public class StudentControllerTest {
 
     @Test
     public void updateStudent() {
-        Student student = studentArray[0];
+        Student student = createStudent();
         Student student1 = new Student();
         student1.setId(student.getId());
         student1.setLastName(LAST_NAME_UPDATE);
@@ -63,7 +42,7 @@ public class StudentControllerTest {
 
     @Test
     public void deleteStudentById() {
-        Student student = studentArray[1];
+        Student student = createStudent();
 
         studentService.delete(student.getId());
 
@@ -74,5 +53,15 @@ public class StudentControllerTest {
                 .count();
 
         Assert.assertEquals(0, countStudents);
+    }
+
+    private Student createStudent(){
+        Student student = new Student();
+        student.setFirstName(FIRST_NAME);
+        student.setLastName(LAST_NAME);
+
+        studentService.create(student);
+
+        return studentService.findById(student.getId());
     }
 }

@@ -1,8 +1,8 @@
 package com.example.deanery.ui;
 
 import com.example.deanery.controller.StudentController;
-import com.example.deanery.service.StudentService;
-import com.example.deanery.service.impl.StudentServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import java.io.IOException;
 public class StudentUI {
     private final BufferedReader reader;
     private final StudentController controller;
+    private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
 
     public StudentUI(BufferedReader reader) {
         this.reader = reader;
@@ -24,7 +25,7 @@ public class StudentUI {
             System.out.println(helpStr);
             setAction(reader.readLine());
         } catch (IOException ex) {
-            System.out.println("IOException from exec() reader: " + ex.getMessage());
+            LOGGER_ERROR.error(ex.getMessage());
         }
     }
 

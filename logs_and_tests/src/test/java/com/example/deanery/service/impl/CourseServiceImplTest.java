@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class CourseServiceImplTest {
-    private static final String NAME = "name";
+    private static final String NAME = "name_course";
     private static final String NAME_UPDATE = "nameUPD";
     private static final CourseService courseService = new CourseServiceImpl();
 
@@ -32,7 +32,7 @@ public class CourseServiceImplTest {
 
     @Test
     public void update() {
-        Course course = createCourse("name1");
+        Course course = createCourse("name11");
         Course course1 = new Course();
 
         course1.setId(course.getId());

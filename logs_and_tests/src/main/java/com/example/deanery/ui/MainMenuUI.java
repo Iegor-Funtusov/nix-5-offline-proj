@@ -1,8 +1,7 @@
 package com.example.deanery.ui;
 
-import com.example.deanery.controller.CourseController;
-import com.example.deanery.controller.CourseRegisterController;
-import com.example.deanery.controller.StudentController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.io.InputStreamReader;
 
 public class MainMenuUI {
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
 
     public void exec() {
         try {
@@ -18,7 +18,7 @@ public class MainMenuUI {
             System.out.println(helpStr);
             setAction(reader.readLine());
         } catch (IOException ex) {
-            System.out.println("IOException from exec() reader: " + ex.getMessage());
+            LOGGER_ERROR.error(ex.getMessage());
         }
     }
 
