@@ -1,1 +1,16 @@
 /.idea/
+/unit6/unit6.iml
+/unit6/library/target/
+/unit6/application/application.iml
+/unit6/application/target/
+/unit6/application/log.error_IS_UNDEFINED
+/unit6/application/log.info_IS_UNDEFINED
+/unit6/application/log.warn_IS_UNDEFINED
+/log.error_IS_UNDEFINED
+/log.info_IS_UNDEFINED
+/log.warn_IS_UNDEFINED
+/unit6/library/library.iml
+/unit6/log.error_IS_UNDEFINED
+/unit6/log.info_IS_UNDEFINED
+/unit6/log.warn_IS_UNDEFINED
+/logs/
