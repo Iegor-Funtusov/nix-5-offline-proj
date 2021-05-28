@@ -22,6 +22,13 @@ public class BookController {
         Book book = new Book();
         System.out.println("Input book's name: ");
         book.setName(bufferedReader.readLine());
+        System.out.println("Input book's year of publishing: ");
+        try {
+            book.setYearOfPublishing(Integer.parseInt(bufferedReader.readLine()));
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect input.");
+            return;
+        }
         bookService.create(book);
     }
 
@@ -33,11 +40,16 @@ public class BookController {
         System.out.println("Input book's name");
         book.setName(bufferedReader.readLine());
         System.out.println("Input book's year of publishing");
+        try {
+            book.setYearOfPublishing(Integer.parseInt(bufferedReader.readLine()));
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect input.");
+            return;
+        }
         bookService.update(book);
     }
 
-    public void printAllBooks(){
-
+    public void printAllBooks() {
         bookService.read().forEach(System.out::println);
     }
 
