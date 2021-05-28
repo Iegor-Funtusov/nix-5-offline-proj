@@ -1,1 +1,2 @@
-# nix-5-offline-proj
+to run project in windows use run.bat
+run.bat

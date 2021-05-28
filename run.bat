@@ -1,0 +1,1 @@
+cd logs_and_tests/ || exit & mvn clean install & java -jar target/logs_and_tests-1.0-SNAPSHOT.jar
