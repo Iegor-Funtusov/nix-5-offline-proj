@@ -22,8 +22,7 @@ public class AuthorServiceImpl implements AuthorService {
             if (!isAuthorExistByName(author.getName()) && !isAuthorExist(author.getId())) {
                 authorDao.create(author);
             }
-        }
-        else
+        } else
             LOGGER_ERROR.error("Author == null in create");
         LOGGER_INFO.info("End create author");
     }
@@ -34,8 +33,7 @@ public class AuthorServiceImpl implements AuthorService {
             if (isAuthorExist(author.getId())) {
                 authorDao.update(author);
             }
-        }
-        else
+        } else
             LOGGER_ERROR.error("Author == null in update");
         LOGGER_WARN.warn("End update author");
     }

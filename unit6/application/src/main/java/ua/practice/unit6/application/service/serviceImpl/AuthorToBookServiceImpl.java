@@ -20,8 +20,8 @@ public class AuthorToBookServiceImpl implements AuthorToBookService {
 
     public void create(AuthorToBook authorToBook) {
         LOGGER_INFO.info("Start create authorToBook");
-        boolean isAuthorExist = authorToBook.getAuthors()!=null;
-        boolean isBookExist = authorToBook.getBooks()!=null;
+        boolean isAuthorExist = authorToBook.getAuthors() != null;
+        boolean isBookExist = authorToBook.getBooks() != null;
         if (!isAuthorToBookExist(authorToBook.getId()) && isAuthorExist && isBookExist) {
             authorToBookDAO.create(authorToBook);
         }
@@ -50,19 +50,17 @@ public class AuthorToBookServiceImpl implements AuthorToBookService {
         return authors;
     }
 
-    public AuthorToBook read(String id){
-        if(isAuthorToBookExist(id))
+    public AuthorToBook read(String id) {
+        if (isAuthorToBookExist(id))
             return authorToBookDAO.read(id);
         return null;
     }
 
-    public List<Author> readAllAuthorsByBookId(String id)
-    {
+    public List<Author> readAllAuthorsByBookId(String id) {
         return authorToBookDAO.readAllAuthorsByBookId(id);
     }
 
-    public List<Book> readAllBooksByAuthorId(String id)
-    {
+    public List<Book> readAllBooksByAuthorId(String id) {
         return authorToBookDAO.readAllBooksByAuthorId(id);
     }
 

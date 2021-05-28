@@ -17,13 +17,12 @@ public class BookServiceImpl implements BookService {
     private final BookDAOImpl bookDAO = new BookDAOImpl();
 
     public void create(Book book) {
-        if(book != null) {
+        if (book != null) {
             LOGGER_INFO.info("Start create book: " + book.getName());
             if (!isBookExistByName(book.getName()) && !isBookExist(book.getId())) {
                 bookDAO.create(book);
             }
-        }
-        else
+        } else
             LOGGER_ERROR.error("book == null in create");
         LOGGER_INFO.info("End create book");
     }
@@ -39,22 +38,22 @@ public class BookServiceImpl implements BookService {
         }
     }
 
-    public void delete(String id)
-    {
+    public void delete(String id) {
         LOGGER_WARN.warn("Start delete book " + id);
-        if(isBookExist(id))
+        if (isBookExist(id))
             bookDAO.delete(id);
         LOGGER_WARN.warn("End delete book");
     }
 
     public Collection<Book> read() {
         LOGGER_WARN.warn("Start reading books");
-        Collection<Book> books =  bookDAO.read();
+        Collection<Book> books = bookDAO.read();
         LOGGER_WARN.warn("End reading books");
         return books;
     }
-    public Book read(String id){
-        if(isBookExist(id))
+
+    public Book read(String id) {
+        if (isBookExist(id))
             return bookDAO.read(id);
         return null;
     }

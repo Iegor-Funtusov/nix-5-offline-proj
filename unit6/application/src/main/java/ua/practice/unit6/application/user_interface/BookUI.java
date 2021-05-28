@@ -17,8 +17,8 @@ public class BookUI {
     public void process() throws IOException {
         String command;
         printOptions();
-        while ((command = bufferedReader.readLine())!= null) {
-            switch (command){
+        while ((command = bufferedReader.readLine()) != null) {
+            switch (command) {
                 case "1":
                     bookController.createBook();
                     break;
@@ -43,7 +43,7 @@ public class BookUI {
         }
     }
 
-    private void printOptions(){
+    private void printOptions() {
         System.out.println("Choose option: ");
         System.out.println("1 - create book");
         System.out.println("2 - update book");

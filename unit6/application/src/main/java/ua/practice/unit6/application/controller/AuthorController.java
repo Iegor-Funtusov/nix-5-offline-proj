@@ -35,7 +35,7 @@ public class AuthorController {
         authorService.update(author);
     }
 
-    public void printAllAuthors(){
+    public void printAllAuthors() {
         authorService.read().forEach(System.out::println);
     }
 
