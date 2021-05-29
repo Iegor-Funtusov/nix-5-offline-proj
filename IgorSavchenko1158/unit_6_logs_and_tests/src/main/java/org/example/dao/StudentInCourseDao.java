@@ -1,6 +1,6 @@
 package org.example.dao;
 
-import org.example.entity.Student;
+import org.example.entity.StudentInCourse;
 
 import java.util.Collection;
 

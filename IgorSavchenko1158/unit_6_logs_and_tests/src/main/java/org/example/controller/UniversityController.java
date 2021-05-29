@@ -2,33 +2,34 @@ package org.example.controller;
 
 import org.example.dao.CourseDao;
 import org.example.dao.StudentDao;
-import org.example.dao.StudentInCourse;
+import org.example.entity.StudentInCourse;
 import org.example.dao.StudentInCourseDao;
 import org.example.entity.Course;
 import org.example.entity.Student;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class UniversityController {
     private final CourseDao courseDao = new CourseDao();
     private final StudentDao studentDao = new StudentDao();
     private final StudentInCourseDao stCsDao = new StudentInCourseDao();
 
-    public String create(Student student) {
+    public String createStudent(Student student) {
         if (!validateStudent(student)) {
             throw new IllegalArgumentException("Not valid student");
         }
         return studentDao.create(student);
     }
 
-    public String create(Course course) {
+    public String createCourse(Course course) {
         if (!validateCourse(course)) {
             throw new IllegalArgumentException("Not valid course");
         }
         return courseDao.create(course);
     }
 
-    public String create(StudentInCourse stCs) {
+    public String createStudentInCourse(StudentInCourse stCs) {
         if (stCs == null) {
             throw new IllegalArgumentException("Not valid argument");
         }
@@ -40,13 +41,12 @@ public class UniversityController {
             throw new IllegalArgumentException("Student or Course does not exist");
         }
 
-        long exists = stCsDao.read()
+        if (stCsDao.read()
                 .stream()
-                .filter(e -> e.equals(stCs))
-                .count();
-        if (exists > 0) {
+                .anyMatch(e -> e.getStudentId().equals(stCs.getStudentId()) && e.getCourseId().equals(stCs.getCourseId()))) {
             throw new IllegalArgumentException("Student already attends Course");
         }
+
         return stCsDao.create(stCs);
     }
 
@@ -66,25 +66,70 @@ public class UniversityController {
         return courseDao.read();
     }
 
-    public readAllStudentsAndTheirCourses()
-
-    public void updateStudent() {
-
+    public Collection<Course> readAllCoursesByStudent(String studentId) {
+        if (studentDao.read().stream().noneMatch(e -> e.getId().equals(studentId))) {
+            throw new IllegalArgumentException("No student with such id");
+        }
+        return stCsDao.read()
+                .stream()
+                .filter(e -> e.getStudentId().equals(studentId))
+                .map(e -> courseDao.read(e.getCourseId()))
+                .collect(Collectors.toList());
     }
 
-    public void updateCourse() {
+    public Collection<Student> readAllStudentsByCourse(String courseId) {
+        if (courseDao.read().stream().noneMatch(e -> e.getId().equals(courseId))) {
+            throw new IllegalArgumentException("No course with such id");
+        }
+        return stCsDao.read()
+                .stream()
+                .filter(e -> e.getCourseId().equals(courseId))
+                .map(e -> studentDao.read(e.getStudentId()))
+                .collect(Collectors.toList());
+    }
+
+    public void updateStudent(Student student) {
+        if (student == null || studentDao.read().stream().noneMatch(e -> e.getId().equals(student.getId()))) {
+            throw new IllegalArgumentException("No such student to update");
+        }
+        if (!validateStudent(student)) {
+            throw new IllegalArgumentException("Not valid student");
+        }
+        studentDao.update(student);
+    }
+
+    public void updateCourse(Course course) {
+        if (!validateCourse(course)) {
+            throw new IllegalArgumentException("Not valid course");
+        }
+        courseDao.update(course);
     }
 
     public void deleteStudent(String id) {
-
+        studentDao.delete(id);
+        stCsDao.read()
+                .stream()
+                .filter(e -> e.getStudentId().equals(id))
+                .map(e -> e.getId())
+                .forEach(stCsDao::delete);
     }
 
     public void deleteCourse(String id) {
-
+        courseDao.delete(id);
+        stCsDao.read()
+                .stream()
+                .filter(e -> e.getCourseId().equals(id))
+                .map(e -> e.getId())
+                .forEach(stCsDao::delete);
     }
 
-    public void deleteStudentInCourse(String id) {
-
+    public void deleteStudentInCourse(String studentId, String courseId) {
+        stCsDao.delete(stCsDao.read()
+                .stream()
+                .filter(e -> e.getStudentId().equals(studentId)
+                        && e.getCourseId().equals(courseId))
+                .findFirst()
+                .orElse(new StudentInCourse()).getId());
     }
 
     private boolean validateStudent(Student student) {
@@ -99,7 +144,7 @@ public class UniversityController {
     }
 
     private boolean validStudentName(String name) {
-        return !name.isEmpty() && name.matches("^[a-z ,.'-]+$");
+        return !name.isEmpty() && name.matches("[a-zA-Z ,.'-]+");
     }
 
     private boolean validateCourse(Course course) {

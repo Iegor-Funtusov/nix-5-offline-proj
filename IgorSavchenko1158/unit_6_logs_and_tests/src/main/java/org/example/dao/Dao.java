@@ -43,7 +43,7 @@ public class Dao<E extends BaseEntity> {
             }
         }
         if (location < 0) {
-            throw new RuntimeException("Element does not exist");
+            throw new IllegalArgumentException("Element does not exist");
         }
 
         container[location] = null;

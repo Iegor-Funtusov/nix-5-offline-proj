@@ -1,6 +1,4 @@
-package org.example.dao;
-
-import org.example.entity.BaseEntity;
+package org.example.entity;
 
 import java.util.Objects;
 
@@ -35,12 +33,12 @@ public class StudentInCourse extends BaseEntity {
             return false;
         }
         StudentInCourse that = (StudentInCourse) o;
-        return Objects.equals(studentId, that.studentId) && Objects.equals(courseId, that.courseId);
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentId, courseId);
+        return Objects.hash(getId());
     }
 
     @Override
