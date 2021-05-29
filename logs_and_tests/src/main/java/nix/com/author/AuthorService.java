@@ -1,6 +1,5 @@
 package nix.com.author;
 
-import nix.com.book.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,10 +65,7 @@ public class AuthorService {
     }
 
     public boolean isParamNull(Author author) {
-        if (author.getAge() == null || author.getName() == null) {
-            return true;
-        }
-        return false;
+        return author.getAge() == null || author.getName() == null;
     }
 
 }

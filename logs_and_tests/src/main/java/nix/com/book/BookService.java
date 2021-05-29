@@ -1,7 +1,5 @@
 package nix.com.book;
 
-
-import nix.com.author.Author;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +9,7 @@ public class BookService {
     private static final Logger LOGGER_WARN = LoggerFactory.getLogger("warn");
     private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
     
-    private BookDao bookDao = new BookDao();
+    private final BookDao bookDao = new BookDao();
 
     public void create(Book book) {
         LOGGER_INFO.info("start create book: " + book.getId());
@@ -23,7 +21,7 @@ public class BookService {
 
     public void update(Book book) {
         LOGGER_INFO.info("start update book: " + book.getId());
-        if (!(isParamNull(book))) {
+        if (!(isBookExistById(book.getId()))) {
             bookDao.update(book);
         }
         LOGGER_INFO.info("end update book: " + book.getId());
@@ -66,9 +64,6 @@ public class BookService {
     }
 
     public boolean isParamNull(Book book) {
-        if (book.getTitle() == null || book.getNumPg() == null) {
-            return true;
-        }
-        return false;
+        return book.getTitle() == null || book.getNumPg() == null;
     }
 }
