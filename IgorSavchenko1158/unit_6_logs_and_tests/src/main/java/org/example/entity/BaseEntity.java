@@ -1,4 +1,4 @@
-package org.example.data;
+package org.example.entity;
 
 public abstract class BaseEntity {
     private String id;

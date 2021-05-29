@@ -1,8 +1,8 @@
-package org.example.data;
+package org.example.entity;
 
 import java.util.Objects;
 
-public class Course extends BaseEntity{
+public class Course extends BaseEntity {
 
     private String name;
     private String description;

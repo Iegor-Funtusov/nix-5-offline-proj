@@ -1,26 +1,29 @@
-package org.example.data;
+package org.example.dao;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.example.entity.BaseEntity;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Dao<E extends BaseEntity> {
-
     private static final int DEFAULT_SIZE = 10;
+
+    private long idCounter = 0;
 
     private int numberOfElements = 0;
     private Object[] container = new Object[DEFAULT_SIZE];
 
-    public void create(E e) {
+    public String create(E e) {
         if (numberOfElements + 1 > container.length) {
             grow();
         }
-        e.setId(UUID.randomUUID().toString());
+        e.setId(e.getClass().getSimpleName() + nextId());
         container[numberOfElements] = e;
         numberOfElements++;
+
+        return e.getId();
     }
 
     public void update(E e) {
@@ -74,5 +77,9 @@ public class Dao<E extends BaseEntity> {
             throw new RuntimeException("entity does not exist");
         }
         return entity;
+    }
+
+    private long nextId() {
+        return idCounter++;
     }
 }
