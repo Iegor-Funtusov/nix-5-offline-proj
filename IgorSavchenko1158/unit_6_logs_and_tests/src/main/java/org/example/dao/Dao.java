@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.entity.BaseEntity;
@@ -36,6 +37,7 @@ public class Dao<E extends BaseEntity> {
         logger.debug("Start update " + e);
         Object current = findById(e.getId());
         try {
+//            Object temp = BeanUtils.cloneBean(e);
             BeanUtils.copyProperties(current, e);
         } catch (Exception ex) {
             logger.error("Update failed", ex);

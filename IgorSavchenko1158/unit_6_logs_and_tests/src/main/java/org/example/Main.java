@@ -74,17 +74,50 @@ public class Main {
 
     private static UniversityController getExampleController() {
         UniversityController result = new UniversityController();
-        result.createStudent(new Student().setFirstName("Vasya").setLastName("Ivanov").setAddress("Kharkiv"));
-        result.createStudent(new Student().setFirstName("Petya").setLastName("Vasilyev").setAddress("Kiyv"));
-        result.createStudent(new Student().setFirstName("Igor").setLastName("Petechkin").setAddress("Voronej"));
+        Student student = new Student();
+        student.setFirstName("Vasya");
+        student.setLastName("Ivanov");
+        student.setAddress("Kharkiv");
+        result.createStudent(student);
+        student = new Student();
+        student.setFirstName("Petya");
+        student.setLastName("Vasilyev");
+        student.setAddress("Kiyv");
+        result.createStudent(student);
+        student = new Student();
+        student.setFirstName("Igor");
+        student.setLastName("Petechkin");
+        student.setAddress("Voronej");
+        result.createStudent(student);
 
-        result.createCourse(new Course().setName("Mathematics").setDescription("learn mathematics!!"));
-        result.createCourse(new Course().setName("Java").setDescription("Learn java!!!"));
+        Course course = new Course();
+        course.setName("Mathematics");
+        course.setDescription("learn mathematics!!");
+        result.createCourse(course);
+        course = new Course();
+        course.setName("JAVA");
+        course.setDescription("learn JAVA!!!!!!!");
+        result.createCourse(course);
 
-        result.createStudentInCourse(new StudentInCourse().setCourseId("Course0").setStudentId("Student0"));
-        result.createStudentInCourse(new StudentInCourse().setCourseId("Course1").setStudentId("Student0"));
-        result.createStudentInCourse(new StudentInCourse().setCourseId("Course0").setStudentId("Student1"));
-        result.createStudentInCourse(new StudentInCourse().setCourseId("Course0").setStudentId("Student2"));
+        StudentInCourse studentInCourse = new StudentInCourse();
+        studentInCourse.setCourseId("Course0");
+        studentInCourse.setStudentId("Student0");
+        result.createStudentInCourse(studentInCourse);
+        studentInCourse = new StudentInCourse();
+        studentInCourse.setCourseId("Course0");
+        studentInCourse.setStudentId("Student1");
+        result.createStudentInCourse(studentInCourse);
+        studentInCourse = new StudentInCourse();
+        studentInCourse.setCourseId("Course0");
+        studentInCourse.setStudentId("Student2");
+        result.createStudentInCourse(studentInCourse);
+        studentInCourse = new StudentInCourse();
+        studentInCourse.setCourseId("Course1");
+        studentInCourse.setStudentId("Student1");
+        result.createStudentInCourse(studentInCourse);
+        studentInCourse = new StudentInCourse();
+        studentInCourse.setCourseId("Course1");
+        studentInCourse.setStudentId("Student2");
 
         return result;
     }
@@ -108,7 +141,11 @@ public class Main {
                     String address = scanner.nextLine();
                     String id;
                     try {
-                        id = uni.createStudent(new Student().setFirstName(firstName).setLastName(lastName).setAddress(address));
+                        Student student = new Student();
+                        student.setFirstName(firstName);
+                        student.setLastName(lastName);
+                        student.setAddress(address);
+                        id = uni.createStudent(student);
                     } catch (IllegalArgumentException ex) {
                         System.out.println("Incorrect input, please retry; " + ex.getMessage());
                         break;
@@ -143,7 +180,10 @@ public class Main {
                     String firstName = scanner.nextLine();
                     String lastName = scanner.nextLine();
                     String address = scanner.nextLine();
-                    Student student = new Student().setFirstName(firstName).setLastName(lastName).setAddress(address);
+                    Student student = new Student();
+                    student.setFirstName(firstName);
+                    student.setLastName(lastName);
+                    student.setAddress(address);
                     student.setId(id);
 
                     try {
@@ -195,7 +235,10 @@ public class Main {
                     String description = scanner.nextLine();
                     String id;
                     try {
-                        id = uni.createCourse(new Course().setName(name).setDescription(description));
+                        Course temp = new Course();
+                        temp.setName(name);
+                        temp.setDescription(description);
+                        id = uni.createCourse(temp);
                     } catch (IllegalArgumentException ex) {
                         System.out.println("Incorrect input, please retry; " + ex.getMessage());
                         break;
@@ -229,7 +272,9 @@ public class Main {
                     String id = scanner.nextLine();
                     String name = scanner.nextLine();
                     String description = scanner.nextLine();
-                    Course course = new Course().setName(name).setDescription(description);
+                    Course course = new Course();
+                    course.setName(name);
+                    course.setDescription(description);
                     course.setId(id);
 
                     try {
@@ -349,7 +394,10 @@ public class Main {
             String courseId = scanner.nextLine();
 
             try {
-                uni.createStudentInCourse(new StudentInCourse().setStudentId(studentId).setCourseId(courseId));
+                StudentInCourse temp = new StudentInCourse();
+                temp.setStudentId(studentId);
+                temp.setCourseId(courseId);
+                uni.createStudentInCourse(temp);
             } catch (IllegalArgumentException ex) {
                 System.out.println("Incorrect input, please retry; " + ex.getMessage());
                 continue;

@@ -10,18 +10,16 @@ public class StudentInCourse extends BaseEntity {
         return studentId;
     }
 
-    public StudentInCourse setStudentId(String studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
-        return this;
     }
 
     public String getCourseId() {
         return courseId;
     }
 
-    public StudentInCourse setCourseId(String courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
-        return this;
     }
 
     @Override

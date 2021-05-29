@@ -1,8 +1,10 @@
 package org.example.entity;
 
-public class BaseEntity {
-    private String id;
+import java.io.Serializable;
 
+public class BaseEntity implements Serializable {
+    private String id;
+    public BaseEntity(){}
     public String getId() {
         return id;
     }

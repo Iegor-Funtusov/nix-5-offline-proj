@@ -12,27 +12,24 @@ public class Student extends BaseEntity {
         return firstName;
     }
 
-    public Student setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public Student setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
-        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public Student setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
-        return this;
     }
 
     @Override
