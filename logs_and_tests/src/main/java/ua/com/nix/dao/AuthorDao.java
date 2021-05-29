@@ -2,11 +2,13 @@ package ua.com.nix.dao;
 
 import org.apache.commons.beanutils.BeanUtils;
 import ua.com.nix.model.Author;
+import ua.com.nix.model.Library;
 
 import java.util.Arrays;
 import java.util.UUID;
 
 public class AuthorDao {
+    LibraryDao libraryDao = new LibraryDao();
     private int capacity = 0;
     private static int size = 10;
 
@@ -73,5 +75,12 @@ public class AuthorDao {
             }
         }
         authors=tempAuthors;
+        Library[] libraries = libraryDao.findAll();
+        for (int i = 0; i < libraries.length; i++) {
+            if(id.equals(libraries[i].getAuthor().getId()))
+            {
+                libraries[i].setAuthor(null);
+            }
+        }
     }
 }
