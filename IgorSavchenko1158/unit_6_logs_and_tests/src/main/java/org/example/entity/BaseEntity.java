@@ -1,6 +1,6 @@
 package org.example.entity;
 
-public abstract class BaseEntity {
+public class BaseEntity {
     private String id;
 
     public String getId() {
