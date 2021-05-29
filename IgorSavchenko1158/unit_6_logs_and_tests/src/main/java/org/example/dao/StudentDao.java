@@ -16,8 +16,8 @@ public class StudentDao {
         studentDao.delete(id);
     }
 
-    public void update(Student dog) {
-        studentDao.update(dog);
+    public void update(Student student) {
+        studentDao.update(student);
     }
 
     public Student read(String id) {

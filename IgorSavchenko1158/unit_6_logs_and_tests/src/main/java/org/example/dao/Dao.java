@@ -73,9 +73,6 @@ public class Dao<E extends BaseEntity> {
     private Object findById(String id) {
         Object entity = Arrays.stream(container)
                 .filter(o -> ((E) o).getId().equals(id)).findAny().orElse(null);
-        if (entity == null) {
-            throw new RuntimeException("entity does not exist");
-        }
         return entity;
     }
 
