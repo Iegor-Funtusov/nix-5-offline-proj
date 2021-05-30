@@ -153,7 +153,7 @@ public class DateTime {
         minusMinute(m);
         int diffSeconds = this.second - s;
         if(diffSeconds < 0){
-            this.minute--;
+            minusMinute(1);
             this.second = 60 - Math.abs(diffSeconds);
         } else {
             this.second -= s;
@@ -166,7 +166,7 @@ public class DateTime {
         minusHour(h);
         int diffMinutes = this.minute - m;
         if(diffMinutes < 0){
-            this.hour--;
+            minusHour(1);
             this.minute = 60 - Math.abs(diffMinutes);
         } else {
             this.minute -= m;
@@ -179,7 +179,7 @@ public class DateTime {
         minusDay(d);
         int diffHours = this.hour - h;
         if(diffHours < 0){
-            this.day--;
+            minusDay(1);
             this.hour = 24 - Math.abs(diffHours);
         } else {
             this.hour -= h;
