@@ -7,6 +7,14 @@ public class Course extends BaseEntity {
     private String name;
     private String description;
 
+    public Course() {
+    }
+
+    public Course(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }

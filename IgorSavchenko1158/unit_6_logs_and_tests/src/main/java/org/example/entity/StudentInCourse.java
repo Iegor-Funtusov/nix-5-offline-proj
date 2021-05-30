@@ -6,6 +6,14 @@ public class StudentInCourse extends BaseEntity {
     private String studentId;
     private String courseId;
 
+    public StudentInCourse() {
+    }
+
+    public StudentInCourse(String studentId, String courseId) {
+        this.studentId = studentId;
+        this.courseId = courseId;
+    }
+
     public String getStudentId() {
         return studentId;
     }

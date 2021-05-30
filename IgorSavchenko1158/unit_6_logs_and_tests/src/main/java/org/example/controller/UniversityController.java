@@ -133,6 +133,10 @@ public class UniversityController {
 
     public void updateCourse(Course course) {
         logger.debug("Start updateCourse " + course);
+        if (course == null || courseDao.read().stream().noneMatch(e -> e.getId().equals(course.getId()))) {
+            logger.error("updateStudent failed as No such course to update");
+            throw new IllegalArgumentException("No such course to update");
+        }
         if (!validateCourse(course)) {
             logger.error("updateCourse failed as Not valid course");
             throw new IllegalArgumentException("Not valid course");

@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import org.example.dao.CourseDao;
 import org.example.entity.Course;
 import org.example.entity.Student;
 import org.example.entity.StudentInCourse;
@@ -66,7 +65,7 @@ class UniversityControllerTest {
         studentInCourse1.setCourseId(courseId);
         assertDoesNotThrow(() -> uni.createStudentInCourse(studentInCourse1));
 
-        StudentInCourse studentInCourse2 =new StudentInCourse();
+        StudentInCourse studentInCourse2 = new StudentInCourse();
         studentInCourse2.setStudentId(studentId);
         studentInCourse2.setCourseId(courseId);
         assertThrows(IllegalArgumentException.class,
@@ -136,23 +135,84 @@ class UniversityControllerTest {
         newStudent.setAddress("Kharkiv");
         newStudent.setId(studentId);
         uni.updateStudent(newStudent);
-        uni.readStudent().forEach(System.out::println);
+        assertEquals(uni.readStudent(studentId).getFirstName(), "Biba");
         assertEquals(uni.readStudent(studentId).getLastName(), "Lastnamich Jr.");
+
+        newStudent.setId("Fake id");
+        assertThrows(IllegalArgumentException.class, () -> uni.updateStudent(newStudent));
     }
 
     @Test
     void updateCourse() {
+        Course course = new Course("Math", "Description of math");
+        String courseId = uni.createCourse(course);
+
+        Course newCourse = new Course("Physics", "Description of physics");
+        newCourse.setId(courseId);
+        uni.updateCourse(newCourse);
+
+        assertEquals(uni.readCourse(courseId).getName(), "Physics");
+        assertEquals(uni.readCourse(courseId).getDescription(), "Description of physics");
+
+        newCourse.setId("Fake id");
+        assertThrows(IllegalArgumentException.class, () -> uni.updateCourse(newCourse));
     }
 
     @Test
     void deleteStudent() {
+        Student student = new Student("Vova", "Familia");
+        String studentId = uni.createStudent(student);
+        Course course = new Course("Math", "Description of math");
+        String courseId = uni.createCourse(course);
+        uni.createStudentInCourse(new StudentInCourse(studentId, courseId));
+
+        assertEquals(uni.readStudent(studentId).getFirstName(), "Vova");
+        assertEquals(uni.readAllCoursesByStudent(studentId).size(), 1);
+        assertEquals(uni.readAllStudentsByCourse(courseId).size(), 1);
+
+        uni.deleteStudent(studentId);
+
+        assertNull(uni.readStudent(studentId));
+        assertThrows(IllegalArgumentException.class, () -> uni.readAllCoursesByStudent(studentId));
+        assertEquals(uni.readAllStudentsByCourse(courseId).size(), 0);
     }
 
     @Test
     void deleteCourse() {
+        Student student = new Student("Vova", "Familia");
+        String studentId = uni.createStudent(student);
+        Course course = new Course("Math", "Description of math");
+        String courseId = uni.createCourse(course);
+        uni.createStudentInCourse(new StudentInCourse(studentId, courseId));
+
+        assertEquals(uni.readCourse(courseId).getName(), "Math");
+        assertEquals(uni.readAllCoursesByStudent(studentId).size(), 1);
+        assertEquals(uni.readAllStudentsByCourse(courseId).size(), 1);
+
+        uni.deleteCourse(courseId);
+
+        assertNull(uni.readCourse(courseId));
+        assertThrows(IllegalArgumentException.class, () -> uni.readAllStudentsByCourse(courseId));
+        assertEquals(uni.readAllCoursesByStudent(studentId).size(), 0);
     }
 
     @Test
     void deleteStudentInCourse() {
+        Student student = new Student("Vova", "Familia");
+        String studentId = uni.createStudent(student);
+        Course course = new Course("Math", "Description of math");
+        String courseId = uni.createCourse(course);
+        uni.createStudentInCourse(new StudentInCourse(studentId, courseId));
+
+        assertEquals(uni.readAllCoursesByStudent(studentId).size(), 1);
+        assertEquals(uni.readAllStudentsByCourse(courseId).size(), 1);
+
+        uni.deleteStudentInCourse(studentId, courseId);
+
+        assertEquals(uni.readAllCoursesByStudent(studentId).size(), 0);
+        assertEquals(uni.readAllStudentsByCourse(courseId).size(), 0);
+
+        assertThrows(IllegalArgumentException.class, () -> uni.deleteStudentInCourse(studentId, courseId));
+        assertThrows(IllegalArgumentException.class, () -> uni.deleteStudentInCourse("Fake id", "Fake id 2"));
     }
 }
