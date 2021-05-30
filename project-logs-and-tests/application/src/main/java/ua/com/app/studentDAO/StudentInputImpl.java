@@ -1,5 +1,7 @@
 package ua.com.app.studentDAO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.com.app.courseDAO.Course;
 import ua.com.app.courseDAO.CourseService;
 
@@ -19,6 +21,8 @@ public class StudentInputImpl {
     private static final String MESSAGE_COURSE = "Course doesn't exist";
     private static final String MESSAGE_INPUT_STUDENT = "Please write a student id:";
     private static final String MESSAGE_INPUT_COURSE = "Please write a course id:";
+    private static final Logger LOGGER_INFO = LoggerFactory.getLogger("info");
+    private static final Logger LOGGER_WARN = LoggerFactory.getLogger("warn");
 
     static {
         studentService = new StudentService();
@@ -29,22 +33,29 @@ public class StudentInputImpl {
         temporaryStudent = new Student();
         temporaryStudent.setFirstName(inputFirstName());
         temporaryStudent.setLastName(inputLastName());
+        LOGGER_INFO.info("Start create student " + temporaryStudent.getFirstName());
         studentService.createStudent(temporaryStudent);
+        LOGGER_INFO.info("End create student");
         System.out.println(MESSAGE_SUCCESS);
     }
 
     public void read() throws IOException {
+        LOGGER_INFO.info("Start read student");
         temporaryStudent = studentService.readStudent(inputId(MESSAGE_INPUT_STUDENT));
         if (temporaryStudent == null) {
+            LOGGER_WARN.warn("Student is null");
             System.out.println(MESSAGE_EXIST);
         } else {
             System.out.println(temporaryStudent);
         }
+        LOGGER_INFO.info("End read student");
     }
 
     public void update() throws IOException {
+        LOGGER_INFO.info("Start update student");
         temporaryStudent = studentService.readStudent(inputId(MESSAGE_INPUT_STUDENT));
         if (temporaryStudent == null) {
+            LOGGER_WARN.warn("Student is null");
             System.out.println(MESSAGE_EXIST);
         } else {
             temporaryStudent.setFirstName(inputFirstName());
@@ -52,34 +63,44 @@ public class StudentInputImpl {
             studentService.updateStudent(temporaryStudent);
             System.out.println(MESSAGE_SUCCESS);
         }
+        LOGGER_INFO.info("End update student");
     }
 
     public void delete() throws IOException {
+        LOGGER_INFO.info("Start delete student");
         String id = inputId(MESSAGE_INPUT_STUDENT);
         if (studentService.readStudent(id) == null) {
+            LOGGER_WARN.warn("Student is null");
             System.out.println(MESSAGE_EXIST);
         } else {
             studentService.deleteStudent(id);
             System.out.println(MESSAGE_SUCCESS);
         }
+        LOGGER_INFO.info("End delete student");
     }
 
     public static void readAll() {
+        LOGGER_INFO.info("Start read all students");
         String output = studentService.readAllStudents().toString();
         if (output.equals("[]")) {
+            LOGGER_WARN.warn("Students don't exists");
             System.out.println(MESSAGE_LIST_IS_EMPTY);
         } else {
             System.out.println(output);
         }
+        LOGGER_INFO.info("End read all students");
     }
 
     public void addCourse() throws IOException {
+        LOGGER_INFO.info("Start add course for student");
         temporaryStudent = studentService.readStudent(inputId(MESSAGE_INPUT_STUDENT));
         if (temporaryStudent == null) {
+            LOGGER_WARN.warn("Student is null");
             System.out.println(MESSAGE_EXIST);
         } else {
             Course temporaryCourse = courseService.readCourse(inputId(MESSAGE_INPUT_COURSE));
             if (temporaryCourse == null) {
+                LOGGER_WARN.warn("Course is null");
                 System.out.println(MESSAGE_COURSE);
             } else {
                 temporaryStudent.addCourse(temporaryCourse);
@@ -89,9 +110,11 @@ public class StudentInputImpl {
                 System.out.println(MESSAGE_SUCCESS);
             }
         }
+        LOGGER_INFO.info("End add course for student");
     }
 
-    public void deleteCourse() throws IOException{
+    public void deleteCourse() throws IOException {
+        LOGGER_INFO.info("Start delete course for student");
         temporaryStudent = studentService.readStudent(inputId(MESSAGE_INPUT_STUDENT));
         if (temporaryStudent == null) {
             System.out.println(MESSAGE_EXIST);
@@ -107,6 +130,7 @@ public class StudentInputImpl {
                 System.out.println(MESSAGE_SUCCESS);
             }
         }
+        LOGGER_INFO.info("End delete course for student");
     }
 
     private String inputFirstName() throws IOException {

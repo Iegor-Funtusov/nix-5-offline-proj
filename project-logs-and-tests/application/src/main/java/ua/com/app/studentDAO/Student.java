@@ -21,6 +21,10 @@ public class Student extends Entity {
         return lastName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public void addCourse(Course course) {
         if (!isCourse(course)) {
             arrayCourses.add(course);
