@@ -1,1 +1,1 @@
-# Left to finish: add logs and tests
+# nix-5-offline-proj
