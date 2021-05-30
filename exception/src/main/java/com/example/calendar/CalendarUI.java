@@ -15,7 +15,8 @@ public class CalendarUI {
     public void exec(){
         try {
             String helpStr = "Set an action: " +"\n 1 - create Date" +"\n 2 - difference Date"
-                    + "\n 3 - plus to Date" + "\n 4 - minus to Date" + "\n 5 - get user by Id" + "\n 0 - exit";
+                    + "\n 3 - plus to Date" + "\n 4 - minus to Date" + "\n 5 - compare Ascending of Dates"
+                    + "\n 6 - compare Descending of Dates" + "\n 0 - exit";
             System.out.println(helpStr);
             String read;
             while ((read = reader.readLine()) != null){
@@ -42,6 +43,10 @@ public class CalendarUI {
             case "3" : dateController.plusDate();
                 break;
             case "4" : dateController.minusDate();
+                break;
+            case "5" : dateController.printCompareAsc();
+                break;
+            case "6" : dateController.printCompareDesc();
                 break;
             case "0" : System.exit(0);
             default:

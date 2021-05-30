@@ -3,6 +3,7 @@ package com.example.calendar;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DateController {
@@ -28,7 +29,7 @@ public class DateController {
                 parseDate(read, dateTime);
             }
             dateTimeList.add(dateTime);
-        } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex){
+        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException ex){
             System.out.println("Pls, enter right date!");
             createDate();
             return;
@@ -94,6 +95,16 @@ public class DateController {
         } else {
             System.out.println("Firstly, create at least 1 Date from main menu");
         }
+    }
+
+    public void printCompareAsc(){
+        Collections.sort(dateTimeList);
+        System.out.println(dateTimeList);
+    }
+
+    public void printCompareDesc(){
+        dateTimeList.sort(Collections.reverseOrder());
+        System.out.println(dateTimeList);
     }
 
     private void parseDate(String dateRead, DateTime dateTime){

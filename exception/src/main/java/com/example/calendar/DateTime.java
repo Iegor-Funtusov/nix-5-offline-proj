@@ -1,6 +1,6 @@
 package com.example.calendar;
 
-public class DateTime {
+public class DateTime implements Comparable<DateTime> {
     private int day;
     private int month;
     private int year;
@@ -13,6 +13,8 @@ public class DateTime {
     }
 
     public void setDay(int day) {
+        if(day>31)
+            throw new IllegalArgumentException("argument out of range, day > 31");
         this.day = day;
     }
 
@@ -21,6 +23,8 @@ public class DateTime {
     }
 
     public void setMonth(int month) {
+        if(month>12)
+            throw new IllegalArgumentException("argument out of range, month > 12");
         this.month = month;
     }
 
@@ -42,6 +46,8 @@ public class DateTime {
     }
 
     public void setHour(int hour) {
+        if(hour > 24)
+            throw new IllegalArgumentException("argument out of range, hour > 24");
         this.hour = hour;
     }
 
@@ -50,6 +56,8 @@ public class DateTime {
     }
 
     public void setMinute(int minute) {
+        if(minute > 59)
+            throw new IllegalArgumentException("argument out of range, minute > 60");
         this.minute = minute;
     }
 
@@ -58,6 +66,8 @@ public class DateTime {
     }
 
     public void setSecond(int second) {
+        if(second > 59)
+            throw new IllegalArgumentException("argument out of range, second > 60");
         this.second = second;
     }
 
@@ -222,13 +232,23 @@ public class DateTime {
 
     @Override
     public String toString() {
-        return "Date{" +
-                "day=" + day +
-                ", month=" + month +
-                ", year=" + year +
-                ", hour=" + hour +
-                ", minute=" + minute +
-                ", second=" + second +
-                '}';
+        return  day +
+                "/" + month +
+                "/" + year +
+                " " + hour +
+                ":" + minute +
+                ":" + second;
+    }
+
+    @Override
+    public int compareTo(DateTime dateTime) {
+        long diffSec = diffDateInSecond(dateTime);
+        if(diffSec > 0){
+            return 1;
+        } else if(diffSec < 0){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }
