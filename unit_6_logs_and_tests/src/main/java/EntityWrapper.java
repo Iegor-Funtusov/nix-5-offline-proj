@@ -3,5 +3,6 @@ import lombok.Data;
 @Data
 public class EntityWrapper<T> {
     private T entity;
-    private boolean isDeleted;
+    private boolean isDeleted = false;
+
 }
