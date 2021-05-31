@@ -10,6 +10,7 @@ public class EmployeeDao {
     Employee[] employers = new Employee[10];
 
     public void create(Employee employee) {
+        if (employee != null)
         employee.setId(generateId(employee.getId()));
     }
 
@@ -47,7 +48,10 @@ public class EmployeeDao {
 
 
     public String generateId(String id) {
-        UUID uniqueId = UUID.randomUUID();
-        return uniqueId.toString();
+        if (id != null || !id.isEmpty()) {
+            UUID uniqueId = UUID.randomUUID();
+            return uniqueId.toString();
+        }
+        return "Вы ввели что-то неправильно";
     }
 }

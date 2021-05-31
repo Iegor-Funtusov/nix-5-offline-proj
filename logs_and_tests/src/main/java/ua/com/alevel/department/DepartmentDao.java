@@ -1,7 +1,6 @@
 package ua.com.alevel.department;
 
 import org.apache.commons.beanutils.BeanUtils;
-import ua.com.alevel.employee.Employee;
 import ua.com.alevel.employee.EmployeeDao;
 
 import java.io.BufferedReader;
@@ -15,6 +14,7 @@ public class DepartmentDao {
     EmployeeDao employeeDao = new EmployeeDao();
 
     public void create(Department department) {
+        if (department != null)
         department.setId(generateId(department.getId()));
     }
 
@@ -25,7 +25,11 @@ public class DepartmentDao {
         try {
             switch (reader.readLine()) {
                 case "1":
-                    employeeDao.readAll();
+                    System.out.println(employeeDao.readAll());
+                    break;
+                case "2":
+                    System.out.println(departments);
+
             }
         }
         catch (IOException e){
@@ -62,7 +66,10 @@ public class DepartmentDao {
     }
     
     public String generateId(String id) {
-        UUID uniqueId = UUID.randomUUID();
-        return uniqueId.toString();
+        if (id != null || !id.isEmpty()) {
+            UUID uniqueId = UUID.randomUUID();
+            return uniqueId.toString();
+        }
+        return "Вы ввели что-то неправильно";
     }
 }
