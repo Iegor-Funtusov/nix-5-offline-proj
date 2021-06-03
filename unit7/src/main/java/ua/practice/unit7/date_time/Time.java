@@ -1,9 +1,9 @@
 package ua.practice.unit7.date_time;
 
 public class Time implements Comparable<Time> {
-    int hours;
-    int minutes;
-    int seconds;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
     public Time(String hours, String minutes, String seconds) {
         this.initHours(hours);

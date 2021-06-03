@@ -1,13 +1,17 @@
 package ua.practice.unit7.handlers;
 
 import ua.practice.unit7.date_time.Date;
+import ua.practice.unit7.date_time.Months;
 import ua.practice.unit7.date_time.Time;
+import ua.practice.unit7.date_time.YearClass;
 
 public class DateTime implements Comparable<DateTime> {
-    Date date;
-    Time timeOfDay = new Time();
+    private Date date;
+    private Time timeOfDay;
 
     public DateTime(String input, DataTypes dataType) {
+        date = new Date();
+        timeOfDay = new Time();
         this.processInput(input + " ", dataType);
     }
 
@@ -16,8 +20,12 @@ public class DateTime implements Comparable<DateTime> {
         this.timeOfDay = timeOfDay;
     }
 
-    private void processInput(String input, DataTypes dataTypes) {
-        switch(dataTypes) {
+    public DateTime(long years, long months, long day, long hours, long minutes, long seconds) {
+        initByValues(years, months, day, hours, minutes, seconds);
+    }
+
+    private void processInput(String input, DataTypes dataTypes) throws ArrayIndexOutOfBoundsException {
+        switch (dataTypes) {
             case TYPE1:
                 String[] parts = input.split("/");
                 this.date = new Date(parts[0], parts[1], parts[2]);
@@ -31,12 +39,20 @@ public class DateTime implements Comparable<DateTime> {
                 this.date = new Date(parts2[1], parts2[0], parts2[2]);
                 break;
             case TYPE4:
+                String[] parts3 = input.split("-|\\s|:");
+                this.date = new Date(parts3[0], parts3[1], parts3[2]);
+                this.timeOfDay = new Time(parts3[3], parts3[4], parts3[5]);
                 break;
             default:
                 System.out.println("Incorrect input");
                 throw new RuntimeException();
         }
 
+    }
+
+    private void initByValues(long years, long months, long day, long hours, long minutes, long seconds) {
+        date = new Date(String.valueOf(day), String.valueOf(months), String.valueOf(years));
+        timeOfDay = new Time(String.valueOf(hours), String.valueOf(minutes), String.valueOf(seconds));
     }
 
     public Date getDate() {

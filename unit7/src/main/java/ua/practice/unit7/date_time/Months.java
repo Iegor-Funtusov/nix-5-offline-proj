@@ -1,5 +1,7 @@
 package ua.practice.unit7.date_time;
 
+import java.util.stream.Stream;
+
 public enum Months {
     JANUARY(1, 31),
     FEBRUARY(2, 28),
@@ -17,7 +19,7 @@ public enum Months {
     private final int monthNumber;
     private final int numberOfDays;
 
-    private Months(int monthNumber, int numberOfDays) {
+    Months(int monthNumber, int numberOfDays) {
         this.monthNumber = monthNumber;
         this.numberOfDays = numberOfDays;
     }
@@ -28,5 +30,9 @@ public enum Months {
 
     public int getNumberOfDays() {
         return this.numberOfDays;
+    }
+
+    public static Months getMonth(int monthNumber){
+        return Stream.of(Months.values()).filter(months -> months.getMonthNumber() == monthNumber).findAny().get();
     }
 }

@@ -18,13 +18,14 @@ public class Date implements Comparable<Date> {
         this.initYear(year.trim());
         this.initMonth(month);
         this.initDay(day);
+        checkZeros();
     }
 
     private void initYear(String year) {
         if (!year.isBlank()) {
             try {
                 this.year = new YearClass(Integer.parseInt(year));
-            } catch (NumberFormatException var3) {
+            } catch (NumberFormatException e) {
                 throw new RuntimeException("Wrong input for year");
             }
         }
@@ -35,7 +36,13 @@ public class Date implements Comparable<Date> {
         if (!month.isEmpty()) {
             if (NumberUtils.isParsable(month)) {
                 int monthNumber = Integer.parseInt(month);
-
+                if (monthNumber == 0) {
+                    {
+                        this.month = Months.DECEMBER;
+                        year = new YearClass(year.getYear()-1);
+                        return;
+                    }
+                }
                 for (Months months : Months.values()) {
                     if (months.getMonthNumber() == monthNumber) {
                         this.month = months;
@@ -63,11 +70,24 @@ public class Date implements Comparable<Date> {
                 if (this.day < 0 || this.day > this.month.getNumberOfDays()) {
                     throw new NumberFormatException();
                 }
-            } catch (NumberFormatException var3) {
+            } catch (NumberFormatException e) {
                 throw new RuntimeException("Wrong input for day");
             }
         }
 
+    }
+
+    private void checkZeros() {
+        if (day == 0 && month.getMonthNumber() != 1) {
+            setMonth(Months.getMonth(month.getMonthNumber() - 1));
+            day = month.getNumberOfDays();
+        }
+        if (day == 0 && month.getMonthNumber() == 1)
+        {
+            year = new YearClass(year.getYear()-1);
+            setMonth(Months.DECEMBER);
+            day = month.getNumberOfDays();
+        }
     }
 
     public int getDay() {
