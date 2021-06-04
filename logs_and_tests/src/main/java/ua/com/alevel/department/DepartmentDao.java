@@ -19,22 +19,6 @@ public class DepartmentDao {
     }
 
     public Department[] readAll() {
-        System.out.println("Введите что бы вы хотели вывести: \n1 - Список сотрудников предприятия \n" +
-                "2 - Название предприятия");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            switch (reader.readLine()) {
-                case "1":
-                    System.out.println(employeeDao.readAll());
-                    break;
-                case "2":
-                    System.out.println(departments);
-
-            }
-        }
-        catch (IOException e){
-            System.out.println(e.getMessage());
-        }
         return departments;
     }
 
