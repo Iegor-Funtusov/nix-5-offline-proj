@@ -1,1 +1,1 @@
-# nix-5-offline-proj
+Run project with Main
