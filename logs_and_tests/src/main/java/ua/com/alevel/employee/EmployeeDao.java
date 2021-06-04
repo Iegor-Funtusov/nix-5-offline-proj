@@ -1,6 +1,7 @@
 package ua.com.alevel.employee;
 
 import org.apache.commons.beanutils.BeanUtils;
+import ua.com.alevel.department.Department;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
@@ -10,8 +11,12 @@ public class EmployeeDao {
     Employee[] employers = new Employee[10];
 
     public void create(Employee employee) {
-        if (employee != null)
-        employee.setId(generateId(employee.getId()));
+        if (employee!= null)
+            employee.setId(generateId(employee.getId()));
+        Employee[] employeesForSave = new Employee[employers.length + 1];
+        employeesForSave[employers.length] = employee;
+        System.arraycopy(employers, 0, employeesForSave, 0, employers.length);
+        employers = employeesForSave;
     }
 
     public Employee[] readAll() {
@@ -19,9 +24,9 @@ public class EmployeeDao {
     }
 
     public void update(Employee employee) {
-        String current = findById(employee.getId());
+        Employee currentEmployers = findById(employee.getId());
         try {
-            BeanUtils.copyProperties(current, employee);
+            BeanUtils.copyProperties(currentEmployers, employee);
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.getMessage();
         }
@@ -37,12 +42,15 @@ public class EmployeeDao {
         }
     }
 
-    public String findById(String id) {
-        for (int i = 0; i < employers.length; i++) {
-            if (employers[i].getId().equals(id))
-                return id;
+    public Employee findById(String id) {
+        if (id != null) {
+            for (Employee employee : employers) {
+                if (employee.getId().equals(id)){
+                    return employee;
+                }
+            }
         }
-        return "Вы ввели что-то неправильное";
+        return null;
     }
 
 

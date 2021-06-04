@@ -11,17 +11,17 @@ public class DepartmentDaoTest {
 //    private static final String NAME_UPDATE = "test5";
 //    DepartmentDao departmentDao = new DepartmentDao();
 //
-////    @BeforeAll
-////    public void setUp() {
-////        for (int i = 0; i < 10; i++) {
-////            Department department = new Department();
-////            department.setName(NAME + i);
-////            departmentDao.create(department);
-////        }
-////        Department[] departments = departmentDao.readAll();
-////        Assert.assertTrue(departments != null && departments.length == 10);
-////
-////    }
+//    @BeforeAll
+//    public void setUp() {
+//        for (int i = 0; i < 10; i++) {
+//            Department department = new Department();
+//            department.setName(NAME + i);
+//            departmentDao.create(department);
+//        }
+//        Department[] departments = departmentDao.readAll();
+//        Assert.assertTrue(departments != null && departments.length == 10);
+//
+//    }
 //
 //    @Test
 //    @Order(1)

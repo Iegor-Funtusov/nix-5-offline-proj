@@ -1,7 +1,5 @@
 package ua.com.alevel.department;
 
-import ua.com.alevel.department.DepartmentDao;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,9 +13,7 @@ public class DepartmentService {
 
     public void create(Department department) {
         LOGGER_INFO.info("Start create department: " + department.getName());
-        if (department != null) {
             departmentDao.create(department);
-        }
         LOGGER_INFO.info("End create department");
     }
 
@@ -35,13 +31,8 @@ public class DepartmentService {
         departmentDao.delete(id);
     }
 
-    public String findById(String id) {
-        if (departmentDao.findById(id) != null) {
-            LOGGER_ERROR.error("This department is exist");
-            return departmentDao.findById(id);
-        }
-        LOGGER_ERROR.error("This department doest not exist");
-        return "Введены неправильные данные";
+    public Department findById(String id) {
+        return departmentDao.findById(id);
     }
 
     public String generateId(String id) {

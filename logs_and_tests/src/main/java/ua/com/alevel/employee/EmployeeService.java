@@ -28,19 +28,15 @@ public class EmployeeService {
         if (employee != null) {
             employeeDao.update(employee);
         }
+        LOGGER_WARN.warn("End update employee");
     }
 
     public void delete(String id) {
         employeeDao.delete(id);
     }
 
-    public String findById(String id) {
-        if (id != null) {
-            LOGGER_ERROR.error("This employee is exist");
-            return employeeDao.findById(id);
-        }
-        LOGGER_ERROR.error("This department doest not exist");
-        return "Введены неправильные данные";
+    public Employee findById(String id) {
+        return employeeDao.findById(id);
     }
 
     public String generateId(String id) {
