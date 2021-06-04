@@ -622,7 +622,7 @@ internal <a href="antlib.html">antlib</a> <code>org.apache.tools.ant.types.resou
 <ul>
   <li><a href="#rsel.name">name</a>&mdash;select resources by name.</li>
   <li><a href="#rsel.exists">exists</a>&mdash;select existing resources.</li>
-  <li><a href="#rsel.date">date</a>&mdash;select resources by date.</li>
+  <li><a href="#rsel.dateTime">dateTime</a>&mdash;select resources by dateTime.</li>
   <li><a href="#rsel.type">type</a>&mdash;select resources by type.</li>
   <li><a href="#rsel.size">size</a>&mdash;select resources by size.</li>
   <li><a href="#rsel.instanceof">instanceof</a>&mdash;select resources by class or Ant
@@ -684,8 +684,8 @@ internal <a href="antlib.html">antlib</a> <code>org.apache.tools.ant.types.resou
 <h5 id="rsel.exists">exists</h5>
 <p>Selects existing resources.</p>
 
-<h5 id="rsel.date">date</h5>
-<p>Selects resources by date.</p>
+<h5 id="rsel.dateTime">dateTime</h5>
+<p>Selects resources by dateTime.</p>
 <table class="attr">
   <tr>
     <th scope="col">Attribute</th>
@@ -694,12 +694,12 @@ internal <a href="antlib.html">antlib</a> <code>org.apache.tools.ant.types.resou
   </tr>
   <tr>
     <td>millis</td>
-    <td>The comparison date/time in ms since January 1, 1970</td>
+    <td>The comparison dateTime/time in ms since January 1, 1970</td>
     <td rowspan="2">One of these</td>
   </tr>
   <tr>
     <td>datetime</td>
-    <td class="left">The formatted comparison date/time</td>
+    <td class="left">The formatted comparison dateTime/time</td>
   </tr>
   <tr>
     <td>pattern</td>
@@ -932,7 +932,7 @@ internal <a href="antlib.html">antlib</a> <code>org.apache.tools.ant.types.resou
 <ul>
   <li><a href="#rcmp.name">name</a>&mdash;sort resources by name</li>
   <li><a href="#rcmp.exists">exists</a>&mdash;sort resources by existence</li>
-  <li><a href="#rcmp.date">date</a>&mdash;sort resources by date</li>
+  <li><a href="#rcmp.dateTime">dateTime</a>&mdash;sort resources by dateTime</li>
   <li><a href="#rcmp.type">type</a>&mdash;sort resources by type</li>
   <li><a href="#rcmp.size">size</a>&mdash;sort resources by size</li>
   <li><a href="#rcmp.content">content</a>&mdash;sort resources by content</li>
@@ -946,8 +946,8 @@ internal <a href="antlib.html">antlib</a> <code>org.apache.tools.ant.types.resou
 <h6 id="rcmp.exists">exists</h6>
 <p>Sort resources by existence.  Not existing is considered "less than" existing.</p>
 
-<h6 id="rcmp.date">date</h6>
-<p>Sort resources by date.</p>
+<h6 id="rcmp.dateTime">dateTime</h6>
+<p>Sort resources by dateTime.</p>
 
 <h6 id="rcmp.type">type</h6>
 <p>Sort resources by type (file or directory).  Because directories contain files, they are
@@ -994,12 +994,12 @@ value of <q>bar baz etc foo</q>.</p>
 &lt;sort&gt;
   &lt;fileset dir=&quot;foo&quot;/&gt;
   &lt;reverse xmlns=&quot;antlib:org.apache.tools.ant.types.resources.comparators&quot;&gt;
-    &lt;date/&gt;
+    &lt;dateTime/&gt;
   &lt;/reverse&gt;
 &lt;/sort&gt;</pre>
-<p>This takes all files from <samp>foo</samp> and sorts them by modification date in reverse
+<p>This takes all files from <samp>foo</samp> and sorts them by modification dateTime in reverse
 order.  Because the resource comparators used (<code>&lt;reverse&gt;</code>
-and <code>&lt;date&gt;</code>) are in an internal antlib their namespace must be set explicitly.
+and <code>&lt;dateTime&gt;</code>) are in an internal antlib their namespace must be set explicitly.
 </p>
 
 <h4 id="first">first</h4>

@@ -90,11 +90,11 @@ file itself.</p>
   <tr>
     <td>default</td>
     <td class="left">Initial value to set for a property if it is not already defined in the
-      property file.<br/>For type <var>date</var>, an additional keyword is
+      property file.<br/>For type <var>dateTime</var>, an additional keyword is
       allowed: <q>now</q></td></tr>
   <tr>
     <td>type</td>
-    <td>Regard the value as: <q>int</q>, <q>date</q> or <q>string</q> (default)</td>
+    <td>Regard the value as: <q>int</q>, <q>dateTime</q> or <q>string</q> (default)</td>
     <td>No; defaults to <q>string</q></td>
   </tr>
   <tr>
@@ -106,7 +106,7 @@ file itself.</p>
         <li><q>+</q> : adds a value to the existing value</li>
         <li><q>=</q> : sets a value instead of the existing value (default)</li>
       </ul>
-      <strong>for <var>date</var> and <var>int</var> only:</strong>
+      <strong>for <var>dateTime</var> and <var>int</var> only:</strong>
       <ul>
         <li><q>-</q> : subtracts a value from the existing value</li>
       </ul>
@@ -115,13 +115,13 @@ file itself.</p>
   </tr>
   <tr>
     <td>pattern</td>
-    <td>For <var>int</var> and <var>date</var> type only. If present, values will be parsed and
+    <td>For <var>int</var> and <var>dateTime</var> type only. If present, values will be parsed and
       formatted accordingly.</td>
     <td>No</td>
   </tr>
   <tr>
     <td>unit</td>
-    <td>The unit of the value to be applied to <var>date</var> <q>+</q>/<q>-</q> operations.  Valid
+    <td>The unit of the value to be applied to <var>dateTime</var> <q>+</q>/<q>-</q> operations.  Valid
       Values are:
       <ul>
         <li><q>millisecond</q></li>
@@ -133,7 +133,7 @@ file itself.</p>
         <li><q>month</q></li>
         <li><q>year</q></li>
       </ul>
-      This only applies to <var>date</var> types using a <q>+</q>/<q>-</q> operation.
+      This only applies to <var>dateTime</var> types using a <q>+</q>/<q>-</q> operation.
     </td>
     <td>No; defaults to <q>day</q></td>
   </tr>
@@ -180,7 +180,7 @@ adate=2005/08/31 13\:47
 
 formated.int=0014
 
-formated.date=243 13\:47</pre>
+formated.dateTime=243 13\:47</pre>
 <p>The slashes conform to the expectations of the Properties class.  The file will be stored in a
 manner so that each character is examined and escaped if necessary.</p>
 
@@ -191,20 +191,20 @@ the file. Existing properties are overwritten in place.</p>
 &lt;propertyfile file=&quot;my.properties&quot;
               comment=&quot;My properties&quot;&gt;
     &lt;entry key=&quot;akey&quot; value=&quot;avalue&quot;/&gt;
-    &lt;entry key=&quot;adate&quot; type=&quot;date&quot; value=&quot;now&quot;/&gt;
+    &lt;entry key=&quot;adate&quot; type=&quot;dateTime&quot; value=&quot;now&quot;/&gt;
     &lt;entry key=&quot;anint&quot; type=&quot;int&quot; default=&quot;0&quot; operation=&quot;+&quot;/&gt;
     &lt;entry key=&quot;formated.int&quot; type=&quot;int&quot; default=&quot;0013&quot; operation=&quot;+&quot; pattern=&quot;0000&quot;/&gt;
-    &lt;entry key=&quot;formated.date&quot; type=&quot;date&quot; value=&quot;now&quot; pattern=&quot;DDD HH:mm&quot;/&gt;
+    &lt;entry key=&quot;formated.dateTime&quot; type=&quot;dateTime&quot; value=&quot;now&quot; pattern=&quot;DDD HH:mm&quot;/&gt;
 &lt;/propertyfile&gt;</pre>
 <p>To produce dates relative from today:</p>
 <pre>
 &lt;propertyfile file=&quot;my.properties&quot;
               comment=&quot;My properties&quot;&gt;
-    &lt;entry key=&quot;formated.date-1&quot;
-           type=&quot;date&quot; default=&quot;now&quot; pattern=&quot;DDD&quot;
+    &lt;entry key=&quot;formated.dateTime-1&quot;
+           type=&quot;dateTime&quot; default=&quot;now&quot; pattern=&quot;DDD&quot;
            operation=&quot;-&quot; value=&quot;1&quot;/&gt;
     &lt;entry key=&quot;formated.tomorrow&quot;
-           type=&quot;date&quot; default=&quot;now&quot; pattern=&quot;DDD&quot;
+           type=&quot;dateTime&quot; default=&quot;now&quot; pattern=&quot;DDD&quot;
            operation=&quot;+&quot; value=&quot;1&quot;/&gt;
 &lt;/propertyfile&gt;</pre>
 
@@ -226,7 +226,7 @@ set <code>patch=0</code>):</p>
         &lt;entry key="product.build.major" type="int"  value="3"/&gt;
         &lt;entry key="product.build.minor" type="int"  operation="+"/&gt;
         &lt;entry key="product.build.patch" type="int"  value="0"/&gt;
-        &lt;entry key="product.build.date"  type="date" value="now"/&gt;
+        &lt;entry key="product.build.dateTime"  type="dateTime" value="now"/&gt;
     &lt;/propertyfile&gt;
 &lt;/target&gt;</pre>
 <p>After running this target the version changed e.g. from 3.2.2 to 3.3.0.</p>

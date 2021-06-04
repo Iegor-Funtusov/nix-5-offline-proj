@@ -376,7 +376,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVersionDate()">getVersionDate</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Gets the Version date string.</div>
+<div class="block">Gets the Version dateTime string.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
@@ -437,16 +437,16 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInternalDate(java.lang.String)">setInternalDate</a></span>&#8203;(java.lang.String&nbsp;date)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInternalDate(java.lang.String)">setInternalDate</a></span>&#8203;(java.lang.String&nbsp;dateTime)</code></th>
 <td class="colLast">
-<div class="block">Set the date attribute.</div>
+<div class="block">Set the dateTime attribute.</div>
 </td>
 </tr>
 <tr id="i25" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInternalDateFormat(java.text.DateFormat)">setInternalDateFormat</a></span>&#8203;(java.text.DateFormat&nbsp;dateFormat)</code></th>
 <td class="colLast">
-<div class="block">Set the date format attribute.</div>
+<div class="block">Set the dateTime format attribute.</div>
 </td>
 </tr>
 <tr id="i26" class="altColor">
@@ -467,7 +467,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInternalFromDate(java.lang.String)">setInternalFromDate</a></span>&#8203;(java.lang.String&nbsp;fromDate)</code></th>
 <td class="colLast">
-<div class="block">Set the from date attribute.</div>
+<div class="block">Set the from dateTime attribute.</div>
 </td>
 </tr>
 <tr id="i29" class="rowColor">
@@ -537,7 +537,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInternalToDate(java.lang.String)">setInternalToDate</a></span>&#8203;(java.lang.String&nbsp;toDate)</code></th>
 <td class="colLast">
-<div class="block">Set the to date attribute.</div>
+<div class="block">Set the to dateTime attribute.</div>
 </td>
 </tr>
 <tr id="i39" class="rowColor">
@@ -793,11 +793,11 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <ul class="blockList">
 <li class="blockList">
 <h4>setInternalDate</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;setInternalDate&#8203;(java.lang.String&nbsp;date)</pre>
-<div class="block">Set the date attribute.</div>
+<pre class="methodSignature">protected&nbsp;void&nbsp;setInternalDate&#8203;(java.lang.String&nbsp;dateTime)</pre>
+<div class="block">Set the dateTime attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - the value to use.</dd>
+<dd><code>dateTime</code> - the value to use.</dd>
 </dl>
 </li>
 </ul>
@@ -808,7 +808,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <li class="blockList">
 <h4>setInternalDateFormat</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;setInternalDateFormat&#8203;(java.text.DateFormat&nbsp;dateFormat)</pre>
-<div class="block">Set the date format attribute.</div>
+<div class="block">Set the dateTime format attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>dateFormat</code> - the value to use.</dd>
@@ -836,7 +836,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <li class="blockList">
 <h4>setInternalFromDate</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;setInternalFromDate&#8203;(java.lang.String&nbsp;fromDate)</pre>
-<div class="block">Set the from date attribute.</div>
+<div class="block">Set the from dateTime attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromDate</code> - the value to use.</dd>
@@ -962,7 +962,7 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <li class="blockList">
 <h4>setInternalToDate</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;setInternalToDate&#8203;(java.lang.String&nbsp;toDate)</pre>
-<div class="block">Set the to date attribute.</div>
+<div class="block">Set the to dateTime attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toDate</code> - the value to use.</dd>
@@ -1174,10 +1174,10 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <h4>getVersionDateLabel</h4>
 <pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getVersionDateLabel()</pre>
 <div class="block">Gets the version string. Returns the first specified of version "-V1.0",
- date "-Vd01.01.01", label "-Vlbuild1".</div>
+ dateTime "-Vd01.01.01", label "-Vlbuild1".</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>An empty string if a version, date and label are not set.</dd>
+<dd>An empty string if a version, dateTime and label are not set.</dd>
 </dl>
 </li>
 </ul>
@@ -1304,10 +1304,10 @@ implements <a href="MSVSSConstants.html" title="interface in org.apache.tools.an
 <h4>getVersionDate</h4>
 <pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;getVersionDate()
                                    throws <a href="../../../BuildException.html" title="class in org.apache.tools.ant">BuildException</a></pre>
-<div class="block">Gets the Version date string.</div>
+<div class="block">Gets the Version dateTime string.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>An empty string if neither Todate or from date are set.</dd>
+<dd>An empty string if neither Todate or from dateTime are set.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../BuildException.html" title="class in org.apache.tools.ant">BuildException</a></code> - if there is an error.</dd>
 </dl>

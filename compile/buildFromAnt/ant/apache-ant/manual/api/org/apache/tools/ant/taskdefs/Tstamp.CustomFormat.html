@@ -139,8 +139,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Tstamp.CustomFormat</span>
 extends java.lang.Object</pre>
 <div class="block">This nested element that allows a property to be set
- to the current date and time in a given format.
- The date/time patterns are as defined in the
+ to the current dateTime and time in a given format.
+ The dateTime/time patterns are as defined in the
  Java SimpleDateFormat class.
  The format element also allows offsets to be applied to
  the time to generate different time values.</div>
@@ -192,7 +192,7 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#execute(org.apache.tools.ant.Project,java.util.Date,org.apache.tools.ant.Location)">execute</a></span>&#8203;(<a href="../Project.html" title="class in org.apache.tools.ant">Project</a>&nbsp;project,
-       java.util.Date&nbsp;date,
+       java.util.Date&nbsp;dateTime,
        <a href="../Location.html" title="class in org.apache.tools.ant">Location</a>&nbsp;location)</code></th>
 <td class="colLast">
 <div class="block">validate parameter and execute the format.</div>
@@ -202,7 +202,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLocale(java.lang.String)">setLocale</a></span>&#8203;(java.lang.String&nbsp;locale)</code></th>
 <td class="colLast">
-<div class="block">The locale used to create date/time string.</div>
+<div class="block">The locale used to create dateTime/time string.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -216,14 +216,14 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPattern(java.lang.String)">setPattern</a></span>&#8203;(java.lang.String&nbsp;pattern)</code></th>
 <td class="colLast">
-<div class="block">The date/time pattern to be used.</div>
+<div class="block">The dateTime/time pattern to be used.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProperty(java.lang.String)">setProperty</a></span>&#8203;(java.lang.String&nbsp;propertyName)</code></th>
 <td class="colLast">
-<div class="block">The property to receive the date/time string in the given pattern</div>
+<div class="block">The property to receive the dateTime/time string in the given pattern</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -299,7 +299,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setProperty</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setProperty&#8203;(java.lang.String&nbsp;propertyName)</pre>
-<div class="block">The property to receive the date/time string in the given pattern</div>
+<div class="block">The property to receive the dateTime/time string in the given pattern</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>propertyName</code> - the name of the property.</dd>
@@ -313,7 +313,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setPattern</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setPattern&#8203;(java.lang.String&nbsp;pattern)</pre>
-<div class="block">The date/time pattern to be used. The values are as
+<div class="block">The dateTime/time pattern to be used. The values are as
  defined by the Java SimpleDateFormat class.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -330,7 +330,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setLocale</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setLocale&#8203;(java.lang.String&nbsp;locale)</pre>
-<div class="block">The locale used to create date/time string.
+<div class="block">The locale used to create dateTime/time string.
  The general form is "language, country, variant" but
  either variant or variant and country may be omitted.
  For more information please refer to documentation
@@ -430,13 +430,13 @@ public&nbsp;void&nbsp;setUnit&#8203;(java.lang.String&nbsp;unit)</pre>
 <li class="blockList">
 <h4>execute</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;execute&#8203;(<a href="../Project.html" title="class in org.apache.tools.ant">Project</a>&nbsp;project,
-                    java.util.Date&nbsp;date,
+                    java.util.Date&nbsp;dateTime,
                     <a href="../Location.html" title="class in org.apache.tools.ant">Location</a>&nbsp;location)</pre>
 <div class="block">validate parameter and execute the format.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>project</code> - project to set property in.</dd>
-<dd><code>date</code> - date to use as a starting point.</dd>
+<dd><code>dateTime</code> - dateTime to use as a starting point.</dd>
 <dd><code>location</code> - line in file (for errors)</dd>
 </dl>
 </li>

@@ -134,7 +134,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public final class <span class="typeNameLabel">DateUtils</span>
 extends java.lang.Object</pre>
-<div class="block">Helper methods to deal with date/time formatting with a specific
+<div class="block">Helper methods to deal with dateTime/time formatting with a specific
  defined format (<a href="https://www.w3.org/TR/NOTE-datetime">ISO8601</a>)
  or a correct pluralization of elapsed time in minutes and seconds.</div>
 <dl>
@@ -175,28 +175,28 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.lang.ThreadLocal&lt;java.text.DateFormat&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EN_US_DATE_FORMAT_MIN">EN_US_DATE_FORMAT_MIN</a></span></code></th>
 <td class="colLast">
-<div class="block">Provides a thread-local US-style date format.</div>
+<div class="block">Provides a thread-local US-style dateTime format.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.ThreadLocal&lt;java.text.DateFormat&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EN_US_DATE_FORMAT_SEC">EN_US_DATE_FORMAT_SEC</a></span></code></th>
 <td class="colLast">
-<div class="block">Provides a thread-local US-style date format.</div>
+<div class="block">Provides a thread-local US-style dateTime format.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ISO8601_DATE_PATTERN">ISO8601_DATE_PATTERN</a></span></code></th>
 <td class="colLast">
-<div class="block">ISO8601-like pattern for date.</div>
+<div class="block">ISO8601-like pattern for dateTime.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ISO8601_DATETIME_PATTERN">ISO8601_DATETIME_PATTERN</a></span></code></th>
 <td class="colLast">
-<div class="block">ISO8601-like pattern for date-time.</div>
+<div class="block">ISO8601-like pattern for dateTime-time.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -226,18 +226,18 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#format(long,java.lang.String)">format</a></span>&#8203;(long&nbsp;date,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#format(long,java.lang.String)">format</a></span>&#8203;(long&nbsp;dateTime,
       java.lang.String&nbsp;pattern)</code></th>
 <td class="colLast">
-<div class="block">Format a date/time into a specific pattern.</div>
+<div class="block">Format a dateTime/time into a specific pattern.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#format(java.util.Date,java.lang.String)">format</a></span>&#8203;(java.util.Date&nbsp;date,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#format(java.util.Date,java.lang.String)">format</a></span>&#8203;(java.util.Date&nbsp;dateTime,
       java.lang.String&nbsp;pattern)</code></th>
 <td class="colLast">
-<div class="block">Format a date/time into a specific pattern.</div>
+<div class="block">Format a dateTime/time into a specific pattern.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -251,7 +251,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDateForHeader()">getDateForHeader</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns the current Date in a format suitable for a SMTP date
+<div class="block">Returns the current Date in a format suitable for a SMTP dateTime
  header.</div>
 </td>
 </tr>
@@ -259,21 +259,21 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPhaseOfMoon(java.util.Calendar)">getPhaseOfMoon</a></span>&#8203;(java.util.Calendar&nbsp;cal)</code></th>
 <td class="colLast">
-<div class="block">Calculate the phase of the moon for a given date.</div>
+<div class="block">Calculate the phase of the moon for a given dateTime.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.util.Date</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseDateFromHeader(java.lang.String)">parseDateFromHeader</a></span>&#8203;(java.lang.String&nbsp;datestr)</code></th>
 <td class="colLast">
-<div class="block">Parses the string in a format suitable for a SMTP date header.</div>
+<div class="block">Parses the string in a format suitable for a SMTP dateTime header.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static java.util.Date</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseIso8601Date(java.lang.String)">parseIso8601Date</a></span>&#8203;(java.lang.String&nbsp;datestr)</code></th>
 <td class="colLast">
-<div class="block">Parse a string as a date using the ISO8601_DATE format which is
+<div class="block">Parse a string as a dateTime using the ISO8601_DATE format which is
  <code>yyyy-MM-dd</code></div>
 </td>
 </tr>
@@ -289,7 +289,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.util.Date</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseIso8601DateTimeOrDate(java.lang.String)">parseIso8601DateTimeOrDate</a></span>&#8203;(java.lang.String&nbsp;datestr)</code></th>
 <td class="colLast">
-<div class="block">Parse a string as a date using the either the ISO8601_DATETIME
+<div class="block">Parse a string as a dateTime using the either the ISO8601_DATETIME
  or ISO8601_DATE formats.</div>
 </td>
 </tr>
@@ -297,7 +297,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.util.Date</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseLenientDateTime(java.lang.String)">parseLenientDateTime</a></span>&#8203;(java.lang.String&nbsp;dateStr)</code></th>
 <td class="colLast">
-<div class="block">Parse a lenient ISO 8601, ms since epoch, or <code>&lt;touch&gt;</code>-style date.</div>
+<div class="block">Parse a lenient ISO 8601, ms since epoch, or <code>&lt;touch&gt;</code>-style dateTime.</div>
 </td>
 </tr>
 </table>
@@ -331,7 +331,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ISO8601_DATETIME_PATTERN</h4>
 <pre>public static final&nbsp;java.lang.String ISO8601_DATETIME_PATTERN</pre>
-<div class="block">ISO8601-like pattern for date-time. It does not support timezone.
+<div class="block">ISO8601-like pattern for dateTime-time. It does not support timezone.
   <code>yyyy-MM-ddTHH:mm:ss</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -346,7 +346,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ISO8601_DATE_PATTERN</h4>
 <pre>public static final&nbsp;java.lang.String ISO8601_DATE_PATTERN</pre>
-<div class="block">ISO8601-like pattern for date. <code>yyyy-MM-dd</code></div>
+<div class="block">ISO8601-like pattern for dateTime. <code>yyyy-MM-dd</code></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../constant-values.html#org.apache.tools.ant.util.DateUtils.ISO8601_DATE_PATTERN">Constant Field Values</a></dd>
@@ -390,7 +390,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <li class="blockList">
 <h4>EN_US_DATE_FORMAT_MIN</h4>
 <pre>public static final&nbsp;java.lang.ThreadLocal&lt;java.text.DateFormat&gt; EN_US_DATE_FORMAT_MIN</pre>
-<div class="block">Provides a thread-local US-style date format. Exactly as used by
+<div class="block">Provides a thread-local US-style dateTime format. Exactly as used by
  <code>&lt;touch&gt;</code>, to minute precision:
  <code>SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US)</code></div>
 <dl>
@@ -406,7 +406,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <li class="blockList">
 <h4>EN_US_DATE_FORMAT_SEC</h4>
 <pre>public static final&nbsp;java.lang.ThreadLocal&lt;java.text.DateFormat&gt; EN_US_DATE_FORMAT_SEC</pre>
-<div class="block">Provides a thread-local US-style date format. Exactly as used by
+<div class="block">Provides a thread-local US-style dateTime format. Exactly as used by
  <code>&lt;touch&gt;</code>, to second precision:
  <code>SimpleDateFormat("MM/dd/yyyy hh:mm:ss a", Locale.US)</code></div>
 <dl>
@@ -431,15 +431,15 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>format</h4>
-<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;format&#8203;(long&nbsp;date,
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;format&#8203;(long&nbsp;dateTime,
                                       java.lang.String&nbsp;pattern)</pre>
-<div class="block">Format a date/time into a specific pattern.</div>
+<div class="block">Format a dateTime/time into a specific pattern.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - the date to format expressed in milliseconds.</dd>
-<dd><code>pattern</code> - the pattern to use to format the date.</dd>
+<dd><code>dateTime</code> - the dateTime to format expressed in milliseconds.</dd>
+<dd><code>pattern</code> - the pattern to use to format the dateTime.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the formatted date.</dd>
+<dd>the formatted dateTime.</dd>
 </dl>
 </li>
 </ul>
@@ -449,15 +449,15 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>format</h4>
-<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;format&#8203;(java.util.Date&nbsp;date,
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;format&#8203;(java.util.Date&nbsp;dateTime,
                                       java.lang.String&nbsp;pattern)</pre>
-<div class="block">Format a date/time into a specific pattern.</div>
+<div class="block">Format a dateTime/time into a specific pattern.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - the date to format expressed in milliseconds.</dd>
-<dd><code>pattern</code> - the pattern to use to format the date.</dd>
+<dd><code>dateTime</code> - the dateTime to format expressed in milliseconds.</dd>
+<dd><code>pattern</code> - the pattern to use to format the dateTime.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the formatted date.</dd>
+<dd>the formatted dateTime.</dd>
 </dl>
 </li>
 </ul>
@@ -491,7 +491,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <li class="blockList">
 <h4>getPhaseOfMoon</h4>
 <pre class="methodSignature">public static&nbsp;int&nbsp;getPhaseOfMoon&#8203;(java.util.Calendar&nbsp;cal)</pre>
-<div class="block">Calculate the phase of the moon for a given date.
+<div class="block">Calculate the phase of the moon for a given dateTime.
 
  <p>Code heavily influenced by hacklib.c in <a href="https://www.nethack.org/">Nethack</a></p>
 
@@ -533,11 +533,11 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <li class="blockList">
 <h4>getDateForHeader</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;getDateForHeader()</pre>
-<div class="block">Returns the current Date in a format suitable for a SMTP date
+<div class="block">Returns the current Date in a format suitable for a SMTP dateTime
  header.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the current date.</dd>
+<dd>the current dateTime.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>Ant 1.5.2</dd>
 </dl>
@@ -551,7 +551,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <h4>parseDateFromHeader</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Date&nbsp;parseDateFromHeader&#8203;(java.lang.String&nbsp;datestr)
                                           throws java.text.ParseException</pre>
-<div class="block">Parses the string in a format suitable for a SMTP date header.</div>
+<div class="block">Parses the string in a format suitable for a SMTP dateTime header.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>datestr</code> - string to be parsed</dd>
@@ -596,7 +596,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <h4>parseIso8601Date</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Date&nbsp;parseIso8601Date&#8203;(java.lang.String&nbsp;datestr)
                                        throws java.text.ParseException</pre>
-<div class="block">Parse a string as a date using the ISO8601_DATE format which is
+<div class="block">Parse a string as a dateTime using the ISO8601_DATE format which is
  <code>yyyy-MM-dd</code></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -619,7 +619,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <h4>parseIso8601DateTimeOrDate</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Date&nbsp;parseIso8601DateTimeOrDate&#8203;(java.lang.String&nbsp;datestr)
                                                  throws java.text.ParseException</pre>
-<div class="block">Parse a string as a date using the either the ISO8601_DATETIME
+<div class="block">Parse a string as a dateTime using the either the ISO8601_DATETIME
  or ISO8601_DATE formats.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -642,7 +642,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <h4>parseLenientDateTime</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Date&nbsp;parseLenientDateTime&#8203;(java.lang.String&nbsp;dateStr)
                                            throws java.text.ParseException</pre>
-<div class="block">Parse a lenient ISO 8601, ms since epoch, or <code>&lt;touch&gt;</code>-style date.
+<div class="block">Parse a lenient ISO 8601, ms since epoch, or <code>&lt;touch&gt;</code>-style dateTime.
  That is:
  <ul>
  <li>Milliseconds since 1970-01-01 00:00</li>
@@ -657,7 +657,7 @@ public static final&nbsp;java.text.DateFormat DATE_HEADER_FORMAT</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Date</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.text.ParseException</code> - if date string does not match ISO 8601</dd>
+<dd><code>java.text.ParseException</code> - if dateTime string does not match ISO 8601</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>Ant 1.10.2</dd>
 </dl>

@@ -199,7 +199,7 @@ extract an Ant generated ZIP archive.</p>
     <td>Whether the file modification times will be rounded up to the next even number of
       seconds.<br/>Zip archives store file modification times with a granularity of 2 seconds, so
       the times will either be rounded up or down. If you round down, the archive will always seem
-      out-of-date when you rerun the task, so the default is to round up.  Rounding up may lead to a
+      out-of-dateTime when you rerun the task, so the default is to round up.  Rounding up may lead to a
       different type of problems like JSPs inside a web archive that seem to be slightly more recent
       than precompiled pages, rendering precompilation useless. <em>Since Ant 1.6.2</em></td>
     <td>No; defaults to <q>true</q></td>
@@ -277,7 +277,7 @@ the <code>unzip</code> family of tasks.</p>
 flag</q> which can be used to signal that a file name has been encoded using UTF-8. <em>Since Ant
 1.8.0</em>, all zip, jar and similar archives written by Ant will set this flag, if the encoding has
 been set to UTF-8.  Our interoperability tests with existing archivers didn't show any ill effects
-(in fact, most archivers ignore the flag to date), but you can turn off the <q>language encoding
+(in fact, most archivers ignore the flag to dateTime), but you can turn off the <q>language encoding
 flag</q> by setting the attribute <var>useLanguageEncodingFlag</var> to <q>false</q> on
 the <code>zip</code> task if you should encounter problems.</p>
 

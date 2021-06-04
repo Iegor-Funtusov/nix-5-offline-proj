@@ -131,7 +131,7 @@
 	<xsl:apply-templates select="file"/>
   </xsl:template>
 
-  <xsl:template match="date">
+  <xsl:template match="dateTime">
     <i><xsl:value-of select="."/></i>
   </xsl:template>
 

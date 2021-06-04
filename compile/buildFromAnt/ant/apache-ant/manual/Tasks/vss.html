@@ -100,8 +100,8 @@ may need to alter your path, or set the <var>ssdir</var> property.</p>
 <h2 id="vssget">VssGet</h2>
 <h3>Description</h3>
 <p>Task to perform GET commands to Microsoft Visual SourceSafe.</p>
-<p>If you specify two or more attributes from version, date and label only one will be used in the
-order version, date, label.</p>
+<p>If you specify two or more attributes from version, dateTime and label only one will be used in the
+order version, dateTime, label.</p>
 <h3>Parameters</h3>
 <table class="attr">
   <tr>
@@ -155,8 +155,8 @@ order version, date, label.</p>
     <td rowspan="3">No; only one of these may be used</td>
   </tr>
   <tr>
-    <td>date</td>
-    <td class="left">a date stamp to get at</td>
+    <td>dateTime</td>
+    <td class="left">a dateTime stamp to get at</td>
   </tr>
   <tr>
     <td>label</td>
@@ -191,7 +191,7 @@ order version, date, label.</p>
     <td>No; defaults to <q>current</q></td>
   </tr>
 </table>
-<p>Note that only one of version, date or label should be specified</p>
+<p>Note that only one of version, dateTime or label should be specified</p>
 <h3>Examples</h3>
 
 <p>Perform a get on the VSS Project <samp>$/source/myproject</samp> using the username <q>me</q> and
@@ -325,12 +325,12 @@ Task to perform HISTORY commands to Microsoft Visual SourceSafe.
   </tr>
   <tr>
     <td>fromDate</td>
-    <td>Start date for comparison</td>
+    <td>Start dateTime for comparison</td>
     <td>See below</td>
   </tr>
   <tr>
     <td>toDate</td>
-    <td>End date for comparison</td>
+    <td>End dateTime for comparison</td>
     <td>See below</td>
   </tr>
   <tr>
@@ -386,10 +386,10 @@ Task to perform HISTORY commands to Microsoft Visual SourceSafe.
 <p>There are different ways to specify what time-frame you wish to evaluate:</p>
 <ul>
   <li>Changes between two dates: Specify both <var>fromDate</var> and <var>toDate</var></li>
-  <li>Changes before a date: Specify <var>toDate</var></li>
-  <li>Changes after a date: Specify <var>fromDate</var></li>
-  <li>Changes X Days before a date: Specify <var>toDate</var> and (negative!) <var>numDays</var></li>
-  <li>Changes X Days after a date: Specify <var>fromDate</var> and <var>numDays</var></li>
+  <li>Changes before a dateTime: Specify <var>toDate</var></li>
+  <li>Changes after a dateTime: Specify <var>fromDate</var></li>
+  <li>Changes X Days before a dateTime: Specify <var>toDate</var> and (negative!) <var>numDays</var></li>
+  <li>Changes X Days after a dateTime: Specify <var>fromDate</var> and <var>numDays</var></li>
 </ul>
 
 <h3>Examples</h3>
@@ -401,7 +401,7 @@ Task to perform HISTORY commands to Microsoft Visual SourceSafe.
             fromLabel=&quot;Release1&quot;
             toLabel=&quot;Release2&quot;/&gt;</pre>
 
-<p>Show all changes between January 1st 2001 and March 31st 2001 (in Germany, date must be specified
+<p>Show all changes between January 1st 2001 and March 31st 2001 (in Germany, dateTime must be specified
 according to your locale).</p>
 
 <pre>
@@ -503,9 +503,9 @@ directory <samp>D:\build</samp>.</p>
 <h2 id="vsscheckout">VssCheckout</h2>
 <h3>Description</h3>
 <p>Task to perform CHECKOUT commands to Microsoft Visual SourceSafe.</p>
-<p>If you specify two or more attributes from <var>version</var>, <var>date</var>
+<p>If you specify two or more attributes from <var>version</var>, <var>dateTime</var>
 and <var>label</var> only one will be used in the
-order <var>version</var>, <var>date</var>, <var>label</var>.</p>
+order <var>version</var>, <var>dateTime</var>, <var>label</var>.</p>
 <h3>Parameters</h3>
 <table class="attr">
   <tr>
@@ -556,8 +556,8 @@ order <var>version</var>, <var>date</var>, <var>label</var>.</p>
     <td rowspan="3">No; only one of these may be used</td>
   </tr>
   <tr>
-    <td>date</td>
-    <td class="left">a date stamp to get at</td>
+    <td>dateTime</td>
+    <td class="left">a dateTime stamp to get at</td>
   </tr>
   <tr>
     <td>label</td>

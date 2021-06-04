@@ -161,7 +161,7 @@ extends <a href="../../Task.html" title="class in org.apache.tools.ant">Task</a>
         &lt;entry key="product.version.minor" type="int"  value="0"/&gt;
         &lt;entry key="product.build.major"   type="int"  value="0" /&gt;
         &lt;entry key="product.build.minor"   type="int"  operation="+"/&gt;
-        &lt;entry key="product.build.date"    type="date" value="now"/&gt;
+        &lt;entry key="product.build.dateTime"    type="dateTime" value="now"/&gt;
         &lt;entry key="intSet" type="int" operation="=" value="681"/&gt;
         &lt;entry key="intDec" type="int" operation="-"/&gt;
         &lt;entry key="StringEquals" type="string" value="testValue"/&gt;
@@ -213,7 +213,7 @@ extends <a href="../../Task.html" title="class in org.apache.tools.ant">Task</a>
    <dd>
    <ul>
      <li>"int"</li>
-     <li>"date"</li>
+     <li>"dateTime"</li>
      <li>"string"</li>
    </ul>
    </dd>
@@ -222,9 +222,9 @@ extends <a href="../../Task.html" title="class in org.apache.tools.ant">Task</a>
    <ul>
      <li>holds the default value, if the property
               was not found in property file</li>
-     <li>"now" In case of type "date", the
+     <li>"now" In case of type "dateTime", the
               value "now" will be replaced by the current
-              date/time and used even if a valid date was
+              dateTime/time and used even if a valid dateTime was
               found in the property file.</li>
    </ul>
    </dd>

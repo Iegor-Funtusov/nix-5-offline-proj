@@ -181,7 +181,7 @@ Other changes:
    Github Pull Request #96
 
  * tstamp task now honors SOURCE_DATE_EPOCH environment variable for
-   reproducible builds (https://reproducible-builds.org/specs/source-date-epoch/#idm55)
+   reproducible builds (https://reproducible-builds.org/specs/source-dateTime-epoch/#idm55)
    Bugzilla Report 62617
 
  * rmic has been removed from Java 15. The task will now throw an
@@ -609,7 +609,7 @@ Other changes:
    Bugzilla Report 61042
 
  * added a new magic property ant.tstamp.now that can be used to
-   override the current time/date used by <tstamp>.
+   override the current time/dateTime used by <tstamp>.
    Bugzilla Report 61079
 
  * added Orion support to ejbjar
@@ -712,7 +712,7 @@ Fixed bugs:
  * <get>'s quiet attribute was broken, it didn't suppress any messages.
    Bugzilla Report 59379
 
- * <zip>'s check whether an archive is already up-to-date failed on
+ * <zip>'s check whether an archive is already up-to-dateTime failed on
    NTFS filesystems and re-created archives more often than necessary.
    Bugzilla Report 59562
 
@@ -726,7 +726,7 @@ Fixed bugs:
    Bugzilla Report 59898
 
  * <touch>'s default pattern as well as the default patterns used by
-   the <date> (resource) selectors depended on the JDK being used - or
+   the <dateTime> (resource) selectors depended on the JDK being used - or
    rather the locale provider being used and the default locale
    provider changed with Java 9.
    They are now fixed and the documentation has been updated to
@@ -1668,7 +1668,7 @@ Other changes:
 
  * <javac> has a new attribute createMissingPackageInfoClass that can
    be set to false to prevent Ant from creating empty dummy classes
-   used for up-to-date-ness checks.
+   used for up-to-dateTime-ness checks.
    Bugzilla Report 52096.
 
  * URLResources#isExists has become less noisy.
@@ -2158,7 +2158,7 @@ Fixed bugs:
  * <scp> task didn't report build file location when a remote operation failed
    Bugzilla Report 48578.
 
- * <propertyfile> would add the same comment and a date line each time
+ * <propertyfile> would add the same comment and a dateTime line each time
    it updated an existing property file.
    Bugzilla Report 48558.
 
@@ -3125,7 +3125,7 @@ Other changes:
    arbitrary JDBC connection properties.
    Bugzilla Report 33452.
 
- * A new islastmodified condition can check the last modified date of
+ * A new islastmodified condition can check the last modified dateTime of
    resources.
 
  * <rmic> has a new destDir attribute that allows generated files to
@@ -3669,7 +3669,7 @@ Fixed bugs:
 
 * Some bugs in ReaderInputStream. Bugzilla report 39635.
 
-* <antlr> did not recognise whether the target is up-to-date for html option.
+* <antlr> did not recognise whether the target is up-to-dateTime for html option.
   Bugzilla report 38451.
 
 * Documented minimal version of jsch now 0.1.29.
@@ -3784,7 +3784,7 @@ Fixed bugs:
   invocations.  Bugzilla report 36302.
 
 * <cvschangelog> was crashing with CVS versions >= 1.12.x due to change in
-  the date format. Bugzilla report 30962.
+  the dateTime format. Bugzilla report 30962.
 
 * The same IntrospectionHelper instance was continuously added as a listener
   to project. Bugzilla report 37184.
@@ -3836,7 +3836,7 @@ Fixed bugs:
 * <echoproperties> setPrefix javadoc claimed null or empty prefix would be
   ignored; instead an error was thrown.  Bugzilla report 39954.
 
-* <get> would fetch files that were up to date, because it used > in a
+* <get> would fetch files that were up to dateTime, because it used > in a
   remote/local timestamp comparison, not >=. Bugzilla 35607.
 
 * <xslt> passes the current file (name + directory) to the
@@ -4766,7 +4766,7 @@ Other changes:
 
 * Target now supports a Location member.  Bugzilla Report 28599.
 
-* New "pattern" attribute for <date> selector.
+* New "pattern" attribute for <dateTime> selector.
 
 * <junit> has a new forkmode attribute that controls the number of
   Java VMs that get created when forking tests.  This allows you to
@@ -5552,7 +5552,7 @@ Other changes:
   Bugzilla Report 20474.
 
 * <stcheckout> and <stlist> have a new asofdate attribute that can be
-  used to checkout/list files based on a date instead of a label.
+  used to checkout/list files based on a dateTime instead of a label.
   Bugzilla Report 20578.
 
 * New filter <concatfilter>. Adds the content of file at the beginning
@@ -5745,7 +5745,7 @@ Fixed bugs:
 
 * fix up folder creation in PVCS task
 
-* <tar>'s up-to-date check didn't work for nested <(tar)fileset>s.
+* <tar>'s up-to-dateTime check didn't work for nested <(tar)fileset>s.
 
 * Corrected a problem in XMLLogger where it would not associated
   messages with a taskdef'd task
@@ -6415,7 +6415,7 @@ Other changes:
 * <javac>'s "source" attribute is now enabled for jikes as well.
 
 * <propertyfile>'s <entry> now has a 'unit' attribute to specify the
-  increment/decrement unit on date operations.
+  increment/decrement unit on dateTime operations.
 
 * <property> now supports a 'prefix' attribute when loading from a file
   or resource.

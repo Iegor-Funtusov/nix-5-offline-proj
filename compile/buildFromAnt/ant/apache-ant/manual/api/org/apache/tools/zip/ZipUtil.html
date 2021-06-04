@@ -200,14 +200,14 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.util.Date</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromDosTime(org.apache.tools.zip.ZipLong)">fromDosTime</a></span>&#8203;(<a href="ZipLong.html" title="class in org.apache.tools.zip">ZipLong</a>&nbsp;zipDosTime)</code></th>
 <td class="colLast">
-<div class="block">Convert a DOS date/time field to a Date object.</div>
+<div class="block">Convert a DOS dateTime/time field to a Date object.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toDosTime(long)">toDosTime</a></span>&#8203;(long&nbsp;t)</code></th>
 <td class="colLast">
-<div class="block">Convert a Date object to a DOS date/time field.</div>
+<div class="block">Convert a Date object to a DOS dateTime/time field.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -216,14 +216,14 @@ extends java.lang.Object</pre>
          byte[]&nbsp;buf,
          int&nbsp;offset)</code></th>
 <td class="colLast">
-<div class="block">Convert a Date object to a DOS date/time field.</div>
+<div class="block">Convert a Date object to a DOS dateTime/time field.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="ZipLong.html" title="class in org.apache.tools.zip">ZipLong</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toDosTime(java.util.Date)">toDosTime</a></span>&#8203;(java.util.Date&nbsp;time)</code></th>
 <td class="colLast">
-<div class="block">Convert a Date object to a DOS date/time field.</div>
+<div class="block">Convert a Date object to a DOS dateTime/time field.</div>
 </td>
 </tr>
 </table>
@@ -276,12 +276,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toDosTime</h4>
 <pre class="methodSignature">public static&nbsp;<a href="ZipLong.html" title="class in org.apache.tools.zip">ZipLong</a>&nbsp;toDosTime&#8203;(java.util.Date&nbsp;time)</pre>
-<div class="block">Convert a Date object to a DOS date/time field.</div>
+<div class="block">Convert a Date object to a DOS dateTime/time field.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>time</code> - the <code>Date</code> to convert</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the date as a <code>ZipLong</code></dd>
+<dd>the dateTime as a <code>ZipLong</code></dd>
 </dl>
 </li>
 </ul>
@@ -292,14 +292,14 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toDosTime</h4>
 <pre class="methodSignature">public static&nbsp;byte[]&nbsp;toDosTime&#8203;(long&nbsp;t)</pre>
-<div class="block">Convert a Date object to a DOS date/time field.
+<div class="block">Convert a Date object to a DOS dateTime/time field.
 
  <p>Stolen from InfoZip's <code>fileio.c</code></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>t</code> - number of milliseconds since the epoch</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the date as a byte array</dd>
+<dd>the dateTime as a byte array</dd>
 </dl>
 </li>
 </ul>
@@ -312,7 +312,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;void&nbsp;toDosTime&#8203;(long&nbsp;t,
                              byte[]&nbsp;buf,
                              int&nbsp;offset)</pre>
-<div class="block">Convert a Date object to a DOS date/time field.
+<div class="block">Convert a Date object to a DOS dateTime/time field.
 
  <p>Stolen from InfoZip's <code>fileio.c</code></p></div>
 <dl>
@@ -350,7 +350,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>fromDosTime</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Date&nbsp;fromDosTime&#8203;(<a href="ZipLong.html" title="class in org.apache.tools.zip">ZipLong</a>&nbsp;zipDosTime)</pre>
-<div class="block">Convert a DOS date/time field to a Date object.</div>
+<div class="block">Convert a DOS dateTime/time field to a Date object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>zipDosTime</code> - contains the stored DOS time.</dd>

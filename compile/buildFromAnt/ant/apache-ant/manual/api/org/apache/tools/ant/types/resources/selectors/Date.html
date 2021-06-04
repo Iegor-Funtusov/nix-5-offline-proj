@@ -139,7 +139,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">Date</span>
 extends java.lang.Object
 implements <a href="ResourceSelector.html" title="interface in org.apache.tools.ant.types.resources.selectors">ResourceSelector</a></pre>
-<div class="block">Date ResourceSelector.  Based on the date FileSelector, with the most
+<div class="block">Date ResourceSelector.  Based on the dateTime FileSelector, with the most
  notable difference being the lack of support for the includedirs attribute.
  It is recommended that the effect of includeDirs = "false" be achieved for
  resources by enclosing a "dir" Type ResourceSelector and a Date
@@ -193,7 +193,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatetime()">getDatetime</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Get the date and time in String format.</div>
+<div class="block">Get the dateTime and time in String format.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -207,7 +207,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMillis()">getMillis</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Get the date/time in ms.</div>
+<div class="block">Get the dateTime/time in ms.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -235,7 +235,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDateTime(java.lang.String)">setDateTime</a></span>&#8203;(java.lang.String&nbsp;s)</code></th>
 <td class="colLast">
-<div class="block">Set the date and time as a String.</div>
+<div class="block">Set the dateTime and time as a String.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -249,7 +249,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMillis(long)">setMillis</a></span>&#8203;(long&nbsp;m)</code></th>
 <td class="colLast">
-<div class="block">Set the date/time in milliseconds since 1970.</div>
+<div class="block">Set the dateTime/time in milliseconds since 1970.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -316,7 +316,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <li class="blockList">
 <h4>setMillis</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setMillis&#8203;(long&nbsp;m)</pre>
-<div class="block">Set the date/time in milliseconds since 1970.</div>
+<div class="block">Set the dateTime/time in milliseconds since 1970.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>m</code> - the number of millis.</dd>
@@ -330,7 +330,7 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <li class="blockList">
 <h4>getMillis</h4>
 <pre class="methodSignature">public&nbsp;long&nbsp;getMillis()</pre>
-<div class="block">Get the date/time in ms.</div>
+<div class="block">Get the dateTime/time in ms.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>long number of millis since 1970.</dd>
@@ -344,10 +344,10 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <li class="blockList">
 <h4>setDateTime</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setDateTime&#8203;(java.lang.String&nbsp;s)</pre>
-<div class="block">Set the date and time as a String.</div>
+<div class="block">Set the dateTime and time as a String.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>s</code> - the date and time to use.</dd>
+<dd><code>s</code> - the dateTime and time to use.</dd>
 </dl>
 </li>
 </ul>
@@ -358,10 +358,10 @@ implements <a href="ResourceSelector.html" title="interface in org.apache.tools.
 <li class="blockList">
 <h4>getDatetime</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getDatetime()</pre>
-<div class="block">Get the date and time in String format.</div>
+<div class="block">Get the dateTime and time in String format.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a String representing a date and time.</dd>
+<dd>a String representing a dateTime and time.</dd>
 </dl>
 </li>
 </ul>

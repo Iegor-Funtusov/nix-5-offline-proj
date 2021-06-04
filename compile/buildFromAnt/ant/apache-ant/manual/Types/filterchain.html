@@ -531,7 +531,7 @@ and <var>endtoken</var> with user defined values.</p>
 
 <h4>Example</h4>
 
-<p>This replaces occurrences of the string <code>@DATE@</code> in the data with today's date and
+<p>This replaces occurrences of the string <code>@DATE@</code> in the data with today's dateTime and
 stores it in the property <code>${src.file.replaced}</code>.</p>
 <pre>
 &lt;tstamp/&gt;
@@ -562,7 +562,7 @@ stores it in the property <code>${src.file.replaced}</code>.</p>
   &lt;/filterchain&gt;
 &lt;/loadfile&gt;</pre>
 
-<p>This replaces occurrences of the string <q>{{DATE}}</q> in the data with today's date and
+<p>This replaces occurrences of the string <q>{{DATE}}</q> in the data with today's dateTime and
 stores it in the property <samp>${src.file.replaced}</samp>.</p>
 <pre>
 &lt;loadfile srcfile=&quot;${src.file}&quot; property=&quot;${src.file.replaced}&quot;&gt;

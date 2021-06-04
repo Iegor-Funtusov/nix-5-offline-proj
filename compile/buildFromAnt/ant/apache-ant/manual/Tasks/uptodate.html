@@ -26,7 +26,7 @@
 
 <h2 id="uptodate">Uptodate</h2>
 <h3>Description</h3>
-<p>Sets a property if a target file or set of target files is more up-to-date than a source file or
+<p>Sets a property if a target file or set of target files is more up-to-dateTime than a source file or
 set of source files. A single source file is specified using the <var>srcfile</var> attribute. A set
 of source files is specified using the nested <code>&lt;srcfiles&gt;</code> elements. These
 are <a href="../Types/fileset.html">FileSet</a>s, whereas multiple target files are specified using
@@ -92,14 +92,14 @@ resources to check against the target file(s).</p>
 
 <h4 id="mapper">mapper</h4>
 <p>The nested <code>&lt;mapper&gt;</code> element allows you to specify a set of target files to
-check for being up-to-date with respect to a set of source files.</p>
+check for being up-to-dateTime with respect to a set of source files.</p>
 <p>The mapper <var>to</var> attribute is relative to the target file, or to the <var>dir</var>
 attribute of the nested <code>srcfiles</code> element.</p>
 <p><em>Since Ant 1.6.3</em>, one can use a <code>filenamemapper</code> type in place of the mapper
 element.</p>
 <h3>Examples</h3>
 <p>Set the property <code>xmlBuild.notRequired</code> to <q>true</q> if
-the <samp>${deploy}/xmlClasses.jar</samp> file is more up-to-date than any of the DTD files in
+the <samp>${deploy}/xmlClasses.jar</samp> file is more up-to-dateTime than any of the DTD files in
 the <samp>${src}/xml</samp> directory.</p>
 <pre>
 &lt;uptodate property=&quot;xmlBuild.notRequired&quot; targetfile=&quot;${deploy}\xmlClasses.jar&quot;&gt;
@@ -123,7 +123,7 @@ following target:</p>
 <p>will first run the <q>chkXmlBuild</q> target, which contains the <code>&lt;uptodate&gt;</code>
 task that determines whether <code>xmlBuild.notRequired</code> gets set. The property named in
 the <var>unless</var> attribute is then checked for being set/not set.  If it did get set (ie., the
-jar file is up-to-date), then the <q>xmlBuild</q> target won't be run.</p>
+jar file is up-to-dateTime), then the <q>xmlBuild</q> target won't be run.</p>
 
 <p>The following example shows a single source file being checked against a single target file:</p>
 <pre>

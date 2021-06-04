@@ -39,7 +39,7 @@ resources of any type, while targets are restricted to files only. At least one 
 one set of targets is required.</p>
 <p>Use a FileSet when you want to use wildcard include or exclude patterns and don't care about
 missing files.  Use a FileList when you want to consider the non-existence of a file as if it were
-out of date.  If there are any non-existing files in any source or target FileList, all target files
+out of dateTime.  If there are any non-existing files in any source or target FileList, all target files
 will be removed.</p>
 <p>DependSet is useful to capture dependencies that are not or cannot be determined algorithmically.
 For example, the <code>&lt;style&gt;</code> task only compares the source XML file and XSLT
@@ -111,7 +111,7 @@ Multiple <code>&lt;targetfilelist&gt;</code> filelists may be specified.</p>
 
 <h3>Examples</h3>
 
-<p>Remove derived HTML files in the ${output.dir} directory if they are out-of-date with respect
+<p>Remove derived HTML files in the ${output.dir} directory if they are out-of-dateTime with respect
 to:</p>
 <ol>
     <li>the DTD of their source XML files</li>

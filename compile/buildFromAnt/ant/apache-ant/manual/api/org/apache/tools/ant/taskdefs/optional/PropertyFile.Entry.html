@@ -171,7 +171,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="PropertyFile.Entry.Type.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Entry.Type</a></span></code></th>
 <td class="colLast">
-<div class="block">Enumerated attribute with the values "int", "date" and "string".</div>
+<div class="block">Enumerated attribute with the values "int", "dateTime" and "string".</div>
 </td>
 </tr>
 </table>
@@ -246,21 +246,21 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPattern(java.lang.String)">setPattern</a></span>&#8203;(java.lang.String&nbsp;value)</code></th>
 <td class="colLast">
-<div class="block">For int and date type only.</div>
+<div class="block">For int and dateTime type only.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setType(org.apache.tools.ant.taskdefs.optional.PropertyFile.Entry.Type)">setType</a></span>&#8203;(<a href="PropertyFile.Entry.Type.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Entry.Type</a>&nbsp;value)</code></th>
 <td class="colLast">
-<div class="block">Regard the value as : int, date or string (default)</div>
+<div class="block">Regard the value as : int, dateTime or string (default)</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnit(org.apache.tools.ant.taskdefs.optional.PropertyFile.Unit)">setUnit</a></span>&#8203;(<a href="PropertyFile.Unit.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Unit</a>&nbsp;unit)</code></th>
 <td class="colLast">
-<div class="block">The unit of the value to be applied to date +/- operations.</div>
+<div class="block">The unit of the value to be applied to dateTime +/- operations.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -350,7 +350,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setOperation&#8203;(<a href="PropertyFile.Entry.Operation.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Entry.Operation</a>&nbsp;value)</pre>
 <div class="block">operation to apply.
  &quot;+&quot; or &quot;=&quot;
-(default) for all datatypes; &quot;-&quot; for date and int only)\.</div>
+(default) for all datatypes; &quot;-&quot; for dateTime and int only)\.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - the operation enumerated value.</dd>
@@ -364,7 +364,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setType</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setType&#8203;(<a href="PropertyFile.Entry.Type.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Entry.Type</a>&nbsp;value)</pre>
-<div class="block">Regard the value as : int, date or string (default)</div>
+<div class="block">Regard the value as : int, dateTime or string (default)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - the type enumerated value.</dd>
@@ -380,7 +380,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setDefault&#8203;(java.lang.String&nbsp;value)</pre>
 <div class="block">Initial value to set for a property if it is not
  already defined in the property file.
- For type date, an additional keyword is allowed: &quot;now&quot;</div>
+ For type dateTime, an additional keyword is allowed: &quot;now&quot;</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - the default value.</dd>
@@ -394,7 +394,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setPattern</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setPattern&#8203;(java.lang.String&nbsp;value)</pre>
-<div class="block">For int and date type only. If present, Values will
+<div class="block">For int and dateTime type only. If present, Values will
  be parsed and formatted accordingly.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -409,7 +409,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setUnit</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setUnit&#8203;(<a href="PropertyFile.Unit.html" title="class in org.apache.tools.ant.taskdefs.optional">PropertyFile.Unit</a>&nbsp;unit)</pre>
-<div class="block">The unit of the value to be applied to date +/- operations.
+<div class="block">The unit of the value to be applied to dateTime +/- operations.
             Valid Values are:
             <ul>
                <li>millisecond</li>
@@ -421,7 +421,7 @@ extends java.lang.Object</pre>
                <li>month</li>
                <li>year</li>
             </ul>
-            This only applies to date types using a +/- operation.</div>
+            This only applies to dateTime types using a +/- operation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>unit</code> - the unit enumerated value.</dd>

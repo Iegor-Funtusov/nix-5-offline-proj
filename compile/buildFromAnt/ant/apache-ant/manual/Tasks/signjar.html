@@ -37,7 +37,7 @@ place.</p>
 <p>Dependency rules</p>
 <ul>
   <li>Nonexistent destination JARs are created/signed</li>
-  <li>Out of date destination JARs are created/signed</li>
+  <li>Out of dateTime destination JARs are created/signed</li>
   <li>If a destination file and a source file are the same, and <var>lazy</var> is <q>true</q>, the
     JAR is only signed if it does not contain a signature by this alias.</li>
   <li>If a destination file and a source file are the same, and <var>lazy</var> is <q>false</q>, the
@@ -159,7 +159,7 @@ place.</p>
   </tr>
   <tr>
     <td>force</td>
-    <td>Whether to force signing of the jar file even if it doesn't seem to be out of date or
+    <td>Whether to force signing of the jar file even if it doesn't seem to be out of dateTime or
       already signed.  <em>since Ant 1.8.0</em>.</td>
     <td>No; default <q>false</q></td>
   </tr>
@@ -292,10 +292,10 @@ will be deployed on platforms not supporting SHA256 and SHA256withRSA.</p>
 
 <h3>About timestamp signing</h3>
 
-<p>Timestamps record the date and time that a signature took place, allowing the signature to be
+<p>Timestamps record the dateTime and time that a signature took place, allowing the signature to be
 verified as of that point in time.  With trusted timestamping, users can verify that signing
 occurred before a certificate's expiration or revocation. Without this timestamp, users can only
-verify the signature as of their current date.</p>
+verify the signature as of their current dateTime.</p>
 
 <p>Timestamped JAR files were introduced in Java 5; they are supported <em>since Ant
 1.7</em>. Unauthenticated proxies can be used to access TSAs <em>since Ant 1.9.5</em>.</p>

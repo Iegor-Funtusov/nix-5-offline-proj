@@ -30,8 +30,8 @@
 
 <h3>Description</h3>
 
-<p>The <code>depend</code> task works by determining which classes are out of date with respect to
-their source and then removing the class files of any other classes which depend on the out-of-date
+<p>The <code>depend</code> task works by determining which classes are out of dateTime with respect to
+their source and then removing the class files of any other classes which depend on the out-of-dateTime
 classes.</p>
 
 <p>To determine the class dependencies, the <code>depend</code> task analyzes the class files of all
@@ -52,7 +52,7 @@ format of the information, as it may change in a later release.</p>
 
 <p>Once <code>depend</code> discovers all of the class dependencies, it &quot;inverts&quot; this
 relation to determine, for each class, which other classes are dependent upon it. This
-&quot;affects&quot; list is used to discover which classes are invalidated by the out of date
+&quot;affects&quot; list is used to discover which classes are invalidated by the out of dateTime
 class. The class files of the invalidated classes are removed, triggering the compilation of the
 affected classes.</p>
 
@@ -60,7 +60,7 @@ affected classes.</p>
 whether <code>depend</code> will only consider direct class-class relationships or whether it will
 also consider transitive, indirect relationships. For example, say there are three classes, A, which
 depends on B, which in-turn depends on C. Now say that class C is out of
-date. Without <var>closure</var>, only class B would be removed
+dateTime. Without <var>closure</var>, only class B would be removed
 by <code>depend</code>. With <var>closure</var> set, class A would also be removed. Normally direct
 relationships are sufficient&mdash;it is unusual for a class to depend on another without having a
 direct relationship. With <var>closure</var> set, you will notice that <code>depend</code> typically
@@ -70,7 +70,7 @@ removes far more class files.</p>
 present, <code>depend</code> will check class dependencies against classes and jars on this
 classpath.  Any classes which depend on an element from this classpath and which are older than that
 element will be deleted. A typical example where you would use this facility would be where you are
-building a utility jar and want to make sure classes which are out of date with respect to this jar
+building a utility jar and want to make sure classes which are out of dateTime with respect to this jar
 are rebuilt. In this classpath, you should <strong>not</strong> include jars that you do not expect
 to change, such as the JDK runtime jar or third party jars, since doing so will just slow down the
 dependency check. This means that if you do use a classpath for the <code>depend</code> task it may
@@ -79,7 +79,7 @@ be different from the classpath necessary to actually compile your code.</p>
 <h3>Performance</h3>
 
 <p>The performance of the <code>depend</code> task is dependent on a number of factors such as class
-relationship complexity and how many class files are out of date. The decision about whether it is
+relationship complexity and how many class files are out of dateTime. The decision about whether it is
 cheaper to just recompile all classes or to use the <code>depend</code> task will depend on the size
 of your project and how interrelated your classes are.</p>
 
@@ -116,7 +116,7 @@ public final class Constants {
   <tr>
     <td>srcDir</td>
     <td>This is the directory where the source exists. <code>depend</code> will examine this to
-      determine which classes are out of date. If you use multiple source directories you can pass
+      determine which classes are out of dateTime. If you use multiple source directories you can pass
       this attribute a path of source directories.</td>
     <td>Yes</td>
   </tr>
@@ -134,7 +134,7 @@ public final class Constants {
   <tr>
     <td>closure</td>
     <td>This attribute controls whether <code>depend</code> only removes classes which directly
-      depend on out of date classes. If this is set to <q>true</q>, <code>depend</code> will
+      depend on out of dateTime classes. If this is set to <q>true</q>, <code>depend</code> will
       traverse the class dependency graph deleting all affected classes.</td>
     <td>No; defaults to <q>false</q></td>
   </tr>
@@ -170,8 +170,8 @@ and <code>&lt;patternset&gt;</code> elements.</p>
 
 <h3>Examples</h3>
 
-<p>Remove any classes in the <samp>${build.classes}</samp> directory that depend on out-of-date
-classes. Classes are considered out-of-date with respect to the source in
+<p>Remove any classes in the <samp>${build.classes}</samp> directory that depend on out-of-dateTime
+classes. Classes are considered out-of-dateTime with respect to the source in
 the <samp>${java.dir}</samp> directory, using the same mechanism as the <code>&lt;javac&gt;</code>
 task. In this example, the <code>&lt;depend&gt;</code> task caches its dependency information in
 the <samp>depcache</samp> directory.</p>

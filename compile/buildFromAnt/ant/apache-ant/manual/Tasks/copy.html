@@ -143,7 +143,7 @@ note</a></em>.</p>
   </tr>
   <tr>
     <td>granularity</td>
-    <td>The number of milliseconds leeway to give before deciding a file is out of date. This is
+    <td>The number of milliseconds leeway to give before deciding a file is out of dateTime. This is
       needed because not every file system supports tracking the last modified time to the
       millisecond level. This can also be useful if source and target files live on separate
       machines with clocks being out of sync. <em>since Ant 1.6.2</em>.</td>
@@ -255,7 +255,7 @@ an absolute path as their names.</p>
 &lt;copy todir=&quot;dest&quot; flatten=&quot;true&quot;&gt;
   &lt;first count=&quot;2&quot;&gt;
     &lt;sort&gt;
-      &lt;date xmlns=&quot;antlib:org.apache.tools.ant.types.resources.comparators&quot;/&gt;
+      &lt;dateTime xmlns=&quot;antlib:org.apache.tools.ant.types.resources.comparators&quot;/&gt;
       &lt;resources&gt;
         &lt;file file=&quot;src_dir/file1.txt&quot;/&gt;
         &lt;file file=&quot;src_dir/file2.txt&quot;/&gt;

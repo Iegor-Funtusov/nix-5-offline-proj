@@ -145,12 +145,12 @@ remote interfaces.</p>
 beans to be compiled are selected by including their serialized deployment descriptors. The standard
 Ant <code>include</code> and <code>exclude</code> constructs can be used to select the deployment
 descriptors to be included.</p>
-<p>Each descriptor is examined to determine whether the generated classes are out of date and need
+<p>Each descriptor is examined to determine whether the generated classes are out of dateTime and need
 to be regenerated. The deployment descriptor is de-serialized to discover the home, remote and
 implementation classes. The corresponding source files are determined and checked to see their
 modification times. These times and the modification time of the serialized descriptor itself are
 compared with the modification time of the generated classes. If the generated classes are not
-present or are out of date, the <kbd>ejbc</kbd> tool is run to generate new versions.</p>
+present or are out of dateTime, the <kbd>ejbc</kbd> tool is run to generate new versions.</p>
 <h3>Parameters</h3>
 <table class="attr">
   <tr>
@@ -216,7 +216,7 @@ EJBs, this is a convenient way of specifying many EJBs in a single Ant task.</p>
 destination directory.  If these class files cannot be located in the destination directory, the
 task will fail. The task will also attempt to locate the EJB stubs and skeletons in this directory.
 If found, the timestamps on the stubs and skeletons will be checked to ensure they are up to
-date. Only if these files cannot be found or if they are out of date will the iAS <kbd>ejbc</kbd>
+dateTime. Only if these files cannot be found or if they are out of dateTime will the iAS <kbd>ejbc</kbd>
 utility be called to generate new stubs and skeletons.</p>
 <h3>Parameters</h3>
 
@@ -527,10 +527,10 @@ generic EJB jar. Such jars are typically used as the input to vendor-specific de
 each nested deployment element, a vendor specific deployment tool is run to generate a jar file
 ready for deployment in that vendor's EJB container.</p>
 
-<p>The jar files are only built if they are out of date.  Each deployment tool element will examine
-its target jar file and determine if it is out of date with respect to the class files and
+<p>The jar files are only built if they are out of dateTime.  Each deployment tool element will examine
+its target jar file and determine if it is out of dateTime with respect to the class files and
 deployment descriptors that make up the bean. If any of these files are newer than the jar file the
-jar will be rebuilt otherwise a message is logged that the jar file is up to date.</p>
+jar will be rebuilt otherwise a message is logged that the jar file is up to dateTime.</p>
 
 <p>The task uses the <a href="https://commons.apache.org/bcel/"
 target="_top">BCEL</a> <a href="../install.html#librarydependencies">library</a> to extract all
@@ -1253,7 +1253,7 @@ descriptors in the <var>descriptordir</var>:</p>
 
 <p>The <code>&lt;iplanet&gt;</code> nested element is used to build iAS-specific stubs and skeletons
 and construct a JAR file which may be deployed to the iPlanet Application Server 6.0.  The build
-process will always determine if the EJB stubs/skeletons and the EJB jar file are up to date, and it
+process will always determine if the EJB stubs/skeletons and the EJB jar file are up to dateTime, and it
 will do the minimum amount of work required.</p>
 <p>Like the <code>weblogic</code> element, a naming convention for the EJB descriptors is most
 commonly used to specify the name for the completed JAR file.  For example, if the EJB
@@ -1400,7 +1400,7 @@ in the <samp>[iAS-install-directory]/dtd</samp> directory.</p>
 <p>The <code>&lt;jonas&gt;</code> nested element is used to build JOnAS-specific stubs and skeletons
 thanks to the <code>GenIC</code> specific tool, and construct a JAR file which may be deployed to
 the JOnAS Application Server. The build process will always determine if the EJB stubs/skeletons and
-the EJB jar file are up to date, and it will do the minimum amount of work required.</p>
+the EJB jar file are up to dateTime, and it will do the minimum amount of work required.</p>
 
 <p>Like the WebLogic element, a naming convention for the EJB descriptors is most commonly used to
 specify the name for the completed JAR file. For example, if the EJB

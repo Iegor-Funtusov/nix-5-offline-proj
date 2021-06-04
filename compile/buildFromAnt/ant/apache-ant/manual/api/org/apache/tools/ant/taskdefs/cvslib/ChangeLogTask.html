@@ -160,9 +160,9 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
  &lt;!-- Root element --&gt;
  &lt;!ELEMENT changelog (entry+)&gt;
  &lt;!-- CVS Entry --&gt;
- &lt;!ELEMENT entry (date,author,file+,msg)&gt;
+ &lt;!ELEMENT entry (dateTime,author,file+,msg)&gt;
  &lt;!-- Date of cvs entry --&gt;
- &lt;!ELEMENT date (#PCDATA)&gt;
+ &lt;!ELEMENT dateTime (#PCDATA)&gt;
  &lt;!-- Author of change --&gt;
  &lt;!ELEMENT author (#PCDATA)&gt;
  &lt;!-- List of files affected --&gt;
@@ -315,7 +315,7 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEnd(java.util.Date)">setEnd</a></span>&#8203;(java.util.Date&nbsp;endDate)</code></th>
 <td class="colLast">
-<div class="block">Set the date at which the changelog should stop.</div>
+<div class="block">Set the dateTime at which the changelog should stop.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -337,7 +337,7 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStart(java.util.Date)">setStart</a></span>&#8203;(java.util.Date&nbsp;start)</code></th>
 <td class="colLast">
-<div class="block">Set the date at which the changelog should start.</div>
+<div class="block">Set the dateTime at which the changelog should start.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -481,10 +481,10 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <li class="blockList">
 <h4>setStart</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setStart&#8203;(java.util.Date&nbsp;start)</pre>
-<div class="block">Set the date at which the changelog should start.</div>
+<div class="block">Set the dateTime at which the changelog should start.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>start</code> - The date at which the changelog should start.</dd>
+<dd><code>start</code> - The dateTime at which the changelog should start.</dd>
 </dl>
 </li>
 </ul>
@@ -495,10 +495,10 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <li class="blockList">
 <h4>setEnd</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setEnd&#8203;(java.util.Date&nbsp;endDate)</pre>
-<div class="block">Set the date at which the changelog should stop.</div>
+<div class="block">Set the dateTime at which the changelog should stop.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>endDate</code> - The date at which the changelog should stop.</dd>
+<dd><code>endDate</code> - The dateTime at which the changelog should stop.</dd>
 </dl>
 </li>
 </ul>
@@ -543,7 +543,7 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <div class="block">Set the tag at which the changelog should start.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>start</code> - The date at which the changelog should start.</dd>
+<dd><code>start</code> - The dateTime at which the changelog should start.</dd>
 </dl>
 </li>
 </ul>
@@ -557,7 +557,7 @@ extends <a href="../AbstractCvsTask.html" title="class in org.apache.tools.ant.t
 <div class="block">Set the tag at which the changelog should stop.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>end</code> - The date at which the changelog should stop.</dd>
+<dd><code>end</code> - The dateTime at which the changelog should stop.</dd>
 </dl>
 </li>
 </ul>

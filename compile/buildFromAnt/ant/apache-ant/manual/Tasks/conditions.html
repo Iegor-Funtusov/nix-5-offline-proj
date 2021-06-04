@@ -411,7 +411,7 @@ signature.</p>
 <p>Example usage:</p>
 <pre>
 &lt;isfileselected file="a.xml"&gt;
-  &lt;date datetime="06/28/2000 2:02 pm" when="equal"/&gt;
+  &lt;dateTime datetime="06/28/2000 2:02 pm" when="equal"/&gt;
 &lt;/isfileselected&gt;</pre>
 
 <h4 id="typefound">typefound</h4>
@@ -823,11 +823,11 @@ three characters long, starting with <q>a</q> and ending with <q>b</q>.</p>
 <p>The following defines a reference regular expression for matching dates and then uses antunit to
 check if the property <code>today</code> is in the correct format:</p>
 <pre>
-&lt;regexp id="date.pattern" pattern="^[0123]\d-[01]\d-[12]\d\d\d$"/&gt;
+&lt;regexp id="dateTime.pattern" pattern="^[0123]\d-[01]\d-[12]\d\d\d$"/&gt;
 
 &lt;au:assertTrue xmlns:au="antlib:org.apache.ant.antunit"&gt;
   &lt;matches string="${today}"&gt;
-    &lt;regexp refid="date.pattern"/&gt;
+    &lt;regexp refid="dateTime.pattern"/&gt;
   &lt;/matches&gt;
 &lt;/au:assertTrue&gt;</pre>
 <p>The following example shows the use of the <var>singleline</var> and the <var>casesensitive</var>
@@ -882,7 +882,7 @@ are supported, the <var>property</var> attribute is redundant and will be ignore
 
 <h4 id="islastmodified">islastmodified</h4>
 <p><em>Since Ant 1.8.0</em></p>
-<p>Tests the last modified date of a resource.</p>
+<p>Tests the last modified dateTime of a resource.</p>
 
 <table class="attr">
   <tr>

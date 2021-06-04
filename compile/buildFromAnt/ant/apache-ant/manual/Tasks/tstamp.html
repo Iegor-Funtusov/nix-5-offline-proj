@@ -34,11 +34,11 @@ in the format <q>MMMM dd yyyy</q>. Use the nested <code>&lt;format&gt;</code> el
 different format.</p>
 
 <p>These properties can be used in the build file, for instance, to create timestamped filenames, or
-used to replace placeholder tags inside documents to indicate, for example, the release date. The
+used to replace placeholder tags inside documents to indicate, for example, the release dateTime. The
 best place for this task is probably in an initialization target.</p>
 
 <p><em>Since Ant 1.10.2</em> the magic property <code>ant.tstamp.now</code> can be used to specify a
-fixed date value in order to create reproducible builds. Its value must be a number and is
+fixed dateTime value in order to create reproducible builds. Its value must be a number and is
 interpreted as seconds since the epoch (midnight 1970-01-01). With <code>ant.tstamp.now.iso</code>
 you could also specify that value in ISO-8601 format (<code>1972-04-17T08:07:00Z</code>). If you
 specify a value in an invalid format an INFO message will be logged and the value will be
@@ -46,9 +46,9 @@ ignored.</p>
 
 <p>
   <em>Since Ant 1.10.8</em> the <code>SOURCE_DATE_EPOCH</code> environment variable value (if set)
-  will be honoured for <a href="https://reproducible-builds.org/specs/source-date-epoch/#idm55">reproducible builds</a>.
+  will be honoured for <a href="https://reproducible-builds.org/specs/source-dateTime-epoch/#idm55">reproducible builds</a>.
   Ant will log a DEBUG message if an invalid value (value that cannot be parsed to an integer), is specified
-  for that environment variable and will instead use the "current" date.
+  for that environment variable and will instead use the "current" dateTime.
 </p>
 
 <h3>Parameters</h3>
@@ -67,7 +67,7 @@ ignored.</p>
 
 <h3>Parameters specified as nested elements</h3>
 <p>The task supports a <code>&lt;format&gt;</code> nested element that allows a property to be set
-to the current date and time in a given format.  The date/time patterns are as defined in the
+to the current dateTime and time in a given format.  The dateTime/time patterns are as defined in the
 Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html"
 target="_top">SimpleDateFormat</a> class.  The format element also allows offsets to be applied to
 the time to generate different time values.</p>
@@ -79,12 +79,12 @@ the time to generate different time values.</p>
   </tr>
   <tr>
     <td>property</td>
-    <td>The property to receive the date/time string in the given pattern.</td>
+    <td>The property to receive the dateTime/time string in the given pattern.</td>
     <td>Yes</td>
   </tr>
   <tr>
     <td>pattern</td>
-    <td>The date/time pattern to be used. The values are as defined by the Java SimpleDateFormat
+    <td>The dateTime/time pattern to be used. The values are as defined by the Java SimpleDateFormat
       class.</td>
     <td>Yes</td>
   </tr>
@@ -118,7 +118,7 @@ the time to generate different time values.</p>
   </tr>
   <tr>
     <td>locale</td>
-    <td>The locale used to create date/time string. The general form is <q>language[, country[,
+    <td>The locale used to create dateTime/time string. The general form is <q>language[, country[,
       variant]]</q> (either <q>variant</q> or both <q>variant</q> and <q>country</q> may be
       omitted). For more information please refer to documentation for
       the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html"
@@ -133,7 +133,7 @@ the time to generate different time values.</p>
 according to the default formats.</p>
 <pre>&lt;tstamp/&gt;</pre>
 
-<p>Set the standard properties as well as the property <code>TODAY_UK</code> with the date/time
+<p>Set the standard properties as well as the property <code>TODAY_UK</code> with the dateTime/time
 pattern <q>d-MMMM-yyyy</q> using English locale (eg. 21-May-2001).</p>
 <pre>
 &lt;tstamp&gt;

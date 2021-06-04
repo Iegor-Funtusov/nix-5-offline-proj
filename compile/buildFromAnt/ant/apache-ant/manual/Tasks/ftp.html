@@ -289,22 +289,22 @@ connection.</p>
     <td>defaultDateFormatConfig</td>
     <td>Specify in
       Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html"
-      target="_top">SimpleDateFormat</a> notation, (e.g. <q>yyyy-MM-dd</q>), the date format
-      generally used by the FTP server to parse dates.  In some cases this will be the only date
+      target="_top">SimpleDateFormat</a> notation, (e.g. <q>yyyy-MM-dd</q>), the dateTime format
+      generally used by the FTP server to parse dates.  In some cases this will be the only dateTime
       format used.  In others, (<q>unix</q> for example) this will be used for dates older than a
       year old. (See <var>recentDateFormatConfig</var>).  When specified as <q></q>, default value
       will be used.<br/><em>Since Ant 1.7</em></td>
-    <td>No; defaults to default date format for the system type indicated
+    <td>No; defaults to default dateTime format for the system type indicated
       by <var>systemTypeKey</var></td>
   </tr>
   <tr>
     <td>recentDateFormatConfig</td>
     <td>Specify in
       Java <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html"
-      target="_top">SimpleDateFormat</a> notation, (e.g. <q>MMM dd hh:mm</q>) the date format used
+      target="_top">SimpleDateFormat</a> notation, (e.g. <q>MMM dd hh:mm</q>) the dateTime format used
       by the FTP server to parse dates less than a year old.  If not specified (or specified
       as <q></q>), and if the system type indicated by the <var>systemTypeKey</var> uses a recent
-      date format, its standard format will be used.<br/><em>Since Ant 1.7</em></td>
+      dateTime format, its standard format will be used.<br/><em>Since Ant 1.7</em></td>
     <td>No</td>
   </tr>
   <tr>
@@ -312,7 +312,7 @@ connection.</p>
     <td>a <a href="http://www.mathguide.de/info/tools/languagecode.html" target="_top">two-letter
       ISO-639 language code</a> used to specify the language used by the server to format month
       names.  This only needs to be specified when the server uses non-numeric abbreviations for
-      months in its date listings in a language other than English.  This appears to be becoming
+      months in its dateTime listings in a language other than English.  This appears to be becoming
       rarer and rarer, as commonly distributed FTP servers seem increasingly to use English or
       all-numeric formats.  Languages supported are:
       <ul>

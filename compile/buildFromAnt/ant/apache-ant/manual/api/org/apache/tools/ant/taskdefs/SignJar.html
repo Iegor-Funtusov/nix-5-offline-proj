@@ -156,7 +156,7 @@ extends <a href="AbstractJarSignerTask.html" title="class in org.apache.tools.an
 <div class="block">Signs JAR or ZIP files with the javasign command line tool. The tool detailed
  dependency checking: files are only signed if they are not signed. The
  <code>signjar</code> attribute can point to the file to generate; if this file
- exists then its modification date is used as a cue as to whether to resign
+ exists then its modification dateTime is used as a cue as to whether to resign
  any JAR file.
 
  Timestamp signature support is based on Java 8</div>
@@ -502,7 +502,7 @@ extends <a href="AbstractJarSignerTask.html" title="class in org.apache.tools.an
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPreserveLastModified(boolean)">setPreserveLastModified</a></span>&#8203;(boolean&nbsp;preserveLastModified)</code></th>
 <td class="colLast">
-<div class="block">true to indicate that the signed jar modification date remains the same
+<div class="block">true to indicate that the signed jar modification dateTime remains the same
  as the original.</div>
 </td>
 </tr>
@@ -1228,7 +1228,7 @@ extends <a href="AbstractJarSignerTask.html" title="class in org.apache.tools.an
                              java.io.File&nbsp;signedjarFile)</pre>
 <div class="block"><p>Compare a jar file with its corresponding signed jar. The logic for this
  is complex, and best explained in the source itself. Essentially if
- either file doesn't exist, or the destfile has an out of date timestamp,
+ either file doesn't exist, or the destfile has an out of dateTime timestamp,
  then the return value is false.</p>
 
  <p>If we are signing ourself, the check <a href="#isSigned(java.io.File)"><code>isSigned(File)</code></a> is used to
@@ -1238,7 +1238,7 @@ extends <a href="AbstractJarSignerTask.html" title="class in org.apache.tools.an
 <dd><code>jarFile</code> - the unsigned jar file</dd>
 <dd><code>signedjarFile</code> - the result signed jar file</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the signedjarFile is considered up to date</dd>
+<dd>true if the signedjarFile is considered up to dateTime</dd>
 </dl>
 </li>
 </ul>
@@ -1268,7 +1268,7 @@ extends <a href="AbstractJarSignerTask.html" title="class in org.apache.tools.an
 <li class="blockList">
 <h4>setPreserveLastModified</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setPreserveLastModified&#8203;(boolean&nbsp;preserveLastModified)</pre>
-<div class="block">true to indicate that the signed jar modification date remains the same
+<div class="block">true to indicate that the signed jar modification dateTime remains the same
  as the original. Defaults to false</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

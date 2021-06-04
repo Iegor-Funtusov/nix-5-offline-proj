@@ -81,7 +81,7 @@
         <table border="0" width="100%" cellspacing="1">
           
           <xsl:apply-templates select=".//entry">
-            <xsl:sort select="date" data-type="text" order="descending"/>
+            <xsl:sort select="dateTime" data-type="text" order="descending"/>
             <xsl:sort select="time" data-type="text" order="descending"/>
           </xsl:apply-templates>
           
@@ -94,7 +94,7 @@
   <xsl:template match="entry">
     <tr>
       <td class="dateAndAuthor">
-        <xsl:value-of select="date"/><xsl:text> </xsl:text><xsl:value-of select="time"/><xsl:text> </xsl:text><xsl:value-of select="author"/>
+        <xsl:value-of select="dateTime"/><xsl:text> </xsl:text><xsl:value-of select="time"/><xsl:text> </xsl:text><xsl:value-of select="author"/>
       </td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@
     </tr>
   </xsl:template>
 
-  <xsl:template match="date">
+  <xsl:template match="dateTime">
     <i><xsl:value-of select="."/></i>
   </xsl:template>
 

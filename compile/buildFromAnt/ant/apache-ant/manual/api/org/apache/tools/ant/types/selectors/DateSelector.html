@@ -158,7 +158,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">DateSelector</span>
 extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.types.selectors">BaseExtendSelector</a></pre>
-<div class="block">Selector that chooses files based on their last modified date.</div>
+<div class="block">Selector that chooses files based on their last modified dateTime.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.5</dd>
@@ -337,7 +337,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDatetime(java.lang.String)">setDatetime</a></span>&#8203;(java.lang.String&nbsp;dateTime)</code></th>
 <td class="colLast">
-<div class="block">Sets the date.</div>
+<div class="block">Sets the dateTime.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -345,7 +345,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGranularity(int)">setGranularity</a></span>&#8203;(int&nbsp;granularity)</code></th>
 <td class="colLast">
 <div class="block">Sets the number of milliseconds leeway we will give before we consider
- a file not to have matched a date.</div>
+ a file not to have matched a dateTime.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -374,7 +374,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setWhen(org.apache.tools.ant.types.selectors.DateSelector.TimeComparisons)">setWhen</a></span>&#8203;(<a href="DateSelector.TimeComparisons.html" title="class in org.apache.tools.ant.types.selectors">DateSelector.TimeComparisons</a>&nbsp;tcmp)</code></th>
 <td class="colLast">
 <div class="block">Sets the type of comparison to be done on the file's last modified
- date.</div>
+ dateTime.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -598,7 +598,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <div class="block">Set the time; for users who prefer to express time in ms since 1970.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>millis</code> - the time to compare file's last modified date to,
+<dd><code>millis</code> - the time to compare file's last modified dateTime to,
         expressed in milliseconds.</dd>
 </dl>
 </li>
@@ -624,11 +624,11 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <li class="blockList">
 <h4>setDatetime</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setDatetime&#8203;(java.lang.String&nbsp;dateTime)</pre>
-<div class="block">Sets the date. The user must supply it in MM/DD/YYYY HH:MM AM_PM format,
+<div class="block">Sets the dateTime. The user must supply it in MM/DD/YYYY HH:MM AM_PM format,
  unless an alternate pattern is specified via the pattern attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dateTime</code> - a formatted date <code>String</code>.</dd>
+<dd><code>dateTime</code> - a formatted dateTime <code>String</code>.</dd>
 </dl>
 </li>
 </ul>
@@ -654,7 +654,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <h4>setGranularity</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setGranularity&#8203;(int&nbsp;granularity)</pre>
 <div class="block">Sets the number of milliseconds leeway we will give before we consider
- a file not to have matched a date.</div>
+ a file not to have matched a dateTime.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>granularity</code> - the number of milliseconds leeway.</dd>
@@ -669,7 +669,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <h4>setWhen</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setWhen&#8203;(<a href="DateSelector.TimeComparisons.html" title="class in org.apache.tools.ant.types.selectors">DateSelector.TimeComparisons</a>&nbsp;tcmp)</pre>
 <div class="block">Sets the type of comparison to be done on the file's last modified
- date.</div>
+ dateTime.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>tcmp</code> - The comparison to perform, an EnumeratedAttribute.</dd>
@@ -700,7 +700,7 @@ extends <a href="BaseExtendSelector.html" title="class in org.apache.tools.ant.t
 <div class="block">Sets the pattern to be used for the SimpleDateFormat.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pattern</code> - the pattern that defines the date format.</dd>
+<dd><code>pattern</code> - the pattern that defines the dateTime format.</dd>
 </dl>
 </li>
 </ul>

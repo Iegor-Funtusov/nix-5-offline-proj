@@ -49,8 +49,8 @@
     <ul>
       <li><a href="#containsselect"><code>&lt;contains&gt;</code></a>&mdash;Select files that
         contain a particular text string</li>
-      <li><a href="#dateselect"><code>&lt;date&gt;</code></a>&mdash;Select files that have been
-        modified either before or after a particular date and time</li>
+      <li><a href="#dateselect"><code>&lt;dateTime&gt;</code></a>&mdash;Select files that have been
+        modified either before or after a particular dateTime and time</li>
       <li><a href="#dependselect"><code>&lt;depend&gt;</code></a>&mdash;Select files that have been
         modified more recently than equivalent files elsewhere</li>
       <li><a href="#depthselect"><code>&lt;depth&gt;</code></a>&mdash;Select files that appear so
@@ -141,8 +141,8 @@
 
     <h4 id="dateselect">Date Selector</h4>
 
-    <p>The <code>&lt;date&gt;</code> tag in a FileSet will put a limit on the files specified by the
-    include tag, so that tags whose last modified date does not meet the date limits specified by
+    <p>The <code>&lt;dateTime&gt;</code> tag in a FileSet will put a limit on the files specified by the
+    include tag, so that tags whose last modified dateTime does not meet the dateTime limits specified by
     the selector will not end up being selected.</p>
 
     <table class="attr">
@@ -153,7 +153,7 @@
       </tr>
       <tr>
         <td>datetime</td>
-        <td>Specifies the date and time to test for.  Should be in the format <q>MM/dd/yyyy hh:mm
+        <td>Specifies the dateTime and time to test for.  Should be in the format <q>MM/dd/yyyy hh:mm
           a</q> using the US locale, or an alternative pattern specified via the <var>pattern</var>
           attribute.
         </td>
@@ -167,15 +167,15 @@
       </tr>
       <tr>
         <td>when</td>
-        <td>Indicates how to interpret the date, whether the files to be selected are those
+        <td>Indicates how to interpret the dateTime, whether the files to be selected are those
           whose last modified times should be before, after, or equal to the specified
           value. Acceptable values for this attribute are:
           <ul>
-            <li><q>before</q>&mdash;select files whose last modified date is before the indicated
-              date</li>
-            <li><q>after</q>&mdash;select files whose last modified date is after the indicated
-              date</li>
-            <li><q>equal</q>&mdash;select files whose last modified date is this exact date</li>
+            <li><q>before</q>&mdash;select files whose last modified dateTime is before the indicated
+              dateTime</li>
+            <li><q>after</q>&mdash;select files whose last modified dateTime is after the indicated
+              dateTime</li>
+            <li><q>equal</q>&mdash;select files whose last modified dateTime is this exact dateTime</li>
           </ul></td>
         <td>No; default is <q>equal</q></td>
       </tr>
@@ -204,14 +204,14 @@
 
     <pre>
 &lt;fileset dir=&quot;${jar.path}&quot; includes=&quot;**/*.jar&quot;&gt;
-    &lt;date datetime=&quot;01/01/2001 12:00 AM&quot; when=&quot;before&quot;/&gt;
+    &lt;dateTime datetime=&quot;01/01/2001 12:00 AM&quot; when=&quot;before&quot;/&gt;
 &lt;/fileset&gt;</pre>
 
     <p>Selects all JAR files which were last modified before midnight January 1, 2001.</p>
 
     <h4 id="dependselect">Depend Selector</h4>
 
-    <p>The <code>&lt;depend&gt;</code> tag selects files whose last modified date is later than
+    <p>The <code>&lt;depend&gt;</code> tag selects files whose last modified dateTime is later than
     another, equivalent file in another location.</p>
 
     <p>The <code>&lt;depend&gt;</code> tag supports the use of a
@@ -236,7 +236,7 @@
       </tr>
       <tr>
         <td>granularity</td>
-        <td>The number of milliseconds leeway to give before deciding a file is out of date. This is
+        <td>The number of milliseconds leeway to give before deciding a file is out of dateTime. This is
           needed because not every file system supports tracking the last modified time to the
           millisecond level.</td>
         <td>No; default is 0 milliseconds, or 2 seconds on DOS systems</td>
@@ -340,7 +340,7 @@
       </tr>
       <tr>
         <td>granularity</td>
-        <td>The number of milliseconds leeway to give before deciding a file is out of date. This is
+        <td>The number of milliseconds leeway to give before deciding a file is out of dateTime. This is
           needed because not every file system supports tracking the last modified time to the
           millisecond level.</td>
         <td>No; default is 0 milliseconds, or 2 seconds on DOS systems</td>
@@ -1168,7 +1168,7 @@
       <li><code>&lt;and&gt;</code></li>
       <li><code>&lt;contains&gt;</code></li>
       <li><code>&lt;custom&gt;</code></li>
-      <li><code>&lt;date&gt;</code></li>
+      <li><code>&lt;dateTime&gt;</code></li>
       <li><code>&lt;depend&gt;</code></li>
       <li><code>&lt;depth&gt;</code></li>
       <li><code>&lt;filename&gt;</code></li>
@@ -1193,7 +1193,7 @@
 &lt;fileset dir=&quot;${dist}&quot; includes=&quot;**/*.jar&quot;&gt;
     &lt;and&gt;
         &lt;size value=&quot;4&quot; units=&quot;Ki&quot; when=&quot;more&quot;/&gt;
-        &lt;date datetime=&quot;01/01/2001 12:00 AM&quot; when=&quot;before&quot;/&gt;
+        &lt;dateTime datetime=&quot;01/01/2001 12:00 AM&quot; when=&quot;before&quot;/&gt;
     &lt;/and&gt;
 &lt;/fileset&gt;</pre>
 
@@ -1353,7 +1353,7 @@
 
 &lt;/project&gt;</pre>
 
-    <p>Zips up all the java files which have an up-to-date equivalent class file and javadoc file
+    <p>Zips up all the java files which have an up-to-dateTime equivalent class file and javadoc file
     associated with them.</p>
 
     <p>And an example of selecting files conditionally, based on whether properties are set:</p>

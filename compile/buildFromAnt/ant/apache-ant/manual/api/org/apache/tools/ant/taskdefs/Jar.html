@@ -953,7 +953,7 @@ public&nbsp;void&nbsp;setJarfile&#8203;(java.io.File&nbsp;jarFile)</pre>
  is.  Because of this, subclasses overriding this method must
  call <code>super.getResourcesToAdd</code> and indicate with the
  third arg if they already know that the archive is
- out-of-date.</p></div>
+ out-of-dateTime.</p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="Zip.html#getResourcesToAdd(org.apache.tools.ant.types.ResourceCollection%5B%5D,java.io.File,boolean)">getResourcesToAdd</a></code>&nbsp;in class&nbsp;<code><a href="Zip.html" title="class in org.apache.tools.ant.taskdefs">Zip</a></code></dd>
@@ -961,7 +961,7 @@ public&nbsp;void&nbsp;setJarfile&#8203;(java.io.File&nbsp;jarFile)</pre>
 <dd><code>rcs</code> - The resource collections to grab resources from</dd>
 <dd><code>zipFile</code> - intended archive file (may or may not exist)</dd>
 <dd><code>needsUpdate</code> - whether we already know that the archive is
- out-of-date.  Subclasses overriding this method are supposed to
+ out-of-dateTime.  Subclasses overriding this method are supposed to
  set this value correctly in their call to
  super.getResourcesToAdd.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
