@@ -9,3 +9,5 @@ out/
 # Maven
 log/
 target/
+
+/compile/buildFromAnt/ant/
