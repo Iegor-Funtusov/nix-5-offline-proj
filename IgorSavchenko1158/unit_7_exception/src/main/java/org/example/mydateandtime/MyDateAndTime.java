@@ -1,11 +1,9 @@
 package org.example.mydateandtime;
 
+import java.util.Objects;
 import java.util.stream.IntStream;
 
-/**
- * My attempt at an immutable class (I regret)
- */
-public class MyDateAndTime {
+public class MyDateAndTime implements Comparable<MyDateAndTime> {
     private static final int DEFAULT_MONTH_DAY = 1;
     private static final int DEFAULT_YEAR = 2021;
     private static final int DEFAULT_TIME = 0;
@@ -36,58 +34,52 @@ public class MyDateAndTime {
         this.second = other.second;
     }
 
-    private MyDateAndTime() {
-    }
-
     public MyDateAndTime addYears(int years) {
-        if (years < 0) {
-            return subtractYears(-years);
-//            throw new IllegalArgumentException("Years can't be negative");
-        }
         MyDateAndTime result = new MyDateAndTime(this);
-        result.setYear(result.getYear() + years);
+        try {
+            result.setYear(result.getYear() + years);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Result of subtraction cannot be negative", e);
+        }
         return result;
     }
 
     public MyDateAndTime addMonths(int months) {
-//        if (months < 0) {
-//            return subtractMonths(-months);
-////            new IllegalArgumentException("Months can't be negative");
-//        }
+        int plusOrMinus = months > 0 ? 1 : -1;
 
         MyDateAndTime result = new MyDateAndTime(this);
         int years = months / 12;
         int remainingMonths = months % 12;
 
-        result.setYear(result.getYear() + years);
+        result = result.addYears(years);
         try {
             result.setMonth(result.getMonth() + remainingMonths);
         } catch (IllegalArgumentException e) {
-            result.setYear(result.getYear() + 1);
-            result.setMonth((result.getMonth() + remainingMonths) - 12);
+            result.setYear(result.getYear() + plusOrMinus * 1);
+            result.setMonth((result.getMonth() + remainingMonths) - plusOrMinus * 12);
         }
 
         return result;
     }
 
     public MyDateAndTime addDays(int days) {
-        if (days < 0) {
-//            return subtractDays(-days); TODO THIS
-            throw new IllegalArgumentException("Days can't be negative");
-        }
+        int plusOrMinus = days > 0 ? 1 : -1;
 
         MyDateAndTime result = new MyDateAndTime(this);
-        for (int i = 0; i < days; i++) {
+        for (int i = 0; i < Math.abs(days); i++) {
             try {
-                result.setDay(result.getDay() + 1);
+                result.setDay(result.getDay() + plusOrMinus * 1);
             } catch (IllegalArgumentException e) {
                 try {
                     result.setDay(1);
-                    result.setMonth(result.getMonth() + 1);
+                    result.setMonth(result.getMonth() + plusOrMinus * 1);
+                    if (plusOrMinus < 0) {
+                        result.setDay(daysInMonth(result.getMonth(), result.getYear()));
+                    }
                 } catch (IllegalArgumentException e2) {
-                    result.setYear(result.getYear() + 1);
-                    result.setMonth(1);
-                    result.setDay(1);
+                    result.setYear(result.getYear() + plusOrMinus * 1);
+                    result.setMonth(plusOrMinus > 0 ? 1 : 12);
+                    result.setDay(plusOrMinus > 0 ? 1 : daysInMonth(result.getMonth(), result.getYear()));
                 }
             }
         }
@@ -96,10 +88,7 @@ public class MyDateAndTime {
     }
 
     public MyDateAndTime addHours(int hours) {
-        if (hours < 0) {
-//            return subtractHours(-hours); TODO THIS
-            throw new IllegalArgumentException("Hours can't be negative");
-        }
+        int plusOrMinus = hours > 0 ? 1 : -1;
 
         MyDateAndTime result = new MyDateAndTime(this);
         int days = hours / 24;
@@ -108,18 +97,14 @@ public class MyDateAndTime {
         try {
             result.setHour(result.getHour() + remainingHours);
         } catch (IllegalArgumentException e) {
-            result = result.addDays(1);
-            result.setHour((result.getHour() + remainingHours) - 24);
+            result = result.addDays(plusOrMinus * 1);
+            result.setHour(result.getHour() + remainingHours - plusOrMinus * 24);
         }
-
         return result;
     }
 
     public MyDateAndTime addMinutes(int minutes) {
-        if (minutes < 0) {
-//            return subtractMinutes(-minutes); TODO THIS
-            throw new IllegalArgumentException("Minutes can't be negative");
-        }
+        int plusOrMinus = minutes > 0 ? 1 : -1;
 
         MyDateAndTime result = new MyDateAndTime(this);
         int hours = minutes / 60;
@@ -128,18 +113,15 @@ public class MyDateAndTime {
         try {
             result.setMinute(result.getMinute() + remainingMinutes);
         } catch (IllegalArgumentException e) {
-            result = result.addHours(1);
-            result.setMinute((result.getMinute() + remainingMinutes) - 60);
+            result = result.addHours(plusOrMinus * 1);
+            result.setMinute(result.getMinute() + remainingMinutes - plusOrMinus * 60);
         }
 
         return result;
     }
 
     public MyDateAndTime addSeconds(int seconds) {
-        if (seconds < 0) {
-//            return subtractSeconds(-minutes); TODO THIS
-            throw new IllegalArgumentException("Seconds can't be negative");
-        }
+        int plusOrMinus = seconds > 0 ? 1 : -1;
 
         MyDateAndTime result = new MyDateAndTime(this);
         int minutes = seconds / 60;
@@ -148,35 +130,49 @@ public class MyDateAndTime {
         try {
             result.setSecond(result.getSecond() + remainingSeconds);
         } catch (IllegalArgumentException e) {
-            result = result.addMinutes(1);
-            result.setSecond((result.getSecond() + remainingSeconds) - 60);
+            result = result.addMinutes(plusOrMinus * 1);
+            result.setSecond(result.getSecond() + remainingSeconds - plusOrMinus * 60);
         }
 
         return result;
     }
 
-    public MyDateAndTime subtractYears(int years) {
-        if (years < 0) {
-            return addYears(-years);
+    public int diffInYears(MyDateAndTime dateAndTime) {
+        if (this.equals(dateAndTime)) {
+            return 0;
         }
+        MyDateAndTime bigger = this.compareTo(dateAndTime) >= 0 ? this : dateAndTime;
+        MyDateAndTime smaller = bigger == this ? dateAndTime : this;
 
-        MyDateAndTime result = new MyDateAndTime(this);
-        try {
-            result.setYear(result.getYear() - years);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Result of subtraction can't be negative", e);
-        }
-        return result;
+        return bigger.addYears(-smaller.getYear()).getYear();
     }
 
-//    public MyDateAndTime subtractMonths(int months) {
-//        int years
-//    }
+    public int diffInMonths(MyDateAndTime dateAndTime) {
+        if (this.equals(dateAndTime)) {
+            return 0;
+        }
+        MyDateAndTime bigger = this.compareTo(dateAndTime) >= 0 ? this : dateAndTime;
+        MyDateAndTime smaller = bigger == this ? dateAndTime : this;
 
-//    public MyDateAndTime subtractDays(int years)
-//    public MyDateAndTime subtractHours(int years)
-//    public MyDateAndTime subtractMinutes(int years)
-//    public MyDateAndTime subtractSeconds(int years)
+        MyDateAndTime resultDate = bigger.addMonths(-(smaller.getMonth() + smaller.getYear() * 12));
+        return resultDate.getYear() * 12 + resultDate.getMonth();
+    }
+
+    public int diffInDays(MyDateAndTime dateAndTime) {
+        return diffInHours(dateAndTime) / 24;
+    }
+
+    public int diffInHours(MyDateAndTime dateAndTime) {
+        return diffInMinutes(dateAndTime) / 60;
+    }
+
+    public int diffInMinutes(MyDateAndTime dateAndTime) {
+        return ((int) (diffInSeconds(dateAndTime) / 60));
+    }
+
+    public long diffInSeconds(MyDateAndTime dateAndTime) {
+        return Math.abs(this.secondsFromZero() - dateAndTime.secondsFromZero());
+    }
 
     public int getYear() {
         return year;
@@ -216,14 +212,17 @@ public class MyDateAndTime {
         if (month < 1 || month > 12) {
             throw new IllegalArgumentException("Month must be in range [1, 12]");
         }
-        if (daysInMonth(month) < getDay()) {
+        if (daysInMonth(month, getYear()) < getDay()) {
             throw new IllegalArgumentException("To many days for this month");
         }
         this.month = month;
     }
 
     private void setDay(int day) {
-        if (day < 0 || day > daysInMonth(getMonth())) {
+        if (day <= 0) {
+            throw new IllegalArgumentException("Days must be a positive number");
+        }
+        if (day > daysInMonth(getMonth(), getYear())) {
             throw new IllegalArgumentException("Too many days for current month");
         }
         this.day = day;
@@ -257,7 +256,7 @@ public class MyDateAndTime {
         return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
     }
 
-    public int daysInMonth(int month) {
+    public int daysInMonth(int month, int year) {
         if (month < 1 || month > 12) {
             throw new IllegalArgumentException("Month must be in range [1, 12]");
         }
@@ -265,9 +264,22 @@ public class MyDateAndTime {
             return 30;
         }
         if (month == 2) {
-            return isLeapYear(getYear()) ? 29 : 28;
+            return isLeapYear(year) ? 29 : 28;
         }
         return 31;
+    }
+
+    public long secondsFromZero() {
+        long result = 0;
+        for (int i = 0; i < getYear(); i++) {
+            result += isLeapYear(i) ? 366 * 86400L : 365 * 86400L;
+        }
+        for (int i = 1; i < getMonth(); i++) {
+            result += daysInMonth(i, getYear()) * 86400L;
+        }
+        result += (getDay() - 1) * 86400L + getHour() * 3600L + getMinute() * 60L + getSecond();
+
+        return result;
     }
 
     @Override
@@ -280,5 +292,44 @@ public class MyDateAndTime {
                 ", minute=" + minute +
                 ", second=" + second +
                 '}';
+    }
+
+    @Override
+    public int compareTo(MyDateAndTime o) {
+
+        int cmp = this.year - o.getYear();
+        if (cmp == 0) {
+            cmp = this.month - o.getMonth();
+            if (cmp == 0) {
+                cmp = this.day - o.getDay();
+                if (cmp == 0) {
+                    cmp = this.hour - o.getHour();
+                    if (cmp == 0) {
+                        cmp = this.minute - o.getMinute();
+                        if (cmp == 0) {
+                            cmp = this.second - o.getSecond();
+                        }
+                    }
+                }
+            }
+        }
+        return cmp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MyDateAndTime that = (MyDateAndTime) o;
+        return year == that.year && month == that.month && day == that.day && hour == that.hour && minute == that.minute && second == that.second;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(year, month, day, hour, minute, second);
     }
 }
