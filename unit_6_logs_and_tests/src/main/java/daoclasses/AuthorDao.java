@@ -54,6 +54,7 @@ public class AuthorDao {
     }
 
     private Author findById(String id) {
+        if (getIndexById(id) == -1) return null;
         return authors[getIndexById(id)];
     }
 
@@ -62,7 +63,7 @@ public class AuthorDao {
     }
 
     private int getIndexById(String id) {
-        for (int i = 0; i < authors.length; i++) {
+        for (int i = 0; i < getCount(); i++) {
             if (authors[i].getId().equals(id)) {
                 return i;
             }

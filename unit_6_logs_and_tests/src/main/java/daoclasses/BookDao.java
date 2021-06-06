@@ -54,6 +54,7 @@ public class BookDao {
     }
 
     private Book findById(String id) {
+        if (getIndexById(id) == -1) return null;
         return books[getIndexById(id)];
     }
 
@@ -62,7 +63,7 @@ public class BookDao {
     }
 
     private int getIndexById(String id) {
-        for (int i = 0; i < books.length; i++) {
+        for (int i = 0; i < getCount(); i++) {
             if (books[i].getId().equals(id)) {
                 return i;
             }

@@ -1,3 +1,5 @@
+package serviceclasses;
+
 import daoclasses.AuthorDao;
 import daoclasses.BookDao;
 import dataclasses.Author;
@@ -39,7 +41,15 @@ public class BookManagementService {
         LOGGER_INFO.info("end create book: " + book.getId() + "-" + book.getTitle());
     }
 
-    private void setRelation(Book book, Author author) {
+    public void setRelation(Book book, Author author) {
+        if (!hasAuthor(author)) {
+            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getName());
+            return;
+        }
+        if (!hasBook(book)) {
+            LOGGER_ERROR.error("There is no such object: " + book.getId() + "-" + book.getTitle());
+            return;
+        }
         book.setAuthor(author);
         author.setBook(book);
     }
@@ -112,7 +122,7 @@ public class BookManagementService {
         LOGGER_WARN.warn("end delete author: " + author.getId() + "-" + author.getName());
     }
 
-    private boolean hasBook(Book book) {
+    public boolean hasBook(Book book) {
         for (int i = 0; i < bookDao.getAll().length; i++) {
             if (bookDao.getAll()[i].equals(book)) {
                 return true;
@@ -121,7 +131,7 @@ public class BookManagementService {
         return false;
     }
 
-    private boolean hasAuthor(Author author) {
+    public boolean hasAuthor(Author author) {
         for (int i = 0; i < authorDao.getAll().length; i++) {
             if (authorDao.getAll()[i].equals(author)) {
                 return true;
