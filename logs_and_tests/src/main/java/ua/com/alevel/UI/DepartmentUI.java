@@ -35,7 +35,7 @@ public class DepartmentUI {
                     System.out.println("Введите ID для обновления");
 
                     String id = reader.readLine();
-                    department = departmentService.findById(id);
+                    Department department1 = departmentService.findById(id);
 
                     System.out.println("Введите новое название департамента");
                     String newDepartmentName = reader.readLine();
@@ -45,8 +45,8 @@ public class DepartmentUI {
                         return;
                     }
 
-                    department.setName(newDepartmentName);
-                    departmentService.update(department);
+                    department1.setName(newDepartmentName);
+                    departmentService.update(department1);
                     break;
 
                 case "3":
@@ -88,7 +88,7 @@ public class DepartmentUI {
 
     public void printOptions() {
         System.out.println("Выберите операцию: 1 - Создать департамент \n" +
-                "2 - Обновить департамент \n3 - удалить департамент \n4 - Вывести все департаменты\n" +
+                "2 - Обновить департамент \n3 - Удалить департамент \n4 - Вывести все департаменты\n" +
                 "5 - Найти департамент по ID \n0 - Выйти в главное меню");
     }
 }

@@ -2,11 +2,6 @@ package ua.com.alevel;
 
 import ua.com.alevel.UI.DepartmentUI;
 import ua.com.alevel.UI.EmployeeUI;
-import ua.com.alevel.department.Department;
-import ua.com.alevel.department.DepartmentDao;
-import ua.com.alevel.department.DepartmentService;
-import ua.com.alevel.employee.Employee;
-import ua.com.alevel.employee.EmployeeDao;
 
 import java.io.BufferedReader;
 import java.io.IOException;

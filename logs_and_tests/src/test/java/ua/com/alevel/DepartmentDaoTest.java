@@ -7,10 +7,10 @@ import ua.com.alevel.department.DepartmentDao;
 
 public class DepartmentDaoTest {
 
-//    private static final String NAME = "test";
-//    private static final String NAME_UPDATE = "test5";
-//    DepartmentDao departmentDao = new DepartmentDao();
-//
+    private static final String NAME = "test";
+    private static final String NAME_UPDATE = "test5";
+    DepartmentDao departmentDao = new DepartmentDao();
+
 //    @BeforeAll
 //    public void setUp() {
 //        for (int i = 0; i < 10; i++) {
@@ -22,21 +22,21 @@ public class DepartmentDaoTest {
 //        Assert.assertTrue(departments != null && departments.length == 10);
 //
 //    }
-//
-//    @Test
-//    @Order(1)
-//    public void create() {
-//        for (int i = 0; i < 5; i++) {
-//            Department department = new Department();
-//            department.setName(NAME + i);
-//            departmentDao.create(department);
-//        }
-//
-//
-//        Department[] departments = departmentDao.readAll();
-//        Assertions.assertEquals(5, departments.length);
-//    }
-//
+
+    @Test
+    @Order(1)
+    public void create() {
+        for (int i = 0; i < 5; i++) {
+            Department department = new Department();
+            department.setName(NAME + i);
+            departmentDao.create(department);
+        }
+
+
+        Department[] departments = departmentDao.readAll();
+        Assertions.assertEquals(5, departments.length);
+    }
+
 //    @Test
 //    @Order(2)
 //    public void delete() {
