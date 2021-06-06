@@ -52,6 +52,10 @@ public class BookManagementService<T> {
     }
 
     public void updateAuthor(Author author) {
+        if (!hasAuthor(author)) {
+            System.out.println("There is no such object");
+            return;
+        }
         authorDao.update(author);
         for (int i = 0; i < author.getBooks().length; i++) {
             setRelation(bookDao.getById(author.getBooks()[i].getId()), author);
@@ -59,6 +63,10 @@ public class BookManagementService<T> {
     }
 
     public void updateBook(Book book) {
+        if (!hasBook(book)) {
+            System.out.println("There is no such object");
+            return;
+        }
         bookDao.update(book);
         for (int i = 0; i < book.getAuthors().length; i++) {
             setRelation(book, authorDao.getById(book.getAuthors()[i].getId()));
@@ -66,10 +74,36 @@ public class BookManagementService<T> {
     }
 
     public void deleteBook(Book book) {
+        if (!hasBook(book)) {
+            System.out.println("There is no such object");
+            return;
+        }
         bookDao.delete(book.getId());
     }
 
     public void deleteAuthor(Author author) {
+        if (!hasAuthor(author)) {
+            System.out.println("There is no such object");
+            return;
+        }
         authorDao.delete(author.getId());
+    }
+
+    private boolean hasBook(Book book) {
+        for (int i = 0; i < bookDao.getAll().length; i++) {
+            if (bookDao.getAll()[i].equals(book)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasAuthor(Author author) {
+        for (int i = 0; i < authorDao.getAll().length; i++) {
+            if (authorDao.getAll()[i].equals(author)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
