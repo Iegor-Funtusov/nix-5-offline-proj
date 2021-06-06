@@ -22,10 +22,10 @@ public class DepartmentService {
     }
 
     public void update(Department department) {
-//        LOGGER_WARN.warn("Start update department: " + department.getName());
+        LOGGER_WARN.warn("Start update department: " + department.getName());
         if (department != null) {
         departmentDao.update(department); }
-//        LOGGER_WARN.warn("End update department");
+        LOGGER_WARN.warn("End update department");
     }
     public void delete(String id) {
         departmentDao.delete(id);

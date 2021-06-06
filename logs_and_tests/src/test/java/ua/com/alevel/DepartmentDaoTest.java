@@ -1,32 +1,34 @@
 package ua.com.alevel;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
+import org.junit.*;
+import org.junit.jupiter.api.Test;
 import ua.com.alevel.department.Department;
 import ua.com.alevel.department.DepartmentDao;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DepartmentDaoTest {
 
     private static final String NAME = "test";
     private static final String NAME_UPDATE = "test5";
-    DepartmentDao departmentDao = new DepartmentDao();
+    private static DepartmentDao departmentDao = new DepartmentDao();
 
-//    @BeforeAll
-//    public void setUp() {
-//        for (int i = 0; i < 10; i++) {
-//            Department department = new Department();
-//            department.setName(NAME + i);
-//            departmentDao.create(department);
-//        }
-//        Department[] departments = departmentDao.readAll();
-//        Assert.assertTrue(departments != null && departments.length == 10);
-//
-//    }
+    @BeforeAll
+    public static void setUp() {
+        for (int i = 0; i < 10; i++) {
+            Department department = new Department();
+            department.setName(NAME + i);
+            departmentDao.create(department);
+        }
+        Department[] departments = departmentDao.readAll();
+        Assertions.assertTrue(departments != null && departments.length == 10);
+
+    }
 
     @Test
     @Order(1)
     public void create() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Department department = new Department();
             department.setName(NAME + i);
             departmentDao.create(department);
@@ -34,7 +36,7 @@ public class DepartmentDaoTest {
 
 
         Department[] departments = departmentDao.readAll();
-        Assertions.assertEquals(5, departments.length);
+        Assertions.assertEquals(10, departments.length);
     }
 
 //    @Test
@@ -50,14 +52,13 @@ public class DepartmentDaoTest {
 //    @Test
 //    @Order(3)
 //    public void update() {
-//        Department department = new Department();
-//        department.setName(NAME);
-//        departmentDao.create(department);
-//
-//        department.setName("New name");
+//        Department department = departmentDao.findById("5");
+//        department.setName(NAME_UPDATE);
 //        departmentDao.update(department);
 //
-//        Assertions.assertEquals(department.getName(), departmentDao.readAll());
+//        department = departmentDao.findById("5");
+//
+//        Assertions.assertEquals(department.getName(), NAME_UPDATE);
 //    }
 
 

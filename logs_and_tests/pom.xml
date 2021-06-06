@@ -19,6 +19,7 @@
         <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.30</slf4j.version>
+        <commons.beanutils.version>1.9.4</commons.beanutils.version>
     </properties>
 
     <profiles>
@@ -44,12 +45,6 @@
     </profiles>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-            <version>1.9.4</version>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -62,9 +57,9 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-core</artifactId>
-        <version>${logback.version}</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -85,9 +80,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons.beanutils.version}</version>
         </dependency>
 
     </dependencies>
@@ -115,7 +110,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.com.alevel.Main</mainClass>
+                                    <mainClass>ua.com.alevel.MainClass</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
