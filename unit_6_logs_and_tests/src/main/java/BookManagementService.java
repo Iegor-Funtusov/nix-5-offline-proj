@@ -57,8 +57,10 @@ public class BookManagementService<T> {
             return;
         }
         authorDao.update(author);
-        for (int i = 0; i < author.getBooks().length; i++) {
-            setRelation(bookDao.getById(author.getBooks()[i].getId()), author);
+        if (author.getBooks().length > 0) {
+            for (int i = 0; i < author.getBooks().length; i++) {
+                setRelation(bookDao.getById(author.getBooks()[i].getId()), author);
+            }
         }
     }
 
