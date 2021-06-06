@@ -83,8 +83,4 @@ public class BookManagementServiceTest {
         bookManagementService.deleteBook(bookManagementService.getAllBooks()[5]);
         Assertions.assertTrue(bookManagementService.getAllBooks() != null && bookManagementService.getAllBooks().length == 9);
     }
-
-
-
-
 }
