@@ -1,4 +1,4 @@
-package ua.practice.unit7.handlers;
+package ua.practice.unit7.formatter;
 
 public enum DataTypes {
     TYPE1("dd/mm/yy"),
@@ -8,7 +8,7 @@ public enum DataTypes {
 
     private final String type;
 
-    private DataTypes(String type) {
+    DataTypes(String type) {
         this.type = type;
     }
 

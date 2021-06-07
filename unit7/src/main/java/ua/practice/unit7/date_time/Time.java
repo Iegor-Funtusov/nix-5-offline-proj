@@ -1,14 +1,20 @@
 package ua.practice.unit7.date_time;
 
 public class Time implements Comparable<Time> {
-    private int hours;
-    private int minutes;
     private int seconds;
+    private int minutes;
+    private int hours;
 
     public Time(String hours, String minutes, String seconds) {
         this.initHours(hours);
         this.initMinutes(minutes);
         this.initSeconds(seconds);
+    }
+
+    public Time(int seconds, int minutes, int hours) {
+        this.seconds = seconds;
+        this.minutes = minutes;
+        this.hours = hours;
     }
 
     public Time() {
@@ -51,24 +57,12 @@ public class Time implements Comparable<Time> {
         return this.hours;
     }
 
-    public void setHours(int hours) {
-        this.hours = hours;
-    }
-
     public int getMinutes() {
         return this.minutes;
     }
 
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
-
     public int getSeconds() {
         return this.seconds;
-    }
-
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
     }
 
     public String toString() {

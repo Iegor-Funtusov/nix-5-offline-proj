@@ -32,7 +32,17 @@ public enum Months {
         return this.numberOfDays;
     }
 
-    public static Months getMonth(int monthNumber){
-        return Stream.of(Months.values()).filter(months -> months.getMonthNumber() == monthNumber).findAny().get();
+    public static Months getMonth(int monthNumber) {
+        return Stream.of(Months.values())
+                .filter(months -> months.getMonthNumber() == monthNumber)
+                .findAny()
+                .get();
+    }
+
+    public static Months getMonthByName(String name) {
+        return Stream.of(Months.values())
+                .filter(months -> months.name().equalsIgnoreCase(name))
+                .findAny()
+                .orElseThrow(()->new IllegalArgumentException("Incorrect month input"));
     }
 }

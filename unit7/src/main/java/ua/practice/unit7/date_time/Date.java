@@ -1,128 +1,83 @@
 package ua.practice.unit7.date_time;
 
-import org.apache.maven.surefire.shade.org.apache.commons.lang3.math.NumberUtils;
-
 public class Date implements Comparable<Date> {
     private int day = 1;
-    private Months month;
-    private YearClass year;
+    private Months month = Months.JANUARY;
+    private int year;
 
     public Date() {
-        this.month = Months.JANUARY;
-        this.year = new YearClass(0);
+    }
+
+    public Date(int day, int month, int year) {
+        setYear(year);
+        setMonth(month);
+        setDay(day);
     }
 
     public Date(String day, String month, String year) {
-        this.month = Months.JANUARY;
-        this.year = new YearClass(0);
-        this.initYear(year.trim());
-        this.initMonth(month);
-        this.initDay(day);
-        checkZeros();
-    }
-
-    private void initYear(String year) {
-        if (!year.isBlank()) {
-            try {
-                this.year = new YearClass(Integer.parseInt(year));
-            } catch (NumberFormatException e) {
-                throw new RuntimeException("Wrong input for year");
-            }
-        }
-
-    }
-
-    private void initMonth(String month) {
-        if (!month.isEmpty()) {
-            if (NumberUtils.isParsable(month)) {
-                int monthNumber = Integer.parseInt(month);
-                if (monthNumber == 0) {
-                    {
-                        this.month = Months.DECEMBER;
-                        year = new YearClass(year.getYear()-1);
-                        return;
-                    }
-                }
-                for (Months months : Months.values()) {
-                    if (months.getMonthNumber() == monthNumber) {
-                        this.month = months;
-                        return;
-                    }
-                }
-            } else {
-
-                for (Months months : Months.values()) {
-                    if (months.name().equalsIgnoreCase(month)) {
-                        this.month = months;
-                        return;
-                    }
-                }
-            }
-
-            throw new RuntimeException("Wrong input for month");
-        }
-    }
-
-    private void initDay(String day) {
-        if (!day.isEmpty()) {
-            try {
-                this.day = Integer.parseInt(day);
-                if (this.day < 0 || this.day > this.month.getNumberOfDays()) {
-                    throw new NumberFormatException();
-                }
-            } catch (NumberFormatException e) {
-                throw new RuntimeException("Wrong input for day");
-            }
-        }
-
-    }
-
-    private void checkZeros() {
-        if (day == 0 && month.getMonthNumber() != 1) {
-            setMonth(Months.getMonth(month.getMonthNumber() - 1));
-            day = month.getNumberOfDays();
-        }
-        if (day == 0 && month.getMonthNumber() == 1)
-        {
-            year = new YearClass(year.getYear()-1);
-            setMonth(Months.DECEMBER);
-            day = month.getNumberOfDays();
-        }
+        setYear(Integer.parseInt(year.trim()));
+        initMonthByName(month.trim());
+        setDay(Integer.parseInt(day.trim()));
     }
 
     public int getDay() {
-        return this.day;
+        return day;
     }
 
     public void setDay(int day) {
+        if (day < 0 || day > month.getNumberOfDays()) {
+            if (isCurrentYearLeap() && month == Months.FEBRUARY && day == 29) {
+                this.day = day;
+                return;
+            }
+            throw new IllegalArgumentException("Incorrect input day");
+        }
         this.day = day;
     }
 
     public Months getMonth() {
-        return this.month;
+        return month;
     }
 
-    public void setMonth(Months month) {
-        this.month = month;
+    public void setMonth(int month) {
+        if (month < 0 || month > 12)
+            throw new IllegalArgumentException("Incorrect input month");
+        this.month = Months.getMonth(month);
     }
 
-    public YearClass getYear() {
-        return this.year;
+    private void initMonthByName(String name) {
+        try {
+            int tempMonth = Integer.parseInt(name);
+            setMonth(tempMonth);
+        } catch (NumberFormatException ex) {
+            setMonth(Months.getMonthByName(name).getMonthNumber());
+        }
     }
 
-    public void setYear(YearClass year) {
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        if (year < 0)
+            throw new IllegalArgumentException("Year is less than zero");
+        if (year > 22 && year < 100)
+            year += 1900;
         this.year = year;
     }
 
-    public String toString() {
-        return this.day + "/" + this.month + "/" + this.year;
+
+    private boolean isCurrentYearLeap() {
+        return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
     }
 
+
+    @Override
     public int compareTo(Date o) {
-        if (year.getYear() > o.getYear().getYear()) {
+        if (getYear() > o.getYear()) {
             return 1;
         } else {
-            if (year.getYear() == o.getYear().getYear()) {
+            if (getYear() == o.getYear()) {
                 if (month.getMonthNumber() > o.getMonth().getMonthNumber()) {
                     return 1;
                 }
@@ -136,7 +91,6 @@ public class Date implements Comparable<Date> {
                     }
                 }
             }
-
             return -1;
         }
     }
