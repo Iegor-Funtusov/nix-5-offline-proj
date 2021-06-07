@@ -1,34 +1,40 @@
 package ua.com.alevel.employee;
 
 import org.apache.commons.beanutils.BeanUtils;
-import ua.com.alevel.department.Department;
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class EmployeeDao {
-
     Employee[] employers = new Employee[10];
 
     public void create(Employee employee) {
-        if (employee!= null)
-            employee.setId(generateId(employee.getId()));
-        Employee[] employeesForSave = new Employee[employers.length + 1];
-        employeesForSave[employers.length] = employee;
-        System.arraycopy(employers, 0, employeesForSave, 0, employers.length);
-        employers = employeesForSave;
+
+        employee.setId((UUID.randomUUID().toString()));
+        Employee[] employeesAdded = new Employee[employers.length + 1];
+        employeesAdded[employers.length] = employee;
+        System.arraycopy(employers, 0, employeesAdded, 0, employers.length);
+        employers = employeesAdded;
     }
 
     public Employee[] readAll() {
+        System.out.println(Arrays.stream(employers)
+                .filter(Objects::nonNull)
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "))
+        );
         return employers;
     }
 
+
     public void update(Employee employee) {
-        Employee currentEmployers = findById(employee.getId());
+        Employee currentEmployee = findById(employee.getId());
         try {
-            BeanUtils.copyProperties(currentEmployers, employee);
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.getMessage();
+            BeanUtils.copyProperties(currentEmployee, employee);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage());
         }
     }
 
@@ -40,26 +46,14 @@ public class EmployeeDao {
                 break;
             }
         }
+
     }
 
     public Employee findById(String id) {
-        if (id != null) {
-            for (Employee employee : employers) {
-                if (employee.getId().equals(id)){
-                    return employee;
-                }
-            }
+        for (Employee employee : employers) {
+            if (employee.getId().equalsIgnoreCase(id))
+                return employee;
         }
         return null;
-    }
-
-
-
-    public String generateId(String id) {
-        if (id != null || !id.isEmpty()) {
-            UUID uniqueId = UUID.randomUUID();
-            return uniqueId.toString();
-        }
-        return "Вы ввели что-то неправильно";
     }
 }

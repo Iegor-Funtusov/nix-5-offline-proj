@@ -13,9 +13,7 @@ public class EmployeeService {
 
     public void create(Employee employee) {
         LOGGER_INFO.info("Start create employee: " + employee.getName());
-        if (employee != null) {
-            employeeDao.create(employee);
-        }
+        employeeDao.create(employee);
         LOGGER_INFO.info("End create employee");
     }
 
@@ -26,20 +24,14 @@ public class EmployeeService {
     public void update(Employee employee) {
         LOGGER_WARN.warn("Start update employee: " + employee.getName());
         if (employee != null) {
-            employeeDao.update(employee);
-        }
+            employeeDao.update(employee); }
         LOGGER_WARN.warn("End update employee");
     }
-
     public void delete(String id) {
         employeeDao.delete(id);
     }
 
     public Employee findById(String id) {
         return employeeDao.findById(id);
-    }
-
-    public String generateId(String id) {
-        return employeeDao.generateId(id);
     }
 }

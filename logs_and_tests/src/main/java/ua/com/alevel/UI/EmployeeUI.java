@@ -1,7 +1,5 @@
 package ua.com.alevel.UI;
 
-import ua.com.alevel.department.Department;
-import ua.com.alevel.department.DepartmentService;
 import ua.com.alevel.employee.Employee;
 import ua.com.alevel.employee.EmployeeService;
 

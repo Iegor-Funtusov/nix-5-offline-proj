@@ -1,7 +1,6 @@
 package ua.com.alevel;
 
 import org.junit.jupiter.api.*;
-import org.junit.*;
 import org.junit.jupiter.api.Test;
 import ua.com.alevel.department.Department;
 import ua.com.alevel.department.DepartmentDao;
@@ -36,27 +35,27 @@ public class DepartmentDaoTest {
 
 
         Department[] departments = departmentDao.readAll();
-        Assertions.assertEquals(10, departments.length);
+        Assertions.assertEquals(20, departments.length);
     }
 
-//    @Test
-//    @Order(2)
-//    public void delete() {
-//        Department[] departments = departmentDao.readAll();
-//        String id = departments[2].getId();
-//        departmentDao.delete(id);
-//        departments = departmentDao.readAll();
-//        Assertions.assertEquals(4, departments.length);
-//    }
-//
-//    @Test
+    @Test
+    @Order(2)
+    public void delete() {
+        Department[] departments = departmentDao.readAll();
+        String id = departments[2].getId();
+        departmentDao.delete(id);
+        departments = departmentDao.readAll();
+        Assertions.assertEquals(20, departments.length);
+    }
+
+//     @Test
 //    @Order(3)
 //    public void update() {
-//        Department department = departmentDao.findById("5");
+//        Department department = departmentDao.findById();
 //        department.setName(NAME_UPDATE);
 //        departmentDao.update(department);
 //
-//        department = departmentDao.findById("5");
+//        department = departmentDao.findById();
 //
 //        Assertions.assertEquals(department.getName(), NAME_UPDATE);
 //    }

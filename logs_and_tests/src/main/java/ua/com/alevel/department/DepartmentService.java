@@ -5,11 +5,11 @@ import org.slf4j.LoggerFactory;
 
 public class DepartmentService {
 
+    private DepartmentDao departmentDao = new DepartmentDao();
+
     private static final Logger LOGGER_INFO = LoggerFactory.getLogger("info");
     private static final Logger LOGGER_WARN = LoggerFactory.getLogger("warn");
     private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
-
-    private DepartmentDao departmentDao = new DepartmentDao();
 
     public void create(Department department) {
         LOGGER_INFO.info("Start create department: " + department.getName());
