@@ -28,8 +28,14 @@ public class EmployeeService {
         LOGGER_WARN.warn("End update employee");
     }
     public void delete(String id) {
-        employeeDao.delete(id);
+        if (id != null) {
+            employeeDao.delete(id);
+        }
+        else {
+            LOGGER_ERROR.error("This id does not exist");
+        }
     }
+
 
     public Employee findById(String id) {
         return employeeDao.findById(id);

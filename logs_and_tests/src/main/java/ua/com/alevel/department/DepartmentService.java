@@ -28,7 +28,12 @@ public class DepartmentService {
         LOGGER_WARN.warn("End update department");
     }
     public void delete(String id) {
-        departmentDao.delete(id);
+        if (id != null) {
+            departmentDao.delete(id);
+        }
+        else {
+            LOGGER_ERROR.error("This id does not exist");
+        }
     }
 
     public Department findById(String id) {

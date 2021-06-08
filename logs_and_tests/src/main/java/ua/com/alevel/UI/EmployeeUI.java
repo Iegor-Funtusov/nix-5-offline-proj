@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class EmployeeUI {
+
     public void runEmployeeUI() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         EmployeeService employeeService = new EmployeeService();
@@ -20,11 +21,14 @@ public class EmployeeUI {
 
                     Employee employee = new Employee();
                     System.out.println("Введите имя сотрудника: ");
+
                     String employeeName = reader.readLine();
+
                     if (employeeName.isBlank()) {
                         System.out.println("Неправильно, введите ещё раз.");
                         return;
                     }
+
                     employee.setName(employeeName);
                     employeeService.create(employee);
                     break;
@@ -49,21 +53,25 @@ public class EmployeeUI {
                     break;
 
                 case "3":
+
                     System.out.println("Enter id");
                     String id2 = reader.readLine();
                     if (id2.isBlank()) {
                         System.out.println("Неправильно, введите ещё раз.");
                         return;
                     }
+
                     employeeService.delete(id2);
                     break;
 
                 case "4":
+
                     Employee[] employers = employeeService.readAll();
                     System.out.println(employers);
                     break;
 
                 case "5":
+
                     System.out.println("Введите ID департамента для поиска");
                     String id3 = reader.readLine();
                     Employee employee1 = employeeService.findById(id3);
@@ -71,8 +79,10 @@ public class EmployeeUI {
                     break;
 
                 case "0":
+
                     System.exit(0);
                     break;
+
             }
 
 

@@ -15,6 +15,7 @@ public class MainClass {
         while (true) {
             printMainOptions();
             String choose = null;
+
             try {
                 choose = reader.readLine();
             } catch (IOException e) {
@@ -22,6 +23,7 @@ public class MainClass {
             }
 
             switch (choose) {
+
                 case "1":
                     DepartmentUI departmentUI = new DepartmentUI();
                     try {
@@ -32,6 +34,7 @@ public class MainClass {
                     break;
 
                 case "2":
+
                     EmployeeUI employeeUI = new EmployeeUI();
                     try {
                         employeeUI.runEmployeeUI();
@@ -39,8 +42,11 @@ public class MainClass {
                         e.getMessage();
                     }
                     break;
+
                 case "3":
+
                     System.exit(0);
+
             }
         }
     }

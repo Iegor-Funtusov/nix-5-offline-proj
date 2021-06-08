@@ -2,6 +2,8 @@ package ua.com.alevel.UI;
 
 import ua.com.alevel.department.Department;
 import ua.com.alevel.department.DepartmentService;
+import ua.com.alevel.employee.Employee;
+import ua.com.alevel.employee.EmployeeService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +14,7 @@ public class DepartmentUI {
     public void runDepartmentUI() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         DepartmentService departmentService = new DepartmentService();
+        EmployeeService employeeService = new EmployeeService();
 
         while (true) {
             printOptions();
@@ -71,6 +74,21 @@ public class DepartmentUI {
                     System.out.println(department2);
                     break;
 
+                case "6":
+                    Employee employee = new Employee();
+                    System.out.println("Введите имя сотрудника: ");
+                    String nameOfEmployee = reader.readLine();
+                    if (nameOfEmployee.isBlank()){
+                        System.out.println("Неправильно, введите пожалуйста ещё раз");
+                        return;
+                    }
+
+                    employee.setName(nameOfEmployee);
+                    employeeService.create(employee);
+                    System.out.println("Сотрудники в департаменте: ");
+                    employeeService.readAll();
+                    break;
+
                 case "0":
                     System.exit(0);
                     break;
@@ -89,6 +107,6 @@ public class DepartmentUI {
     public void printOptions() {
         System.out.println("Выберите операцию: 1 - Создать департамент \n" +
                 "2 - Обновить департамент \n3 - Удалить департамент \n4 - Вывести все департаменты\n" +
-                "5 - Найти департамент по ID \n0 - Выйти в главное меню");
+                "5 - Найти департамент по ID \n6 - Создать и вывести всех сотрудников департамента (relation)\n0 - Выйти в главное меню");
     }
 }

@@ -1,4 +1,14 @@
-21:04:09.759 [main] INFO  info - Start create department: Aboba
-21:04:09.869 [main] INFO  info - End create department
-21:11:49.440 [main] INFO  info - Start create department: Salva
-21:11:49.542 [main] INFO  info - End create department
+21:44:40.594 [main] INFO  info - Start create employee: Jeka
+21:44:40.748 [main] INFO  info - End create employee
+21:57:20.116 [main] INFO  info - Start create employee: Jeka
+21:57:20.219 [main] INFO  info - End create employee
+21:57:38.420 [main] INFO  info - Start create department: Jekaf
+21:57:38.421 [main] INFO  info - End create department
+22:00:20.400 [main] INFO  info - Start create department: Оулф
+22:00:20.401 [main] INFO  info - End create department
+22:01:44.980 [main] INFO  info - Start create department: Jeka
+22:01:45.105 [main] INFO  info - End create department
+22:11:56.511 [main] INFO  info - Start create department: Name
+22:11:56.610 [main] INFO  info - End create department
+22:12:20.966 [main] INFO  info - Start create department: Name
+22:12:20.968 [main] INFO  info - End create department
