@@ -1,6 +1,6 @@
 /.idea/
-/console/build/
-/maven/app/app.iml
-/maven/app/target/
-/ant/build/
-/maven/app/dependency-reduced-pom.xml
+/unit_1/console/build/
+/unit_1/maven/app/app.iml
+/unit_1/maven/app/target/
+/unit_1/ant/build/
+/unit_1/maven/app/dependency-reduced-pom.xml
