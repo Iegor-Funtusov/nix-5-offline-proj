@@ -1,11 +1,12 @@
 # nix-5-offline-proj
-<<<<<<< HEAD
+Unit 7
 **cd unit7**
 
 **mvn clean install**
 
 **java -jar target\unit7-1.0-SNAPSHOT**
 =======
+Unit 6
 To build project -> 
 **cd unit6**
 
