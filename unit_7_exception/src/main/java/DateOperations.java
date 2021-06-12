@@ -253,26 +253,66 @@ public class DateOperations {
     }
 
     public static Date subtractYear(Date date, int year) {
-        return date;
+        return addYear(date, -year);
     }
 
     public static Date subtractMonth(Date date, int month) {
+        if (month >= date.getMonth()) {
+            int restMonths = month - date.getMonth();
+            date = subtractYear(date, 1);
+            date.setMonth(12);
+            date = subtractMonth(date, restMonths);
+        } else {
+            date.setMonth(date.getMonth() - month);
+        }
         return date;
     }
 
     public static Date subtractDay(Date date, int day) {
+        if (day >= date.getDay()) {
+            int restDays = day - date.getDay();
+            date = subtractMonth(date, 1);
+            date.setDay(daysInMonth(date.getMonth()));
+            date = subtractDay(date, restDays);
+        } else {
+            date.setDay(date.getDay() - day);
+        }
         return date;
     }
 
     public static Date subtractHour(Date date, int hour) {
+        if (hour > date.getHour()) {
+            int restHour = hour - date.getHour()-1;
+            date = subtractDay(date, 1);
+            date.setHour(23);
+            date = subtractHour(date, restHour);
+        } else {
+            date.setHour(date.getHour() - hour);
+        }
         return date;
     }
 
     public static Date subtractMinute(Date date, int minute) {
+        if (minute > date.getMinute()) {
+            int restMinute = minute - date.getMinute()-1;
+            date = subtractHour(date, 1);
+            date.setMinute(59);
+            date = subtractMinute(date, restMinute);
+        } else {
+            date.setMinute(date.getMinute() - minute);
+        }
         return date;
     }
 
     public static Date subtractSecond(Date date, int second) {
+        if (second > date.getSecond()) {
+            int restSecond = second - date.getSecond()-1;
+            date = subtractMinute(date, 1);
+            date.setSecond(59);
+            date = subtractSecond(date, restSecond);
+        } else {
+            date.setSecond(date.getSecond() - second);
+        }
         return date;
     }
 
