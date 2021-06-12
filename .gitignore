@@ -1,4 +1,15 @@
 /.idea/
+/unit5/reversestring/target/
+/unit5/reversestring/reversestring.iml
+/unit5/unit5.iml
+/unit5/application/application.iml
+/unit5/application/target/
+/unit4/out/
+/unit4/library/library.iml
+/unit4/application/application.iml
+/unit4/library/target/
+/unit4/application/target/
+/unit4/unit4.iml
 /unit6/unit6.iml
 /unit6/library/target/
 /unit6/application/application.iml
