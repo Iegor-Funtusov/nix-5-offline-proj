@@ -188,26 +188,67 @@ public class DateOperations {
     }
 
     public static Date addYear(Date date, int year) {
+        date.setYear(date.getYear() + year);
         return date;
     }
 
     public static Date addMonth(Date date, int month) {
+        if (date.getMonth() + month > 12) {
+            int restMonths = month + date.getMonth() - 12 - 1;
+            date = addYear(date, 1);
+            date.setMonth(1);
+            date = addMonth(date, restMonths);
+        } else {
+            date.setMonth(date.getMonth() + month);
+        }
         return date;
     }
 
     public static Date addDay(Date date, int day) {
+        if (date.getDay() + day > daysInMonth(date.getMonth())) {
+            int restDays = day - daysInMonth(date.getMonth()) + date.getDay() - 1;
+            date = addMonth(date, 1);
+            date.setDay(1);
+            date = addDay(date, restDays);
+        } else {
+            date.setDay(date.getDay() + day);
+        }
         return date;
     }
 
     public static Date addHour(Date date, int hour) {
+        if (date.getHour() + hour > 23) {
+            int restHours = hour + date.getHour() - 23 - 1;
+            date = addDay(date, 1);
+            date.setHour(0);
+            date = addHour(date, restHours);
+        } else {
+            date.setHour(date.getHour() + hour);
+        }
         return date;
     }
 
     public static Date addMinute(Date date, int minute) {
+        if (date.getMinute() + minute > 59) {
+            int restMinutes = minute + date.getMinute() - 59 - 1;
+            date = addHour(date, 1);
+            date.setMinute(0);
+            date = addMinute(date, restMinutes);
+        } else {
+            date.setMinute(date.getMinute() + minute);
+        }
         return date;
     }
 
     public static Date addSecond(Date date, int second) {
+        if (date.getSecond() + second > 59) {
+            int restSeconds = second + date.getSecond() - 59 - 1;
+            date = addMinute(date, 1);
+            date.setSecond(0);
+            date = addSecond(date, restSeconds);
+        } else {
+            date.setSecond(date.getSecond() + second);
+        }
         return date;
     }
 
