@@ -226,60 +226,60 @@ public class CalendarUI {
                     case "1":
                         System.out.println("Enter the number of Years");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addYear(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "2":
                         System.out.println("Enter the number of Months");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addMonth(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "3":
                         System.out.println("Enter the number of Days");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addDay(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "4":
                         System.out.println("Enter the number of Hours");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addHour(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "5":
                         System.out.println("Enter the number of Minutes");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addMinute(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "6":
                         System.out.println("Enter the number of Seconds");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.addSecond(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
@@ -318,60 +318,60 @@ public class CalendarUI {
                     case "1":
                         System.out.println("Enter the number of Years");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractYear(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "2":
                         System.out.println("Enter the number of Months");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractMonth(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "3":
                         System.out.println("Enter the number of Days");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractDay(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "4":
                         System.out.println("Enter the number of Hours");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractHour(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "5":
                         System.out.println("Enter the number of Minutes");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractMinute(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
                     case "6":
                         System.out.println("Enter the number of Seconds");
                         str = reader.readLine();
-                        if (checkRegExp(str, "^(?!^0)\\d{1,9}$")) {
+                        if (checkRegExp(str, "^[0-9]{1,6}$")) {
                             System.out.println(DateOperations.subtractSecond(date, Integer.parseInt(str)));
                         } else {
-                            System.out.println("Wrong input number");
+                            System.out.println("Wrong input number. Too big number");
                             break;
                         }
                         break;
