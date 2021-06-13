@@ -8,11 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CalendarUI {
-    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static final Pattern DATE_PATTERN_DMY = Pattern.compile("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec)))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2]|(?:Jan|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)(?:0?2|(?:Feb))\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9]|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep))|(?:1[0-2]|(?:Oct|Nov|Dec)))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
-    private static final Pattern DATE_PATTERN_MDY = Pattern.compile("^(?:(?:(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec))(\\/|-|\\.)31)\\1|(?:(?:0?[1,3-9]|1[0-2]|(?:Jan|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))(\\/|-|\\.)(?:29|30)\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:(?:0?2|(?:Feb))(\\/|-|\\.)29\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9]|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep))|(?:1[0-2]|(?:Oct|Nov|Dec)))(\\/|-|\\.)(?:0?[1-9]|1\\d|2[0-8])\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
-    private static final Pattern DATE_PATTERN_DMY_simple = Pattern.compile("^[0-3]?[0-9]?(\\/|-|\\.)[0-1]?[0-9]?(\\/|-|\\.)(?:[0-9]{2})?(?:[0-9]{2})?$");
-    private static final Pattern DATE_PATTERN_MDY_simple = Pattern.compile("^[0-1]?[0-9]?(\\/|-|\\.)[0-3]?[0-9]?(\\/|-|\\.)(?:[0-9]{2})?(?:[0-9]{2})?$");
+    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final Pattern DATE_PATTERN_DMY = Pattern.compile("^(?:(?:31([/\\-.])(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec)))\\1|(?:(?:29|30)([/\\-.])(?:0?[1,3-9]|1[0-2]|(?:Jan|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29([/\\-.])(?:0?2|(?:Feb))\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(/|-|\\.)(?:(?:0?[1-9]|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep))|(?:1[0-2]|(?:Oct|Nov|Dec)))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+    private static final Pattern DATE_PATTERN_MDY = Pattern.compile("^(?:(?:(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec))([/\\-.])31)\\1|(?:(?:0?[1,3-9]|1[0-2]|(?:Jan|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))([/\\-.])(?:29|30)\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:(?:0?2|(?:Feb))([/\\-.])29\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9]|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep))|(?:1[0-2]|(?:Oct|Nov|Dec)))([/\\-.])(?:0?[1-9]|1\\d|2[0-8])\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+    private static final Pattern DATE_PATTERN_DMY_simple = Pattern.compile("^[0-3]?[0-9]?([/\\-.])[0-1]?[0-9]?([/\\-.])(?:[0-9]{2})?(?:[0-9]{2})?$");
+    private static final Pattern DATE_PATTERN_MDY_simple = Pattern.compile("^[0-1]?[0-9]?([/\\-.])[0-3]?[0-9]?([/\\-.])(?:[0-9]{2})?(?:[0-9]{2})?$");
     private static final Pattern TIME_PATTERN_HMS = Pattern.compile("(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)");
     private static final Pattern TIME_PATTERN_MS = Pattern.compile("(?:[012345]\\d):(?:[012345]\\d)");
     private static boolean isDMY = true;
@@ -68,7 +68,7 @@ public class CalendarUI {
         System.out.println("/2/ - February 1, 2021 0 hours 0 minutes 0 seconds;");
         System.out.println("1256 59:59 - January 1, 1256 0 hours 59 minutes 59 seconds;");
         System.out.println("01/Jan/2000 - January 1, 2000 0 hours 0 minutes 0 seconds;");
-        System.out.println("Jan/01/2000 - January 1, 2000 0 hours 0 minutes 0 seconds;");
+        System.out.println("Apr/01/2000 - April 1, 2000 0 hours 0 minutes 0 seconds;");
         System.out.println("!!!YOU CAN SEPARATE THE DATE WITH \"-\", \"/\", or \".\"");
         System.out.println("!!!YOU SHOULD SEPARATE THE TIME USING ONLY \":\"");
         System.out.println("!!!YOU MUST SEPARATE THE TIME FROM THE DATE USING A SPACE");
@@ -78,11 +78,7 @@ public class CalendarUI {
         System.out.println("2: mm/dd/yyyy");
         String format = reader.readLine();
         if (checkRegExp(format, "[1-2]")) {
-            if (format.equals("1")) {
-                isDMY = true;
-            } else {
-                isDMY = false;
-            }
+            isDMY = format.equals("1");
         } else {
             System.out.println("Wrong input");
         }
@@ -132,13 +128,13 @@ public class CalendarUI {
         list.add(date6);
         list.add(date7);
         System.out.println("List of dates:");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        for (Date date : list) {
+            System.out.println(date);
         }
         System.out.println("List of dates SORTED:");
         Collections.sort(list);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        for (Date date : list) {
+            System.out.println(date);
         }
         System.out.println();
     }
@@ -445,11 +441,9 @@ public class CalendarUI {
                     date.setMinute(tempT.getMinute());
                     date.setSecond(tempT.getSecond());
                 } else {
-                    System.out.println("Wrong input date");
                     return null;
                 }
             } else {
-                System.out.println("Wrong input date");
                 return null;
             }
         } else if (dateValidation(inputDate) != null) {
@@ -458,7 +452,6 @@ public class CalendarUI {
             date.setMonth(tempD.getMonth());
             date.setDay(tempD.getDay());
         } else {
-            System.out.println("Wrong input date");
             return null;
         }
         return date;
@@ -475,27 +468,23 @@ public class CalendarUI {
             String[] dateParts = inputDate.split("(\\/|-|\\.)");
             if (dateParts.length > 1 && !dateParts[1].isEmpty() && dateParts[1].length() > 2) {
                 if (monthNumber(dateParts[1]) < 1 || monthNumber(dateParts[1]) > 12) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setMonth(monthNumber(dateParts[1]));
             } else if (dateParts.length > 1 && !dateParts[1].isEmpty()) {
                 if (Integer.parseInt(dateParts[1]) < 1 || Integer.parseInt(dateParts[1]) > 12) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setMonth(Integer.parseInt(dateParts[1]));
             }
             if (dateParts.length > 0 && !dateParts[0].isEmpty()) {
                 if (Integer.parseInt(dateParts[0]) < 1 || Integer.parseInt(dateParts[0]) > 31 || Integer.parseInt(dateParts[0]) > DateOperations.daysInMonth(date.getMonth())) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setDay(Integer.parseInt(dateParts[0]));
             }
             if (dateParts.length > 2 && !dateParts[2].isEmpty()) {
                 if (Integer.parseInt(dateParts[2]) < 0) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setYear(Integer.parseInt(dateParts[2]));
@@ -505,33 +494,28 @@ public class CalendarUI {
             String[] dateParts = inputDate.split("(\\/|-|\\.)");
             if (dateParts.length > 0 && !dateParts[0].isEmpty() && dateParts[0].length() > 2) {
                 if (monthNumber(dateParts[0]) < 1 || monthNumber(dateParts[0]) > 12) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setMonth(monthNumber(dateParts[0]));
             } else if (dateParts.length > 0 && !dateParts[0].isEmpty()) {
                 if (Integer.parseInt(dateParts[0]) < 1 || Integer.parseInt(dateParts[0]) > 12) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setMonth(Integer.parseInt(dateParts[0]));
             }
             if (dateParts.length > 1 && !dateParts[1].isEmpty()) {
                 if (Integer.parseInt(dateParts[1]) < 1 || Integer.parseInt(dateParts[1]) > 31 || Integer.parseInt(dateParts[1]) > DateOperations.daysInMonth(date.getMonth())) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setDay(Integer.parseInt(dateParts[1]));
             }
             if (dateParts.length > 2 && !dateParts[2].isEmpty()) {
                 if (Integer.parseInt(dateParts[2]) < 0) {
-                    System.out.println("Wrong input date");
                     return null;
                 }
                 date.setYear(Integer.parseInt(dateParts[2]));
             }
         } else {
-            System.out.println("Wrong input date");
             return null;
         }
         return date;
@@ -549,11 +533,9 @@ public class CalendarUI {
                 date.setMinute(Integer.parseInt(dateParts[1]));
                 date.setSecond(Integer.parseInt(dateParts[2]));
             } else {
-                System.out.println("Wrong input date");
                 return null;
             }
         } else {
-            System.out.println("Wrong input date");
             return null;
         }
         return date;
