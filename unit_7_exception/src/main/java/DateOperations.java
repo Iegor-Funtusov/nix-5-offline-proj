@@ -7,18 +7,12 @@ public class DateOperations {
             return true;
     }
 
-    private static int daysInMonth(int month) {
+    public static int daysInMonth(int month) {
         if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
             return 31;
         } else if (month == 4 || month == 6 || month == 9 || month == 11) {
             return 30;
         } else return 28;
-    }
-
-    private int daysInYear(int year) {
-        if (isLeap(year)) {
-            return 366;
-        } else return 365;
     }
 
     public static int differenceInYears(Date date1, Date date2) {
@@ -253,10 +247,18 @@ public class DateOperations {
     }
 
     public static Date subtractYear(Date date, int year) {
+        if (date.getYear() == 0) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         return addYear(date, -year);
     }
 
     public static Date subtractMonth(Date date, int month) {
+        if (date.getYear() == 0 && date.getMonth() == 1) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         if (month >= date.getMonth()) {
             int restMonths = month - date.getMonth();
             date = subtractYear(date, 1);
@@ -269,6 +271,10 @@ public class DateOperations {
     }
 
     public static Date subtractDay(Date date, int day) {
+        if (date.getYear() == 0 && date.getMonth() == 1 && date.getDay() == 1) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         if (day >= date.getDay()) {
             int restDays = day - date.getDay();
             date = subtractMonth(date, 1);
@@ -281,8 +287,12 @@ public class DateOperations {
     }
 
     public static Date subtractHour(Date date, int hour) {
+        if (date.getYear() == 0 && date.getMonth() == 1 && date.getDay() == 1 && date.getHour() == 0) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         if (hour > date.getHour()) {
-            int restHour = hour - date.getHour()-1;
+            int restHour = hour - date.getHour() - 1;
             date = subtractDay(date, 1);
             date.setHour(23);
             date = subtractHour(date, restHour);
@@ -293,8 +303,12 @@ public class DateOperations {
     }
 
     public static Date subtractMinute(Date date, int minute) {
+        if (date.getYear() == 0 && date.getMonth() == 1 && date.getDay() == 1 && date.getHour() == 0 && date.getMinute() == 0) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         if (minute > date.getMinute()) {
-            int restMinute = minute - date.getMinute()-1;
+            int restMinute = minute - date.getMinute() - 1;
             date = subtractHour(date, 1);
             date.setMinute(59);
             date = subtractMinute(date, restMinute);
@@ -305,8 +319,12 @@ public class DateOperations {
     }
 
     public static Date subtractSecond(Date date, int second) {
+        if (date.getYear() == 0 && date.getMonth() == 1 && date.getDay() == 1 && date.getHour() == 0 && date.getMinute() == 0 && date.getSecond() == 0) {
+            System.out.println("Subtraction is not possible");
+            return date;
+        }
         if (second > date.getSecond()) {
-            int restSecond = second - date.getSecond()-1;
+            int restSecond = second - date.getSecond() - 1;
             date = subtractMinute(date, 1);
             date.setSecond(59);
             date = subtractSecond(date, restSecond);
@@ -315,6 +333,4 @@ public class DateOperations {
         }
         return date;
     }
-
-
 }

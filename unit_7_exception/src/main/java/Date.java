@@ -106,7 +106,7 @@ public class Date implements Comparable<Date>{
 
     @Override
     public String toString() {
-        return "Calendar{" +
+        return "Date{" +
                 "year=" + year +
                 ", month=" + month +
                 ", day=" + day +
