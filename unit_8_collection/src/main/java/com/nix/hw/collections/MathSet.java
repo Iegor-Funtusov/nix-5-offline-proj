@@ -91,9 +91,8 @@ public class MathSet {
     }
 
     public void sortDesc(Number value) {
-        for (int i = 0; i < numbersAmount; i++) {
-            if (value.equals(values[i])) sortDesc(0, i);
-        }
+        if (contains(value))
+            sortDesc(0, getIndexOf(value));
     }
 
     public void sortAsc() {
@@ -112,9 +111,8 @@ public class MathSet {
     }
 
     public void sortAsc(Number value) {
-        for (int i = 0; i < numbersAmount; i++) {
-            if (value.equals(values[i])) sortAsc(0, i);
-        }
+        if (contains(value))
+            sortAsc(0, getIndexOf(value));
     }
 
     public Number get(int index) {
@@ -174,15 +172,24 @@ public class MathSet {
     }
 
     public MathSet squash(int firstIndex, int lastIndex) {
-        return null;
+        MathSet temp = new MathSet();
+        for (int i = firstIndex; i < lastIndex; i++)
+            temp.add(values[i]);
+        return temp;
     }
 
     public void clear() {
-
+        numbersAmount = 0;
+        values = new Number[capacity];
     }
 
     public void clear(Number[] numbers) {
-
+        for (int i = 0; i < numbers.length; i++)
+            if (contains(numbers[i])) {
+                values[getIndexOf(numbers[i])] = values[numbersAmount - 1];
+                values[numbersAmount-1] = null;
+                numbersAmount--;
+            }
     }
 
     private void increaseCapacity() {
@@ -194,10 +201,18 @@ public class MathSet {
     }
 
     private boolean contains(Number number) {
-        for (Number n : values)
-            if (number.equals(n))
+        for (int i = 0; i < numbersAmount; i++)
+            if (number.doubleValue() == values[i].doubleValue())
                 return true;
         return false;
+    }
+
+    private int getIndexOf(Number value) {
+        for (int i = 0; i < numbersAmount; i++)
+            if (value.doubleValue() == values[i].doubleValue())
+                return i;
+
+        throw new IllegalArgumentException();
     }
 
 }
