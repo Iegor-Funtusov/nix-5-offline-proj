@@ -1,6 +1,6 @@
 package com.nix.hw.exceptions;
 
-public class Date {
+public class Date implements Comparable<Date>{
 
     private int second;
     private int minute;
@@ -254,4 +254,14 @@ public class Date {
     }
 
 
+    @Override
+    public int compareTo(Date o) {
+        int compare = this.getYear()-o.getYear();
+        if (compare == 0) compare = this.getMonth()-o.getMonth();
+        if (compare == 0) compare = this.getDay()-o.getDay();
+        if (compare == 0) compare = this.getHour()-o.getHour();
+        if (compare == 0) compare = this.getMinute()-o.getMinute();
+        if (compare == 0) compare = this.getSecond()-o.getSecond();
+        return compare;
+    }
 }
