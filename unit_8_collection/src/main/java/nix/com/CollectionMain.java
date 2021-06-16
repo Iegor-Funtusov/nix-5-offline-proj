@@ -2,10 +2,20 @@ package nix.com;
 
 import nix.com.math_set.MathSet;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class CollectionMain {
     public static void main(String[] args) {
+        try {
+            new Inteface();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static void test() {
         MathSet<Integer> mathSet1 = new MathSet<>();
 
         Integer[] array = new Integer[20];
@@ -13,7 +23,6 @@ public class CollectionMain {
             mathSet1.add(i);
             array[i] = i + 10;
         }
-
         MathSet<Integer> mathSet2 = new MathSet<>(array);
         MathSet<Integer> mathSet3 = new MathSet<>(mathSet1,mathSet2);
 
@@ -40,6 +49,5 @@ public class CollectionMain {
 
         mathSet1.clear();
         System.out.println("mathSet3 = " + Arrays.toString(mathSet1.toArray()));
-
     }
 }

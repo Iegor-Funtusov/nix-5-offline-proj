@@ -3,6 +3,11 @@ package nix.com.math_set;
 public class MathSetControler<T>{
 
     MathSet<T> mathSet = new MathSet<>();
+
+    public void sizeConstruct(int size) {
+        mathSet = new MathSet<>(size);
+    }
+
     public void add(T number) {
         if (number == null) {
             throw new IllegalArgumentException();
@@ -38,6 +43,10 @@ public class MathSetControler<T>{
         mathSet.join(ms);
     }
 
+    public void sortAsc() {
+        mathSet.sortAsc();
+    }
+
     public void sortAsc(int firstIndex, int lastIndex) {
         if (mathSet.toArray().length < firstIndex
                 || lastIndex > mathSet.toArray().length) {
@@ -66,6 +75,9 @@ public class MathSetControler<T>{
             throw new IllegalArgumentException();
         }
         mathSet.sortDesc(num);
+    }
+    public void sortDesc() {
+        mathSet.sortDesc();
     }
 
     public T get(int index) {
@@ -109,6 +121,10 @@ public class MathSetControler<T>{
             throw new IllegalArgumentException();
         }
         return mathSet.toArray(firstIndex, lastIndex);
+    }
+
+    public T[] toArray() {
+        return mathSet.toArray();
     }
 
     public MathSet squash(int firstIndex, int lastIndex) {
