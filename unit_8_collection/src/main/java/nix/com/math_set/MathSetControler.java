@@ -141,4 +141,8 @@ public class MathSetControler<T>{
         }
         mathSet.clear(numbers);
     }
+
+    public void clear() {
+        mathSet.clear();
+    }
 }

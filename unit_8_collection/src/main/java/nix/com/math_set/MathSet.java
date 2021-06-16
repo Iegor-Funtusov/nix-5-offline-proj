@@ -141,13 +141,25 @@ public class MathSet <T>{
         T buf;
         while(!isSorted) {
             isSorted = true;
-            for (int i = 0; i < elements.length - 1 - countNull(); i++) {
-                if((int)elements[i] > (int)elements[i+1]){
-                    isSorted = false;
+            try {
+                for (int i = 0; i < elements.length - 1 - countNull(); i++) {
+                    if ((int) elements[i] > (int) elements[i + 1]) {
+                        isSorted = false;
 
-                    buf = elements[i];
-                    elements[i] = elements[i+1];
-                    elements[i+1] = buf;
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
+                }
+            } catch (ClassCastException ex) {
+                for (int i = 0; i < elements.length - 1 - countNull(); i++) {
+                    if ((double) elements[i] > (double) elements[i + 1]) {
+                        isSorted = false;
+
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
                 }
             }
         }
@@ -158,13 +170,25 @@ public class MathSet <T>{
         T buf;
         while(!isSorted) {
             isSorted = true;
-            for (int i = firstIndex; i < lastIndex; i++) {
-                if((int)elements[i] > (int)elements[i+1]){
-                    isSorted = false;
+            try {
+                for (int i = firstIndex; i < lastIndex; i++) {
+                    if ((int) elements[i] > (int) elements[i + 1]) {
+                        isSorted = false;
 
-                    buf = elements[i];
-                    elements[i] = elements[i+1];
-                    elements[i+1] = buf;
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
+                }
+            } catch (ClassCastException ex) {
+                for (int i = firstIndex; i < lastIndex; i++) {
+                    if ((double) elements[i] > (double) elements[i + 1]) {
+                        isSorted = false;
+
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
                 }
             }
         }
@@ -175,13 +199,25 @@ public class MathSet <T>{
         T buf;
         while(!isSorted) {
             isSorted = true;
-            for (int i = 0; i < num; i++) {
-                if((int)elements[i] > (int)elements[i+1]){
-                    isSorted = false;
+            try {
+                for (int i = 0; i < num; i++) {
+                    if ((int) elements[i] > (int) elements[i + 1]) {
+                        isSorted = false;
 
-                    buf = elements[i];
-                    elements[i] = elements[i+1];
-                    elements[i+1] = buf;
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
+                }
+            } catch (ClassCastException ex) {
+                for (int i = 0; i < num; i++) {
+                    if ((double) elements[i] > (double) elements[i + 1]) {
+                        isSorted = false;
+
+                        buf = elements[i];
+                        elements[i] = elements[i + 1];
+                        elements[i + 1] = buf;
+                    }
                 }
             }
         }
