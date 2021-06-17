@@ -1,16 +1,17 @@
 package ua.com.nix;
 
+import java.util.Objects;
+
 public class MathSet <E extends Number> implements MathSetInterface{
 
     private Number[] arr;
-    private static int capacity = 10;
+    private Integer capacity;
 
     public MathSet() {
-        arr = new  Number[10];
+        arr = new  Number[0];
     }
 
     public MathSet(int capacity){
-        this.capacity = capacity;
         arr = new Number[capacity];
     }
 
@@ -24,10 +25,10 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public void add(Number n) {
-        Number[] newArr = new Number[capacity + 1];
-        System.arraycopy(arr, 0, newArr, 0, 0);
+        Number[] newArr = new Number[arr.length + 1];
+        System.arraycopy(arr, 0, newArr, 0, arr.length);
+        newArr[arr.length] = n;
         arr = newArr;
-        arr[capacity + 1] = n;
     }
 
     @Override
@@ -56,18 +57,18 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public Number getMin() {
-        Integer min = 0;
+        Integer min = (Integer) arr[0];
         for (int i = 0; i < arr.length; i++) {
-            if ((Integer) arr[0] > (Integer) arr[i + 1]) {
-                min = (Integer) arr[i];
+                if (min > (Integer) arr[i]) {
+                    min = (Integer) arr[i];
+                }
             }
-        }
         return min;
     }
 
     @Override
     public void join(MathSet ... ms) {
-        for (MathSet<E> mathSets : ms) {
+        for (MathSet mathSets : ms) {
             join(mathSets);
         }
     }
@@ -75,10 +76,12 @@ public class MathSet <E extends Number> implements MathSetInterface{
     @Override
     public void sortDesc() {
         for (int i = 0; i < arr.length - 1; i++) {
-            if ((Integer) arr[i] < (Integer) arr[i + 1]) {
-                Number temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if ((Integer) arr[j] < (Integer) arr[j + 1]) {
+                    Integer temp = (Integer) arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
         }
     }
@@ -86,10 +89,10 @@ public class MathSet <E extends Number> implements MathSetInterface{
     @Override
     public void sortDesc(int firstIndex, int lastIndex) {
         if (firstIndex < lastIndex) {
-            for (int i = 0; i < arr.length - 1; i++) {
-                for (int j = 0; j < arr.length - 1 - i; j++) {
+            for (int i = firstIndex; i < lastIndex; i++) {
+                for (int j = firstIndex; j < lastIndex; j++) {
                     if ((Integer) arr[j] < (Integer) arr[j + 1]) {
-                        Number temp = arr[j];
+                        Integer temp = (Integer) arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = temp;
                     }
@@ -101,7 +104,7 @@ public class MathSet <E extends Number> implements MathSetInterface{
     @Override
     public void sortDesc(Number value) {
         for (Number numbers : arr) {
-            if (value == arr[(Integer) numbers])
+            if (Objects.equals(value, arr[(Integer) numbers]))
                 sortDesc(0, (Integer) arr[(Integer) numbers]);
         }
     }
@@ -125,7 +128,7 @@ public class MathSet <E extends Number> implements MathSetInterface{
             for (int i = firstIndex; i < lastIndex; i++) {
                 for (int j = firstIndex; j < lastIndex - 1; j++) {
                     if ((Integer) arr[j] > (Integer) arr[j + 1]) {
-                        Number temp = arr[j];
+                        Integer temp = (Integer) arr[j];
                         arr[j] = arr[j + 1];
                         arr[j + 1] = temp;
                     }
@@ -137,17 +140,17 @@ public class MathSet <E extends Number> implements MathSetInterface{
     @Override
     public void sortAsc(Number value) {
         for (Number numbers : arr) {
-            if (value == arr[(Integer) numbers])
+            if (value.equals(arr[(Integer) numbers]))
                 sortAsc(0, (Integer) arr[(Integer) numbers]);
         }
     }
 
     @Override
     public Number getMax() {
-        Integer max = 0;
+        Integer max = (Integer) arr[0];
         for (int i = 0; i < arr.length; i++) {
-            if ((Integer) arr[0] < (Integer) arr[i + 1]) {
-                max = (Integer) arr[i];
+                if (max < (Integer) arr[i]) {
+                    max = (Integer) arr[i];
             }
         }
         return max;
@@ -187,8 +190,8 @@ public class MathSet <E extends Number> implements MathSetInterface{
     public void clear(Number[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < arr.length; j++) {
-                if (arr[j] == numbers[i])
-                    arr[j] = null;
+                if (arr[j].equals(numbers[i]))
+                    arr[j] = 0;
             }
         }
     }
@@ -198,7 +201,7 @@ public class MathSet <E extends Number> implements MathSetInterface{
         int sum = 0;
         int amountOfElements = 0;
 
-        for (int i = 0; i < arr.length - 1; i++){
+        for (int i = 0; i < arr.length; i++){
             sum += (Integer) arr[i];
             amountOfElements++;
         }
@@ -207,7 +210,10 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public void clear(){
-        arr = new Number[capacity];
+        arr = new Number[0];
     }
 
+    public int getSize() {
+        return arr.length;
+    }
 }
