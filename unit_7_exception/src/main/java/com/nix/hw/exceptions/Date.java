@@ -16,7 +16,19 @@ public class Date implements Comparable<Date>{
     private final long SECONDS_IN_HOUR   = 3600L;
     private final long SECONDS_IN_MINUTE = 60L;
 
-    private final float  DAYS_IN_MONTH = 30.4211f;
+    private final float DAYS_IN_MONTH = 30.4211f;
+
+    public Date(int year, int month, int day, int hour, int minute, int second) {
+        this.second = second;
+        this.minute = minute;
+        this.hour = hour;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    public Date() {
+    }
 
     public int getSecond() {
         return second;
