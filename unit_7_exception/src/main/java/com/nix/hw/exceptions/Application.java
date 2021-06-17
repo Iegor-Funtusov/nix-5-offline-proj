@@ -19,6 +19,8 @@ public class Application {
     private static final String DATE_FORMAT_3 = "dd-mm-yyyy hh:mm:ss";
     private static final String DATE_FORMAT_4 = "mm-dd-yyyy hh:mm:ss";
 
+    private static String currentDatesPrintingFormat = DATE_FORMAT_1;
+
     private static final String ERROR_MESSAGE = "\nSomething gone wrong, try again";
 
     public static void launch() {
@@ -31,15 +33,27 @@ public class Application {
                     create();
                     break;
                 case 2:
-                    findDiff();
+                    if (dateList.size()>1)
+                        findDiff();
+                    else
+                        System.out.println("\nThere must be at least two dates");
                     break;
                 case 3:
-//                    addTime();
+                    if (dateList.size()>0)
+                        addTime();
+                    else
+                        System.out.println("\nThere must be at least one date");
                     break;
                 case 4:
-//                    subtractTime();
+                    if (dateList.size()>0)
+                        subtractTime();
+                    else
+                        System.out.println("\nThere must be at least one date");
                     break;
                 case 5:
+                    chooseDatesPrintingFormat();
+                    break;
+                case 6:
                     System.exit(0);
             }
         }
@@ -82,23 +96,23 @@ public class Application {
     }
 
     private static void findDiff() {
-        String findDiffMenu = "\nChoose dates: ";
+        String findDiffMenu = "\nChoose dates";
         boolean flag;
         do {
             try {
                 System.out.println(findDiffMenu);
 
-                Date date1 = dateList.get(correctIntInput("Choose first date index: "));
-                Date date2 = dateList.get(correctIntInput("Choose second date index: "));
+                Date date1 = dateList.get(correctIntInput("Enter first date index: "));
+                Date date2 = dateList.get(correctIntInput("Enter second date index: "));
 
                 System.out.println(
                         "\nDifference in:" +
-                        "\n1) seconds: " + date1.findDiffInSec(date2) +
-                        "\n2) minutes: " + date1.findDiffInMins(date2) +
-                        "\n3) hours: " + date1.findDiffInHours(date2) +
-                        "\n4) days: " + date1.findDiffInDays(date2) +
-                        "\n5) months: " + date1.findDiffInMonths(date2) +
-                        "\n6) years: " + date1.findDiffInYears(date2)
+                        "\n   seconds: " + date1.findDiffInSec(date2) +
+                        "\n   minutes: " + date1.findDiffInMins(date2) +
+                        "\n   hours: " + date1.findDiffInHours(date2) +
+                        "\n   days: " + date1.findDiffInDays(date2) +
+                        "\n   months: " + date1.findDiffInMonths(date2) +
+                        "\n   years: " + date1.findDiffInYears(date2)
                 );
 
                 flag =true;
@@ -108,6 +122,176 @@ public class Application {
                 flag = false;
             }
         } while (!flag);
+    }
+
+    private static void addTime() {
+        boolean flag = false;
+        do {
+
+            try {
+                Date date = null;
+                System.out.println("\n1) Choose date\n2) Back");
+                int choice = correctIntInput("\nEnter the number: ");
+                switch (choice) {
+                    case 1:
+                        date = dateList.get(correctIntInput("Enter date index: "));
+                        break;
+                    case 2:
+                        flag = true;
+                        break;
+                }
+
+                if (flag)
+                    break;
+
+                System.out.println(
+                        "\n1) Add seconds" +
+                                "\n2) Add minutes" +
+                                "\n3) Add hours" +
+                                "\n4) Add days" +
+                                "\n5) Add months" +
+                                "\n6) Add years" +
+                                "\n7) Back"
+                );
+                choice = correctIntInput("\nEnter the number: ");
+                switch (choice) {
+                    case 1:
+                        date.addSeconds(correctIntInput("\nAdd seconds\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 2:
+                        date.addMinutes(correctIntInput("\nAdd minutes\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 3:
+                        date.addHours(correctIntInput("\nAdd hours\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 4:
+                        date.addDays(correctIntInput("\nAdd days\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 5:
+                        date.addMonths(correctIntInput("\nAdd months\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 6:
+                        date.addYears(correctIntInput("\nAdd years\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 7:
+                        flag = true;
+                        break;
+
+                }
+
+            } catch (RuntimeException e) {
+                System.out.println(ERROR_MESSAGE);
+            }
+        } while (!flag);
+    }
+
+    private static void subtractTime() {
+        boolean flag = false;
+        do {
+
+            try {
+                Date date = null;
+                System.out.println("\n1) Choose date\n2) Back");
+                int choice = correctIntInput("\nEnter the number: ");
+                switch (choice) {
+                    case 1:
+                        date = dateList.get(correctIntInput("Enter date index: "));
+                        break;
+                    case 2:
+                        flag = true;
+                        break;
+                }
+
+                if (flag)
+                    break;
+
+                System.out.println(
+                        "\n1) Subtract seconds" +
+                                "\n2) Subtract minutes" +
+                                "\n3) Subtract hours" +
+                                "\n4) Subtract days" +
+                                "\n5) Subtract months" +
+                                "\n6) Subtract years" +
+                                "\n7) Back"
+                );
+                choice = correctIntInput("\nEnter the number: ");
+                switch (choice) {
+                    case 1:
+                        date.subtractSeconds(correctIntInput("\nSubtract seconds\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 2:
+                        date.subtractMinutes(correctIntInput("\nSubtract minutes\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 3:
+                        date.subtractHours(correctIntInput("\nSubtract hours\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 4:
+                        date.subtractDays(correctIntInput("\nSubtract days\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 5:
+                        date.subtractMonths(correctIntInput("\nSubtract months\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 6:
+                        date.subtractYears(correctIntInput("\nSubtract years\nEnter the number: "));
+                        System.out.println("\nChanged date: " + date);
+                        break;
+                    case 7:
+                        flag = true;
+                        break;
+
+                }
+
+            } catch (RuntimeException e) {
+                System.out.println(ERROR_MESSAGE);
+            }
+        } while (!flag);
+    }
+
+    private static void chooseDatesPrintingFormat() {
+        String choiceFormatMenu = "\n1) " + DATE_FORMAT_1 + "\n" +
+                "2) " + DATE_FORMAT_2 + "\n" +
+                "3) " + DATE_FORMAT_3 + "\n" +
+                "4) " + DATE_FORMAT_4 + "\n" +
+                "5) Back to main menu";
+        boolean flag = true;
+        do {
+
+            System.out.println(choiceFormatMenu);
+            int choice = correctIntInput("Enter the number: ");
+
+            if (choice < 1 || choice > 5)
+                continue;
+
+            switch (choice) {
+                case 1:
+                    currentDatesPrintingFormat = DATE_FORMAT_1;
+                    break;
+                case 2:
+                    currentDatesPrintingFormat = DATE_FORMAT_2;
+                    break;
+                case 3:
+                    currentDatesPrintingFormat = DATE_FORMAT_3;
+                    break;
+                case 4:
+                    currentDatesPrintingFormat = DATE_FORMAT_4;
+                    break;
+                case 5:
+                    break;
+            }
+            flag = false;
+
+        } while (flag);
     }
 
     private static void addDate(String dateFormat) {
@@ -190,12 +374,59 @@ public class Application {
                       "\n2) find difference" +
                       "\n3) add time" +
                       "\n4) subtract time" +
-                      "\n5) exit\n";
+                      "\n5) choose dates printing format" +
+                      "\n6) exit\n";
 
         System.out.println(choiceList + "\nSorted dates:");
-        IntStream
-                .range(0, dateList.size())
-                .forEach(i -> System.out.println(i + ") " + dateList.get(i)));
+        switch (currentDatesPrintingFormat) {
+            case DATE_FORMAT_1:
+                IntStream
+                        .range(0, dateList.size())
+                        .forEach(i -> System.out.println(i + ") " +
+                                dateList.get(i).getDay() + "/" +
+                                dateList.get(i).getMonth() + "/" +
+                                dateList.get(i).getYear() + " " +
+                                dateList.get(i).getHour() + ":" +
+                                dateList.get(i).getMinute() + ":" +
+                                dateList.get(i).getSecond()));
+                break;
+            case DATE_FORMAT_2:
+                IntStream
+                        .range(0, dateList.size())
+                        .forEach(i -> System.out.println(i + ") " +
+                                dateList.get(i).getMonth() + "/" +
+                                dateList.get(i).getDay() + "/" +
+                                dateList.get(i).getYear() + " " +
+                                dateList.get(i).getHour() + ":" +
+                                dateList.get(i).getMinute() + ":" +
+                                dateList.get(i).getSecond()));
+                break;
+
+            case DATE_FORMAT_3:
+                IntStream
+                        .range(0, dateList.size())
+                        .forEach(i -> System.out.println(i + ") " +
+                                dateList.get(i).getDay() + "-" +
+                                dateList.get(i).getMonth() + "-" +
+                                dateList.get(i).getYear() + " " +
+                                dateList.get(i).getHour() + ":" +
+                                dateList.get(i).getMinute() + ":" +
+                                dateList.get(i).getSecond()));
+                break;
+
+            case DATE_FORMAT_4:
+                IntStream
+                        .range(0, dateList.size())
+                        .forEach(i -> System.out.println(i + ") " +
+                                dateList.get(i).getMonth() + "-" +
+                                dateList.get(i).getDay() + "-" +
+                                dateList.get(i).getYear() + " " +
+                                dateList.get(i).getHour() + ":" +
+                                dateList.get(i).getMinute() + ":" +
+                                dateList.get(i).getSecond()));
+                break;
+        }
+
     }
 
     private static int correctIntInput(String message) {
