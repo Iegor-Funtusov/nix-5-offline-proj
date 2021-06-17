@@ -1,18 +1,16 @@
 package ua.com.nix;
 
-import static java.lang.Integer.MAX_VALUE;
-import static java.lang.Integer.MIN_VALUE;
-
 public class MathSet <E extends Number> implements MathSetInterface{
 
     private Number[] arr;
-    private static final int capacity = 10;
+    private static int capacity = 10;
 
     public MathSet() {
         arr = new  Number[10];
     }
 
     public MathSet(int capacity){
+        this.capacity = capacity;
         arr = new Number[capacity];
     }
 
@@ -41,12 +39,14 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public void join(MathSet ms) {
-
+        for (Number numbers : ms.toArray()) {
+            add(numbers);
+        }
     }
 
     @Override
     public Number[] toArray() {
-        return arr;
+        return toArray(0, arr.length - 1);
     }
 
     @Override
@@ -56,26 +56,27 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public Number getMin() {
-        int max = MAX_VALUE;
-        int min = 0;
+        Integer min = 0;
         for (int i = 0; i < arr.length; i++) {
-            if ((Integer) arr[i] < max)
+            if ((Integer) arr[0] > (Integer) arr[i + 1]) {
                 min = (Integer) arr[i];
+            }
         }
         return min;
     }
 
     @Override
-    public void join(MathSet... ms) {
-
+    public void join(MathSet ... ms) {
+        for (MathSet<E> mathSets : ms) {
+            join(mathSets);
+        }
     }
 
     @Override
     public void sortDesc() {
-        int temp = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             if ((Integer) arr[i] < (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
+                Number temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
             }
@@ -84,136 +85,129 @@ public class MathSet <E extends Number> implements MathSetInterface{
 
     @Override
     public void sortDesc(int firstIndex, int lastIndex) {
-        int temp = 0;
-        for (int i = 0; i < arr.length - 1; i++) {
-            if ((Integer) arr[i] < (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+        if (firstIndex < lastIndex) {
+            for (int i = 0; i < arr.length - 1; i++) {
+                for (int j = 0; j < arr.length - 1 - i; j++) {
+                    if ((Integer) arr[j] < (Integer) arr[j + 1]) {
+                        Number temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
             }
         }
     }
 
     @Override
     public void sortDesc(Number value) {
-        int temp = 0;
-        for (int i = 0; i < (Integer) value; i++) {
-            if ((Integer) arr[i] < (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
+        for (Number numbers : arr) {
+            if (value == arr[(Integer) numbers])
+                sortDesc(0, (Integer) arr[(Integer) numbers]);
         }
     }
 
     @Override
     public void sortAsc() {
-        int temp = 0;
         for (int i = 0; i < arr.length - 1; i++) {
-            if ((Integer) arr[i] > (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if ((Integer) arr[j] > (Integer) arr[j + 1]) {
+                    Number temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
         }
     }
 
     @Override
     public void sortAsc(int firstIndex, int lastIndex) {
-        int temp = 0;
-        for (int i = firstIndex; i < lastIndex; i++) {
-            if ((Integer) arr[i] > (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+        if (lastIndex > firstIndex) {
+            for (int i = firstIndex; i < lastIndex; i++) {
+                for (int j = firstIndex; j < lastIndex - 1; j++) {
+                    if ((Integer) arr[j] > (Integer) arr[j + 1]) {
+                        Number temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
             }
         }
     }
 
     @Override
     public void sortAsc(Number value) {
-        int temp = 0;
-        for (int i = 0; i < (Integer) value; i++) {
-            if ((Integer) arr[i] > (Integer) arr[i + 1]) {
-                temp = (Integer) arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
+        for (Number numbers : arr) {
+            if (value == arr[(Integer) numbers])
+                sortAsc(0, (Integer) arr[(Integer) numbers]);
         }
     }
 
     @Override
     public Number getMax() {
-        int min = MIN_VALUE;
-        int max = 0;
-        for (int i = 0; i < arr.length; i++){
-            if (min < (Integer) arr[i])
+        Integer max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if ((Integer) arr[0] < (Integer) arr[i + 1]) {
                 max = (Integer) arr[i];
+            }
         }
         return max;
     }
 
     @Override
     public Number getMedian() {
-        int[] forOddNumbers = new int[2];
-        double medianForFloats = 0.0;
-        int medianForOdd = 0;
-//        int amountOfNumbers = arr.length;
+        sortAsc();
         if (arr.length % 2 == 0) {
-             medianForOdd = (Integer) arr[arr.length / 2];
-             forOddNumbers[0] = medianForOdd;
-             medianForOdd = (Integer) arr[arr.length / 2 + 1];
-             forOddNumbers[1] = medianForOdd;
-             return forOddNumbers[0] + forOddNumbers[1];
+            return (Integer) arr[arr.length / 2 - 1] + (Integer) arr[arr.length / 2];
         }
         else {
-            medianForFloats = (Integer) arr[arr.length / 2] + 0.5;
-            return medianForFloats;
+            return arr[(arr.length - 1) / 2];
         }
     }
 
     @Override
     public Number[] toArray(int firstIndex, int lastIndex) {
-        return new Number[0];
+        if (firstIndex > lastIndex) {
+            return new Number[capacity];
+        }
+        else {
+            Number[] newArray = new Number[lastIndex - firstIndex];
+            System.arraycopy(arr, firstIndex, newArray, 0, lastIndex - firstIndex);
+            return newArray;
+        }
     }
 
     @Override
     public MathSet squash(int firstIndex, int lastIndex) {
-        return null;
+        Number[] newArr = new Number[lastIndex - firstIndex];
+        System.arraycopy(arr, firstIndex, newArr, 0, lastIndex - firstIndex);
+        return new MathSet<>(newArr);
     }
 
     @Override
     public void clear(Number[] numbers) {
-//        for(Number[] n : numbers){
-//            clear(n);
-//        }
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] == numbers[i])
+                    arr[j] = null;
+            }
+        }
     }
 
     @Override
     public Number getAverage() {
         int sum = 0;
         int amountOfElements = 0;
-        double result = 0;
 
         for (int i = 0; i < arr.length - 1; i++){
             sum += (Integer) arr[i];
             amountOfElements++;
         }
-        result = sum / amountOfElements;
-
-        return result;
+        return (double) (sum / amountOfElements);
     }
 
     @Override
     public void clear(){
         arr = new Number[capacity];
     }
-
-    public Number[] readAll() {
-        return arr;
-    }
-
-
-
 
 }
