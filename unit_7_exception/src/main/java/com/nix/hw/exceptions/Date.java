@@ -19,12 +19,12 @@ public class Date implements Comparable<Date>{
     private final float DAYS_IN_MONTH = 30.4211f;
 
     public Date(int year, int month, int day, int hour, int minute, int second) {
-        this.second = second;
-        this.minute = minute;
-        this.hour = hour;
-        this.day = day;
-        this.month = month;
-        this.year = year;
+        setYear(year);
+        setMonth(month);
+        setDay(day);
+        setHour(hour);
+        setMinute(minute);
+        setSecond(second);
     }
 
     public Date() {
@@ -37,6 +37,8 @@ public class Date implements Comparable<Date>{
     public void setSecond(int second) {
         if (second >= 0 && second < 60)
             this.second = second;
+        else
+            throw new DateException();
     }
 
     public int getMinute() {
@@ -46,6 +48,8 @@ public class Date implements Comparable<Date>{
     public void setMinute(int minute) {
         if (minute >= 0 && minute < 60)
             this.minute = minute;
+        else
+            throw new DateException();
     }
 
     public int getHour() {
@@ -55,6 +59,8 @@ public class Date implements Comparable<Date>{
     public void setHour(int hour) {
         if (hour >= 0 && hour < 24)
             this.hour = hour;
+        else
+            throw new DateException();
     }
 
     public int getDay() {
@@ -62,8 +68,10 @@ public class Date implements Comparable<Date>{
     }
 
     public void setDay(int day) {
-        if (day >= 1 && day <= 31)
+        if (day >= 1 && day <= getDaysInMonth(month))
             this.day = day;
+        else
+            throw new DateException();
     }
 
     public int getMonth() {
@@ -73,6 +81,8 @@ public class Date implements Comparable<Date>{
     public void setMonth(int month) {
         if (month >= 1 && month <= 12)
             this.month = month;
+        else
+            throw new DateException();
     }
 
     public int getYear() {
@@ -82,6 +92,8 @@ public class Date implements Comparable<Date>{
     public void setYear(int year) {
         if (year >= 0)
             this.year = year;
+        else
+            throw new DateException();
     }
 
     public long findDiffInSec(Date date) {

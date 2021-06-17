@@ -10,14 +10,16 @@ import java.util.stream.IntStream;
 
 public class Application {
 
-    private static String currentYear = "2021";
+    private static final String CURRENT_YEAR = "2021";
 
-    private static List<Date> dateList = new ArrayList<>();
+    private static final List<Date> dateList = new ArrayList<>();
 
-    private static String dateFormat1 = "dd/mm/yyyy hh:mm:ss";
-    private static String dateFormat2 = "mm/dd/yyyy hh:mm:ss";
-    private static String dateFormat3 = "dd-mm-yyyy hh:mm:ss";
-    private static String dateFormat4 = "mm-dd-yyyy hh:mm:ss";
+    private static final String DATE_FORMAT_1 = "dd/mm/yyyy hh:mm:ss";
+    private static final String DATE_FORMAT_2 = "mm/dd/yyyy hh:mm:ss";
+    private static final String DATE_FORMAT_3 = "dd-mm-yyyy hh:mm:ss";
+    private static final String DATE_FORMAT_4 = "mm-dd-yyyy hh:mm:ss";
+
+    private static final String ERROR_MESSAGE = "\nSomething gone wrong, try again";
 
     public static void launch() {
         while (true) {
@@ -29,7 +31,7 @@ public class Application {
                     create();
                     break;
                 case 2:
-//                    findDiff();
+                    findDiff();
                     break;
                 case 3:
 //                    addTime();
@@ -44,10 +46,10 @@ public class Application {
     }
 
     private static void create() {
-        String dateCreationMenu = "\n1) " + dateFormat1 + "\n" +
-                                  "2) " + dateFormat2 + "\n" +
-                                  "3) " + dateFormat3 + "\n" +
-                                  "4) " + dateFormat4 + "\n" +
+        String dateCreationMenu = "\n1) " + DATE_FORMAT_1 + "\n" +
+                                  "2) " + DATE_FORMAT_2 + "\n" +
+                                  "3) " + DATE_FORMAT_3 + "\n" +
+                                  "4) " + DATE_FORMAT_4 + "\n" +
                                   "5) Back to main menu";
         boolean flag = true;
         do {
@@ -55,58 +57,88 @@ public class Application {
             System.out.println(dateCreationMenu);
             int choice = correctIntInput("\nEnter the number: ");
 
-            switch (choice) {
-                case 1:
-                    try {
-                        addDateFormat1();
-                    } catch (RuntimeException ignored) {
-                        System.out.println("\nSomething gone wrong, try again");
-                    }
-                    break;
-                case 2:
-                    addDateFormat2();
-                    break;
-                case 3:
-                    addDateFormat3();
-                    break;
-                case 4:
-                    addDateFormat4();
-                    break;
-                case 5:
-                    flag = false;
-                    break;
+            try {
+                switch (choice) {
+                    case 1:
+                        addDate(DATE_FORMAT_1);
+                        break;
+                    case 2:
+                        addDate(DATE_FORMAT_2);
+                        break;
+                    case 3:
+                        addDate(DATE_FORMAT_3);
+                        break;
+                    case 4:
+                        addDate(DATE_FORMAT_4);
+                        break;
+                    case 5:
+                        flag = false;
+                        break;
+                }
+            } catch (RuntimeException e) {
+                System.out.println(ERROR_MESSAGE);
             }
         } while (flag);
     }
 
-    private static void addDateFormat1() {
-        System.out.println("\n" + dateFormat1);
+    private static void findDiff() {
+        String findDiffMenu = "\nChoose dates: ";
+        boolean flag;
+        do {
+            try {
+                System.out.println(findDiffMenu);
+
+                Date date1 = dateList.get(correctIntInput("Choose first date index: "));
+                Date date2 = dateList.get(correctIntInput("Choose second date index: "));
+
+                System.out.println(
+                        "\nDifference in:" +
+                        "\n1) seconds: " + date1.findDiffInSec(date2) +
+                        "\n2) minutes: " + date1.findDiffInMins(date2) +
+                        "\n3) hours: " + date1.findDiffInHours(date2) +
+                        "\n4) days: " + date1.findDiffInDays(date2) +
+                        "\n5) months: " + date1.findDiffInMonths(date2) +
+                        "\n6) years: " + date1.findDiffInYears(date2)
+                );
+
+                flag =true;
+
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(ERROR_MESSAGE);
+                flag = false;
+            }
+        } while (!flag);
+    }
+
+    private static void addDate(String dateFormat) {
+        System.out.println("\n" + dateFormat);
         String strDate = input("Enter the date: ");
-        int[] intDateParameters = parseDateFormat1(strDate);
-        Date date = new Date(intDateParameters[2],
-                             intDateParameters[1],
-                             intDateParameters[0],
-                             intDateParameters[3],
-                             intDateParameters[4],
-                             intDateParameters[5]);
+        String separator = String.valueOf(dateFormat.charAt(2));
+        int[] intDateParameters = parseDate(strDate, separator);
+        Date date = null;
+
+        if (dateFormat.equals(DATE_FORMAT_1) || dateFormat.equals(DATE_FORMAT_3))
+            date = new Date(intDateParameters[2],
+                                 intDateParameters[1],
+                                 intDateParameters[0],
+                                 intDateParameters[3],
+                                 intDateParameters[4],
+                                 intDateParameters[5]);
+
+        else if (dateFormat.equals(DATE_FORMAT_2) || dateFormat.equals(DATE_FORMAT_4))
+            date = new Date(intDateParameters[2],
+                            intDateParameters[0],
+                            intDateParameters[1],
+                            intDateParameters[3],
+                            intDateParameters[4],
+                            intDateParameters[5]);
+
         System.out.println("created date: " + date);
         dateList.add(date);
         dateList.sort(Date::compareTo);
     }
 
-    private static void addDateFormat2() {
-
-    }
-
-    private static void addDateFormat3() {
-
-    }
-
-    private static void addDateFormat4() {
-
-    }
-
-    private static int[] parseDateFormat1(String input) {
+    private static int[] parseDate(String input, String separator) {
         List<String> dmy;
         List<String> hms;
 
@@ -114,7 +146,7 @@ public class Application {
 
         input = input.trim();
 
-        dmy = Arrays.asList(input.split(" ")[0].split("/"));
+        dmy = Arrays.asList(input.split(" ")[0].split(separator));
 
         if (dmy.size() > 1) {
             List<String> finalDmy = dmy;
@@ -124,12 +156,12 @@ public class Application {
                         if (i.equals("")) finalDmy.set(finalDmy.indexOf(i), "1");
                     });
             dmy = finalDmy;
-            if (dmy.size() == 2) date[2] = Integer.parseInt(currentYear);
+            if (dmy.size() == 2) date[2] = Integer.parseInt(CURRENT_YEAR);
         }
         else if (dmy.size() == 1) {
             dmy = Arrays.asList("1", "1", dmy.get(0));
         } else {
-            dmy = Arrays.asList("1", "1", currentYear);
+            dmy = Arrays.asList("1", "1", CURRENT_YEAR);
         }
 
 
@@ -161,7 +193,9 @@ public class Application {
                       "\n5) exit\n";
 
         System.out.println(choiceList + "\nSorted dates:");
-        dateList.forEach(System.out::println);
+        IntStream
+                .range(0, dateList.size())
+                .forEach(i -> System.out.println(i + ") " + dateList.get(i)));
     }
 
     private static int correctIntInput(String message) {
