@@ -1,40 +1,8 @@
 package ua.com;
 
-
 import java.util.Iterator;
 
 public class MathSetImpl implements MathSet {
-
-    private static final int DEFAULT_CAPACITY = 16;
-    private int size = 0;
-    private Number[] numbers;
-
-    public MathSetImpl() {
-        numbers = new Number[DEFAULT_CAPACITY];
-    }
-
-    public MathSetImpl(int capacity) {
-        if(capacity<=0){
-            throw new IllegalArgumentException("Capacity is not valid");
-        }
-        numbers = new Number[capacity];
-    }
-
-    public MathSetImpl(Number[] numbers) {
-        this.numbers = numbers;
-        size = numbers.length;
-    }
-
-    public MathSetImpl(Number[] ... numbers) {
-    }
-
-    public MathSetImpl(MathSetImpl numbers) {
-    }
-
-    @SafeVarargs
-    public MathSetImpl(MathSetImpl ... numbers) {
-    }
-
     @Override
     public void add(Number n) {
 
