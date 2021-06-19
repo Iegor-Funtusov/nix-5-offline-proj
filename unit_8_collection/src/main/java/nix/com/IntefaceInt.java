@@ -48,7 +48,16 @@ public class IntefaceInt {
 
     private void chooseMathMeth() throws IOException {
         String choose = reader.readLine();
-
+        try {
+            Integer.parseInt(choose);
+            if (Integer.parseInt(choose) > 5 || Integer.parseInt(choose) < 0) {
+                System.out.println("Wrong input");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong input");
+            return;
+        }
         switch ((int) Double.parseDouble(choose)) {
             case 1:
                 int index = 0;
@@ -94,7 +103,11 @@ public class IntefaceInt {
     private void chooseMenu(String choose) throws IOException {
         while (true) {
             try {
-                Double.parseDouble(choose);
+                Integer.parseInt(choose);
+                if (Integer.parseInt(choose) > 8 || Integer.parseInt(choose) < 0) {
+                    System.out.println("Wrong input");
+                    return;
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Wrong input");
                 break;
@@ -170,7 +183,11 @@ public class IntefaceInt {
         System.out.println("6. SortDesc(Number value) ");
         String choose = reader.readLine();
         try {
-            Double.parseDouble(choose);
+            Integer.parseInt(choose);
+            if (Integer.parseInt(choose) > 6 || Integer.parseInt(choose) < 0) {
+                System.out.println("Wrong input");
+                return;
+            }
         } catch (NumberFormatException ex) {
             System.out.println("Wrong input");
             return;

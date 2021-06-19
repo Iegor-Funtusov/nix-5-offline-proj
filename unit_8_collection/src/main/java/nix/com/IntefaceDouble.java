@@ -48,10 +48,19 @@ public class IntefaceDouble {
 
     private void chooseMathMeth() throws IOException {
         String choose = reader.readLine();
-
+        try {
+            Integer.parseInt(choose);
+            if (Integer.parseInt(choose) > 5 || Integer.parseInt(choose) < 0) {
+                System.out.println("Wrong input");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong input");
+            return;
+        }
         switch (Integer.parseInt(choose)) {
             case 1:
-                int index = 0;
+                int index;
                 System.out.println("Enter index of element");
                 try {
                     index = Integer.parseInt(reader.readLine());
@@ -95,9 +104,13 @@ public class IntefaceDouble {
         while (true) {
             try {
                 Integer.parseInt(choose);
+                if (Integer.parseInt(choose) > 8 || Integer.parseInt(choose) < 0) {
+                    System.out.println("Wrong input");
+                    return;
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Wrong input");
-                break;
+                return;
             }
             switch (Integer.parseInt(choose)) {
                 case 1:
@@ -171,6 +184,10 @@ public class IntefaceDouble {
         String choose = reader.readLine();
         try {
             Integer.parseInt(choose);
+            if (Integer.parseInt(choose) > 6 || Integer.parseInt(choose) < 0) {
+                System.out.println("Wrong input");
+                return;
+            }
         } catch (NumberFormatException ex) {
             System.out.println("Wrong input");
             return;
