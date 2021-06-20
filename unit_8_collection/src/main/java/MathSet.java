@@ -1,82 +1,254 @@
-public class MathSet<T> {
-    private T[] elements = (T[]) new Object[10];
+import java.util.Arrays;
 
-    MathSet() {
-        elements = (T[]) new Object[10];
+public class MathSet<T extends Number & Comparable<? super T>> {
+    private T[] elements;
+
+    public MathSet() {
+        elements = (T[]) new Number[10];
     }
 
-    MathSet(int capacity) {
+    public MathSet(int capacity) {
+        elements = (T[]) new Number[capacity];
     }
 
-    MathSet(T[] numbers) {
+    public MathSet(T[] numbers) {
+        elements = (T[]) new Number[numbers.length];
+        add(numbers);
     }
 
-    MathSet(T[]... numbers) {
+    public MathSet(T[]... numbers) {
+        int size = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            size += numbers[i].length;
+        }
+        elements = (T[]) new Number[size];
+        for (int i = 0; i < numbers.length; i++) {
+            add(numbers[i]);
+        }
     }
 
-    MathSet(MathSet numbers) {
+    public MathSet(MathSet numbers) {
+        elements = (T[]) new Number[numbers.elements.length];
+        join(numbers);
     }
 
-    MathSet(MathSet... numbers) {
+    public MathSet(MathSet... numbers) {
+        int size = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            size += numbers[i].elements.length;
+        }
+        elements = (T[]) new Number[size];
+        join(numbers);
     }
 
-    void add(T n) {
+    public void add(T n) {
+        if (contains(n)) {
+            return;
+        }
+        if (emptyCount() > 0) {
+            elements[elements.length - emptyCount()] = n;
+        } else if (emptyCount() == 0) {
+            T[] newArr = (T[]) new Number[elements.length + (elements.length / 2)];
+            for (int i = 0; i < elements.length; i++) {
+                newArr[i] = elements[i];
+            }
+            newArr[elements.length] = n;
+            elements = newArr;
+        }
     }
 
-    void add(T... n) {
+    public void add(T... n) {
+        for (int i = 0; i < n.length; i++) {
+            add(n[i]);
+        }
     }
 
-    void join(MathSet ms) {
+    public void join(MathSet ms) {
+        for (int i = 0; i < ms.elements.length; i++) {
+            add((T) ms.elements[i]);
+        }
     }
 
-    void join(MathSet... ms) {
+    public void join(MathSet... ms) {
+        for (int i = 0; i < ms.length; i++) {
+            join(ms[i]);
+        }
     }
 
-    void sortDesc() {
+    public void sortDesc() {
+        sortDesc(1, elements.length - emptyCount());
     }
 
-    void sortDesc(int firstIndex, int lastIndex) {
+    public void sortDesc(int firstIndex, int lastIndex) {
+        T temp;
+        int size = elements.length - emptyCount();
+        if (firstIndex > 0 && lastIndex <= size && lastIndex >= firstIndex) {
+            firstIndex--;
+            for (int i = lastIndex - 1; i >= firstIndex + 1; i--) {
+                for (int j = firstIndex; j < i; j++) {
+                    if (elements[j].compareTo(elements[j + 1]) < 0) {
+                        temp = elements[j];
+                        elements[j] = elements[j + 1];
+                        elements[j + 1] = temp;
+                    }
+                }
+            }
+        }
     }
 
-    void sortDesc(T value) {
+    public void sortDesc(T value) {
+        for (int i = 0; i < elements.length; i++) {
+            if (value.equals(elements[i])) {
+                sortDesc(1, i);
+            }
+        }
     }
 
-    void sortAsc() {
+    public void sortAsc() {
+        sortAsc(1, elements.length - emptyCount());
     }
 
-    void sortAsc(int firstIndex, int lastIndex) {
+    public void sortAsc(int firstIndex, int lastIndex) {
+        T temp;
+        int size = elements.length - emptyCount();
+        if (firstIndex > 0 && lastIndex <= size && lastIndex >= firstIndex) {
+            firstIndex--;
+            for (int i = lastIndex - 1; i >= firstIndex + 1; i--) {
+                for (int j = firstIndex; j < i; j++) {
+                    if (elements[j].compareTo(elements[j + 1]) > 0) {
+                        temp = elements[j];
+                        elements[j] = elements[j + 1];
+                        elements[j + 1] = temp;
+                    }
+                }
+            }
+        }
     }
 
-    void sortAsc(T value) {
+    public void sortAsc(T value) {
+        for (int i = 0; i < elements.length; i++) {
+            if (value.equals(elements[i])) {
+                sortAsc(1, i);
+            }
+        }
     }
 
-    T get(int index) {
+    public T get(int index) {
+        int size = elements.length - emptyCount();
+        if (index > 0 && index <= size) {
+            return elements[index - 1];
+        }
+        return null;
     }
 
-    T getMax() {
+    public T getMax() {
+        T max = elements[0];
+        int size = elements.length - emptyCount();
+        for (int i = 0; i < size; i++) {
+            if (max.compareTo(elements[i]) < 0) {
+                max = elements[i];
+            }
+        }
+        return max;
     }
 
-    T getMin() {
+    public T getMin() {
+        T min = elements[0];
+        int size = elements.length - emptyCount();
+        for (int i = 0; i < size; i++) {
+            if (min.compareTo(elements[i]) > 0) {
+                min = elements[i];
+            }
+        }
+        return min;
     }
 
-    T getAverage() {
+    public Number getAverage() {
+        int valueAverage = 0;
+        if (elements == null || elements.length == 0) {
+            return valueAverage;
+        }
+        for (T element : elements) {
+            if (element != null) {
+                valueAverage += (Integer) element;
+            }
+        }
+        return (double) valueAverage / elements.length;
     }
 
-    T getMedian() {
+    public Number getMedian() {
+        if (elements == null || elements.length == 0 || elements.length == emptyCount()) {
+            return null;
+        }
+        MathSet<T> copy = new MathSet<>(this);
+        copy.sortAsc();
+        int size = copy.elements.length - copy.emptyCount();
+
+        if (size % 2 == 0) {
+            return (((Double) copy.elements[size / 2] + (Double) copy.elements[size / 2 - 1]) / 2f);
+        }
+
+        return copy.elements[size / 2];
     }
 
-    T[] toArray() {
+    public T[] toArray() {
+        return toArray(1, elements.length - emptyCount());
     }
 
-    T[] toArray(int firstIndex, int lastIndex) {
+    public T[] toArray(int firstIndex, int lastIndex) {
+        int size = elements.length - emptyCount();
+        if (firstIndex > 0 && lastIndex <= size && lastIndex >= firstIndex) {
+            firstIndex--;
+            T[] copy = (T[]) new Number[lastIndex - firstIndex];
+            for (int i = 0; i < lastIndex - firstIndex; i++) {
+                copy[i] = elements[firstIndex + i];
+            }
+            return copy;
+        }
+        return null;
     }
 
-    MathSet squash(int firstIndex, int lastIndex) {
+    public MathSet squash(int firstIndex, int lastIndex) {
+        return new MathSet(toArray(firstIndex, lastIndex));
     }
 
-    void clear() {
+    public void clear() {
+        elements = (T[]) new Number[elements.length];
     }
 
-    void clear(T[] numbers) {
+    public void clear(T[] numbers) {
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                if (elements[i] != null && elements[i].equals(numbers[j])) {
+                    elements[i] = null;
+                }
+            }
+        }
+    }
+
+    public boolean contains(T n) {
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int emptyCount() {
+        int count = 0;
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @Override
+    public String toString() {
+        return "MathSet{" +
+                "elements=" + Arrays.toString(elements) +
+                '}';
     }
 }
