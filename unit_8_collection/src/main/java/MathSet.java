@@ -18,12 +18,12 @@ public class MathSet<T extends Number & Comparable<? super T>> {
 
     public MathSet(T[]... numbers) {
         int size = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            size += numbers[i].length;
+        for (T[] ts : numbers) {
+            size += ts.length;
         }
         elements = (T[]) new Number[size];
-        for (int i = 0; i < numbers.length; i++) {
-            add(numbers[i]);
+        for (T[] number : numbers) {
+            add(number);
         }
     }
 
@@ -34,8 +34,8 @@ public class MathSet<T extends Number & Comparable<? super T>> {
 
     public MathSet(MathSet... numbers) {
         int size = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            size += numbers[i].elements.length;
+        for (MathSet number : numbers) {
+            size += number.elements.length;
         }
         elements = (T[]) new Number[size];
         join(numbers);
@@ -57,9 +57,9 @@ public class MathSet<T extends Number & Comparable<? super T>> {
         }
     }
 
-    public void add(T... n) {
-        for (int i = 0; i < n.length; i++) {
-            add(n[i]);
+    public final void add(T... n) {
+        for (T t : n) {
+            add(t);
         }
     }
 
@@ -70,8 +70,8 @@ public class MathSet<T extends Number & Comparable<? super T>> {
     }
 
     public void join(MathSet... ms) {
-        for (int i = 0; i < ms.length; i++) {
-            join(ms[i]);
+        for (MathSet m : ms) {
+            join(m);
         }
     }
 
@@ -163,32 +163,47 @@ public class MathSet<T extends Number & Comparable<? super T>> {
         return min;
     }
 
-    public Number getAverage() {
-        int valueAverage = 0;
+    public double getAverage() {
+
+        double valueAverage = 0;
         if (elements == null || elements.length == 0) {
             return valueAverage;
         }
-        for (T element : elements) {
-            if (element != null) {
-                valueAverage += (Integer) element;
+        try {
+            for (T element : elements) {
+                if (element != null) {
+                    valueAverage += (Integer) element;
+                }
+            }
+        } catch (ClassCastException classCastException) {
+            for (T element : elements) {
+                if (element != null) {
+                    valueAverage += (Double) element;
+                }
             }
         }
-        return (double) valueAverage / elements.length;
+        return (double) valueAverage / (elements.length - emptyCount());
     }
 
-    public Number getMedian() {
+    public double getMedian() {
         if (elements == null || elements.length == 0 || elements.length == emptyCount()) {
-            return null;
+            return 0;
         }
         MathSet<T> copy = new MathSet<>(this);
         copy.sortAsc();
         int size = copy.elements.length - copy.emptyCount();
-
-        if (size % 2 == 0) {
-            return (((Double) copy.elements[size / 2] + (Double) copy.elements[size / 2 - 1]) / 2f);
+        try {
+            if (size % 2 == 0) {
+                double temp = (Double) copy.elements[size / 2] + (Double) copy.elements[size / 2 - 1];
+                return (temp / 2);
+            }
+        } catch (ClassCastException classCastException) {
+            if (size % 2 == 0) {
+                double temp = (Integer) copy.elements[size / 2] + (Integer) copy.elements[size / 2 - 1];
+                return (temp / 2);
+            }
         }
-
-        return copy.elements[size / 2];
+        return (Double) copy.elements[size / 2];
     }
 
     public T[] toArray() {
@@ -216,10 +231,10 @@ public class MathSet<T extends Number & Comparable<? super T>> {
         elements = (T[]) new Number[elements.length];
     }
 
-    public void clear(T[] numbers) {
+    public void clear(Number[] numbers) {
         for (int i = 0; i < elements.length; i++) {
-            for (int j = 0; j < numbers.length; j++) {
-                if (elements[i] != null && elements[i].equals(numbers[j])) {
+            for (Number number : numbers) {
+                if (elements[i] != null && elements[i].equals(number)) {
                     elements[i] = null;
                 }
             }
@@ -227,12 +242,21 @@ public class MathSet<T extends Number & Comparable<? super T>> {
     }
 
     public boolean contains(T n) {
-        for (int i = 0; i < elements.length; i++) {
-            if (elements[i] == n) {
+        for (T element : elements) {
+            if (element == n) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isEmpty() {
+        for (T element : elements) {
+            if (element != null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private int emptyCount() {
