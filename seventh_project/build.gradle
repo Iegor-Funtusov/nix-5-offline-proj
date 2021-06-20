@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.lapchenko.kyrylo.project'
+version '1.1-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    apply plugin: 'java'
+    implementation 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+test {
+    useJUnitPlatform()
+}

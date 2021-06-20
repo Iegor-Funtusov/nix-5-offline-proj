@@ -9,9 +9,10 @@
 **/*.iml
 **/*.class
 .idea
-**/fifth_project/
-**/sixth_project/
-**/fourth_project/
-**/third_project/
-**/first_project/
-**/second_project/
+**/fifth_project/*
+**/sixth_project/*
+**/fourth_project/*
+**/third_project/*
+**/first_project/*
+**/second_project/*
+.gradle
