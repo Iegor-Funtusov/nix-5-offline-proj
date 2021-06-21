@@ -1,50 +1,58 @@
 package ua.practice.crud_library;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.UUID;
+import ua.practice.crud_library.io_utils.DatabaseCreator;
+import ua.practice.crud_library.io_utils.IOProcessor;
+
+import java.util.*;
+import java.util.stream.Stream;
 
 public class ArrayCrudService<E extends BaseEntity> implements CrudService<E> {
+    final Class<E> clazz;
+
+    public ArrayCrudService(Class<E> typeE) {
+        clazz = typeE;
+        DatabaseCreator.createDataBasesIfNotExist(typeE);
+    }
 
     @Override
     public void create(E e) {
-        e.setId(generateId(UUID.randomUUID().toString()));
+        String generatedId = generateId(UUID.randomUUID().toString());
+        e.setId(generatedId);
         ArrayList<String[]> csvData = new ArrayList<>();
-        AccessToClass.addFieldsValuesToCsv(e, csvData);
-        IOProcessor.inputDataToFile(e.getClass(), csvData);
+        csvData.add(AccessToClass.addFieldsValuesToCsv(e));
+        IOProcessor.inputDataToFile(e.getClass(), csvData, true);
     }
 
     @Override
     public void update(E e) {
-
+        IOProcessor.updateDataInFile(e);
     }
 
     @Override
     public void delete(String id) {
-
+        IOProcessor.deleteDataInFile(id, clazz);
     }
 
     @Override
     public Collection<E> read()
     {
-        return null;
+        List<String[]> readData = IOProcessor.readAllData(clazz);
+        return (Collection<E>) AccessToClass.convertStringsToClass(clazz,readData);
     }
 
     @Override
-    public E read(String id) throws ArrayIndexOutOfBoundsException {
-        return null;
+    public E read(String id) throws NoSuchElementException {
+        return read().stream()
+                .filter(e->e.getId().equals(id))
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
     }
 
 
     private String generateId(String id) {
-//        if (Stream.of(list).anyMatch(e -> ((E) e).getId().equals(id))) {
-//            return generateId(UUID.randomUUID().toString());
-//        }
+        if (Stream.of(read()).anyMatch(e -> e.equals(id))) {
+            return generateId(UUID.randomUUID().toString());
+        }
         return id;
-    }
-
-    private int findIndexById(String id) {
-
-        return -1;
     }
 }

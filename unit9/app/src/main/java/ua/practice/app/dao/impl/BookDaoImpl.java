@@ -8,7 +8,7 @@ import java.util.Collection;
 
 public class BookDaoImpl implements BookDao {
 
-    ArrayCrudService<Book> bookArrayCrudService = new ArrayCrudService<>();
+    ArrayCrudService<Book> bookArrayCrudService = new ArrayCrudService<>(Book.class);
 
     @Override
     public void create(Book book) {
@@ -17,21 +17,21 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void update(Book book) {
-
+        bookArrayCrudService.update(book);
     }
 
     @Override
     public void delete(String id) {
-
+        bookArrayCrudService.delete(id);
     }
 
     @Override
     public Collection<Book> read() {
-        return null;
+        return bookArrayCrudService.read();
     }
 
     @Override
     public Book read(String id) {
-        return null;
+        return bookArrayCrudService.read(id);
     }
 }

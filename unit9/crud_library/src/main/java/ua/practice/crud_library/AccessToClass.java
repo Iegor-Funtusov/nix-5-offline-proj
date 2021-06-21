@@ -1,11 +1,15 @@
 package ua.practice.crud_library;
 
+import org.apache.commons.beanutils.ConvertUtils;
+
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedList;
 import java.util.List;
 
-class AccessToClass {
+public class AccessToClass {
 
-    static void addFieldsNamesToHeader(Class<?> clazz, List<String[]> csvData){
+    public static void addFieldsNamesToHeader(Class<?> clazz, List<String[]> csvData){
         Field[] fields = clazz.getDeclaredFields();
         String[] header = new String[fields.length + 1];
         header[0] = "id";
@@ -16,7 +20,7 @@ class AccessToClass {
         csvData.add(header);
     }
 
-    static void addFieldsValuesToCsv(Object o, List<String[]> csvData){
+    public static String[] addFieldsValuesToCsv(Object o){
         Class<?> clazz = o.getClass();
         Field[] fields = clazz.getDeclaredFields();
         String idValue = "";
@@ -37,6 +41,31 @@ class AccessToClass {
                 e.printStackTrace();
             }
         }
-        csvData.add(data);
+        return data;
+    }
+
+    public static List<BaseEntity> convertStringsToClass(Class<? extends BaseEntity> clazz, List<String[]> csvData){
+        List<BaseEntity> objects = new LinkedList<>();
+        BaseEntity o = null;
+        try {
+            if(!csvData.isEmpty()) {
+                for (String[] row : csvData) {
+                    o = clazz.getDeclaredConstructor().newInstance();
+                    Field idField = clazz.getSuperclass().getDeclaredField("id");
+                    idField.setAccessible(true);
+                    idField.set(o, row[0]);
+                    Field[] fields = clazz.getDeclaredFields();
+                    for (int i = 0; i < fields.length; i++) {
+                        fields[i].setAccessible(true);
+                        Class<?> fieldClazz = fields[i].getType();
+                        fields[i].set(o, ConvertUtils.convert(row[i+1], fieldClazz));
+                    }
+                    objects.add(o);
+                }
+            }
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return objects;
     }
 }
