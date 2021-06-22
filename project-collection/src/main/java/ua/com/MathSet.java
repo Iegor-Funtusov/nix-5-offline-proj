@@ -34,7 +34,7 @@ public interface MathSet extends Iterable<Number> {
 
     Number[] toArray(int firstIndex, int lastIndex);
 
-    MathSet squash(int firstIndex, int lastIndex);
+    MathSetImpl squash(int firstIndex, int lastIndex);
 
     void clear();
 
