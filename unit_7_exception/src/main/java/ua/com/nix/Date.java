@@ -14,7 +14,7 @@ public class Date {
     }
 
     public void setYear(int year) {
-        if (this.year < 100) {
+        if (this.year < 100 && this.year >= 0) {
             this.year = 1900 + year;
         }
         else if (year > 99) {
@@ -90,7 +90,7 @@ public class Date {
         }
     }
 
-    public int getDaysInMonth(int month) {
+    public int getDaysInMonth(int month, int year) {
         int daysInMonth;
 
         if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10  || month == 12) {
@@ -120,6 +120,7 @@ public class Date {
                 ", year=" + year +
                 '}';
     }
+
 
 
 }
