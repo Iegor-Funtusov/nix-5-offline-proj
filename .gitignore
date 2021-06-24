@@ -3,3 +3,5 @@
 .mvn
 **/*.class
 *.html
+**/*.log
+**/*.csv
