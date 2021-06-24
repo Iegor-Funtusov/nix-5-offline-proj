@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class DateOperations {
     Date date = new Date();
@@ -11,7 +12,7 @@ public class DateOperations {
     ArrayList<Date> dateList = new ArrayList<>(15);
 
     public void parse(String datePart, Date date) {
-        if (datePart.equals("/")) {
+        if (datePart.contains("/")) {
             String[] dateParts = datePart.split("/");
             for (int i = 0; i < dateParts.length; i++) {
                 if (dateParts[i].isEmpty())
@@ -38,7 +39,8 @@ public class DateOperations {
             if (emptyIndex >= 3) {
                 String datePart = dateRead.substring(0, emptyIndex);
                 parse(datePart, date);
-                String[] timeParts = datePart.split(":");
+                String duration = dateRead.substring(dateRead.indexOf(" ")+1);
+                String[] timeParts = duration.split(":");
                 if (timeParts.length < 3) {
                     date.setMinute(Integer.parseInt(timeParts[0]));
                     date.setSecond(Integer.parseInt(timeParts[1]));
@@ -62,142 +64,131 @@ public class DateOperations {
         System.out.println("Введите дату: Формат: 1/10/34 или /5/47 или /2/ или 1256 59:59");
         createDate();
 
-        while (true) {
-            System.out.println("Введите действие для добавления к дате: \n" +
-                    "1 - Секунд\n" +
-                    "2 - Минут\n" +
-                    "3 - Часов\n" +
-                    "4 - Дней\n" +
-                    "5 - Месяцев\n" +
-                    "6 - Годов\n" +
-                    "0 - Выйти в главное меню.");
+            System.out.println("""
+                    Введите действие для добавления к дате:\s
+                    1 - Секунд
+                    2 - Минут
+                    3 - Часов
+                    4 - Дней
+                    5 - Месяцев
+                    6 - Лет
+                    0 - Выйти в главное меню.""");
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-                String read = reader.readLine();
-
-                switch (read) {
-                    case "1": {
-                        System.out.println("Введите секунды для добавления: ");
-                        int second = Integer.parseInt(reader.readLine());
-                        addSecond(dateList, second);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "2": {
-                        System.out.println("Введите минуты для добавления: ");
-                        int minute = Integer.parseInt(reader.readLine());
-                        addMinute(dateList, minute);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "3": {
-                        System.out.println("Введите часы для добавления: ");
-                        int hour = Integer.parseInt(reader.readLine());
-                        addHour(dateList, hour);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "4": {
-                        System.out.println("Введите дни для добавления: ");
-                        int day = Integer.parseInt(reader.readLine());
-                        addDay(dateList, day);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "5": {
-                        System.out.println("Введите месяцы для добавления: ");
-                        int month = Integer.parseInt(reader.readLine());
-                        addMonth(dateList, month);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "6": {
-                        System.out.println("Введите годы для добавления: ");
-                        int year = Integer.parseInt(reader.readLine());
-                        addYear(dateList, year);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "0": {
-                        dateList.clear();
-                        System.exit(0);
-                        break;
+                String read;
+                while ((read = reader.readLine()) != null) {
+                    switch (read) {
+                        case "1" -> {
+                            System.out.println("Введите секунды для добавления: ");
+                            int second = Integer.parseInt(reader.readLine());
+                            addSecond(dateList, second);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "2" -> {
+                            System.out.println("Введите минуты для добавления: ");
+                            int minute = Integer.parseInt(reader.readLine());
+                            addMinute(dateList, minute);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "3" -> {
+                            System.out.println("Введите часы для добавления: ");
+                            int hour = Integer.parseInt(reader.readLine());
+                            addHour(dateList, hour);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "4" -> {
+                            System.out.println("Введите дни для добавления: ");
+                            int day = Integer.parseInt(reader.readLine());
+                            addDay(dateList, day);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "5" -> {
+                            System.out.println("Введите месяцы для добавления: ");
+                            int month = Integer.parseInt(reader.readLine());
+                            addMonth(dateList, month);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "6" -> {
+                            System.out.println("Введите годы для добавления: ");
+                            int year = Integer.parseInt(reader.readLine());
+                            addYear(dateList, year);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "0" -> {
+                            dateList.clear();
+                            System.exit(0);
+                        }
                     }
                 }
             } catch (IOException | IllegalArgumentException e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
         }
-    }
 
     public void minus() {
         System.out.println("Введите дату: Формат: 1/10/34 или /5/47 или /2/ или 1256 59:59");
+        createDate();
 
-        while (true) {
-            System.out.println("Введите действие для вычетания даты: \n" +
-                    "1 - Секунды\n" +
-                    "2 - Минуты\n" +
-                    "3 - Часы\n" +
-                    "4 - Дни\n" +
-                    "5 - Месяцы\n" +
-                    "6 - Годы\n" +
-                    "0 - Выйти в главное меню.");
+            System.out.println("""
+                    Введите действие для вычетания даты:\s
+                    1 - Секунды
+                    2 - Минуты
+                    3 - Часы
+                    4 - Дни
+                    5 - Месяцы
+                    6 - Годы
+                    0 - Выйти в главное меню.""");
             try {
-                String read = reader.readLine();
-                switch (read) {
-                    case "1": {
-                        System.out.println("Введите секунды для минуса даты:");
-                        int seconds = Integer.parseInt(reader.readLine());
-                        minusSeconds(dateList, seconds);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "2": {
-                        System.out.println("Введите минуты для минуса даты: ");
-                        int minutes = Integer.parseInt(reader.readLine());
-                        minusMinutes(dateList, minutes);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "3": {
-                        System.out.println("Введите часы для минуса даты: ");
-                        int hours = Integer.parseInt(reader.readLine());
-                        minusHours(dateList, hours);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "4": {
-                        System.out.println("Введите дни для минуса даты: ");
-                        int days = Integer.parseInt(reader.readLine());
-                        minusDays(dateList, days);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "5": {
-                        System.out.println("Введите месяцы для минуса даты: ");
-                        int month = Integer.parseInt(reader.readLine());
-                        minusMonth(dateList, month);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "6": {
-                        System.out.println("Введите годы для минуса даты:");
-                        int years = Integer.parseInt(reader.readLine());
-                        minusYear(dateList, years);
-                        System.out.println(dateList.get(0));
-                        break;
-                    }
-                    case "0": {
-                        dateList.clear();
-                        System.exit(0);
-                        break;
+                String read;
+                while ((read = reader.readLine()) != null) {
+
+                    switch (read) {
+                        case "1" -> {
+                            System.out.println("Введите секунды для минуса даты:");
+                            int seconds = Integer.parseInt(reader.readLine());
+                            minusSeconds(dateList, seconds);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "2" -> {
+                            System.out.println("Введите минуты для минуса даты: ");
+                            int minutes = Integer.parseInt(reader.readLine());
+                            minusMinutes(dateList, minutes);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "3" -> {
+                            System.out.println("Введите часы для минуса даты: ");
+                            int hours = Integer.parseInt(reader.readLine());
+                            minusHours(dateList, hours);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "4" -> {
+                            System.out.println("Введите дни для минуса даты: ");
+                            int days = Integer.parseInt(reader.readLine());
+                            minusDays(dateList, days);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "5" -> {
+                            System.out.println("Введите месяцы для минуса даты: ");
+                            int month = Integer.parseInt(reader.readLine());
+                            minusMonth(dateList, month);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "6" -> {
+                            System.out.println("Введите годы для минуса даты:");
+                            int years = Integer.parseInt(reader.readLine());
+                            minusYear(dateList, years);
+                            System.out.println(dateList.get(0));
+                        }
+                        case "0" -> {
+                            dateList.clear();
+                            System.exit(0);
+                        }
                     }
                 }
             }
             catch (IOException | IllegalArgumentException e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
         }
-    }
 
     public void difference() {
 
@@ -208,52 +199,92 @@ public class DateOperations {
 
             System.out.println("Введите дату: Формат: 1/10/34 или /5/47 или /2/ или 1256 59:59");
             System.out.println("Введена " + iter + " дата: ");
+            createDate();
             iter++;
 
         }
 
-        while (true) {
             for (Date date1 : dateList) {
                 System.out.println(date1);
             }
-            System.out.println("Введите действие для нахождения разницы дат в: \n" +
-                    "1 - Секундах\n" +
-                    "2 - Минутах\n" +
-                    "3 - Часах\n" +
-                    "4 - Днях\n" +
-                    "5 - Месяцах\n" +
-                    "6 - Годах\n" +
-                    "0 - Выйти в главное меню.");
+            System.out.println("""
+                    Введите действие для нахождения разницы дат в:\s
+                    1 - Секундах
+                    2 - Минутах
+                    3 - Часах
+                    4 - Днях
+                    5 - Месяцах
+                    6 - Годах
+                    0 - Выйти в главное меню.""");
 
-            String read = reader.readLine();
+            try {
+                String read;
+                while ((read = reader.readLine()) != null) {
+
+                    switch (read) {
+                        case "1" -> System.out.println("Разница в секундах:  " + differenceInSeconds());
+                        case "2" -> System.out.println("Разница в минутах: " + differenceInMinutes());
+                        case "3" -> System.out.println("Разница в часах: " + differenceInHours());
+                        case "4" -> System.out.println("Разница в днях: " + differenceInDay());
+                        case "5" -> System.out.println("Разница в месяцах: " + differenceInMonth());
+                        case "6" -> System.out.println("Разница в годах: " + differenceInYear());
+                        case "0" -> dateList.clear();
+                    }
+                }
+            }
+            catch (IOException | IllegalArgumentException e) {
+                System.out.println(e);
+            }
+        }
+
+    public void compare() throws IOException {
+        int i = 1;
+
+        String read;
+        while ((read = reader.readLine()) != null) {
+            System.out.println("""
+                    1 -> Добавить дату
+                    2 -> Сортировать""");
             switch (read) {
                 case "1": {
-                    System.out.println("Разница в секундах:  " + differenceInSeconds());
-                    break;
+                    System.out.println("Введите " + i + " дату: ");
+                    System.out.println("Введите дату: Формат: 1/10/34 или /5/47 или /2/ или 1256 59:59");
+                    createDate();
+                    i++;
                 }
                 case "2": {
-                    System.out.println("Разница в минутах: " + differenceInMinutes());
-                    break;
                 }
-                case "3": {
-                    System.out.println("Разница в часах: " + differenceInHours());
-                    break;
+                default: {
+                    System.out.println("Извините, вы ввели неправильные данные. ");
                 }
-                case "4": {
-                    System.out.println("Разница в днях: " + differenceInDay());
-                    break;
-                }
-                case "5": {
-                    System.out.println("Разница в месяцах: " + differenceInMonth());
-                    break;
-                }
-                case "6": {
-                    System.out.println("Разница в годах: " + differenceInYear());
-                    break;
-                }
-                case "0": {
-                    dateList.clear();
-                    break;
+            }
+
+            String s;
+            while ((s = reader.readLine()) != null) {
+                System.out.println("1 - Вывести по возрастанию" + "2 - Вывести по убыванию ");
+                System.out.println("""
+                        Выберите функцию:\040
+                        1 - Вывести дату по возрастанию.
+                        2 - Вывести дату по убыванию.
+                        0 - Выйти в главное меню""");
+
+                switch (s) {
+                    case "1" -> {
+                        System.out.println("Дата до: ");
+                        dateList.forEach(System.out::println);
+                        System.out.println("Дата после: ");
+                        dateList.sort(Date::compareTo);
+                        dateList.forEach(System.out::println);
+                    }
+                    case "2" -> {
+                        System.out.println("Дата до: ");
+                        dateList.forEach(System.out::println);
+                        System.out.println("Дата после: ");
+                        dateList.sort(Comparator.reverseOrder());
+                        dateList.forEach(System.out::println);
+                    }
+                    case "0" -> dateList.clear();
+                    default -> System.out.println("Извините, вы ввели неправильные данные.");
                 }
             }
         }
@@ -269,8 +300,7 @@ public class DateOperations {
 
     public void addDay(ArrayList<Date> dateList, int day) {
         if (day > 0) {
-            int index = date.getDaysInMonth(dateList.get(0).getMonth(),
-                    dateList.get(0).getYear());
+            int index = date.getDaysInMonth(dateList.get(0).getMonth(), dateList.get(0).getYear());
             if (index < day) {
                 day -= index - dateList.get(0).getDay() + 1;
                 dateList.get(0).setDay(1);
@@ -284,7 +314,7 @@ public class DateOperations {
                     if (dateList.get(0).getYear() % 4 == 0 && day > 365) {
                         dateList.get(0).setYear(dateList.get(0).getYear() + 1);
                         day -= 366;
-                    } else if (dateList.get(0).getYear() % 4 != 0 && day >= 365) {
+                    } else if (dateList.get(0).getYear() % 4 != 0) {
                         dateList.get(0).setYear(dateList.get(0).getYear() + 1);
                         day -= 365;
                     }
@@ -342,8 +372,7 @@ public class DateOperations {
                     } catch (IllegalArgumentException argDays) {
                         if (dateList.get(0).getHour() == 24)
                             dateList.get(0).setHour(0);
-                        if (dateList.get(0).getDay() >
-                                date.getDaysInMonth(dateList.get(0).getMonth(),
+                        if (dateList.get(0).getDay() > date.getDaysInMonth(dateList.get(0).getMonth(),
                                         dateList.get(0).getYear())) {
                             dateList.get(0).setDay(1);
                             try {
@@ -392,7 +421,7 @@ public class DateOperations {
     }
 
     public void addSecond(ArrayList<Date> dateList, int second) throws IOException {
-        if (second > 0) {
+        if (second >= 0) {
             int newSecond = dateList.get(0).getSecond() + second;
             if (newSecond > 59) {
                 dateList.get(0).setMinute(newSecond % 60);
@@ -400,6 +429,7 @@ public class DateOperations {
             } else {
                 dateList.get(0).setMinute(newSecond);
             }
+            date.setSecond(newSecond);
         } else {
             System.out.println("Неправильные данные");
         }
@@ -440,7 +470,7 @@ public class DateOperations {
 
         int index = Math.min(dateList.get(0).getMonth(),dateList.get(1).getMonth());
         int firstYear = dateList.get(0).getYear();
-        int differYear = differYear();
+        int differYear = differenceInYear();
 
         while (differYear > 0) {
             if (++firstYear % 4 == 0) {
@@ -508,7 +538,7 @@ public class DateOperations {
                 if (dateList.get(0).getYear() % 4 == 0 && days > 365) {
                     dateList.get(0).setYear(dateList.get(0).getYear()-1);
                     days -= 366;
-                } else if (dateList.get(0).getYear() % 4 != 0 && days >= 365) {
+                } else if (dateList.get(0).getYear() % 4 != 0) {
                     dateList.get(0).setYear(dateList.get(0).getYear() - 1);
                     days -= 365;
                 }
@@ -551,40 +581,34 @@ public class DateOperations {
                 } catch (IllegalArgumentException hour) {
                     dateList.get(0).setHour(0);
                 }
-                try {
-                    dateList.get(0).setDay(dateList.get(0).getDay() - 1);
-                } catch (IllegalArgumentException days) {
-                    try {
-                        dateList.get(0).setMonth(dateList.get(0).getMonth() - 1);
-                    } catch (IllegalArgumentException months) {
-                        dateList.get(0).setYear(dateList.get(0).getYear() - 1);
-                        dateList.get(0).setMonth(12);
-                    }
-                    dateList.get(0).setDay(date.getDaysInMonth(dateList.get(0).getMonth(), dateList.get(0).getYear()));
-                }
             } else {
                 try {
                     dateList.get(0).setHour(24 - hours);
                 } catch (IllegalArgumentException hour) {
                     dateList.get(0).setHour(0);
                 }
-                try {
-                    dateList.get(0).setDay(dateList.get(0).getDay() - 1);
-                } catch (IllegalArgumentException days) {
-                    try {
-                        dateList.get(0).setMonth(dateList.get(0).getMonth() - 1);
-                    } catch (IllegalArgumentException months) {
-                        dateList.get(0).setYear(dateList.get(0).getYear() - 1);
-                        dateList.get(0).setMonth(12);
-                    }
-                    dateList.get(0).setDay(date.getDaysInMonth(dateList.get(0).getMonth(), dateList.get(0).getYear()));
-                }
             }
+            setDay(dateList);
         }
         else {
             System.out.println("Извините, вы ввели неправильные данные");
         }
     }
+
+    private void setDay(ArrayList<Date> dateList) {
+        try {
+            dateList.get(0).setDay(dateList.get(0).getDay() - 1);
+        } catch (IllegalArgumentException days) {
+            try {
+                dateList.get(0).setMonth(dateList.get(0).getMonth() - 1);
+            } catch (IllegalArgumentException months) {
+                dateList.get(0).setYear(dateList.get(0).getYear() - 1);
+                dateList.get(0).setMonth(12);
+            }
+            dateList.get(0).setDay(date.getDaysInMonth(dateList.get(0).getMonth(), dateList.get(0).getYear()));
+        }
+    }
+
     private void minusMinutes(ArrayList<Date> dateList, int minutes) {
         if(minutes > 0) {
             int tempMinutes = dateList.get(0).getMinute();
@@ -637,4 +661,5 @@ public class DateOperations {
             System.out.println("Извините, вы ввели неправильные данные");
         }
     }
+
 }

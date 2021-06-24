@@ -1,6 +1,6 @@
 package ua.com.nix;
 
-public class Date {
+public class Date implements Comparable<Date> {
 
     private int second;
     private int minute;
@@ -121,6 +121,25 @@ public class Date {
                 '}';
     }
 
-
+    @Override
+    public int compareTo(Date date) {
+        int compare = this.getYear()-date.getYear();
+        if (compare == 0) {
+            compare = this.getSecond()-date.getSecond();
+        }
+        if (compare == 0) {
+            compare = this.getMinute()-date.getMinute();
+        }
+        if (compare == 0) {
+            compare = this.getDay()-date.getDay();
+        }
+        if (compare == 0) {
+            compare = this.getMonth()-date.getMonth();
+        }
+        if (compare == 0) {
+            compare = this.getHour()-date.getHour();
+        }
+        return compare;
+    }
 
 }
