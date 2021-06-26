@@ -54,7 +54,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void update(Book book) {
-        List<Book> books = readAll();
+        List<Book> books = readCSVData();
         new File("books.csv").delete();
         for(Book b : books){
             if(b.getId().equals(book.getId())){
@@ -71,7 +71,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void delete(String id){
-        List<Book> books = readAll();
+        List<Book> books = readCSVData();
         new File("books.csv").delete();
         for(Book b : books){
             if(b.getId().equals(id)){
@@ -91,7 +91,14 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> readAll() {
+    public List<Book> readAll(){
+        return readCSVData()
+                .stream()
+                .filter(Book::isVisible)
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> readCSVData() {
         List<Book> books = new LinkedList<>();
         try(CSVReader reader = new CSVReader(new FileReader("books.csv"))) {
             List<String[]> csvData = reader.readAll();
@@ -117,9 +124,9 @@ public class BookDaoImpl implements BookDao {
         return books;
     }
 
-    private List<Author> parseAuthor(String[] stringOfAuthors){
+    private List<Author> parseAuthor(String[] stringsOfAuthor){
         List<Author> authorList = new LinkedList<>();
-        for(String a : stringOfAuthors){
+        for(String a : stringsOfAuthor){
             String[] authorString = a.split("/");
             Author author = new Author();
             author.setId(authorString[0]);
