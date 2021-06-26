@@ -52,6 +52,13 @@ public class BookServiceTest {
         book.setAllAuthors(authors);
         Assertions.assertEquals(bookService.readAuthors(book).size(), 2);
     }
+    @Test
+    @Order(4)
+    public void readBooks(){
+        List<Book> books = bookService.readBooks();
+        int size = books.size();
+        Assertions.assertNotEquals(1, size);
+    }
 
 }
 

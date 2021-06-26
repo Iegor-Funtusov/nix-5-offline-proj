@@ -25,6 +25,13 @@ public class AuthorServiceTest {
         List<Author> authors = authorService.readAuthors();
         Assertions.assertTrue(authors != null && authors.size() == 10);
     }
+    @Test
+
+    public void readAll(){
+        List<Author> authors = authorService.readAuthors();
+        int size = authors.size();
+        Assertions.assertNotEquals(1, size);
+    }
 
     @Test
     @Order(2)
@@ -63,6 +70,7 @@ public class AuthorServiceTest {
             Assertions.assertNull(author);
         }
     }
+
 }
 
 
