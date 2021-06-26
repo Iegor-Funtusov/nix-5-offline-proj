@@ -1,0 +1,1 @@
+cd ionio/ || exit & mvn clean install & java -jar target/ionio-1.0-SNAPSHOT.jar
