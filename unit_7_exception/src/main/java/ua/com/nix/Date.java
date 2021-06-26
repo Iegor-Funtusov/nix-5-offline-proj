@@ -1,6 +1,6 @@
 package ua.com.nix;
 
-public class Date {
+public class Date implements Comparable<Date> {
 
     private int second;
     private int minute;
@@ -14,14 +14,13 @@ public class Date {
     }
 
     public void setYear(int year) {
-        if (this.year < 100 && this.year >= 0) {
+        if(year <= 99 && year >= 0){
             this.year = 1900 + year;
-        }
-        else if (year > 99) {
+        } else if (year >= 100){
             this.year = year;
         }
         else {
-            throw new IllegalArgumentException("Вы ввели неправильное значение.");
+            throw new IllegalArgumentException("Извините, вы ввели неправильное значение.");
         }
     }
 
@@ -93,12 +92,6 @@ public class Date {
     public int getDaysInMonth(int month, int year) {
         int daysInMonth;
 
-        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10  || month == 12) {
-            daysInMonth = 31;
-        }
-        if (month == 4 || month == 6 || month == 9 || month == 11) {
-            daysInMonth = 30;
-        }
         if (month == 2 && year % 4 == 0) {
             daysInMonth = 29;
         }
@@ -121,6 +114,25 @@ public class Date {
                 '}';
     }
 
-
+    @Override
+    public int compareTo(Date date) {
+        int compare = this.getYear()-date.getYear();
+        if (compare == 0) {
+            compare = this.getSecond()-date.getSecond();
+        }
+        if (compare == 0) {
+            compare = this.getMinute()-date.getMinute();
+        }
+        if (compare == 0) {
+            compare = this.getDay()-date.getDay();
+        }
+        if (compare == 0) {
+            compare = this.getMonth()-date.getMonth();
+        }
+        if (compare == 0) {
+            compare = this.getHour()-date.getHour();
+        }
+        return compare;
+    }
 
 }
