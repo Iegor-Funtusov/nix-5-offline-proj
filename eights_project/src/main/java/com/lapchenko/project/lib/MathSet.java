@@ -190,6 +190,32 @@ public class MathSet<E> {
         return toReturn;
     }
 
+    public void clear(E[] numbers) {
+        MathSet<E> newSet = new MathSet<>();
+        MathSet<E> uniqueNumbers = new MathSet<>(numbers);
+        for (int i = 0; i < uniqueNumbers.size(); i++) {
+            for (int j = 0; j < size; j++) {
+                if(set[j].equals(uniqueNumbers.get(i))){
+                    set[j] = null;
+                }
+            }
+        }
+        int newSize = 0;
+        for (int i = 0; i < size; i++) {
+            if(set[i] != null) {
+                newSet.add(set[i]);
+                newSize++;
+            }
+        }
+        size = newSize;
+        set = newSet.set;
+    }
+
+    public void clear() {
+        set = (E[]) new Object[10];
+        size = 0;
+    }
+
     public int size() {
         return size;
     }
