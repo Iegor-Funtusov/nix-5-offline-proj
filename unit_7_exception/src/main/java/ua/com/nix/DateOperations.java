@@ -192,7 +192,6 @@ public class DateOperations {
 
     public void difference() {
 
-        String starter = null;
         int iter = 1;
 
         while (iter <= 2) {
