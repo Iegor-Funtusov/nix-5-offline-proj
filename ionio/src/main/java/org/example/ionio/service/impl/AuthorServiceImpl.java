@@ -1,9 +1,7 @@
 package org.example.ionio.service.impl;
 
 import org.example.ionio.dao.AuthorDao;
-import org.example.ionio.dao.BookDao;
 import org.example.ionio.dao.impl.AuthorDaoImpl;
-import org.example.ionio.dao.impl.BookDaoImpl;
 import org.example.ionio.model.Author;
 import org.example.ionio.service.AuthorService;
 import org.slf4j.Logger;

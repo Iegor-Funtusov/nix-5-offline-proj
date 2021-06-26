@@ -1,8 +1,8 @@
-package org.example.ionio.dao.impl;
+package org.example.ionio.service.impl;
 
-import org.example.ionio.dao.AuthorDao;
 import org.example.ionio.model.Author;
 import org.example.ionio.model.Book;
+import org.example.ionio.service.AuthorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -11,12 +11,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-class AuthorDaoImplTest {
+class AuthorServiceImplTest {
     private static final String NAME = "name";
     private static final String NAME_UPD = "nameUPD";
     private static final String FIRST_NAME = "firstName";
     private static final String LAST_NAME = "lastName";
-    private static final AuthorDao authorDao = new AuthorDaoImpl();
+    private static final AuthorService authorService = new AuthorServiceImpl();
     private static List<Book> books = new ArrayList<>();
     private static List<Author> authors = new ArrayList<>();
 
@@ -41,7 +41,7 @@ class AuthorDaoImplTest {
             a.setBookList(b);
 
             authors.add(a);
-            authorDao.create(a);
+            authorService.create(a);
         }
     }
 
@@ -49,7 +49,7 @@ class AuthorDaoImplTest {
     public void create(){
         Author a = authors.get(0);
 
-        Author a1 = authorDao.readById(a.getId());
+        Author a1 = authorService.readById(a.getId());
 
         Assertions.assertEquals(a, a1);
     }
@@ -59,9 +59,9 @@ class AuthorDaoImplTest {
         Author a = authors.get(1);
         a.setFirstName(NAME_UPD);
 
-        authorDao.update(a);
+        authorService.update(a);
 
-        Author authorUpdated = authorDao.readById(a.getId());
+        Author authorUpdated = authorService.readById(a.getId());
 
         Assertions.assertEquals(a, authorUpdated);
     }
@@ -70,9 +70,9 @@ class AuthorDaoImplTest {
     public void delete(){
         Author a = authors.get(2);
 
-        authorDao.delete(a.getId());
+        authorService.delete(a.getId());
 
-        Author a1 = authorDao.readById(a.getId());
+        Author a1 = authorService.readById(a.getId());
 
         Assertions.assertNull(a1);
     }
@@ -81,14 +81,24 @@ class AuthorDaoImplTest {
     public void readById(){
         Author a = authors.get(3);
 
-        Author a1 = authorDao.readById(a.getId());
+        Author a1 = authorService.readById(a.getId());
 
         Assertions.assertNotNull(a1);
     }
 
     @Test
+    public void readByAuthor(){
+        Book b = books.get(1);
+
+        List<Author> authorList = authorService.readByBook(b.getId());
+        int size = authorList.size();
+
+        Assertions.assertEquals(2, size);
+    }
+
+    @Test
     public void readAll(){
-        List<Author> authorList = authorDao.readAll();
+        List<Author> authorList = authorService.readAll();
         int size = authorList.size();
 
         Assertions.assertNotEquals(0, size);
