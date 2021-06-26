@@ -1,20 +1,27 @@
 package ua.practice.app.entity;
 
-import ua.practice.crud_library.BaseEntity;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Book extends BaseEntity{
+public class Book {
+    private String id;
 
     private String name;
-//    private List<Author> authors;
 
-    private boolean isVisible;
+    private List<Author> authors;
+
+    private boolean visible = true;
 
     public Book() {
+        authors = new ArrayList<>();
     }
 
-    public Book(String name, String visible) {
-        this.name = name;
-        this.isVisible = Boolean.parseBoolean(visible);
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -25,18 +32,36 @@ public class Book extends BaseEntity{
         this.name = name;
     }
 
-    public boolean getVisible() {
-        return isVisible;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setVisible(String visible) {
-        this.isVisible = Boolean.parseBoolean(visible);
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public void addAuthor(Author author) {
+        authors.add(author);
+    }
+
+    private boolean isAuthorRelated(Author author) {
+        return authors.contains(author);
     }
 
     @Override
     public String toString() {
-        return "Book{" + "id='" + getId() + '\'' +
-                "name='" + name + '\'' +
+        return "Book{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", authors='" + authors.toString() + '\'' +
                 '}';
     }
 }

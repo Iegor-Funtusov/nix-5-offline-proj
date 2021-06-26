@@ -1,13 +1,17 @@
-package ua.practice.app.dao;
+package ua.practice.app.service;
 
 import ua.practice.app.entity.Book;
 
-import java.util.List;
+import java.util.Collection;
 
-public interface BookDao {
+public interface BookService {
     void create(Book book);
+
     void update(Book book);
+
     void delete(String id);
-    List<Book> read();
+
+    Collection<Book> read();
+
     Book read(String id);
 }
