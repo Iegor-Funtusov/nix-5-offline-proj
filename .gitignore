@@ -1,5 +1,9 @@
-.idea
-/target
-*.class
-*.iml
+**/.idea
+**/target
+**/*.class
+**/*.iml
+**/.gradle
+**/build/
+**/output/
+
 
