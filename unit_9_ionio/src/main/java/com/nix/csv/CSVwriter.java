@@ -12,7 +12,7 @@ import java.util.List;
 public class CSVwriter {
 
     public CSVwriter(List<Book> books, List<Author> authors) {
-        if (books == null || authors == null) throw new RuntimeException("Books || Authors is null");
+        if (books == null && authors == null) throw new RuntimeException("Books || Authors is null");
 
         List<Book> writeBooks;
         writeBooks = books;
@@ -29,15 +29,25 @@ public class CSVwriter {
         header[4] = "Author last name";
         csvData.add(header);
 
-        for (int i = 0, j = 0; i < writeBooks.size(); i++, j++) {
+        int size = books.size();
+        if (size < authors.size()) {
+            size = authors.size();
+        }
+
+        for (int i = 0, j = 0; i < size; i++, j++) {
             String[] argObjects = new String[5];
-            argObjects[0] = writeBooks.get(i).getId();
-            argObjects[1] = writeBooks.get(i).getTitle();
+            try {
+                if (books.size() != 0) {
+                    argObjects[0] = writeBooks.get(i).getId();
+                    argObjects[1] = writeBooks.get(i).getTitle();
+                }
 
-            argObjects[2] = writeAuthors.get(j).getId();
-            argObjects[3] = writeAuthors.get(j).getFirstName();
-            argObjects[4] = writeAuthors.get(j).getLastName();
+                argObjects[2] = writeAuthors.get(j).getId();
+                argObjects[3] = writeAuthors.get(j).getFirstName();
+                argObjects[4] = writeAuthors.get(j).getLastName();
+            } catch (IndexOutOfBoundsException e) {
 
+            }
             csvData.add(argObjects);
         }
 

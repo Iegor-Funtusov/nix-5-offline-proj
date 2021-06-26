@@ -233,7 +233,7 @@ public class IoNioMain {
         System.out.println("8. Display all Authors");
         System.out.println("9. Display all authors who write this book");
         System.out.println("10. Display all books which wrote by author ");
-        System.out.println("11. Save all to CSV (BookAuthor.csv)");
+        System.out.println("11. Save all to CSV after exit (BookAuthor.csv)");
         System.out.println("12. Add list of authors to book");
         System.out.println("13. Add list of books to author");
         System.out.println("0. Exit");
