@@ -1,6 +1,7 @@
 package org.example.ionio.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Author {
     private String id;
@@ -58,5 +59,18 @@ public class Author {
                 ", bookList=" + bookList +
                 ", visible=" + visible +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return visible == author.visible && Objects.equals(id, author.id) && Objects.equals(firstName, author.firstName) && Objects.equals(lastName, author.lastName) && Objects.equals(bookList, author.bookList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, bookList, visible);
     }
 }
