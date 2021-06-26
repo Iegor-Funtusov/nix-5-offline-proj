@@ -182,12 +182,12 @@ public class MathSet<E> {
     public MathSet squash(int from, int to) {
         if (to > size || to < 0 || from < 0 || from > to) {
             throw new IndexOutOfBoundsException("Illegal bounds passed to squash method");
-            MathSet<E> toReturn = new MathSet<>();
-            for (int i = from; i < to; i++) {
-                toReturn.add(set[i]);
-            }
-            return toReturn;
         }
+        MathSet<E> toReturn = new MathSet<>();
+        for (int i = from; i < to; i++) {
+            toReturn.add(set[i]);
+        }
+        return toReturn;
     }
 
     public int size() {
