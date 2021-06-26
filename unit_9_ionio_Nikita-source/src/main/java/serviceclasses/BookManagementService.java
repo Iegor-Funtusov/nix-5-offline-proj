@@ -4,6 +4,7 @@ import daoclasses.AuthorDao;
 import daoclasses.BookDao;
 import dataclasses.Author;
 import dataclasses.Book;
+import dataclasses.EntityWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +17,16 @@ public class BookManagementService {
 
     public void createAuthor(Author author) {
         LOGGER_INFO.info("start create author: " + author.getId() + "-" + author.getName());
-        for (int i = 0; i < authorDao.getAll().length; i++) {
-            if (author.equals(authorDao.getAll()[i])) {
+        for (int i = 0; i < authorDao.getAllAuthors().length; i++) {
+            if (author.equals(authorDao.getAllAuthors()[i])) {
                 LOGGER_ERROR.error("This author already exists: " + author.getId() + "-" + author.getName());
+                return;
+            }
+        }
+        for (int i = 0; i < authorDao.getAllEntities().length; i++) {
+            if (author.equals(authorDao.getAllEntities()[i].getEntity())) {
+                LOGGER_ERROR.error("Recovering a deleted author: " + author.getId() + "-" + author.getName());
+                authorDao.getAllEntities()[i].setDeleted(false);
                 return;
             }
         }
@@ -28,9 +36,16 @@ public class BookManagementService {
 
     public void createBook(Book book, Author... author) {
         LOGGER_INFO.info("start create book: " + book.getId() + "-" + book.getTitle());
-        for (int i = 0; i < bookDao.getAll().length; i++) {
-            if (book.equals(bookDao.getAll()[i])) {
+        for (int i = 0; i < bookDao.getAllBooks().length; i++) {
+            if (book.equals(bookDao.getAllBooks()[i])) {
                 LOGGER_ERROR.error("This book already exists: " + book.getId() + "-" + book.getTitle());
+                return;
+            }
+        }
+        for (int i = 0; i < bookDao.getAllEntities().length; i++) {
+            if (author.equals(bookDao.getAllEntities()[i].getEntity())) {
+                LOGGER_ERROR.error("Recovering a deleted author: " + book.getId() + "-" + book.getTitle());
+                bookDao.getAllEntities()[i].setDeleted(false);
                 return;
             }
         }
@@ -56,7 +71,12 @@ public class BookManagementService {
 
     public Author[] getAllAuthors() {
         LOGGER_INFO.info("get all authors");
-        return authorDao.getAll();
+        return authorDao.getAllAuthors();
+    }
+
+    public EntityWrapper<Author>[] getAllEntityAuthors() {
+        LOGGER_INFO.info("get entity all books");
+        return authorDao.getAllEntities();
     }
 
     public Author getAuthorById(String id) {
@@ -66,7 +86,12 @@ public class BookManagementService {
 
     public Book[] getAllBooks() {
         LOGGER_INFO.info("get all books");
-        return bookDao.getAll();
+        return bookDao.getAllBooks();
+    }
+
+    public EntityWrapper<Book>[] getAllEntityBooks() {
+        LOGGER_INFO.info("get entity all books");
+        return bookDao.getAllEntities();
     }
 
     public Book getBookById(String id) {
@@ -123,8 +148,8 @@ public class BookManagementService {
     }
 
     public boolean hasBook(Book book) {
-        for (int i = 0; i < bookDao.getAll().length; i++) {
-            if (bookDao.getAll()[i].equals(book)) {
+        for (int i = 0; i < bookDao.getAllBooks().length; i++) {
+            if (bookDao.getAllBooks()[i].equals(book)) {
                 return true;
             }
         }
@@ -132,8 +157,8 @@ public class BookManagementService {
     }
 
     public boolean hasAuthor(Author author) {
-        for (int i = 0; i < authorDao.getAll().length; i++) {
-            if (authorDao.getAll()[i].equals(author)) {
+        for (int i = 0; i < authorDao.getAllAuthors().length; i++) {
+            if (authorDao.getAllAuthors()[i].equals(author)) {
                 return true;
             }
         }

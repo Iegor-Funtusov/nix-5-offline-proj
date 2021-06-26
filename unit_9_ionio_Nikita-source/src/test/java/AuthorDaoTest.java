@@ -15,7 +15,7 @@ public class AuthorDaoTest {
             author.setName(NAME + i);
             authorDao.create(author);
         }
-        Author[] authors = authorDao.getAll();
+        Author[] authors = authorDao.getAllAuthors();
         Assertions.assertEquals(10, authors.length);
     }
 
@@ -23,26 +23,26 @@ public class AuthorDaoTest {
     @Order(2)
     public void update() {
         Author newAuthor;
-        for (int i = 0; i < authorDao.getAll().length; i++) {
-            newAuthor = authorDao.getAll()[i];
-            newAuthor.setName("new" + authorDao.getAll()[i].getName());
+        for (int i = 0; i < authorDao.getAllAuthors().length; i++) {
+            newAuthor = authorDao.getAllAuthors()[i];
+            newAuthor.setName("new" + authorDao.getAllAuthors()[i].getName());
             authorDao.update(newAuthor);
         }
-        Assertions.assertTrue(authorDao.getAll() != null && authorDao.getAll().length == 10
-                && authorDao.getAll()[5].getName().contains("new"));
+        Assertions.assertTrue(authorDao.getAllAuthors() != null && authorDao.getAllAuthors().length == 10
+                && authorDao.getAllAuthors()[5].getName().contains("new"));
     }
 
     @Order(3)
     @Test
     public void findById() {
-        Assertions.assertNotNull(authorDao.getById(authorDao.getAll()[5].getId()));
+        Assertions.assertNotNull(authorDao.getById(authorDao.getAllAuthors()[5].getId()));
     }
 
     @Order(4)
     @Test
     public void delete() {
-        Assertions.assertTrue(authorDao.getAll() != null && authorDao.getAll().length == 10);
-        authorDao.delete(authorDao.getAll()[5].getId());
-        Assertions.assertTrue(authorDao.getAll() != null && authorDao.getAll().length == 9);
+        Assertions.assertTrue(authorDao.getAllAuthors() != null && authorDao.getAllAuthors().length == 10);
+        authorDao.delete(authorDao.getAllAuthors()[5].getId());
+        Assertions.assertTrue(authorDao.getAllAuthors() != null && authorDao.getAllAuthors().length == 9);
     }
 }

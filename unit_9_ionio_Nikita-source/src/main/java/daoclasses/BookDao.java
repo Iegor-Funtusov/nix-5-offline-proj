@@ -1,23 +1,24 @@
 package daoclasses;
 
 import dataclasses.Book;
+import dataclasses.EntityWrapper;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class BookDao {
-    Book[] books = new Book[5];
+    EntityWrapper<Book>[] books = new EntityWrapper[5];
 
     public void create(Book book) {
         book.setId(generateId(RandomStringUtils.randomAlphanumeric(6)));
         if (books[books.length - 1] == null) {
-            books[getCount()] = book;
+            books[getCount()] = new EntityWrapper<Book>(book, false);
         } else {
-            Book[] newArray = new Book[books.length + books.length / 2];
+            EntityWrapper<Book>[] newArray = new EntityWrapper[books.length + books.length / 2];
             for (int i = 0; i < books.length; i++) {
                 newArray[i] = books[i];
             }
-            newArray[books.length] = book;
+            newArray[books.length] = new EntityWrapper<Book>(book, false);
             books = newArray;
         }
     }
@@ -33,11 +34,26 @@ public class BookDao {
 
     public void delete(String id) {
         int index = getIndexById(id);
-        books = ArrayUtils.remove(books, index);
+        books[index].setDeleted(true);
     }
 
-    public Book[] getAll() {
+    public Book[] getAllBooks() {
         Book[] bookEntities = new Book[getCount()];
+        for (int i = 0; i < bookEntities.length; i++) {
+            if (!books[i].isDeleted()) {
+                bookEntities[i] = books[i].getEntity();
+            }
+        }
+        for (int i = 0; i < bookEntities.length; i++) {
+            if (bookEntities[i] == null) {
+                bookEntities = ArrayUtils.remove(bookEntities, i);
+            }
+        }
+        return bookEntities;
+    }
+
+    public EntityWrapper<Book>[] getAllEntities() {
+        EntityWrapper<Book>[] bookEntities = new EntityWrapper[getCount()];
         for (int i = 0; i < bookEntities.length; i++) {
             bookEntities[i] = books[i];
         }
@@ -45,8 +61,8 @@ public class BookDao {
     }
 
     private String generateId(String id) {
-        for (Book book : books) {
-            if (book != null && book.getId().equals(id)) {
+        for (EntityWrapper<Book> book : books) {
+            if (book != null && book.getEntity().getId().equals(id)) {
                 return generateId(RandomStringUtils.randomAlphanumeric(6));
             }
         }
@@ -55,7 +71,7 @@ public class BookDao {
 
     private Book findById(String id) {
         if (getIndexById(id) == -1) return null;
-        return books[getIndexById(id)];
+        return books[getIndexById(id)].getEntity();
     }
 
     public Book getById(String id) {
@@ -64,7 +80,7 @@ public class BookDao {
 
     private int getIndexById(String id) {
         for (int i = 0; i < getCount(); i++) {
-            if (books[i].getId().equals(id)) {
+            if (books[i].getEntity().getId().equals(id)) {
                 return i;
             }
         }

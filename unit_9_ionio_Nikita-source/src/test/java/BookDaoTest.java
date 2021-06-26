@@ -15,7 +15,7 @@ public class BookDaoTest {
             book.setTitle(TITLE + i);
             bookDao.create(book);
         }
-        Book[] books = bookDao.getAll();
+        Book[] books = bookDao.getAllBooks();
         Assertions.assertEquals(10, books.length);
     }
 
@@ -23,26 +23,26 @@ public class BookDaoTest {
     @Order(2)
     public void update() {
         Book newBook;
-        for (int i = 0; i < bookDao.getAll().length; i++) {
-            newBook = bookDao.getAll()[i];
-            newBook.setTitle("new" + bookDao.getAll()[i].getTitle());
+        for (int i = 0; i < bookDao.getAllBooks().length; i++) {
+            newBook = bookDao.getAllBooks()[i];
+            newBook.setTitle("new" + bookDao.getAllBooks()[i].getTitle());
             bookDao.update(newBook);
         }
-        Assertions.assertTrue(bookDao.getAll() != null && bookDao.getAll().length == 10
-                && bookDao.getAll()[5].getTitle().contains("new"));
+        Assertions.assertTrue(bookDao.getAllBooks() != null && bookDao.getAllBooks().length == 10
+                && bookDao.getAllBooks()[5].getTitle().contains("new"));
     }
 
     @Order(3)
     @Test
     public void findById() {
-        Assertions.assertNotNull(bookDao.getById(bookDao.getAll()[5].getId()));
+        Assertions.assertNotNull(bookDao.getById(bookDao.getAllBooks()[5].getId()));
     }
 
     @Order(4)
     @Test
     public void delete() {
-        Assertions.assertTrue(bookDao.getAll() != null && bookDao.getAll().length == 10);
-        bookDao.delete(bookDao.getAll()[5].getId());
-        Assertions.assertTrue(bookDao.getAll() != null && bookDao.getAll().length == 9);
+        Assertions.assertTrue(bookDao.getAllBooks() != null && bookDao.getAllBooks().length == 10);
+        bookDao.delete(bookDao.getAllBooks()[5].getId());
+        Assertions.assertTrue(bookDao.getAllBooks() != null && bookDao.getAllBooks().length == 9);
     }
 }
