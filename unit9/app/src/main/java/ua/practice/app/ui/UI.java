@@ -26,8 +26,6 @@ public class UI {
                         bookUI.process(bufferedReader);
                         break;
                     case "3":
-                        break;
-                    case "4":
                         return;
                     default:
                         System.out.println("Incorrect input. Try again.");
@@ -45,7 +43,6 @@ public class UI {
     public void printOptions() {
         System.out.println("1 - Author operations");
         System.out.println("2 - Book operations");
-        System.out.println("3 - Test all operations by CommonTest");
-        System.out.println("4 - Stop");
+        System.out.println("3 - Stop");
     }
 }

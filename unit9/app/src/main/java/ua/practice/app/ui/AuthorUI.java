@@ -1,13 +1,16 @@
 package ua.practice.app.ui;
 
 import ua.practice.app.entity.Author;
+import ua.practice.app.entity.Book;
 import ua.practice.app.service.service_impl.AuthorServiceImpl;
+import ua.practice.app.service.service_impl.BookServiceImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 
 public class AuthorUI {
     AuthorServiceImpl authorService = new AuthorServiceImpl();
+    BookServiceImpl bookService = new BookServiceImpl();
 
     public void process(BufferedReader bufferedReader) throws IOException {
         String input;
@@ -47,7 +50,31 @@ public class AuthorUI {
         author.setName(bufferedReader.readLine());
         System.out.println("Input last name:");
         author.setLastName(bufferedReader.readLine());
-        authorService.create(author);
+        System.out.println("Add books? y/n");
+        String input = bufferedReader.readLine();
+        if (input.equals("y")) {
+            if (addBooks(bufferedReader, author))
+                authorService.create(author);
+        } else if (input.equals("n")) {
+            authorService.create(author);
+        } else throw new RuntimeException("Incorrect input. Try again");
+    }
+
+    private boolean addBooks(BufferedReader bufferedReader, Author author) throws IOException {
+        System.out.println("Input count of books");
+        int count = 0;
+        try {
+            count = Integer.parseInt(bufferedReader.readLine());
+            for (int i = 0; i < count; i++) {
+                System.out.println("Input book's id");
+                Book book = bookService.read(bufferedReader.readLine());
+                author.addBook(book);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect number format");
+            return false;
+        }
+        return true;
     }
 
     private void updateAuthor(BufferedReader bufferedReader) throws IOException {
@@ -57,7 +84,14 @@ public class AuthorUI {
         author.setName(bufferedReader.readLine());
         System.out.println("Input new last name:");
         author.setLastName(bufferedReader.readLine());
-        authorService.update(author);
+        System.out.println("Add authors? y/n");
+        String input = bufferedReader.readLine();
+        if (input.equals("y")) {
+            if (addBooks(bufferedReader, author))
+                authorService.update(author);
+        } else if (input.equals("n")) {
+            authorService.update(author);
+        } else throw new RuntimeException("Incorrect input. Try again");
     }
 
     private void deleteAuthor(BufferedReader bufferedReader) throws IOException {
