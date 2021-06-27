@@ -1,0 +1,512 @@
+2021-06-26 20:02:01 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:02:01 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:02:01 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:02:01 INFO  BookService:15 - Operation successful
+2021-06-26 20:02:01 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:02:01 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:02:01 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:02:01 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:02:01 INFO  BookService:31 - Operation successful
+2021-06-26 20:02:01 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:02:01 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:02:01 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:02:01 INFO  BookService:37 - Operation successful
+2021-06-26 20:04:09 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:04:09 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:04:09 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:04:09 INFO  BookService:15 - Operation successful
+2021-06-26 20:04:09 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:04:09 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:04:09 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:04:09 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:04:09 INFO  BookService:31 - Operation successful
+2021-06-26 20:04:09 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:04:09 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:04:09 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:04:09 INFO  BookService:37 - Operation successful
+2021-06-26 20:04:57 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:04:57 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:04:57 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:04:57 INFO  BookService:15 - Operation successful
+2021-06-26 20:04:57 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:04:57 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:04:57 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:04:57 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:04:57 INFO  BookService:31 - Operation successful
+2021-06-26 20:04:57 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:04:57 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:04:57 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:04:57 INFO  BookService:37 - Operation successful
+2021-06-26 20:08:33 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:08:33 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:08:33 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:08:33 INFO  BookService:15 - Operation successful
+2021-06-26 20:08:33 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:08:33 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:08:33 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:08:33 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:08:33 INFO  BookService:31 - Operation successful
+2021-06-26 20:08:33 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:08:33 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:08:33 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:08:33 INFO  BookService:37 - Operation successful
+2021-06-26 20:10:54 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:10:54 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:10:54 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:10:54 INFO  BookService:15 - Operation successful
+2021-06-26 20:10:54 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:10:54 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:10:54 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:10:54 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:10:54 INFO  BookService:31 - Operation successful
+2021-06-26 20:10:54 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:10:54 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:10:54 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:10:54 INFO  BookService:37 - Operation successful
+2021-06-26 20:18:50 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:18:50 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:18:50 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:18:50 INFO  BookService:15 - Operation successful
+2021-06-26 20:18:50 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:18:50 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:18:50 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:18:50 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:18:50 INFO  BookService:31 - Operation successful
+2021-06-26 20:18:50 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:18:50 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:18:50 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:18:50 INFO  BookService:37 - Operation successful
+2021-06-26 20:31:49 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:31:49 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:31:49 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:31:49 INFO  BookService:15 - Operation successful
+2021-06-26 20:31:49 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:31:49 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:31:49 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:31:49 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:31:49 INFO  BookService:31 - Operation successful
+2021-06-26 20:31:49 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:31:49 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:31:49 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:31:49 INFO  BookService:37 - Operation successful
+2021-06-26 20:31:53 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-26 20:31:54 INFO  AuthorService:20 - Operation successful
+2021-06-26 20:31:54 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-26 20:31:54 INFO  BookService:15 - Operation successful
+2021-06-26 20:31:54 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-26 20:31:54 INFO  AuthorService:37 - Operation successful
+2021-06-26 20:31:54 INFO  AuthorService:52 - Start find author by names
+2021-06-26 20:31:54 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-26 20:31:54 INFO  BookService:31 - Operation successful
+2021-06-26 20:31:54 INFO  AuthorService:41 - Start delete info about author0
+2021-06-26 20:31:54 INFO  AuthorService:43 - Operation successful
+2021-06-26 20:31:54 INFO  BookService:35 - Start delete info about book0
+2021-06-26 20:31:54 INFO  BookService:37 - Operation successful
+2021-06-27 01:16:44 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:16:44 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:16:44 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:16:44 INFO  BookService:15 - Operation successful
+2021-06-27 01:16:44 INFO  AuthorService:26 - Start read info about author1
+2021-06-27 01:16:44 INFO  AuthorService:28 - Operation successful
+2021-06-27 01:16:44 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:16:44 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:16:44 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:16:44 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:16:44 INFO  BookService:31 - Operation successful
+2021-06-27 01:16:44 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:16:44 INFO  BookService:35 - Start delete info about book0
+2021-06-27 01:16:44 INFO  BookService:37 - Operation successful
+2021-06-27 01:19:19 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:19:19 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:25:37 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:25:37 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:25:37 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:25:37 INFO  BookService:15 - Operation successful
+2021-06-27 01:25:37 INFO  BookService:21 - Start read info about book1
+2021-06-27 01:25:37 INFO  BookService:23 - Operation successful
+2021-06-27 01:25:37 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:25:37 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:25:37 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:25:37 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:25:37 INFO  BookService:31 - Operation successful
+2021-06-27 01:25:37 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:25:37 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:25:37 INFO  BookService:35 - Start delete info about book1
+2021-06-27 01:30:18 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:30:18 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:30:46 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:30:46 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:30:54 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:30:54 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:30:54 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:30:54 INFO  BookService:15 - Operation successful
+2021-06-27 01:30:54 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:30:54 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:30:54 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:30:54 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:30:54 INFO  BookService:31 - Operation successful
+2021-06-27 01:30:54 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:30:54 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:30:54 INFO  BookService:35 - Start delete info about book11
+2021-06-27 01:30:54 INFO  BookService:37 - Operation successful
+2021-06-27 01:31:28 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:31:28 INFO  BookService:15 - Operation successful
+2021-06-27 01:32:01 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:32:01 INFO  BookService:15 - Operation successful
+2021-06-27 01:32:08 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:32:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:32:08 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:32:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:32:08 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:32:08 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:32:08 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:32:08 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:32:08 INFO  BookService:31 - Operation successful
+2021-06-27 01:32:08 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:32:08 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:32:08 INFO  BookService:35 - Start delete info about book1
+2021-06-27 01:32:08 INFO  BookService:37 - Operation successful
+2021-06-27 01:34:53 INFO  AuthorService:18 - Start create new authorPetro Ivanko
+2021-06-27 01:34:53 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:34:53 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:34:53 INFO  BookService:15 - Operation successful
+2021-06-27 01:34:53 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:34:53 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:34:53 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:34:53 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:34:53 INFO  BookService:31 - Operation successful
+2021-06-27 01:34:53 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:34:53 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:34:53 INFO  BookService:35 - Start delete info about book1
+2021-06-27 01:34:53 INFO  BookService:37 - Operation successful
+2021-06-27 01:36:30 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:36:30 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:38:03 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:38:03 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:38:03 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:38:03 INFO  BookService:15 - Operation successful
+2021-06-27 01:38:03 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:38:03 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:38:03 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:38:03 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:38:03 INFO  BookService:31 - Operation successful
+2021-06-27 01:38:03 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:38:03 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:38:03 INFO  BookService:35 - Start delete info about book1
+2021-06-27 01:38:03 INFO  BookService:37 - Operation successful
+2021-06-27 01:41:17 INFO  AuthorService:18 - Start create new authorEvgeny Smirnov
+2021-06-27 01:41:17 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:41:17 INFO  BookService:13 - Start create new book Kamasutra
+2021-06-27 01:41:17 INFO  BookService:15 - Operation successful
+2021-06-27 01:41:17 INFO  AuthorService:35 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 01:41:17 INFO  AuthorService:37 - Operation successful
+2021-06-27 01:41:17 INFO  AuthorService:52 - Start find author by names
+2021-06-27 01:41:17 INFO  BookService:29 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 01:41:17 INFO  BookService:31 - Operation successful
+2021-06-27 01:41:17 INFO  AuthorService:41 - Start delete info about author1
+2021-06-27 01:41:17 INFO  AuthorService:43 - Operation successful
+2021-06-27 01:41:17 INFO  BookService:35 - Start delete info about book1
+2021-06-27 01:41:17 INFO  BookService:37 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook125
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook86
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:18 - Start create new authorOskar0 Test0
+2021-06-27 01:46:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook74
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook139
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:18 - Start create new authorOskar1 Test1
+2021-06-27 01:46:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook86
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook127
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:18 - Start create new authorOskar2 Test2
+2021-06-27 01:46:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook5
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook29
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:18 - Start create new authorOskar3 Test3
+2021-06-27 01:46:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook137
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  BookService:13 - Start create new book testBook115
+2021-06-27 01:46:08 INFO  BookService:15 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:18 - Start create new authorOskar4 Test4
+2021-06-27 01:46:08 INFO  AuthorService:20 - Operation successful
+2021-06-27 01:46:08 INFO  AuthorService:47 - Start find all authors
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:09:15 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:09:15 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:09:15 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:09:15 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:49 - Start delete info about author0
+2021-06-27 02:09:15 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:09:15 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:09:15 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:10:40 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:10:40 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:10:40 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:10:40 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:49 - Start delete info about author0
+2021-06-27 02:10:40 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:10:40 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:10:40 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:11 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:11:11 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:11:11 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:11:11 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:49 - Start delete info about author1
+2021-06-27 02:11:11 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:11:11 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:11:11 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook17
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook77
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:23 - Start create new authorOskar0 Test0
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook110
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook81
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:23 - Start create new authorOskar1 Test1
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook135
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook27
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:23 - Start create new authorOskar2 Test2
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook143
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook139
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:23 - Start create new authorOskar3 Test3
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook55
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  BookServiceImpl:15 - Start create new book testBook181
+2021-06-27 02:11:28 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:23 - Start create new authorOskar4 Test4
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:11:28 INFO  AuthorServiceImpl:56 - Start find all authors
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:12:29 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:12:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:12:29 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:12:29 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:49 - Start delete info about author1
+2021-06-27 02:12:29 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:12:29 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:12:29 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:13:09 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:13:09 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:13:09 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:13:09 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:49 - Start delete info about author1
+2021-06-27 02:13:09 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:13:09 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:13:09 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook67
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook188
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny0 Smirnov0
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook151
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook153
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny1 Smirnov1
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook189
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook119
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny2 Smirnov2
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook12
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook134
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny3 Smirnov3
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook197
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  BookServiceImpl:15 - Start create new book testBook63
+2021-06-27 02:16:08 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny4 Smirnov4
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:16:08 INFO  AuthorServiceImpl:56 - Start find all authors
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook69
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook61
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny0 Smirnov0
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook24
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook80
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny1 Smirnov1
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook130
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook168
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny2 Smirnov2
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook53
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook79
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny3 Smirnov3
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook73
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  BookServiceImpl:15 - Start create new book testBook146
+2021-06-27 02:48:18 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny4 Smirnov4
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:18 INFO  AuthorServiceImpl:56 - Start find all authors
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:48:29 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:48:29 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:49 - Start delete info about author1
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:48:29 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook123
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook116
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny0 Smirnov0
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook175
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook48
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny1 Smirnov1
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook49
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook26
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny2 Smirnov2
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook142
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook80
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny3 Smirnov3
+2021-06-27 02:48:29 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook110
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:29 INFO  BookServiceImpl:15 - Start create new book testBook123
+2021-06-27 02:48:29 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:30 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny4 Smirnov4
+2021-06-27 02:48:30 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:30 INFO  AuthorServiceImpl:56 - Start find all authors
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 02:48:36 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 02:48:36 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:49 - Start delete info about author1
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:40 - Start delete info about book1
+2021-06-27 02:48:36 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook73
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook106
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny0 Smirnov0
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook29
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook167
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny1 Smirnov1
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook98
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook46
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny2 Smirnov2
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook105
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook154
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny3 Smirnov3
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook60
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  BookServiceImpl:15 - Start create new book testBook38
+2021-06-27 02:48:36 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny4 Smirnov4
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 02:48:36 INFO  AuthorServiceImpl:56 - Start find all authors
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 03:22:16 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 03:22:16 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 03:22:16 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 03:22:16 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:49 - Start delete info about author0
+2021-06-27 03:22:16 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 03:22:16 INFO  BookServiceImpl:40 - Start delete info about book0
+2021-06-27 03:22:16 INFO  BookServiceImpl:42 - Operation successful
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:23 - Start create new authorEvgeny Smirnov
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:25 - Operation successful
+2021-06-27 03:26:12 INFO  BookServiceImpl:15 - Start create new book Kamasutra
+2021-06-27 03:26:12 INFO  BookServiceImpl:17 - Operation successful
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:42 - Start update info about authorAbdulmanap Nurmagomedov
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:44 - Operation successful
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:61 - Start find author by names
+2021-06-27 03:26:12 INFO  BookServiceImpl:33 - Start update info about book Yegor Funtusov - azbuka Scala
+2021-06-27 03:26:12 INFO  BookServiceImpl:35 - Operation successful
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:49 - Start delete info about author0
+2021-06-27 03:26:12 INFO  AuthorServiceImpl:51 - Operation successful
+2021-06-27 03:26:12 INFO  BookServiceImpl:40 - Start delete info about book0
+2021-06-27 03:26:12 INFO  BookServiceImpl:42 - Operation successful
