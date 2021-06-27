@@ -7,7 +7,8 @@ import lombok.ToString;
 @Data
 public class Author {
     private String id;
-    private String name;
+    private String firstName;
+    private String lastName;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -27,6 +28,18 @@ public class Author {
         books = newBooks;
     }
 
+    public Author(String id){
+        this.id = id;
+        this.firstName = "";
+        this.lastName = "";
+    }
+
+    public Author() {
+        this.id = "";
+        this.firstName = "";
+        this.lastName = "";
+    }
+
     @Override
     public String toString() {
         String s = "";
@@ -35,7 +48,8 @@ public class Author {
         }
         return "Author{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + firstName + '\'' +
+                ", last name='" + lastName + '\'' +
                 ", books=[" + s + "]" +
                 '}';
     }

@@ -14,7 +14,7 @@ public class BookManagementServiceTest {
     public void create() {
         for (int i = 0; i < 10; i++) {
             Author author = new Author();
-            author.setName(NAME + i);
+            author.setFirstName(NAME + i);
             bookManagementService.createAuthor(author);
         }
         Assertions.assertEquals(10, bookManagementService.getAllAuthors().length);
@@ -33,11 +33,11 @@ public class BookManagementServiceTest {
         Author newAuthor;
         for (int i = 0; i < bookManagementService.getAllAuthors().length; i++) {
             newAuthor = bookManagementService.getAllAuthors()[i];
-            newAuthor.setName("new" + bookManagementService.getAllAuthors()[i].getName());
+            newAuthor.setFirstName("new" + bookManagementService.getAllAuthors()[i].getFirstName());
             bookManagementService.updateAuthor(newAuthor);
         }
         Assertions.assertTrue(bookManagementService.getAllAuthors() != null && bookManagementService.getAllAuthors().length == 10
-                && bookManagementService.getAllAuthors()[5].getName().contains("new"));
+                && bookManagementService.getAllAuthors()[5].getFirstName().contains("new"));
 
         Book newBook;
         for (int i = 0; i < bookManagementService.getAllBooks().length; i++) {

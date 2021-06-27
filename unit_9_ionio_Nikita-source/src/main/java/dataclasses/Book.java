@@ -2,6 +2,7 @@ package dataclasses;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
@@ -26,11 +27,21 @@ public class Book {
         authors = newAuthors;
     }
 
+    public Book(String id) {
+        this.id = id;
+        this.title = "";
+    }
+
+    public Book() {
+        this.id = "";
+        this.title = "";
+    }
+
     @Override
     public String toString() {
         String s = "";
         for (int i = 0; i < authors.length; i++) {
-            s += "\'" + authors[i].getName() + "\' ";
+            s += "\'" + authors[i].getLastName() + "\' ";
         }
         return "Book{" +
                 "id='" + id + '\'' +

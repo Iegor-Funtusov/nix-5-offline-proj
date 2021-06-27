@@ -12,7 +12,7 @@ public class AuthorDaoTest {
     public void create() {
         for (int i = 0; i < 10; i++) {
             Author author = new Author();
-            author.setName(NAME + i);
+            author.setFirstName(NAME + i);
             authorDao.create(author);
         }
         Author[] authors = authorDao.getAllAuthors();
@@ -25,11 +25,11 @@ public class AuthorDaoTest {
         Author newAuthor;
         for (int i = 0; i < authorDao.getAllAuthors().length; i++) {
             newAuthor = authorDao.getAllAuthors()[i];
-            newAuthor.setName("new" + authorDao.getAllAuthors()[i].getName());
+            newAuthor.setFirstName("new" + authorDao.getAllAuthors()[i].getFirstName());
             authorDao.update(newAuthor);
         }
         Assertions.assertTrue(authorDao.getAllAuthors() != null && authorDao.getAllAuthors().length == 10
-                && authorDao.getAllAuthors()[5].getName().contains("new"));
+                && authorDao.getAllAuthors()[5].getFirstName().contains("new"));
     }
 
     @Order(3)

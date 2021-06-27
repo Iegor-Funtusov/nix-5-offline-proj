@@ -1,5 +1,6 @@
 package daoclasses;
 
+import dataclasses.Author;
 import dataclasses.Book;
 import dataclasses.EntityWrapper;
 import org.apache.commons.beanutils.BeanUtils;
@@ -60,6 +61,23 @@ public class BookDao {
         return bookEntities;
     }
 
+    public void addBooks(EntityWrapper<Book>[] newBooks) {
+        for (EntityWrapper<Book> newBook : newBooks) {
+            if (findById(newBook.getEntity().getId()) == null) {
+                if (books[books.length - 1] == null) {
+                    books[getCount()] = newBook;
+                } else {
+                    EntityWrapper<Book>[] newArray = new EntityWrapper[books.length + books.length / 2];
+                    for (int i = 0; i < books.length; i++) {
+                        newArray[i] = books[i];
+                    }
+                    newArray[books.length] = newBook;
+                    books = newArray;
+                }
+            } else return;
+        }
+    }
+
     private String generateId(String id) {
         for (EntityWrapper<Book> book : books) {
             if (book != null && book.getEntity().getId().equals(id)) {
@@ -84,7 +102,6 @@ public class BookDao {
                 return i;
             }
         }
-        System.out.println("dataclasses.Book with this ID does not exist!!!");
         return -1;
     }
 

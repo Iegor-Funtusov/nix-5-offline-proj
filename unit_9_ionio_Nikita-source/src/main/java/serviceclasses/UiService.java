@@ -2,6 +2,7 @@ package serviceclasses;
 
 import dataclasses.Author;
 import dataclasses.Book;
+import dataclasses.EntityWrapper;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +32,12 @@ public class UiService {
             System.out.println("9 Get Book - \"9\"");
             System.out.println("10 Print all Authors - \"10\"");
             System.out.println("11 Print all Books - \"11\"");
-            System.out.println("12 GENERATE INITIAL VALUES - \"12\"");
+            System.out.println("12 AUTO TEST!!! - \"12\"");
+            System.out.println("13 Read from file - \"12\"");
+            System.out.println("14 Write all objects to file - \"12\"");
             System.out.println("0 Exit - \"0\"");
             str = reader.readLine();
-            if (checkRegExp(str, "[0-1][0-2]") || checkRegExp(str, "[0-9]")) {
+            if (checkRegExp(str, "[0-1][0-4]") || checkRegExp(str, "[0-9]")) {
                 switch (str) {
                     case "1":
                         createAuthor();
@@ -72,6 +75,12 @@ public class UiService {
                     case "12":
                         generate();
                         break;
+                    case "13":
+                        readFromFile();
+                        break;
+                    case "14":
+                        writeToFile();
+                        break;
                 }
             } else {
                 System.out.println("Wrong input");
@@ -82,15 +91,24 @@ public class UiService {
 
     private static void createAuthor() throws IOException {
         System.out.println("Please enter the author's name");
-        String name;
-        name = reader.readLine();
-        if (name.isBlank() || name.isEmpty()) {
+        String firstName;
+        firstName = reader.readLine();
+        if (firstName.isBlank() || firstName.isEmpty()) {
             System.out.println("Wrong input name");
             LOGGER_ERROR.error("Wrong input name");
             return;
         }
+        System.out.println("Please enter the author's last name");
+        String lastName;
+        lastName = reader.readLine();
+        if (lastName.isBlank() || lastName.isEmpty()) {
+            System.out.println("Wrong input last name");
+            LOGGER_ERROR.error("Wrong input last name");
+            return;
+        }
         Author author = new Author();
-        author.setName(name);
+        author.setFirstName(firstName);
+        author.setLastName(lastName);
         managementService.createAuthor(author);
         System.out.println("You added an author: " + author);
         System.out.println();
@@ -151,7 +169,7 @@ public class UiService {
                             LOGGER_ERROR.error("Wrong input name");
                             return;
                         }
-                        author.setName(name);
+                        author.setFirstName(name);
                         managementService.updateAuthor(author);
                         System.out.println(author);
                         System.out.println();
@@ -330,8 +348,7 @@ public class UiService {
             LOGGER_ERROR.error("Wrong input ID");
             return;
         }
-        if (managementService.getAuthorById(id) == null)
-        {
+        if (managementService.getAuthorById(id) == null) {
             System.out.println("ID is not exist");
             LOGGER_ERROR.error("ID is not exist");
             return;
@@ -348,8 +365,7 @@ public class UiService {
             LOGGER_ERROR.error("Wrong input ID");
             return;
         }
-        if (managementService.getBookById(id) == null)
-        {
+        if (managementService.getBookById(id) == null) {
             System.out.println("ID is not exist");
             LOGGER_ERROR.error("ID is not exist");
             return;
@@ -410,32 +426,74 @@ public class UiService {
         return num;
     }
 
+    private static void readFromFile(){
+        System.out.println("Read from file");
+        managementService.addAuthors(CsvIO.CsvAuthorReader());
+        managementService.addBooks(CsvIO.CsvBookReader());
+
+        for (EntityWrapper<Book> entityBook : managementService.getAllEntityBooks()) {
+            Book tempBook = new Book(entityBook.getEntity().getId());
+            tempBook.setTitle(entityBook.getEntity().getTitle());
+            for (int i = 0; i < entityBook.getEntity().getAuthors().length; i++) {
+                tempBook.setAuthor(managementService.getAuthorById(entityBook.getEntity().getAuthors()[i].getId()));
+            }
+            managementService.updateBook(tempBook);
+        }
+
+        for (EntityWrapper<Author> entityAuthor : managementService.getAllEntityAuthors()) {
+            Author tempAuthor = new Author(entityAuthor.getEntity().getId());
+            tempAuthor.setFirstName(entityAuthor.getEntity().getFirstName());
+            tempAuthor.setLastName(entityAuthor.getEntity().getLastName());
+            for (int i = 0; i < entityAuthor.getEntity().getBooks().length; i++) {
+                tempAuthor.setBook(managementService.getBookById(entityAuthor.getEntity().getBooks()[i].getId()));
+            }
+            managementService.updateAuthor(tempAuthor);
+        }
+
+        printAuthors();
+        printBooks();
+    }
+
+    private static void writeToFile(){
+        printAuthors();
+        printBooks();
+        System.out.println("Write to file");
+        CsvIO.CsvAuthorWriter(managementService.getAllEntityAuthors());
+        CsvIO.CsvBookWriter(managementService.getAllEntityBooks());
+    }
+
     private static void generate() {
+        readFromFile();
+
+        System.out.println("Create new authors");
         Author author1 = new Author();
         Author author2 = new Author();
-        Author author3 = new Author();
-        Author author4 = new Author();
-        Book book1 = new Book();
-        Book book2 = new Book();
-        Book book3 = new Book();
-        Book book4 = new Book();
-        author1.setName("qqq");
-        author2.setName("www");
-        author3.setName("eee");
-        author4.setName("rrr");
-        book1.setTitle("111");
-        book2.setTitle("222");
-        book3.setTitle("333");
-        book4.setTitle("444");
-
+        author1.setFirstName("NEW");
+        author1.setLastName("author1");
+        author2.setFirstName("NEW");
+        author2.setLastName("author2");
         managementService.createAuthor(author1);
         managementService.createAuthor(author2);
-        managementService.createAuthor(author3);
-        managementService.createAuthor(author4);
-        managementService.createBook(book1, author1, author2);
-        managementService.createBook(book2, author2);
-        managementService.createBook(book3, author3);
-        managementService.createBook(book4);
+        printAuthors();
+        System.out.println("Create new Books");
+        Book book1 = new Book();
+        Book book2 = new Book();
+        book1.setTitle("666");
+        book2.setTitle("777");
+        managementService.createBook(book1);
+        managementService.createBook(book2);
+        printBooks();
+        System.out.println("Update (set relation)");
+        managementService.setRelation(book1, author1);
+        managementService.setRelation(book1, author2);
+        managementService.setRelation(book2, author2);
+        printAuthors();
+        printBooks();
+        System.out.println("Delete Author and Book");
+        managementService.deleteAuthor(author1);
+        managementService.deleteBook(book1);
+        printAuthors();
+        printBooks();
     }
 
     private static boolean checkRegExp(String str, String reg) {

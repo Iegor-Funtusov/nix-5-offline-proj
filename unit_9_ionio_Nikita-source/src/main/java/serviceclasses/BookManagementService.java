@@ -16,22 +16,22 @@ public class BookManagementService {
     private BookDao bookDao = new BookDao();
 
     public void createAuthor(Author author) {
-        LOGGER_INFO.info("start create author: " + author.getId() + "-" + author.getName());
+        LOGGER_INFO.info("start create author: " + author.getId() + "-" + author.getFirstName());
         for (int i = 0; i < authorDao.getAllAuthors().length; i++) {
             if (author.equals(authorDao.getAllAuthors()[i])) {
-                LOGGER_ERROR.error("This author already exists: " + author.getId() + "-" + author.getName());
+                LOGGER_ERROR.error("This author already exists: " + author.getId() + "-" + author.getFirstName());
                 return;
             }
         }
         for (int i = 0; i < authorDao.getAllEntities().length; i++) {
             if (author.equals(authorDao.getAllEntities()[i].getEntity())) {
-                LOGGER_ERROR.error("Recovering a deleted author: " + author.getId() + "-" + author.getName());
+                LOGGER_ERROR.error("Recovering a deleted author: " + author.getId() + "-" + author.getFirstName());
                 authorDao.getAllEntities()[i].setDeleted(false);
                 return;
             }
         }
         authorDao.create(author);
-        LOGGER_INFO.info("end create author: " + author.getId() + "-" + author.getName());
+        LOGGER_INFO.info("end create author: " + author.getId() + "-" + author.getFirstName());
     }
 
     public void createBook(Book book, Author... author) {
@@ -56,9 +56,17 @@ public class BookManagementService {
         LOGGER_INFO.info("end create book: " + book.getId() + "-" + book.getTitle());
     }
 
+    public void addBooks(EntityWrapper<Book>[] newBooks){
+            bookDao.addBooks(newBooks);
+    }
+
+    public void addAuthors(EntityWrapper<Author>[] newAuthors){
+            authorDao.addAuthors(newAuthors);
+    }
+
     public void setRelation(Book book, Author author) {
         if (!hasAuthor(author)) {
-            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getName());
+            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getFirstName());
             return;
         }
         if (!hasBook(book)) {
@@ -100,9 +108,9 @@ public class BookManagementService {
     }
 
     public void updateAuthor(Author author) {
-        LOGGER_WARN.warn("start update author: " + author.getId() + "-" + author.getName());
+        LOGGER_WARN.warn("start update author: " + author.getId() + "-" + author.getFirstName());
         if (!hasAuthor(author)) {
-            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getName());
+            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getFirstName());
             return;
         }
         authorDao.update(author);
@@ -111,7 +119,7 @@ public class BookManagementService {
                 setRelation(bookDao.getById(author.getBooks()[i].getId()), author);
             }
         }
-        LOGGER_WARN.warn("end update author: " + author.getId() + "-" + author.getName());
+        LOGGER_WARN.warn("end update author: " + author.getId() + "-" + author.getFirstName());
     }
 
     public void updateBook(Book book) {
@@ -138,13 +146,13 @@ public class BookManagementService {
     }
 
     public void deleteAuthor(Author author) {
-        LOGGER_WARN.warn("start delete author: " + author.getId() + "-" + author.getName());
+        LOGGER_WARN.warn("start delete author: " + author.getId() + "-" + author.getFirstName());
         if (!hasAuthor(author)) {
-            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getName());
+            LOGGER_ERROR.error("There is no such object: " + author.getId() + "-" + author.getFirstName());
             return;
         }
         authorDao.delete(author.getId());
-        LOGGER_WARN.warn("end delete author: " + author.getId() + "-" + author.getName());
+        LOGGER_WARN.warn("end delete author: " + author.getId() + "-" + author.getFirstName());
     }
 
     public boolean hasBook(Book book) {

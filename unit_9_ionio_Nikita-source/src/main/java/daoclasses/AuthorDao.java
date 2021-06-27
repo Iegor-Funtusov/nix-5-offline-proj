@@ -55,9 +55,26 @@ public class AuthorDao {
     public EntityWrapper<Author>[] getAllEntities() {
         EntityWrapper<Author>[] authorEntities = new EntityWrapper[getCount()];
         for (int i = 0; i < authorEntities.length; i++) {
-                authorEntities[i] = authors[i];
+            authorEntities[i] = authors[i];
         }
         return authorEntities;
+    }
+
+    public void addAuthors(EntityWrapper<Author>[] newAuthors) {
+        for (EntityWrapper<Author> newAuthor : newAuthors) {
+            if (findById(newAuthor.getEntity().getId()) == null) {
+                if (authors[authors.length - 1] == null) {
+                    authors[getCount()] = newAuthor;
+                } else {
+                    EntityWrapper<Author>[] newArray = new EntityWrapper[authors.length + authors.length / 2];
+                    for (int i = 0; i < authors.length; i++) {
+                        newArray[i] = authors[i];
+                    }
+                    newArray[authors.length] = newAuthor;
+                    authors = newArray;
+                }
+            } else return;
+        }
     }
 
     private String generateId(String id) {
@@ -84,7 +101,6 @@ public class AuthorDao {
                 return i;
             }
         }
-        System.out.println("Author with this ID does not exist!!!");
         return -1;
     }
 
