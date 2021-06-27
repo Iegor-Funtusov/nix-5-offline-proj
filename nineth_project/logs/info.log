@@ -1,0 +1,5 @@
+14:28:21.849 [main] INFO  info - Author.create method start
+14:28:21.873 [main] INFO  info - Author.create method end
+14:32:49.843 [main] INFO  info - BookDAO.create method start
+14:32:49.878 [main] INFO  info - BookDAO.create method end
+14:32:55.843 [main] INFO  info - BookDAO.readAll method start
