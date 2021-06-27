@@ -492,8 +492,7 @@ public class UiService {
         System.out.println("Delete Author and Book");
         managementService.deleteAuthor(author1);
         managementService.deleteBook(book1);
-        printAuthors();
-        printBooks();
+        writeToFile();
     }
 
     private static boolean checkRegExp(String str, String reg) {
