@@ -22,26 +22,6 @@
             </Policies>
             <DefaultRolloverStrategy max="30"/>
         </RollingFile>
-<!--        <RollingFile name="RollingFile-INFO-Appender"-->
-<!--                     fileName="${log-path}/INFO.log"-->
-<!--                     filePattern="INFO-%i.log"-->
-<!--                     append="false">-->
-<!--            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>-->
-<!--            <Policies>-->
-<!--                <SizeBasedTriggeringPolicy size="10 MB"/>-->
-<!--            </Policies>-->
-<!--            <DefaultRolloverStrategy max="30"/>-->
-<!--        </RollingFile>-->
-<!--        <RollingFile name="RollingFile-WARN-Appender"-->
-<!--                     fileName="${log-path}/WARN.log"-->
-<!--                     filePattern="WARN-%i.log"-->
-<!--                     append="false">-->
-<!--            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>-->
-<!--            <Policies>-->
-<!--                <SizeBasedTriggeringPolicy size="10 MB"/>-->
-<!--            </Policies>-->
-<!--            <DefaultRolloverStrategy max="30"/>-->
-<!--        </RollingFile>-->
         <RollingFile name="RollingFile-ERROR-Appender"
                      fileName="${log-path}/ERRORS.log"
                      filePattern="ERRORS-%i.log"
