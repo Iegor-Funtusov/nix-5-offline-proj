@@ -119,7 +119,8 @@ public class MainMenuUI {
     }
 
     private void authorMenu(){
-
+        AuthorMenuUI menu = new AuthorMenuUI(reader);
+        menu.exec();
     }
 
 }
