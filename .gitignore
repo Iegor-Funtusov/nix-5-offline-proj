@@ -3,3 +3,9 @@
 .mvn
 **/*.class
 *.html
+**/*.log
+**/*.csv
+/unit_9_ionio/target/
+/unit_9_ionio/logs/
+**/*.log
+**/*.csv
