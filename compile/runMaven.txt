@@ -1,6 +1,0 @@
-cd compile/maven_proj/app
-
-mvn clean install
-
-java -jar target\app-1.0-SNAPSHOT.jar
-
