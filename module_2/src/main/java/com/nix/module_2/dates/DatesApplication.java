@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Application {
+public class DatesApplication {
     public static void run() {
         List<String> dateStrings = new ArrayList<>(Arrays.asList("2024/1/05",
                                                                  "13/11/2006",
                                                                  "04-05-2020",
-                                                                 "28/2/2001",
+                                                                 "29/2/2001",
                                                                  "//",
                                                                  "8-4-3035"));
         List<Date> dates = new ArrayList<>();
@@ -23,6 +23,8 @@ public class Application {
             }
                 });
 
+        System.out.println("\n=====\nDates\n=====");
+        System.out.println("Input strings:\n" + dateStrings + "\nOutput:");
         dates.forEach(System.out::println);
     }
 
