@@ -24,7 +24,6 @@ public class FindWay {
 
         try (FileReader fr = new FileReader(inputFile);
              FileWriter fw = new FileWriter(outputFile);
-             BufferedWriter writer = new BufferedWriter(fw);
              BufferedReader reader = new BufferedReader(fr)) {
             String line = reader.readLine();
             allGraph.append(line).append(" \n ");

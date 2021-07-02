@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class UniqueName {
 
     public List<String> readFromFile() {
-        String uniqueName = "Nothing";
         File file = new File("names.txt");
         List<String> names = new ArrayList<>();
 

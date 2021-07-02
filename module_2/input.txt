@@ -23,4 +23,3 @@ warszawa2
 2
 gdansk warszawa
 bydgoszcz warszawa
-torun warszawa2
