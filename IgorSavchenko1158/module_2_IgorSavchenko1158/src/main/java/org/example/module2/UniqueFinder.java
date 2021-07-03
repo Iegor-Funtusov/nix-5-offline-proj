@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class UniqueFinder {
     public String find(String[] inputArray) {
-        Map<String, Integer> counts = new LinkedHashMap<>();
+        LinkedHashMap<String, Integer> counts = new LinkedHashMap<>();
 
         for (String s : inputArray) {
             counts.compute(s, (k, v) -> (v == null) ? 1 : v + 1);
