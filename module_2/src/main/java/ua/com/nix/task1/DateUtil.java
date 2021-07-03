@@ -6,10 +6,10 @@ public class DateUtil {
 
         String[] dateParts;
         String[] newDateParts = new String[3];
-        if (inputDate.contains("/")) {
+        if (DetectorSplitSymbol.isValidFormat(inputDate, '/')) {
             dateParts = inputDate.split("/");
         }
-        else if (inputDate.contains("-")) {
+        else if (DetectorSplitSymbol.isValidFormat(inputDate, '-')) {
             dateParts = inputDate.split("-");
         }
         else {
@@ -27,12 +27,14 @@ public class DateUtil {
              newDateParts[1] = dateParts[1];
              newDateParts[2] = dateParts[2];
          }
-         else if (SecondDateFormat) {
+
+         if (SecondDateFormat) {
              newDateParts[0] = dateParts[2];
              newDateParts[1] = dateParts[1];
              newDateParts[2] = dateParts[0];
          }
-         else if (ThirdDateFormat) {
+
+         if (ThirdDateFormat) {
              newDateParts[0] = dateParts[2];
              newDateParts[1] = dateParts[0];
              newDateParts[2] = dateParts[1];

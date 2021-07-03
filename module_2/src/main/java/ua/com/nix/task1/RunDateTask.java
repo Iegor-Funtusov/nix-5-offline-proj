@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RunDateTask {
 
-    public static void run() {
+    public void run() {
         System.out.println("-------------WELCOME TO THE TASK 1 - DATES-------------");
 
         List<Date> outPutStrings = new ArrayList<>();
@@ -22,7 +22,8 @@ public class RunDateTask {
 
         }
 
-        System.out.println("The result of program: \n Input strings: ");
+        System.out.println("-------------The result of program-------------");
+        System.out.println("Input strings: ");
         for (String inputString : inputStrings) {
             System.out.println(inputString);
         }
@@ -31,5 +32,7 @@ public class RunDateTask {
         for (Date outPutString : outPutStrings) {
             System.out.println(outPutString);
         }
+
+        System.out.println("-------------Task 1 has ended-------------");
     }
 }
