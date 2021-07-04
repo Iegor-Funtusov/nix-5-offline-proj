@@ -1,8 +1,10 @@
+package transport;
+
 import static java.lang.Math.min;
 
 public class TransportationTheory {
-    private int numberOfCities;
-    private int[][] cost;
+    private final int numberOfCities;
+    private final int[][] cost;
 
     public TransportationTheory(int numberOfCities, int[][] cost) {
         this.numberOfCities = numberOfCities;
