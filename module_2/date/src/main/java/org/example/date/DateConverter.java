@@ -14,7 +14,7 @@ public class DateConverter {
     public List<String> convert(){
         List<String> outDates = new ArrayList<>();
         String regexp1 = "\\d{4}/(0[1-9]|1[0-2])/(0[1-9]|1\\d|2\\d|3[01])$";
-        String regexp2 = "(0[1-9]|1\\d|2\\d|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+        String regexp2 = "(0[1-9]|1\\d|2\\d|3[01])/(0[1-8]|1[0-2])/\\d{4}$";
         String regexp3 = "(0[1-9]|1[0-2])-(0[1-9]|1\\d|2\\d|3[01])-\\d{4}$";
         for(String inputDate : dates){
             if(Pattern.matches(regexp1, inputDate)){
