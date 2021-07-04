@@ -14,7 +14,7 @@ public class NamesApplication {
         ));
         System.out.println("\n=====\nNames\n=====");
         System.out.println("All names:\n" + names);
-        System.out.println("Unique name: " + findFirstUniqueName(names));
+        System.out.println("First unique name: " + findFirstUniqueName(names));
     }
 
     private static String findFirstUniqueName(ArrayList<String> names) {
