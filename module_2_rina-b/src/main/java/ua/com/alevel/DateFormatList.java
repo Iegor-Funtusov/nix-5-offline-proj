@@ -13,7 +13,7 @@ public class DateFormatList {
     private static final String MM_DD_YYYY = "^(0?[1-9]|1[012])[\\-](0?[1-9]|[12][0-9]|3[01])[\\-]\\d{4}$";
 
 
-    public static List<String> formattedDate(){
+    public static void formattedDate(){
         File file = new File("date.txt");
         List<String> dateList = new ArrayList<>();
         try (FileReader fileReader = new FileReader(file);
@@ -34,10 +34,10 @@ public class DateFormatList {
                 }
                 line = reader.readLine();
             }
+            System.out.println("Formatted date: " + dateList);
         } catch (IOException e) {
             throw new RuntimeException("Wrong input");
         }
-        return dateList;
     }
 
 }
