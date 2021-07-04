@@ -31,7 +31,20 @@ public class ModuleMain {
                 case 1:
                     System.out.println(new DateParser().parseDate()); break;
                 case 2:
-                    System.out.println(new UniqueName().readFromFile()); break;
+                    System.out.println("Enter mode of method (1 - with stream; 2 - with for)");
+                    try {
+                        choose = Integer.parseInt(reader.readLine());
+                    } catch (IOException | NumberFormatException e) {
+                        System.out.println("Wong input");
+                    }
+                    if (choose == 1) {
+                        System.out.println(new UniqueName().readFromFile(1));
+                    } else if (choose == 2) {
+                        System.out.println(new UniqueName().readFromFile(2));
+                    } else {
+                        System.out.println("Wrong input");
+                    }
+                    break;
                 case 3: new FindWay(); break;
             }
         }
