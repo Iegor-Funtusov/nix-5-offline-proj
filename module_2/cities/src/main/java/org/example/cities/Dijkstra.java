@@ -17,11 +17,7 @@ public class Dijkstra {
 
     private void findShortestPath(City endCity){
         while(true) {
-            City currentCity = cities
-                    .stream()
-                    .filter(c -> !c.isVisited())
-                    .min(City::compareTo)
-                    .orElseThrow();
+            City currentCity = getMinWeightCity();
 
             if(currentCity.equals(endCity)){
                 return;
@@ -37,5 +33,13 @@ public class Dijkstra {
             }
             currentCity.setVisited(true);
         }
+    }
+
+    private City getMinWeightCity(){
+        return cities
+                .stream()
+                .filter(c -> !c.isVisited())
+                .min(City::compareTo)
+                .orElseThrow();
     }
 }
