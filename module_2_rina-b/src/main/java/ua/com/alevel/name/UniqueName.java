@@ -1,4 +1,4 @@
-package ua.com.alevel;
+package ua.com.alevel.name;
 
 
 import java.io.BufferedReader;
@@ -26,7 +26,7 @@ public class UniqueName {
                     .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
             for (String s : arr) {
                 if (stringCountMap.get(s) == 1) {
-                    System.out.println("The first non-duplicate name: " + s);
+                    System.out.println("The first non-duplicate name: " + s+"\n");
                     break;
                 }
             }

@@ -1,4 +1,4 @@
-package  ua.com.alevel;
+package ua.com.alevel.date;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,7 +34,7 @@ public class DateFormatList {
                 }
                 line = reader.readLine();
             }
-            System.out.println("Formatted date: " + dateList);
+            System.out.println("Formatted date: " + dateList+"\n");
         } catch (IOException e) {
             throw new RuntimeException("Wrong input");
         }
