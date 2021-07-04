@@ -6,11 +6,6 @@ import java.util.Arrays;
 
 public class DateFormatUtil {
 
-//    private static final String DATE_FORMAT_1 = "yyyy/mm/dd";
-//    private static final String DATE_FORMAT_2 = "dd/mm/yyyy";
-//    private static final String DATE_FORMAT_3 = "mm-dd-yyyy";
-
-
     public static int[] parseDate(String inputDateString) {
         char separator;
         int[] dateParametersInt = new int[3];

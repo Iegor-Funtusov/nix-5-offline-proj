@@ -25,19 +25,11 @@ public class Date {
         dateString = Integer.toString(year) + mStr + dStr;
     }
 
-    public int getDay() {
-        return day;
-    }
-
     public void setDay(int day) {
         if (day >= 1 && day <= getDaysInMonth(month))
             this.day = day;
         else
             throw new DateException();
-    }
-
-    public int getMonth() {
-        return month;
     }
 
     public void setMonth(int month) {
@@ -47,19 +39,11 @@ public class Date {
             throw new DateException();
     }
 
-    public int getYear() {
-        return year;
-    }
-
     public void setYear(int year) {
         if (year >= 0)
             this.year = year;
         else
             throw new DateException();
-    }
-
-    public String getDateString() {
-        return dateString;
     }
 
     private int getDaysInMonth(int month) {
