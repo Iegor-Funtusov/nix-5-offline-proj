@@ -48,8 +48,7 @@ public class Main {
         cities.add(w);
 
         Dijkstra dijkstra = new Dijkstra(cities);
-        System.out.println("From gdansc to warszawa" + dijkstra.minimalCost(g, w));
-        System.out.println("From bydgaszcz to warszawa" + dijkstra.minimalCost(b, w));
+        System.out.println("From bydgaszcz to warszawa: " + dijkstra.minimalCost(b, w));
     }
 }
 
