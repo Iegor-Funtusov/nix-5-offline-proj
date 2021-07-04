@@ -7,19 +7,20 @@ import java.util.List;
 public class CityController {
     private List<String> startEndNameCities;
     private int indexPaths = 0;
-    private List<Integer> res = new ArrayList<>();
+    private final List<Integer> res = new ArrayList<>();
 
     public void exec(){
         try(
         PrintWriter writer = new PrintWriter(new FileWriter("module_2/cities/output.txt"))){
             computeCost(readCities());
-            computeCost(readCities());
+            for (int i = 1; i < startEndNameCities.size()/2; i++) {
+                computeCost(readCities());
+            }
             System.out.println("res = " + res);
             for (Integer i : res){
                 writer.println(i);
             }
-            System.out.println("Result was writed in output.txt ");
-
+            System.out.println("Result was written to output.txt ");
         } catch (IOException e) {
             e.printStackTrace();
         }
