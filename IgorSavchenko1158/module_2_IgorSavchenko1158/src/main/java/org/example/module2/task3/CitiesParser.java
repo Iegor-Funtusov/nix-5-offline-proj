@@ -16,7 +16,7 @@ public class CitiesParser {
         for (int i = 0; i < paths.size(); i++) {
             pathLengths[i] = cities.findShortestDistance(paths.get(i)[0], paths.get(i)[1]);
         }
-
+        System.out.println("cities = " + cities);
         writeResult(outputFile, pathLengths);
     }
 
