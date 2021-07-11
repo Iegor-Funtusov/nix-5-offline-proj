@@ -1,0 +1,25 @@
+6
+city1
+2
+2 10
+3 5
+city2
+2
+4 3
+5 6
+city3
+1
+5 50
+city4
+1
+6 20
+city5
+2
+6 1
+2 6
+city6
+1
+2 15
+2
+city1 city6
+city3 city2
