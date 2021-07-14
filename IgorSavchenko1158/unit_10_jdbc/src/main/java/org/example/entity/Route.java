@@ -1,14 +1,23 @@
 package org.example.entity;
 
 public class Route {
+    private int id;
     private int toId;
     private int fromId;
     private int cost;
 
-    public Route(int toId, int fromId, int cost) {
+    public Route(int id, int toId, int fromId, int cost) {
         this.toId = toId;
         this.fromId = fromId;
         this.cost = cost;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getToId() {
