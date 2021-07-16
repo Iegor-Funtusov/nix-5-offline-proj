@@ -24,23 +24,11 @@ public class ShortestPathService {
             List<Route> routes = routeDao.read();
 
             ProblemDao problemDao = new ProblemDao(connection);
-            List<Problem> problems = problemDao.read();
-
-            SolutionDao solutionDao = new SolutionDao(connection);
-            List<Solution> existingSolutions = solutionDao.read();
-
-            List<Problem> unsolvedProblems = new ArrayList<>();
-            for (Problem problem : problems) {
-                if (existingSolutions.stream().noneMatch(s -> s.getProblemId() == problem.getId())) {
-                    unsolvedProblems.add(problem);
-                }
-            }
-
+            List<Problem> unsolvedProblems = problemDao.readUnsolved();
             if (!unsolvedProblems.isEmpty()) {
-                List<Solution> newSolutions = solveProblems(locations, routes, unsolvedProblems);
-                solutionDao.create(newSolutions);
+                List<Solution> solutions = solveProblems(locations, routes, unsolvedProblems);
+                new SolutionDao(connection).create(solutions);
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
