@@ -3,14 +3,18 @@ package org.example.controller;
 import org.example.dao.UserDao;
 import org.example.entity.User;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 public class MainController {
+    private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
     public static void start(SessionFactory sessionFactory, String userEmail) {
         User user = new UserDao(sessionFactory.openSession()).getByEmail(userEmail);
+        log.info("User logged in: " + user.getName());
         while (true) {
             System.out.println("Logged in as " + user.getName());
             System.out.println("Choose action:");

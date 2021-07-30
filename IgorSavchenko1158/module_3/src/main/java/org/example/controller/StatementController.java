@@ -3,6 +3,8 @@ package org.example.controller;
 import org.example.dto.AccountDTO;
 import org.example.entity.User;
 import org.example.service.StatementService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -13,7 +15,10 @@ import java.util.stream.Collectors;
 
 public class StatementController {
 
+    private static final Logger log = LoggerFactory.getLogger(StatementController.class);
+
     public void start(User user) {
+        log.info("StatementController started by " + user.getName());
         StatementService statementService = new StatementService();
 
         System.out.println("Your accounts:");
@@ -34,6 +39,7 @@ public class StatementController {
             System.out.println("Incorrect input");
             return;
         }
+        log.info("User picked account " + account.getAlias());
         Instant from;
         Instant to;
         try {
@@ -52,7 +58,7 @@ public class StatementController {
             System.out.println("Incorrect input");
             return;
         }
-
+        log.info("User entered time frame from " + from + " to " + to);
         try {
             statementService.operationsToCsv(account, from, to);
         } catch (Exception e) {
@@ -60,6 +66,7 @@ public class StatementController {
             return;
         }
         System.out.println("Operation successful");
+        log.info("StatementController finished normally");
     }
 
 }

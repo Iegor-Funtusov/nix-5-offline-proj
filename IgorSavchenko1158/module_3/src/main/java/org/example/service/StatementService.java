@@ -2,7 +2,6 @@ package org.example.service;
 
 import org.example.dto.OperationDTO;
 import org.example.entity.Category;
-import org.example.entity.Operation;
 import org.example.utils.CSVWriter;
 import org.example.utils.JDBCUtils;
 import org.example.dto.AccountDTO;

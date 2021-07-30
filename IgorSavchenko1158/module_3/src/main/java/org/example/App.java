@@ -11,14 +11,7 @@ public class App {
 
     public static void main(String[] args) {
         log.info("App started");
-
         MainController.start(HibernateUtils.createSessionFactory(System.getenv("username"), System.getenv("password")), System.getenv("email"));
-//        Connection connection = JDBCUtils.getConnection(args[1], args[2]);
-//        try {
-//            System.out.println(connection.isClosed());
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
         log.info("App finished");
     }
 }
