@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="log-path">logs</Property>
+        <Property name="archive">${log-path}/archive</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n
+                </pattern>>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="RollingFile-DEBUG-Appender"
+                     fileName="${log-path}/DEBUG.log"
+                     filePattern="DEBUG-%i.log"
+                     append="false">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+        <RollingFile name="RollingFile-INFO-Appender"
+                     fileName="${log-path}/INFO.log"
+                     filePattern="INFO-%i.log"
+                     append="false">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+        <RollingFile name="RollingFile-WARN-Appender"
+                     fileName="${log-path}/WARN.log"
+                     filePattern="WARN-%i.log"
+                     append="false">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+        <RollingFile name="RollingFile-ERROR-Appender"
+                     fileName="${log-path}/ERROR.log"
+                     filePattern="ERROR-%i.log"
+                     append="false">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console-Appender"/>
+            <AppenderRef ref="RollingFile-DEBUG-Appender" level="DEBUG"/>
+            <AppenderRef ref="RollingFile-INFO-Appender" level="INFO"/>
+            <AppenderRef ref="RollingFile-WARN-Appender" level="WARN"/>
+            <AppenderRef ref="RollingFile-ERROR-Appender" level="ERROR"/>
+        </Root>
+    </Loggers>
+</Configuration>
